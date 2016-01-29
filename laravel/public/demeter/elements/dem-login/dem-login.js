@@ -41,8 +41,8 @@ Polymer({
 	login:function(){
 		this.hideToolbar = false;
 		this.$.ajaxCASLogin.generateRequest();
-		this.fire('getAllDB',{});
-		this.fire('goToPage',1);
+		//this.fire('getAllDB',{});
+		//this.fire('goToPage',1);
 
 		//this.fire("ajaxLoginUser",{'USERNAME':this.username,'PASSWORD':this.password});
 	}
