@@ -4,6 +4,8 @@
 	<iron-ajax
 		id="ajaxCASLogin"
 		url="/CASLogin.php"
+		last-response="{{casResponse}}"
+		on-response="ajaxCASLoginResponse"
 		method="GET">
 	</iron-ajax>
 

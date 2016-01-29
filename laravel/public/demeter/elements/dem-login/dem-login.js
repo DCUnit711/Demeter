@@ -45,5 +45,8 @@ Polymer({
 		//this.fire('goToPage',1);
 
 		//this.fire("ajaxLoginUser",{'USERNAME':this.username,'PASSWORD':this.password});
+	},
+	ajaxCASLoginResponse:function(){
+		console.log(this.casResponse);
 	}
 });
