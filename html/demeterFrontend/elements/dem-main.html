@@ -1,0 +1,127 @@
+<dom-module id="dem-main">
+	<template>
+		<style is="custom-style">
+		    :host{
+		      	--primary-text-color: white;
+		      	--paper-input-container-label: {
+		          	color:grey;
+		      	}
+		      	--paper-input:{
+		      		--layout-vertical: middle;
+		      		--layout-center-center;
+		      	}
+		    }
+		</style>
+		<style>
+		.subtext
+		{
+			font-size: 10pt;
+			margin-bottom:0px;
+			top:20px;
+			left:20px;
+			position: absolute;
+		}
+		.toolbar-button-container
+		{
+			top:55px;
+			left:50px;
+			position: absolute;
+		}
+		.help-button
+		{
+			position: absolute;
+			top:10px;
+			right:220px;
+		}
+		.login-button
+		{
+			position: absolute;
+			width:200px;
+			top:10px;
+			right:20px;
+		}
+		.create-button
+		{
+			margin-left: 200px;
+			background: #2580a2;
+		}
+		.website-background
+		{
+			/*background-image: url("/Capstone/images/background-waves.jpg");*/
+			/*background:#FFFFE0;*/
+		}
+		</style>
+		<div style="margin:0px; padding:0px; height:100%" class="website-background">
+			<paper-toolbar style="background: #333;height:60px;">
+				<a><h1 style="margin-top:0px;" on-click="selectHomePage">Demeter</h1></a><br/>
+				<h3 class="subtext" on-click="selectHomePage">Database Creation and Management System</h3>
+				<paper-button class="create-button" on-click="showCreationOptions" raised>Create</paper-button>
+				<paper-button class="help-button" on-click="selectHelpPage">Help</paper-button>
+				<paper-button class="login-button" raised>Login</paper-button>
+			</paper-toolbar>
+			<iron-pages id="pageChanger" selected="{{selectedPage}}">
+				<dem-home></dem-home>
+				<dem-help-page></dem-help-page>
+			</iron-pages>
+			<center>
+			<paper-dialog
+				id="dialogCreateDB"
+				entry-animation="slide-down-animation"
+				exit-animation="fade-out-animation"
+				no-cancel-on-esc-key='true'
+				no-cancel-on-outside-click
+				with-backdrop
+				style="background:#333; color:white; height:400px;">
+
+				<div>
+					<h2>Create A New Database</h2>
+					<h3>Fill out the following information then selected "Create":</h3>
+					<paper-input label="Database Name" style="text-align: center;"></paper-input><br/>
+					<paper-dropdown-menu label="Select A DB Type">
+					  	<paper-menu class="dropdown-content">
+						    <paper-item>MySQL</paper-item>
+						    <paper-item>Oracle</paper-item>
+						    <paper-item>MongoDB</paper-item>
+					  	</paper-menu>
+					</paper-dropdown-menu>
+					<paper-dropdown-menu label="Select Database Size" class="color:black;">
+					  	<paper-menu class="dropdown-content">
+						    <paper-item>4 Gigabytes</paper-item>
+						    <paper-item>6 Gigabytes</paper-item>
+						    <paper-item>8 Gigabytes</paper-item>
+						    <paper-item>10 Gigabytes</paper-item>
+					  	</paper-menu>
+					</paper-dropdown-menu>
+					<paper-input label="NetID"></paper-input><br/>
+					<div>
+						<paper-button dialog-dismiss style="float:left; margin-bottom:10px;">Cancel</paper-button>
+						<paper-button dialog-confirm style="float:right; margin-bottom:10px;">Create</paper-button>
+					</div>
+				</div>
+			</paper-dialog>	
+		</div>
+	</template>
+</dom-module>
+<script>
+Polymer({
+	is:"dem-main",
+	ready:function(){
+		this.selectedPage = 0;
+	},
+	toggleProgress: function(){
+		this.progressBar = true;
+	},
+	toggleSpace: function(){
+		this.progressBar = false;
+	},
+	selectHelpPage: function(){
+		this.selectedPage = 1;
+	},
+	selectHomePage: function(){
+		this.selectedPage = 0;
+	},
+	showCreationOptions:function(){
+		this.$.dialogCreateDB.opened = true;
+	}
+});
+</script>

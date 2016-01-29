@@ -1,0 +1,125 @@
+<dom-module id="dem-loadingbar">
+	<template>
+		<div>
+			<!-- CSS options for showing top percentages -->
+			<template is="dom-if" if="{{topLeft}}">
+				<div style="display:inline-block;float:left">
+					<span>Used:</span>
+					<span>{{amountUsed}}</span>
+				</div>
+				<div style="display:inline-block;float:left">
+					<span >Remaining:</span>
+					<span >{{amountRemaining}}</span>
+				</div>
+				<div style="clear: both;"></div>
+			</template>
+			<template is="dom-if" if="{{topRight}}">
+				<div style="display:inline-block;float:right">
+					<span>Used:</span>
+					<span>{{amountUsed}}</span>
+				</div>
+				<div style="display:inline-block;float:right">
+					<span >Remaining:</span>
+					<span >{{amountRemaining}}</span>
+				</div>
+				<div style="clear: both;"></div>
+			</template>
+			<template is="dom-if" if="{{topMiddle}}">
+				<div style="display:inline-block;">
+					<span>Used:</span>
+					<span>{{amountUsed}}</span>
+				</div>
+				<div style="display:inline-block;">
+					<span >Remaining:</span>
+					<span >{{amountRemaining}}</span>
+				</div>
+				<div style="clear: both;"></div>
+			</template>
+			<template is="dom-if" if="{{topSplit}}">
+				<div style="display:inline-block;float:left">
+					<span>Used:</span>
+					<span>{{amountUsed}}</span>
+				</div>
+				<div style="display:inline-block;float:right">
+					<span >Remaining:</span>
+					<span >{{amountRemaining}}</span>
+				</div>
+				<div style="clear: both;"></div>
+			</template>
+
+			<!-- CSS options for the placement of "Standing" -->
+			<template is="dom-if" if="{{standingTopLeft}}">
+				<div style="text-align:left">{{standing}}</div>
+			</template>
+			<template is="dom-if" if="{{standingTopMiddle}}">
+				<div style="text-align:center">{{standing}}</div>
+			</template>
+			<template is="dom-if" if="{{standingTopRight}}">
+				<div style="text-align:right">{{standing}}</div>
+			</template>
+
+			<!-- The actual loading bar -->
+			<div id="outerBox" style="border: 1px solid black;">
+				<div id="loadingBar" style="background-color:red; width:0px;height:20px;"></div>
+			</div>
+
+			<!-- CSS Option for showing bottom percentages -->
+			<template is="dom-if" if="{{bottomSplit}}">
+				<div style="float:left;">
+					<span>Used:</span>
+					<span>{{amountUsed}}</span>
+				</div>
+				<div style="float:right;">
+					<span >Remaining:</span>
+					<span >{{amountRemaining}}</span>
+				</div>
+				<div style="clear: both;"></div>
+			</template>
+			<template is="dom-if" if="{{bottomMiddle}}">
+				<div style="text-align:center;display:inline-block;">
+					<span>Used:</span>
+					<span>{{amountUsed}}</span>
+				</div>
+				<div style="text-align:center;display:inline-block;">
+					<span >Remaining:</span>
+					<span >{{amountRemaining}}</span>
+				</div>
+				<div style="clear: both;"></div>
+			</template>
+			<template is="dom-if" if="{{bottomLeft}}">
+				<div style="float:left;">
+					<span>Used:</span>
+					<span>{{amountUsed}}</span>
+				</div>
+				<div style="float:left;">
+					<span >Remaining:</span>
+					<span >{{amountRemaining}}</span>
+				</div>
+				<div style="clear: both;"></div>
+			</template>
+			<template is="dom-if" if="{{bottomRight}}">
+				<div style="float:right;">
+					<span>Used:</span>
+					<span>{{amountUsed}}</span>
+				</div>
+				<div style="float:right;">
+					<span >Remaining:</span>
+					<span >{{amountRemaining}}</span>
+				</div>
+				<div style="clear: both;"></div>
+			</template>
+
+			<!-- CSS Options for "Standing" -->
+			<template is="dom-if" if="{{standingBottomLeft}}">
+				<div style="text-align:left">{{standing}}</div>
+			</template>
+			<template is="dom-if" if="{{standingBottomMiddle}}">
+				<div style="text-align:center">{{standing}}</div>
+			</template>
+			<template is="dom-if" if="{{standingBottomRight}}">
+				<div style="text-align:right">{{standing}}</div>
+			</template>
+		</div>
+	</template>
+	<script src="dem-loadingbar.js"></script>
+</dom-module>

@@ -1,0 +1,25 @@
+<dom-module id="dem-sign-in">
+	<link rel="stylesheet" type="text/css" href="dem-sign-in.css"/>
+	<template>
+		<div>
+			<center>
+				<center>
+					<h2 style="margin-top:100px;"> Demeter - Database Creation and Management System</h1>
+				</center>
+				<div class="sign-in-box">
+					<div class="sign-in-header">
+						<h2 style="color:white;">Sign In</h2>
+					</div>
+					<div class="sign-in-body">
+						<input placeholder="Username" on-keyup="setUserName" type="text" class="net-id-input"></input>
+						<br/>
+						<input placeholder="Password" type="password" class="password-input"></input>
+						<br/>
+						<paper-button class="sign-in-button" on-click="signIn" raised>Sign In</paper-button>
+					</div>
+				</div>
+			</center>
+		</div>
+	</template>
+	<script type="text/javascript" src="dem-sign-in.js"></script>
+</dom-module>

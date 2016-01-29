@@ -1,0 +1,45 @@
+.main-container{
+	margin-left: 10px;
+	margin-right: 0px;
+}
+.container-div{
+	margin-left:40px; 
+	margin-top:50px;
+	width:78%;
+}
+.space-calculator-div{
+	display:inline-block; 
+	margin-right:0px;
+	padding-right: 0px;
+	margin-left: 40px;
+	position: relative;
+	top:-35px;
+}
+.space-calculator-div-mobile{
+	display:inline-block; 
+	margin-right:auto;
+	padding-top: 20px;
+	padding-right: 0px;
+	margin-left: 50px;
+}
+.login-info-div{
+	display:inline-block; 
+}
+.login-info-div-mobile{
+	/*display:inline;*/
+	/*margin-bottom: 50px;*/
+}
+.login-info-left{
+	display: inline-block;
+	line-height:17pt;
+}
+.login-info-right{
+	display:inline-block; 
+	line-height:17pt;
+}
+.loading-bar-div{
+	display:inline-block; 
+	margin-left:40px; 
+	margin-top:50px; 
+	width:25%
+}

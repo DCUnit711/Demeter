@@ -1,0 +1,116 @@
+<dom-module id="dem-createDB">
+	<template>
+	<style>
+	.input-field{
+		width:200px;
+		height: 25px;
+		margin-bottom:15px;
+		border-radius: 25px;
+    	border: 2px solid #4a79a7;
+	}
+	.box-container{
+		margin-top: 20px;
+		margin-right: 10px;
+		margin-left: 10px;
+		margin-bottom: 20px;
+		background-color:#333;
+		width:500px;
+		height: 400px;
+		box-shadow: 10px 10px 5px #888888;
+		border-radius: 25px;
+		color:white;
+	}
+	.text-container{
+		padding-top:35px;
+	}
+	.inline{
+		display:inline-block;
+	}
+	paper-button.clear-button{
+		border-radius: 25px;
+		background-color:#4a79a7;
+		color:white;
+		width:150px;
+		float:left;
+		margin-left: 20px;
+	}
+	paper-button.submit-button{
+		border-radius: 25px;
+		background-color:#4a79a7;
+		color:white;
+		width:150px;
+		float:right;
+		margin-right: 20px;
+	}
+	paper-button.clear-button:hover{
+		background-color:#4D94FF;
+	}
+	paper-button.submit-button:hover{
+		background-color:#4D94FF;
+	}
+	.dropdown-content{
+		color:black;	
+	}
+	</style>
+	<style is="custom-style">
+	    :host{
+	      	--primary-text-color: white;
+	      	--paper-input-container-label: {
+	          	color:white;
+	      	}
+	    }
+	</style>
+	<div style="margin-left:20%">
+		<template is="dom-if" if="{{creatingDB}}">
+			<div style="width:500px; height:50px;margin-top:100px;">
+				<paper-spinner active="true" style="width:25px; height:25px"></paper-spinner>
+				<strong>{{updateMessage}}</strong>
+				<dem-loadingbar progress-bar="true" current="{{loadingCurrent}}" max="{{loadingMax}}"></dem-loadingbar>
+			</div>
+		</template>
+		<template is="dom-if" if="{{!creatingDB}}">
+			<div class="box-container">
+				<div class="text-container">
+					<center>
+						<h2>Create A Database</h2>
+						<h3>Please Fill Out All Of The Following Information:</h3>
+					</center>
+					<div style="margin-left:40px;">
+						<span class="inline">Database Name:</span>
+						<input class="input-field inline" style="margin-left:15px;" value="{{username}}"></input>
+						<br/>
+						<div class="inline" style="margin-left:60px;">
+							<span class="inline">NetID:</span>
+							<input class="input-field inline" style="margin-left:15px;" value="{{password}}"></input>
+						</div>
+						<br/>
+						<div class="inline" style="margin-left:40px;">
+							<span class="inline">Password:</span>
+							<input class="input-field inline" style="margin-left:14px;" value="{{password}}" type="password"></input>
+						</div>
+						<paper-dropdown-menu label="Select A DB Type" style="color:white;">
+						  	<paper-menu class="dropdown-content">
+							    <paper-item>MySQL</paper-item>
+							    <paper-item>Oracle</paper-item>
+							    <paper-item>MongoDB</paper-item>
+						  	</paper-menu>
+						</paper-dropdown-menu>
+						<paper-dropdown-menu label="Select Database Size" class="display-color">
+						  	<paper-menu class="dropdown-content">
+							    <paper-item>4 Gigabytes</paper-item>
+							    <paper-item>6 Gigabytes</paper-item>
+							    <paper-item>8 Gigabytes</paper-item>
+							    <paper-item>10 Gigabytes</paper-item>
+						  	</paper-menu>
+						</paper-dropdown-menu>
+					</div>
+					<paper-button raised class="clear-button">Clear Fields</paper-button>
+					<paper-button raised class="submit-button" on-click="createDB">Create</paper-button>
+				</div>
+			</div>
+		</template>
+		<br/>
+	</div>
+	</template>
+	<script src="dem-createDB.js"></script>
+</dom-module>

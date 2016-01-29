@@ -1,0 +1,70 @@
+.subtext
+{
+	font-size: 10pt;
+	margin-bottom:0px;
+	top:20px;
+	left:20px;
+	position: absolute;
+}
+.toolbar-button-container
+{
+	top:55px;
+	left:50px;
+	position: absolute;
+}
+.help-button
+{
+	position: absolute;
+	top:10px;
+	right:220px;
+}
+.help-button-mobile
+{
+	position: absolute;
+	top:60px;
+	right:220px;
+}
+.login-button
+{
+	position: absolute;
+	width:200px;
+	top:10px;
+	right:20px;
+}
+.login-button-mobile
+{
+	position: absolute;
+	width:200px;
+	top:60px;
+	right:20px;
+}
+.create-button
+{
+	margin-left: 200px;
+	background: #2580a2;
+}
+.welcome-username {
+	margin-left: 5px;
+	color:white;
+}
+.create-button-mobile
+{
+	position: absolute;
+	top: 60px;
+	left: 10px;
+	background: #2580a2;
+}
+paper-toolbar.heading-toolbar {
+	background: #333;
+	height:60px;
+}
+paper-toolbar.heading-toolbar-mobile {
+	background: #333;
+	height:120px;
+}
+.heading-container-div
+{
+	margin:0px, 0px, 0px, 0px; 
+	padding:0px; 
+	height:100%;	
+}

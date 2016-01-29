@@ -1,0 +1,53 @@
+<dom-module id="dem-login">
+	<template>
+	<style>
+	.input-field{
+		width:250px;
+		height: 25px;
+		margin-bottom:15px;
+		border-radius: 25px;
+    	border: 2px solid #4a79a7;
+	}
+	.background{
+		margin-top: 20px;
+		margin-right: 10px;
+		margin-left: 10px;
+		margin-bottom: 20px;
+		background-color:#333;
+		width:500px;
+		height: 300px;
+		box-shadow: 10px 10px 5px #888888;
+		border-radius: 25px;
+		color:white;
+	}
+	.login-container{
+		padding-top:35px;
+	}
+	paper-button.submit-button{
+		border-radius: 25px;
+		background-color:#4a79a7;
+		color:white;
+		width:100px;
+	}
+	</style>
+	<div style="margin-left:300px;">
+		<div class="background">
+			<div class="login-container">
+				<center>
+					<h2>Login</h2>
+					<div>
+						Username:<br/>
+						<input class="input-field" value="{{username}}"></input><br/>
+					</div>
+					<div>
+						Password:<br/>
+						<input class="input-field" value="{{password}}" type="password"></input>
+					</div>
+					<paper-button raised class="submit-button">Submit</paper-button>
+				</center>
+			</div>
+		</div>
+	</div>
+	</template>
+	<script src="dem-login.js"></script>
+</dom-module>

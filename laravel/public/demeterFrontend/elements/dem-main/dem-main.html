@@ -1,0 +1,77 @@
+<dom-module id="dem-main">
+	<template>
+		<style is="custom-style">
+		    :host{
+		      	--primary-text-color: white;
+		      	--paper-input-container-label: {
+		          	color:grey;
+		      	}
+		      	--paper-input:{
+		      		--layout-vertical: middle;
+		      		--layout-center-center;
+		      	}
+		    }
+		</style>
+		<link rel="stylesheet" type="text/css" href="dem-main.css"/>
+
+		<iron-media-query
+			query="(max-width:800px)";
+			query-matches="{{mobileScreen}}">
+		</iron-media-query>
+
+		<div class="heading-container-div">
+			<template id="toolbarCheck" is="dom-if" if="{{showToolbar}}">
+				<paper-toolbar class$="{{toolbar}}">
+					<a><h1 style="margin-top:0px;" on-click="selectHomePage">Demeter</h1></a><br/>
+					<h3 class="subtext" on-click="selectHomePage">Database Creation and Management System</h3>
+					<paper-button class$="{{createButton}}" on-click="showCreationOptions" raised>Create</paper-button>
+					<div id="welcomeUser" class="welcome-username">Welcome back, wesleywh</div>
+					<paper-button class$="{{helpButton}}" on-click="selectHelpPage">Help</paper-button>
+					<paper-button class$="{{loginButton}}" raised>Logout</paper-button>
+				</paper-toolbar>
+			</template>
+			<iron-pages id="pageChanger" selected="{{selectedPage}}">
+				<dem-home show="{{show}}"></dem-home>
+				<dem-help-page></dem-help-page>
+				<dem-sign-in></dem-sign-in>
+			</iron-pages>
+
+			<paper-dialog
+				id="dialogCreateDB"
+				entry-animation="slide-down-animation"
+				exit-animation="slide-up-animation"
+				no-cancel-on-esc-key='true'
+				no-cancel-on-outside-click
+				with-backdrop
+				style="background:#333; color:white; min-height:400px;">
+
+				<div>
+					<h2>Create A New Database</h2>
+					<h3>Fill out the following information then selected "Create":</h3>
+					<paper-input label="Database Name" style="text-align: center;"></paper-input><br/>
+					<paper-dropdown-menu label="Select A DB Type">
+					  	<paper-menu class="dropdown-content">
+						    <paper-item style="color:black;">MySQL</paper-item>
+						    <paper-item style="color:black;">Oracle</paper-item>
+						    <paper-item style="color:black;">MongoDB</paper-item>
+					  	</paper-menu>
+					</paper-dropdown-menu>
+					<paper-dropdown-menu label="Select Database Size">
+					  	<paper-menu class="dropdown-content">
+						    <paper-item style="color:black;">4 Gigabytes</paper-item>
+						    <paper-item style="color:black;">6 Gigabytes</paper-item>
+						    <paper-item style="color:black;">8 Gigabytes</paper-item>
+						    <paper-item style="color:black;">10 Gigabytes</paper-item>
+					  	</paper-menu>
+					</paper-dropdown-menu>
+					<paper-input label="NetID"></paper-input><br/>
+					<div>
+						<paper-button dialog-dismiss style="float:left; margin-bottom:10px;">Cancel</paper-button>
+						<paper-button dialog-confirm style="float:right; margin-bottom:10px;" on-click="showTemp">Create</paper-button>
+					</div>
+				</div>
+			</paper-dialog>	
+		</div>
+	</template>
+	<script type="text/javascript" src="dem-main.js"></script>
+</dom-module>

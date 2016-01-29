@@ -1,0 +1,117 @@
+Code updated 10/21/2015 -->
+<!-- This is a test update -->
+<dom-module id="dem-home">
+	<template>
+	<style is="custom-style">
+	    progress-bubble {
+	    	width: 100px;
+	    	height: 100px;
+	        /*--progress-bubble-stroke-color: rgba(255, 0, 0, 0.8);*/
+	        /*--progress-bubble-bg-stroke-color: rgba(193, 193, 193, 0.2);*/
+	        /*--progress-bubble-background: transparent;*/
+	        /*--progress-bubble-reflection-display: none;*/
+	    }
+	</style>
+	<link rel="stylesheet" type="text/css" href="dem-home.css"/>
+
+	<iron-ajax
+		id="ajaxUserDBFetch"
+		url="http://128.187.104.23:1337/users/1"
+		method="GET"
+		params=""
+		handle-as="json"
+		last-response="{{returnUserInfo}}"
+		on-response="ajaxUserDBFetchResponse">
+	</iron-ajax>
+
+	<iron-media-query 
+		query="(max-width: 800px)" 
+		query-matches="{{condensedScreen}}">
+	</iron-media-query>
+
+	<div>
+
+		<!-- {'DBNAME':<NAME>,'TYPE':<TYPE>,'SIZE':<SIZE>,'USED':<SPACE USED>,'USERNAME:<LOGIN NAME>,'IPADDRESS':<IP>,’ID’:<ID>} -->
+
+		<div class="main-container">
+			<h1 style="margin-left:30px;"> Database Information</h1>
+			<template is="dom-if" if="{{!finishedLoading}}">
+				<center>
+					<span>{{loadingText}}</span><br/>
+					<paper-spinner active="true" style="width:100px; height:100px"></paper-spinner>  
+				</center>
+			</template>
+			<template is="dom-if" if="{{finishedLoading}}">
+			<template is="dom-repeat" items="{{dbInfo}}" as="database">
+				<div style="display:inline-block;">
+					<div class$="{{spaceCalculator}}">
+						<h3>Space Used:</h3>
+						<progress-bubble value="{{database.USED}}" max="{{database.SIZE}}" stroke-width="10" style="width:150px; height:150px">
+							<strong>{{database.USED}}</strong><strong> MB</strong>
+						</progress-bubble>
+					</div>
+					<div class$="{{loginInfoDiv}}">
+						<h3>Login Information:</h3>
+						<div class$="{{loginInfoLeft}}">
+							<b>
+							Database Type:<br/>
+							Max Size:<br/>
+							IP Address:<br/>
+							NetID Login:<br/>
+							DB Name:
+							</b>
+						</div>
+						<div class$="{{loginInfoRight}}">
+							<span>{{database.TYPE}}</span><br/><!-- TYPE -->
+							<span>{{database.SIZE}}</span> MB<br/><!-- SIZE -->
+							<span>{{database.IPADDRESS}}</span><br/><!-- IPADDRESS -->
+							<span>{{database.NETID}}</span><br/><!-- NETID -->
+							<span>{{database.DBNAME}}</span><!-- DBNAME -->
+						</div>
+					</div>
+					<div style="display:inline;"></div>
+				</div>
+			</template>
+			</template>
+			<!-- REMOVE THE FOLLOWING FOR FINAL BUILD, THIS IS FOR EXAMPLE TESTING ONLY! -->
+			<template is="dom-if" if="{{showTempDB}}">
+				<div style="display:inline-block;">
+					<div class$="{{spaceCalculator}}">
+						<h3>Space Used:</h3>
+						<progress-bubble id="tempBubble" value="20" max="4000" stroke-width="10" style="width:150px; height:150px">
+							<strong id="tempSize">{{showSize}}</strong>
+							<template is="dom-if" if="{{loading}}">
+								<paper-spinner id="tempLoading" active="true" style="width:30px;height:30px;"></paper-spinner>
+							</template>
+						</progress-bubble>
+					</div>
+					<div class$="{{loginInfoDiv}}">
+						<h3>Login Information:</h3>
+						<div class$="{{loginInfoLeft}}">
+							<b>
+							Database Type:<br/>
+							Max Size:<br/>
+							IP Address:<br/>
+							NetID Login:<br/>
+							DB Name:
+							</b>
+						</div>
+						<div class$="{{loginInfoRight}}">
+							<span>Oracle</span><br/><!-- TYPE -->
+							<span>4000</span> MB<br/><!-- SIZE -->
+							<span>None</span><br/><!-- IPADDRESS -->
+							<span>wesleywh</span><br/><!-- NETID -->
+							<span>MyTestDB</span><!-- DBNAME -->
+						</div>
+					</div>
+					<div style="display:inline;"></div>
+				</div>
+			</template>
+		</div>
+	</div>
+	</template>
+	<script src="dem-home.js"></script>
+</dom-module>
+<!-- <div class="loading-bar-div">
+	<dem-loadingbar current="{{database.USED}}" max="{{database.SIZE}}"></dem-loadingbar>
+</div>

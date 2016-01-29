@@ -1,0 +1,87 @@
+<!-- Code updated 10/21/2015 -->
+<!-- This is a test update -->
+<dom-module id="dem-home">
+	<template>
+	<link rel="import" type="text/css" href="dem-home.css"/>
+	<style is="custom-style">
+	    progress-bubble {
+	    	width: 100px;
+	    	height: 100px;
+	        /*--progress-bubble-stroke-color: rgba(255, 0, 0, 0.8);*/
+	        /*--progress-bubble-bg-stroke-color: rgba(193, 193, 193, 0.2);*/
+	        /*--progress-bubble-background: transparent;*/
+	        /*--progress-bubble-reflection-display: none;*/
+	    }
+	</style>
+
+	<iron-ajax
+		id="ajaxUserDBFetch"
+		url="../../../../../users/1"
+		method="GET"
+		params=""
+		handle-as="json"
+		last-response="{{returnUserInfo}}"
+		on-response="ajaxUserDBFetchResponse">
+	</iron-ajax>
+
+	<div class="container-div">
+		<dem-ajax
+			dBUsedParams="{{dBUsedParams}}"
+			returnDBUsed="{{returnDBUsed}}"
+			dBTotalSizeParams="{{dBTotalSizeParams}}"
+			returnDBTotalSize="{{returnDBTotalSize}}"
+			dBTypeParams="{{dBTypeParams}}"
+			returnDBType="{{returnDBType}}"
+			validUsernameParams="{{validUsernameParams}}"
+			returnValidUsername="{{returnValidUsername}}"
+			dBIPAddressParams="{{dBIPAddressParams}}"
+			returnDBIPAddress="{{returnDBIPAddress}}"
+			dBNameParams="{{dBNameParams}}"
+			returnDBName="{{returnDBName}}"></dem-ajax>
+		<!-- {'DBNAME':<NAME>,'TYPE':<TYPE>,'SIZE':<SIZE>,'USED':<SPACE USED>,'USERNAME:<LOGIN NAME>,'IPADDRESS':<IP>,’ID’:<ID>} -->
+		<!-- <dem-createDB-insert></dem-createDB-insert> -->
+		<div class="main-container">
+			<h1 style="margin-left:30px;"> Database Information</h1>
+			<template is="dom-if" if="{{!finishedLoading}}">
+				<center>
+					<span>{{loadingText}}</span><br/>
+					<paper-spinner active="true" style="width:100px; height:100px"></paper-spinner>  
+				</center>
+			</template>
+			<template is="dom-if" if="{{finishedLoading}}">
+			<template is="dom-repeat" items="{{databaseInfo}}" item="database">
+				<div>
+					<div class="space-calculator-div">
+						<h3>Space Used:</h3>
+						<progress-bubble value="{{database.USED}}" max="{{database.SIZE}}" stroke-width="10" style="width:200px; height:200px">
+							<strong>{{database.USED}}</strong>
+						</progress-bubble>
+					</div>
+					<div class="login-info-div">
+						<h3>Login Information:</h3>
+						<div class="login-info-left">
+							<b>
+							Database Type:<br/>
+							Size:<br/>
+							IP Address:<br/>
+							NetID Login:<br/>
+							</b>
+						</div>
+						<div class="login-info-right">
+							<span>{{database.TYPE}}</span><br/><!-- TYPE -->
+							<span>{{database.SIZE}}</span><br/><!-- SIZE -->
+							<span>{{database.IPADDRESS}}</span><br/><!-- IPADDRESS -->
+							<span>{{database.USERNAME}}</span><br/><!-- NETID -->
+						</div>
+					</div>
+					<div class="loading-bar-div">
+						<dem-loadingbar current="{{database.USED}}" max="{{database.SIZE}}"></dem-loadingbar>
+					</div>
+				</div>
+			</template>
+			</template>
+		</div>
+	</div>
+	</template>
+	<script src="dem-home.js"></script>
+</dom-module>

@@ -1,0 +1,48 @@
+.sign-in-box {
+	width: 500px;
+    height: 300px;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+.sign-in-body {
+	margin-top: 50px;
+	background: #D1E4F6;
+	height: 90%;
+	width: 100%;
+}
+.sign-in-header {
+	background: #336699;
+	position: absolute;
+	right: 0;
+	top:0;
+	height: 50px;
+	width: 100%;
+
+}
+.net-id-input {
+	font-size:12pt;
+	width:200px;
+	height:40px;
+	margin-top:50px;
+	margin-bottom:30px;
+	text-align: center;
+}
+.password-input {
+	font-size:12pt;
+	width:200px;
+	height:40px;
+	margin-bottom:30px;
+	text-align: center;
+}
+paper-button.sign-in-button {
+	width:300px;
+	background: white;
+	color:black;
+	border-radius: 10px;
+}
