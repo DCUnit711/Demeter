@@ -1,0 +1,64 @@
+.home-page-container{
+	margin-top:30px;
+	width:100%;
+	height:100%;
+	background:black;
+}
+.home-database-card {
+	font-size: 12pt;
+	max-width: 600px;
+	width:auto;
+	min-height: 250px;
+	height:auto;
+	display:inline-block;
+	border:2px solid grey;
+	margin-bottom: 5px;
+	background: #ecf2f9;
+}
+.home-database-card:hover {
+	border:3px solid grey;
+	background: #d8e4f3;
+}
+.card-left {
+	text-align: left;
+	margin-left:5px;
+	display: inline-block;
+	vertical-align: top;
+}
+.card-right {
+	text-align: left;
+	margin-right:5px;
+	max-width: 72%;
+	height:auto;
+	display: inline-block;
+	word-wrap: break-word;
+	vertical-align: top;
+}
+paper-progress.progress-bar {
+	margin-top:5px;
+	margin-bottom: -9px;
+}
+.right-click-menu {
+	width:150px;
+	height: auto;
+	background: #5086c9;
+	position: absolute;
+	top:0;
+	left:0;
+}
+.right-menu-title {
+	color:white;
+	font-size: 16pt;
+	height:30px;
+	background: #30609c;
+}
+.right-menu-item {
+	color:white;
+	font-size: 16pt;
+	width: 100%;
+	height:30px;
+}
+.right-menu-item:hover {
+	border:1px solid grey;
+	background: #366caf;
+}
