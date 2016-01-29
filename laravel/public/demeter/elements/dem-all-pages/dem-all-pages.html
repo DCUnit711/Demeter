@@ -1,0 +1,57 @@
+<dom-module id="dem-all-pages">
+	<template>
+	<link rel="stylesheet" href="dem-all-pages.css"/>
+<!-- login through CAS -->
+	<iron-ajax
+		id="ajaxLoginUser"
+		url="128.187.104.23:1337/"
+		method=""
+		last-response="">
+	</iron-ajax>
+
+<!-- All users -->
+	<iron-ajax
+		id="ajaxGetAllUsers"
+		url="128.187.104.23:1337/users"
+		method="GET"
+		last-response="{{allUsers}}">
+	</iron-ajax>
+
+<!-- Create a database -->
+	<iron-ajax
+		id="ajaxCreateDB"
+		url="128.187.104.23:1337/instance/"
+		method="POST"
+		last-response="{{createDBResponse}}">
+	</iron-ajax>
+
+<!-- Create a database -->
+	<!-- <iron-ajax
+		id="ajaxGetAllDB"
+		url="128.187.104.23:1337/instance/"
+		method="POST"
+		last-response="{{usersInstances}}">
+	</iron-ajax> -->
+
+	<div class="all-pages-container">
+		<!-- HEADER TOOLBAR -->
+		<paper-toolbar id="titleToolbar" class="toolbar" hidden$="{{hideToolbar}}">
+			<div class="toolbar-title-top" on-click="goToHome">Demeter</div>
+			<div class="toolbar-title-bottom" on-click="goToHome">Database Creation and Managment System</div>
+			<paper-button class="toolbar-button-3" on-click="goToCreate" raised>Create</paper-button>
+			<paper-button class="toolbar-button-2" on-click="goToHelp" raised>Help</paper-button>
+			<paper-button class="toolbar-button" raised>Logout</paper-button>
+		</paper-toolbar>
+
+		<!-- ALL PAGES -->
+		<neon-animated-pages id="pages" selected="[[selected]]">
+			<dem-login hide-toolbar="{{hideToolbar}}"></dem-login>
+			<dem-home edit-database="{{database}}"></dem-home>
+			<dem-help></dem-help>
+			<dem-create></dem-create>
+			<dem-edit database="{{database}}"></dem-edit>
+		</neon-animated-pages>
+	</div>
+	</template>
+	<script src="dem-all-pages.js"></script>
+</dom-module>
