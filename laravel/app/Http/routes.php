@@ -19,5 +19,3 @@ Route::resource('users', 'demeterUserController');
 Route::resource('vms', 'vmController');
 Route::resource('instances', 'instanceController');
 Route::resource('instanceUsers', 'instanceUserController');
-Route::get('casLogin','CASController@casLogin');
-Route::get('casLogout','CASController@casLogout');
