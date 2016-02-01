@@ -4,8 +4,9 @@ echo "... here";
 require_once '../resources/CASAuthentication/CASAuthentication/config.php';
 
 echo "... 2";
+echo ".....".$phpcas_path."....";
 // Load the CAS lib
-require_once $phpcas_path . '/CAS.php';
+require_once '../resources/CASAuthentication/CASAuthentication/CAS.php';
 echo "... 3";
 // Enable debugging
 phpCAS::setDebug();
@@ -13,7 +14,8 @@ phpCAS::setDebug();
 phpCAS::setVerbose(true);
 
 // Initialize phpCAS
-phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
+//phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
+phpCAS::client(CAS_VERSION_2_0, 'cas.byu.edu', 443, 'cas');
 
 // For production use set the CA certificate that is the issuer of the cert
 // on the CAS server and uncomment the line below
