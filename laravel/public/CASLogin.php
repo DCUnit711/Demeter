@@ -1,7 +1,9 @@
 <?php
 //require_once '../resources/CASLogin.php';
+echo "here";
 require_once '../resources/CASAuthentication/CASAuthentication/config.php';
 
+echo "here 2";
 // Load the CAS lib
 require_once $phpcas_path . '/CAS.php';
 
