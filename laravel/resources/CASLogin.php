@@ -37,6 +37,7 @@ require_once $phpcas_path . '/CAS.php';
     phpCAS::forceAuthentication();
     // check CAS authentication
     $auth = phpCAS::checkAuthentication();
+    
     if ($auth == true) {
       echo "AUTHENTICATED! With User: "+phpCAS::getUser();
       echo "PHPCAS Version = "+phpCAS::getVersion();
