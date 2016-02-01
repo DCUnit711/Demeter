@@ -1,12 +1,12 @@
 <?php
 //require_once '../resources/CASLogin.php';
-echo "here";
+echo "... here";
 require_once '../resources/CASAuthentication/CASAuthentication/config.php';
 
-echo "here 2";
+echo "... 2";
 // Load the CAS lib
 require_once $phpcas_path . '/CAS.php';
-
+echo "... 3";
 // Enable debugging
 phpCAS::setDebug();
 // Enable verbose error messages. Disable in production!
