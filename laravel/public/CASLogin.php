@@ -5,7 +5,7 @@ require_once '../resources/CASAuthentication/CASAuthentication/config.php';
 
 echo "... 2";
 // Load the CAS lib
-require_once '../resources/CASAuthentication/CASAuthentication/CAS.php';
+require_once $phpcas_path . '/CAS.php';
 echo "... 3";
 // Enable debugging
 phpCAS::setDebug();
