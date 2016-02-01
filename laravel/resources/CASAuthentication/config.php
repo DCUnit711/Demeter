@@ -17,7 +17,7 @@
  * @link     https://wiki.jasig.org/display/CASC/phpCAS
  */
 
-$phpcas_path = '../resources/CASAuthentication/CASAuthentication';
+$phpcas_path = 'CASAuthentication';
 
 ///////////////////////////////////////
 // Basic Config of the phpCAS client //
