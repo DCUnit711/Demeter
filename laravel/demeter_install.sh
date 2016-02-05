@@ -11,7 +11,7 @@ fi
 
 if [ $DB_CONNECTION = "mysql" ]
 then
-	if  ! mysql -u $DB_USER -p$DB_PASSWORD -e ";"
+	if  ! mysql -h $DB_HOST -P $DB_PORT -u $DB_USER -p$DB_PASSWORD -e ";"
 	then
 		echo "CONFIG ERROR: DB_USER and DB_PASSWORD cannot log in"
 		exit
@@ -64,4 +64,4 @@ php artisan config:clear
 #create Middleware
 php artisan migrate
 #start the Middleware Server
-nohup php artisan serve --port=$PORT > /dev/null 2>&1 &
+nohup php artisan serve --port=$MIDDLEWARE_PORT > /dev/null 2>&1 &
