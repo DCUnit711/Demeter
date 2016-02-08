@@ -38,7 +38,7 @@ Polymer({
 	ready:function(){
 		this.hideUsername = true;
 		//window.location.href="../../../CASCall.php";
-		//this.$.ajaxCASVerify.params = {'REQUEST':'login'};
+		this.$.ajaxCASVerify.params = {'check':''};
 		this.$.ajaxCASVerify.generateRequest();
 	},
 	login:function(){
