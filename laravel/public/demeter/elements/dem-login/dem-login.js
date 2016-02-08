@@ -37,13 +37,14 @@ Polymer({
 	},
 	ready:function(){
 		this.hideUsername = true;
-		this.$.ajaxCASVerify.params = {'REQUEST':'login'};
-		this.$.ajaxCASVerify.generateRequest();
+		window.location.href="../../../CASCall.php";
+		//this.$.ajaxCASVerify.params = {'REQUEST':'login'};
+		//this.$.ajaxCASVerify.generateRequest();
 	},
 	login:function(){
 		this.hideToolbar = false;
 		// this.$.ajaxCASLogin.generateRequest();
-		window.location.href = "../../../CASLogin.php";
+		window.location.href = "../../../CASCall.php?login=";
 		//this.fire('getAllDB',{});
 		//this.fire('goToPage',1);
 
