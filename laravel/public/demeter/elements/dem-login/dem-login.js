@@ -37,9 +37,9 @@ Polymer({
 	},
 	ready:function(){
 		this.hideUsername = true;
-		window.location.href="../../../CASCall.php";
+		//window.location.href="../../../CASCall.php";
 		//this.$.ajaxCASVerify.params = {'REQUEST':'login'};
-		//this.$.ajaxCASVerify.generateRequest();
+		this.$.ajaxCASVerify.generateRequest();
 	},
 	login:function(){
 		this.hideToolbar = false;
@@ -51,6 +51,7 @@ Polymer({
 		//this.fire("ajaxLoginUser",{'USERNAME':this.username,'PASSWORD':this.password});
 	},
 	ajaxCASVerifyResponse:function(){
+		console.log(this.casResponse);
 		if(this.casResponse == true){
 			this.fire('goToPage',1);
 		}
