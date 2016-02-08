@@ -37,6 +37,8 @@ Polymer({
 	},
 	ready:function(){
 		this.hideUsername = true;
+		this.$.ajaxCASVerify.params = {'REQUEST':'login'};
+		this.$.ajaxCASVerify.generateRequest();
 	},
 	login:function(){
 		this.hideToolbar = false;
@@ -47,7 +49,9 @@ Polymer({
 
 		//this.fire("ajaxLoginUser",{'USERNAME':this.username,'PASSWORD':this.password});
 	},
-	ajaxCASLoginResponse:function(){
-		console.log(this.casResponse);
+	ajaxCASVerifyResponse:function(){
+		if(this.casResponse == true){
+			this.fire('goToPage',1);
+		}
 	}
 });
