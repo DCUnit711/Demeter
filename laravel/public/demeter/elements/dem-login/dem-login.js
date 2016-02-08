@@ -40,7 +40,8 @@ Polymer({
 	},
 	login:function(){
 		this.hideToolbar = false;
-		this.$.ajaxCASLogin.generateRequest();
+		// this.$.ajaxCASLogin.generateRequest();
+		window.location.href = "../../../CASLogin.php";
 		//this.fire('getAllDB',{});
 		//this.fire('goToPage',1);
 
