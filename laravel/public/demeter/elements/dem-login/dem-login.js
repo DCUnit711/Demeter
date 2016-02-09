@@ -37,18 +37,13 @@ Polymer({
 	},
 	ready:function(){
 		this.hideUsername = true;
-		//window.location.href="../../../CASCall.php";
-		this.$.ajaxCASVerify.params = {'check':''};
-		this.$.ajaxCASVerify.generateRequest();
+		//check Authentication
+		// this.$.ajaxCASVerify.generateRequest();
 	},
 	login:function(){
 		this.hideToolbar = false;
-		// this.$.ajaxCASLogin.generateRequest();
-		window.location.href = "../../../CASCall.php?login=";
-		//this.fire('getAllDB',{});
-		//this.fire('goToPage',1);
-
-		//this.fire("ajaxLoginUser",{'USERNAME':this.username,'PASSWORD':this.password});
+		var url = window.location.origin+"/resources/CASLogic.php?login";
+		window.location.href = url;
 	},
 	ajaxCASVerifyResponse:function(){
 		console.log(this.casResponse);
