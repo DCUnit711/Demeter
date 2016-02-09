@@ -42,7 +42,8 @@ Polymer({
 	},
 	login:function(){
 		this.hideToolbar = false;
-		var url = window.location.origin+"/CASLogic.php";
+		var url = window.location.origin+"../resources/CASAuthentication/CASLogic.php";
+		console.log(url);
 		window.location.href = url;
 	},
 	ajaxCASVerifyResponse:function(){
