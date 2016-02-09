@@ -5,7 +5,7 @@
 	<script>
 //-------------------- PHPCAS SECTION ----------------------------	
 <?php
-	require_once 'CASAuthentication/CAS.php';
+	require_once '../../../resources/CASAuthentication/CAS.php';
 	phpCAS::client(CAS_VERSION_2_0, 'cas.byu.edu', 443, '/cas');
     //--------------------------------------------------------------------------
   	phpCAS::setNoCasServerValidation();
