@@ -42,7 +42,7 @@ Polymer({
 	},
 	login:function(){
 		this.hideToolbar = false;
-		var url = window.location.origin+"/demeter/CASLogic.php?login";
+		var url = window.location.origin+"/demeter/CASLogic.php";
 		window.location.href = url;
 	},
 	ajaxCASVerifyResponse:function(){

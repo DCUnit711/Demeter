@@ -35,6 +35,7 @@
 //--------------- PAGE REDIRECTING SERVICES -----------------------------------
 		console.log('CAS Finished. Redirecting...');
 		var url = window.location.origin+"/demeter/index.html";
+		console.log(url);
 		window.location.href = url;
 	</script>
 </html>
