@@ -9,7 +9,7 @@
 	phpCAS::client(CAS_VERSION_2_0, 'cas.byu.edu', 443, '/cas');
     //--------------------------------------------------------------------------
   	phpCAS::setNoCasServerValidation();
-  	$url = 'http://128.187.104.23:1337/resources/CASLogic.php';
+  	$url = 'http://128.187.104.23:1337/demeter/CASLogic.php';
 	phpCAS::setFixedServiceURL($url);
 
 	if (isset($_REQUEST['logout'])) {
