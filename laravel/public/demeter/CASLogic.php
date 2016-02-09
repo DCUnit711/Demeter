@@ -5,7 +5,11 @@
 	<script>
 //-------------------- PHPCAS SECTION ----------------------------	
 <?php
+?>
+console.log("HERE"); <?php
 	require_once '../../../resources/CASAuthentication/CAS.php';
+
+	?>console.log('made it')<?php
 	phpCAS::client(CAS_VERSION_2_0, 'cas.byu.edu', 443, '/cas');
     //--------------------------------------------------------------------------
   	phpCAS::setNoCasServerValidation();
