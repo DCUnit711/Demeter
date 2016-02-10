@@ -34,12 +34,16 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->guest()) {
-            if ($request->ajax()) {
-                return response('Unauthorized.', 401);
-            } else {
-                return redirect()->guest('auth/login');
-            }
+        // if ($this->auth->guest()) {
+        //     if ($request->ajax()) {
+        //         return response('Unauthorized.', 401);
+        //     } else {
+        //         return redirect()->guest('auth/login');
+        //     }
+        // }
+        if($_SESSION['AUTH'] == false) {
+            return redirect('/demeter/CASLogic.php');
+            // header('Location: https://128.187.104.23:1337/demeter/CASLogic.php');
         }
 
         return $next($request);
