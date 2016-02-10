@@ -37,8 +37,6 @@ Polymer({
 	},
 	ready:function(){
 		this.hideUsername = true;
-		//check Authentication
-		// this.$.ajaxCASVerify.generateRequest();
 	},
 	login:function(){
 		this.hideToolbar = false;
@@ -47,8 +45,7 @@ Polymer({
 		window.location.href = url;
 	},
 	ajaxCASVerifyResponse:function(){
-		console.log(this.casResponse);
-		if(this.casResponse == true){
+		if(this.casResponse.AUTH == true){
 			this.fire('goToPage',1);
 		}
 	}
