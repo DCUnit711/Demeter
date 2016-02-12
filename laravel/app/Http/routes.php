@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// })->middleware(['Authenticate']);
 
 Route::resource('users', 'demeterUserController');
 Route::resource('vms', 'vmController');
