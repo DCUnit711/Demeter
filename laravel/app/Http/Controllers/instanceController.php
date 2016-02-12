@@ -20,7 +20,7 @@ class instanceController extends Controller
     public function index()
     {
         $instances = instance::with('vm', 'owner', 'users', 'instanceUsers')->get();
-	return response()->json($instances);
+	    return response()->json($instances);
     }
 
     /**
@@ -41,37 +41,37 @@ class instanceController extends Controller
      */
     public function store(Request $request)
     {
-	//create a new instance (db). expects name, type, ownerId, organization, maxSize, and description
+	   //create a new instance (db). expects name, type, ownerId, organization, maxSize, and description
         $i = new instance();
-	$i->id = \Uuid::generate(4);
-	$i->name = $request->input('name');
-	$i->type =  $request->input('type');
-	$i->ownerId =  $request->input('ownerId');
-	$i->organization =  $request->input('organization');
-        $i->maxSize = $request->input('maxSize');
-	$i->description = $request->input('description');
-	//determine the VM for this instance
-	$vms = vm::where("type", "LIKE", "%"+ $i->type +"%")->get();
-	foreach ($vms as $vm)
-	{
-		if ($i->maxSize == $i->maxSize) //check if vm has space
-		{
- 		        $i->vmId =  $vm->id;
-			break;
-		}
-	}
-	if (!isset($i->vmId))
-	{
-		echo "No VM available";
-	}
-	else
-	{
-		$i->inUse = true;
-		if($i->save())
-                	echo "success";
-	        else
-        	        echo "fail";
-	}
+    	$i->id = \Uuid::generate(4);
+    	$i->name = $request->input('name');
+    	$i->type =  $request->input('type');
+    	$i->ownerId =  $request->input('ownerId');
+    	$i->organization =  $request->input('organization');
+            $i->maxSize = $request->input('maxSize');
+    	$i->description = $request->input('description');
+    	//determine the VM for this instance
+    	$vms = vm::where("type", "LIKE", "%"+ $i->type +"%")->get();
+    	foreach ($vms as $vm)
+    	{
+    		if ($i->maxSize == $i->maxSize) //check if vm has space
+    		{
+     		        $i->vmId =  $vm->id;
+    			break;
+    		}
+    	}
+    	if (!isset($i->vmId))
+    	{
+    		echo "No VM available";
+    	}
+    	else
+    	{
+    		$i->inUse = true;
+    		if($i->save())
+                    echo "success";
+    	        else
+                    echo "fail";
+    	}
     }
 
     /**
@@ -83,7 +83,7 @@ class instanceController extends Controller
     public function show($id)
     {
         $i = instance::find($id)->with('vm', 'owner', 'users', 'instanceUsers')->get();
-	return response()->json($i);
+        return response()->json($i);
     }
 
     /**
@@ -107,7 +107,7 @@ class instanceController extends Controller
     public function update(Request $request, $id)
     {
         $i = instance::find($id);
-	$i->name = $request->input('name');
+	    $i->name = $request->input('name');
         $i->type =  $request->input('type');
         $i->ownerId =  $request->input('ownerId');
         $i->organization =  $request->input('organization');
@@ -116,10 +116,10 @@ class instanceController extends Controller
         $i->vmId =  $request->input('vmId');
         $i->inUse = true;
 
-         if($i->save())
-                echo "success";
+        if($i->save())
+            echo "success";
         else
-                echo "fail";
+            echo "fail";
 
     }
 
@@ -131,11 +131,11 @@ class instanceController extends Controller
      */
     public function destroy($id)
     {
-         $i = instance::find($id);
+        $i = instance::find($id);
         if($i->delete())
-                echo "success";
+            echo "success";
         else
-                echo "fail";
+            echo "fail";
 
     }
 }
