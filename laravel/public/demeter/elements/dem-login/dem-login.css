@@ -21,6 +21,7 @@
 	font-size: 20pt;
 	color:white;
 	text-align:center;
+	line-height: 50px;
 	background:#2d5986;
 }
 .error {
