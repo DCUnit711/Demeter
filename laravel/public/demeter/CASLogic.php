@@ -5,6 +5,7 @@
 	<script>
 //-------------------- PHPCAS SECTION ----------------------------	
 <?php
+	$_SESSION['CHECKING'] = true;
 	require_once '../CASAuthentication/CAS.php';
 	
 	phpCAS::client(CAS_VERSION_2_0, 'cas.byu.edu', 443, '/cas');
