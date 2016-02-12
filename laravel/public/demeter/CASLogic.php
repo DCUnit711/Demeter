@@ -31,7 +31,7 @@
 			$_SESSION['AUTH_USER'] = phpCAS::getUser();
 		}
 	} 
-	?>
+?>
 //--------------- PAGE REDIRECTING SERVICES -----------------------------------
 		console.log('CAS Finished. Redirecting...');
 		var url = window.location.origin+"/demeter/index.html";
