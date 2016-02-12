@@ -8,7 +8,7 @@ Polymer({
 	},
 	ready:function(){
 		var pages = this.$.pages;
-		pages.selected = 1;
+		pages.selected = 0;
 		this.hideToolbar = true;
 
 		document.addEventListener('goToPage',function(data){
