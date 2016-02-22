@@ -5,41 +5,36 @@
 	<script>
 //-------------------- PHPCAS SECTION ----------------------------	
 <?php
-?>
-console.log("HERE"); <?php
-	require_once '../resources/CASAuthentication/CAS.php';
+	require_once '../resources/CASAuthentication/CAS.php';			//PHPCAS Library Import		
 
-	?>console.log('made it')<?php
-	phpCAS::client(CAS_VERSION_2_0, 'cas.byu.edu', 443, '/cas');
-    //--------------------------------------------------------------------------
-  	phpCAS::setNoCasServerValidation();
-  	$url = 'http://128.187.104.23:1337/demeter/CASLogic.php';
-	phpCAS::setFixedServiceURL($url);
+	phpCAS::client(CAS_VERSION_2_0, 'cas.byu.edu', 443, '/cas');	//Setup the phpCAS client
+    //------------------------------------------------------------
+  	phpCAS::setNoCasServerValidation();								//Don't validate with SSL
+  	$url = 'http://128.187.104.23:1337/demeter/CASLogic.php';		//Return url after validation
+	phpCAS::setFixedServiceURL($url);								//Set the return URL
 
-	if (isset($_REQUEST['logout'])) {
+	if (isset($_REQUEST['logout'])) {								//If wanting to log out
 		echo "Logging Out.";
-		$_SESSION['AUTH'] = false;
-		$_SESSION['AUTH_USER'] = ''; 
-		$url = "http://128.187.104.23:1337/demeter/index.html";
-		phpCAS::logoutWithRedirectServiceAndUrl($url,'');
+		$_SESSION['AUTH'] = false;									//Make user unable to call backend functions
+		$_SESSION['AUTH_USER'] = ''; 								//Removed stored user
+		$url = "http://128.187.104.23:1337/demeter/index.html";		//url to return to after completion
+		phpCAS::logoutWithRedirectServiceAndUrl($url,'');			//set return url
 	}
 	else {
-		$auth = phpCAS::checkAuthentication();
-		if($auth == false) {
-			$_SESSION['AUTH'] = false;
-			$_SESSION['AUTH_USER'] = '';
-		    phpCAS::forceAuthentication();
+		$auth = phpCAS::checkAuthentication();						//Go to CAS and verify
+		if($auth == false) {										//CAS failed the authentication
+			$_SESSION['AUTH'] = false;								//Make user unable to call backend functions
+			$_SESSION['AUTH_USER'] = '';							//Removed stored user
+		    phpCAS::forceAuthentication();							//Take User to CAS sign in page
 		}
 		else {
-			$_SESSION['AUTH'] = true;
-			$_SESSION['AUTH_USER'] = phpCAS::getUser();
+			$_SESSION['AUTH'] = true;								//CAS successfully authenticated
+			$_SESSION['AUTH_USER'] = phpCAS::getUser();				//return the authenticated user
 		}
 	} 
 	?>
 //--------------- PAGE REDIRECTING SERVICES -----------------------------------
-		console.log('CAS Finished. Redirecting...');
-		var url = window.location.origin+"/demeter/index.html";
-		console.log(url);
-		window.location.href = url;
+		var url = window.location.origin+"/demeter/index.html";		//will redirect back to demeter index page
+		window.location.href = url;									//do the redirect
 	</script>
 </html>

@@ -48,7 +48,7 @@ class instanceController extends Controller
     	$i->type =  $request->input('type');
     	$i->ownerId =  $request->input('ownerId');
     	$i->organization =  $request->input('organization');
-            $i->maxSize = $request->input('maxSize');
+        $i->maxSize = $request->input('maxSize');
     	$i->description = $request->input('description');
     	//determine the VM for this instance
     	$vms = vm::where("type", "LIKE", "%"+ $i->type +"%")->get();
