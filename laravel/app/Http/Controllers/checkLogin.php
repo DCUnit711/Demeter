@@ -16,7 +16,7 @@ class checkLogin extends Controller
      */
     public function index(Request $r)
     {
-	var_dump($_COOKIE);
+	var_dump(base64_decode($_COOKIE['laravel_session']);
         echo "SESSION = ".isset($_SESSION);
 	echo "SESSION_HAS".$r->session()->has('AUTH');
 	echo $r->session()->get('AUTH');
