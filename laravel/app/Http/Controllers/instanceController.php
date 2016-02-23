@@ -19,6 +19,7 @@ class instanceController extends Controller
      */
     public function index()
     {
+        session_start();
         if($_SESSION['AUTH'] == false) {   
             die("fail");
         }  
