@@ -19,6 +19,9 @@ class instanceController extends Controller
      */
     public function index()
     {
+        if($_SESSION['AUTH'] == false) {   
+            die "fail";
+        }  
         $instances = instance::with('vm', 'owner', 'users', 'instanceUsers')->get();
 	    return response()->json($instances);
     }
@@ -31,6 +34,9 @@ class instanceController extends Controller
     public function create()
     {
         //
+        if($_SESSION['AUTH'] == false) {   
+            die "fail";
+        }  
     }
 
     /**
@@ -42,41 +48,39 @@ class instanceController extends Controller
     public function store(Request $request)
     {
 	   //create a new instance (db). expects name, type, ownerId, organization, maxSize, and description
-        if($_SESSION['AUTH'] == true) {       
-            $i = new instance();
-        	$i->id = \Uuid::generate(4);
-        	$i->name = $request->input('name');
-        	$i->type =  $request->input('type');
-        	$i->ownerId =  $request->input('ownerId');
-        	$i->organization =  $request->input('organization');
-            $i->maxSize = $request->input('maxSize');
-        	$i->description = $request->input('description');
-        	//determine the VM for this instance
-        	$vms = vm::where("type", "LIKE", "%"+ $i->type +"%")->get();
-        	foreach ($vms as $vm)
-        	{
-        		if ($i->maxSize == $i->maxSize) //check if vm has space
-        		{
-         		        $i->vmId =  $vm->id;
-        			break;
-        		}
-        	}
-        	if (!isset($i->vmId))
-        	{
-        		echo "No VM available";
-        	}
-        	else
-        	{
-        		$i->inUse = true;
-        		if($i->save())
-                        echo "success";
-        	        else
-                        echo "fail";
-        	}
-        }
-        else {
-            echo "fail";
-        }
+        if($_SESSION['AUTH'] == false) {   
+            die "fail";
+        }    
+        $i = new instance();
+    	$i->id = \Uuid::generate(4);
+    	$i->name = $request->input('name');
+    	$i->type =  $request->input('type');
+    	$i->ownerId =  $request->input('ownerId');
+    	$i->organization =  $request->input('organization');
+        $i->maxSize = $request->input('maxSize');
+    	$i->description = $request->input('description');
+    	//determine the VM for this instance
+    	$vms = vm::where("type", "LIKE", "%"+ $i->type +"%")->get();
+    	foreach ($vms as $vm)
+    	{
+    		if ($i->maxSize == $i->maxSize) //check if vm has space
+    		{
+     		        $i->vmId =  $vm->id;
+    			break;
+    		}
+    	}
+    	if (!isset($i->vmId))
+    	{
+    		echo "No VM available";
+    	}
+    	else
+    	{
+    		$i->inUse = true;
+    		if($i->save())
+                    echo "success";
+    	        else
+                    echo "fail";
+    	}
     }
 
     /**
@@ -87,6 +91,9 @@ class instanceController extends Controller
      */
     public function show($id)
     {
+        if($_SESSION['AUTH'] == false) {   
+            die "fail";
+        }  
         $i = instance::find($id)->with('vm', 'owner', 'users', 'instanceUsers')->get();
         return response()->json($i);
     }
@@ -100,6 +107,9 @@ class instanceController extends Controller
     public function edit($id)
     {
         //
+        if($_SESSION['AUTH'] == false) {   
+            die "fail";
+        }  
     }
 
     /**
@@ -111,6 +121,9 @@ class instanceController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if($_SESSION['AUTH'] == false) {   
+            die "fail";
+        }  
         $i = instance::find($id);
 	    $i->name = $request->input('name');
         $i->type =  $request->input('type');
@@ -136,6 +149,9 @@ class instanceController extends Controller
      */
     public function destroy($id)
     {
+        if($_SESSION['AUTH'] == false) {   
+            die "fail";
+        }  
         $i = instance::find($id);
         if($i->delete())
             echo "success";
