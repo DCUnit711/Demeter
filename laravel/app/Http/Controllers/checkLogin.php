@@ -16,7 +16,7 @@ class checkLogin extends Controller
      */
     public function index()
     {
-        echo $_SESSION['AUTH'];
+        echo isset($_SESSION);
     	if (isset($_SESSION) && $_SESSION['AUTH'] == true)
     		echo "true";
     	else
