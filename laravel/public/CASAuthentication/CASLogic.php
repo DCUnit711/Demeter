@@ -28,7 +28,8 @@
 		    phpCAS::forceAuthentication();							//Take User to CAS sign in page
 		}
 		else {
-			$_SESSION['AUTH'] = true;								//CAS successfully authenticated
+			Session::put('AUTH', true);
+			// $_SESSION['AUTH'] = true;								//CAS successfully authenticated
 			$_SESSION['AUTH_USER'] = phpCAS::getUser();				//return the authenticated user
 		}
 	} 
