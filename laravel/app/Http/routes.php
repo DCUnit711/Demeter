@@ -19,3 +19,4 @@ Route::resource('users', 'demeterUserController');
 Route::resource('vms', 'vmController');
 Route::resource('instances', 'instanceController');
 Route::resource('instanceUsers', 'instanceUserController');
+Route::get('checkLogin', 'checkLogin@index');
