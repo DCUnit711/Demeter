@@ -18,7 +18,7 @@ class checkLogin extends Controller
     {
 	    session_start();
         echo " SESSION = ".isset($_SESSION);
-	    echo " SESSION_HAS = ".$r->session()->has('AUTH');
+	    echo " SESSION_HAS = ".$_SESSION['AUTH'];
 	    //echo " GET AUTH = "$r->session()->get('AUTH');
     	if ($r->session()->has('AUTH') && $r->session()->get('Auth') == true)
     		echo "true";
