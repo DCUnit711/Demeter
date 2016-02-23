@@ -20,7 +20,7 @@ class instanceController extends Controller
     public function index()
     {
         if($_SESSION['AUTH'] == false) {   
-            die "fail";
+            die("fail");
         }  
         $instances = instance::with('vm', 'owner', 'users', 'instanceUsers')->get();
 	    return response()->json($instances);
@@ -35,7 +35,7 @@ class instanceController extends Controller
     {
         //
         if($_SESSION['AUTH'] == false) {   
-            die "fail";
+             die("fail");
         }  
     }
 
@@ -49,7 +49,7 @@ class instanceController extends Controller
     {
 	   //create a new instance (db). expects name, type, ownerId, organization, maxSize, and description
         if($_SESSION['AUTH'] == false) {   
-            die "fail";
+             die("fail");
         }    
         $i = new instance();
     	$i->id = \Uuid::generate(4);
@@ -92,7 +92,7 @@ class instanceController extends Controller
     public function show($id)
     {
         if($_SESSION['AUTH'] == false) {   
-            die "fail";
+             die("fail");
         }  
         $i = instance::find($id)->with('vm', 'owner', 'users', 'instanceUsers')->get();
         return response()->json($i);
@@ -108,7 +108,7 @@ class instanceController extends Controller
     {
         //
         if($_SESSION['AUTH'] == false) {   
-            die "fail";
+            die("fail");
         }  
     }
 
@@ -122,7 +122,7 @@ class instanceController extends Controller
     public function update(Request $request, $id)
     {
         if($_SESSION['AUTH'] == false) {   
-            die "fail";
+            die("fail");
         }  
         $i = instance::find($id);
 	    $i->name = $request->input('name');
@@ -150,7 +150,7 @@ class instanceController extends Controller
     public function destroy($id)
     {
         if($_SESSION['AUTH'] == false) {   
-            die "fail";
+            die("fail");
         }  
         $i = instance::find($id);
         if($i->delete())
