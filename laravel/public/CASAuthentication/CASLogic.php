@@ -21,16 +21,13 @@
 		phpCAS::logoutWithRedirectServiceAndUrl($url,'');			//set return url
 	}
 	else {
-		?>console.log('Requesting to Log in');<?php
 		$auth = phpCAS::checkAuthentication();						//Go to CAS and verify
 		if($auth == false) {										//CAS failed the authentication
-			?>console.log('Authentication Failed.');<?php
 			$_SESSION['AUTH'] = false;								//Make user unable to call backend functions
 			$_SESSION['AUTH_USER'] = '';							//Removed stored user
 		    phpCAS::forceAuthentication();							//Take User to CAS sign in page
 		}
 		else {
-			?>console.log('Currently Logged in - SET AUTH to true');<?php
 			$_SESSION['AUTH'] = true;								//CAS successfully authenticated
 			$_SESSION['AUTH_USER'] = phpCAS::getUser();				//return the authenticated user
 		}
