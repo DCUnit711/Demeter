@@ -28,6 +28,7 @@
 		    phpCAS::forceAuthentication();							//Take User to CAS sign in page
 		}
 		else {
+			?>console.log('Currently Logged in - SET AUTH to true');<?php
 			$_SESSION['AUTH'] = true;								//CAS successfully authenticated
 			$_SESSION['AUTH_USER'] = phpCAS::getUser();				//return the authenticated user
 		}
