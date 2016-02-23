@@ -37,6 +37,12 @@ Polymer({
 	},
 	ready:function(){
 		this.hideUsername = true;
+		this.$.ajaxVerifyLoggedIn.generateRequest();
+	},
+	ajaxVerifyLoggedInResponse:function(){
+		if(this.status === true) {
+			this.fire('goToPage',1);
+		}
 	},
 	login:function(){
 		this.hideToolbar = false;

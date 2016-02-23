@@ -12,7 +12,7 @@
 <!-- All users -->
 	<iron-ajax
 		id="ajaxGetAllUsers"
-		url="128.187.104.23:1337/users"
+		url="/users"
 		method="GET"
 		last-response="{{allUsers}}">
 	</iron-ajax>
@@ -20,7 +20,7 @@
 <!-- Create a database -->
 	<iron-ajax
 		id="ajaxCreateDB"
-		url="128.187.104.23:1337/instance/"
+		url="/instance/"
 		method="POST"
 		last-response="{{createDBResponse}}">
 	</iron-ajax>
