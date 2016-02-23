@@ -29,7 +29,7 @@
 		}
 		else {
 			Session::put('AUTH', true);
-			// $_SESSION['AUTH'] = true;								//CAS successfully authenticated
+			$_SESSION['AUTH'] = true;								//CAS successfully authenticated
 			$_SESSION['AUTH_USER'] = phpCAS::getUser();				//return the authenticated user
 		}
 	} 
