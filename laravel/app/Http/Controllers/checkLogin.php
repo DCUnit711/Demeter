@@ -16,10 +16,10 @@ class checkLogin extends Controller
      */
     public function index(Request $r)
     {
-	   session_start();
-        echo "SESSION = ".isset($_SESSION);
-	echo "SESSION_HAS".$r->session()->has('AUTH');
-	echo $r->session()->get('AUTH');
+	    session_start();
+        echo " SESSION = ".isset($_SESSION);
+	    echo " SESSION_HAS = ".$r->session()->has('AUTH');
+	    echo " GET AUTH = "$r->session()->get('AUTH');
     	if ($r->session()->has('AUTH') && $r->session()->get('Auth') == true)
     		echo "true";
     	else
