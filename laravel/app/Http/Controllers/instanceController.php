@@ -34,7 +34,7 @@ class instanceController extends Controller
      */
     public function create()
     {
-        //
+        session_start();
         if($_SESSION['AUTH'] == false) {   
              die("fail");
         }  
@@ -48,6 +48,7 @@ class instanceController extends Controller
      */
     public function store(Request $request)
     {
+        session_start();
 	   //create a new instance (db). expects name, type, ownerId, organization, maxSize, and description
         if($_SESSION['AUTH'] == false) {   
              die("fail");
@@ -92,6 +93,7 @@ class instanceController extends Controller
      */
     public function show($id)
     {
+        session_start();
         if($_SESSION['AUTH'] == false) {   
              die("fail");
         }  
@@ -107,7 +109,7 @@ class instanceController extends Controller
      */
     public function edit($id)
     {
-        //
+        session_start();
         if($_SESSION['AUTH'] == false) {   
             die("fail");
         }  
@@ -122,6 +124,7 @@ class instanceController extends Controller
      */
     public function update(Request $request, $id)
     {
+        session_start();
         if($_SESSION['AUTH'] == false) {   
             die("fail");
         }  
@@ -150,6 +153,7 @@ class instanceController extends Controller
      */
     public function destroy($id)
     {
+        session_start();
         if($_SESSION['AUTH'] == false) {   
             die("fail");
         }  
