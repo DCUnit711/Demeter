@@ -14,12 +14,12 @@ class checkLogin extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $r)
     {
         echo "SESSION = ".isset($_SESSION);
-	echo "SESSION_HAS".Session::has('AUTH');
-	echo Session::get('AUTH');
-    	if (Session::has('AUTH') && Session::get('Auth') == true)
+	echo "SESSION_HAS".$r->session->has('AUTH');
+	echo $r->session->get('AUTH');
+    	if ($r->session->has('AUTH') && $r->session->get('Auth') == true)
     		echo "true";
     	else
     		echo "false";
