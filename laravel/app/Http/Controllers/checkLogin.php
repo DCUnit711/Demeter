@@ -16,7 +16,7 @@ class checkLogin extends Controller
      */
     public function index(Request $r)
     {
-	var_dump($_SESSION);
+	var_dump($_COOKIE);
         echo "SESSION = ".isset($_SESSION);
 	echo "SESSION_HAS".$r->session()->has('AUTH');
 	echo $r->session()->get('AUTH');
