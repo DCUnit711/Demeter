@@ -17,8 +17,8 @@ class checkLogin extends Controller
     public function index()
     {
         echo "SESSION = ".isset($_SESSION);
-	echo "SESSION_HAS".Session::has('AUTH');
-	echo Session::get('AUTH');
+	    echo "SESSION_HAS".Session::has('AUTH');
+	    echo Session::get('AUTH');
     	if (Session::has('AUTH') && Session::get('Auth') == true)
     		echo "true";
     	else
