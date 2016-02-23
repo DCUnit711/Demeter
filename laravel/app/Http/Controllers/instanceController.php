@@ -42,36 +42,41 @@ class instanceController extends Controller
     public function store(Request $request)
     {
 	   //create a new instance (db). expects name, type, ownerId, organization, maxSize, and description
-        $i = new instance();
-    	$i->id = \Uuid::generate(4);
-    	$i->name = $request->input('name');
-    	$i->type =  $request->input('type');
-    	$i->ownerId =  $request->input('ownerId');
-    	$i->organization =  $request->input('organization');
-        $i->maxSize = $request->input('maxSize');
-    	$i->description = $request->input('description');
-    	//determine the VM for this instance
-    	$vms = vm::where("type", "LIKE", "%"+ $i->type +"%")->get();
-    	foreach ($vms as $vm)
-    	{
-    		if ($i->maxSize == $i->maxSize) //check if vm has space
-    		{
-     		        $i->vmId =  $vm->id;
-    			break;
-    		}
-    	}
-    	if (!isset($i->vmId))
-    	{
-    		echo "No VM available";
-    	}
-    	else
-    	{
-    		$i->inUse = true;
-    		if($i->save())
-                    echo "success";
-    	        else
-                    echo "fail";
-    	}
+        if($_SESSION['AUTH'] == true) {       
+            $i = new instance();
+        	$i->id = \Uuid::generate(4);
+        	$i->name = $request->input('name');
+        	$i->type =  $request->input('type');
+        	$i->ownerId =  $request->input('ownerId');
+        	$i->organization =  $request->input('organization');
+            $i->maxSize = $request->input('maxSize');
+        	$i->description = $request->input('description');
+        	//determine the VM for this instance
+        	$vms = vm::where("type", "LIKE", "%"+ $i->type +"%")->get();
+        	foreach ($vms as $vm)
+        	{
+        		if ($i->maxSize == $i->maxSize) //check if vm has space
+        		{
+         		        $i->vmId =  $vm->id;
+        			break;
+        		}
+        	}
+        	if (!isset($i->vmId))
+        	{
+        		echo "No VM available";
+        	}
+        	else
+        	{
+        		$i->inUse = true;
+        		if($i->save())
+                        echo "success";
+        	        else
+                        echo "fail";
+        	}
+        }
+        else {
+            echo "fail";
+        }
     }
 
     /**
