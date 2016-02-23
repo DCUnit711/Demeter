@@ -6,7 +6,7 @@
 //-------------------- PHPCAS SECTION ----------------------------	
 <?php
 	require_once '../resources/CASAuthentication/CAS.php';			//PHPCAS Library Import		
-
+	?>console.log('Making first call');<?php
 	phpCAS::client(CAS_VERSION_2_0, 'cas.byu.edu', 443, '/cas');	//Setup the phpCAS client
     //------------------------------------------------------------
   	phpCAS::setNoCasServerValidation();								//Don't validate with SSL
