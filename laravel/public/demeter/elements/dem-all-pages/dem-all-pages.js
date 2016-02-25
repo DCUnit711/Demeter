@@ -14,14 +14,12 @@ Polymer({
 		document.addEventListener('goToPage',function(data){
 			switch(data.detail) {
 				case 0:
-					console.log('hide header');
 					polymer.hideToolbar = true;
 					break;
 				case 1:
 				case 2:
 				case 3:
 				case 4:
-					console.log('Show header');
 					polymer.hideToolbar = false;
 					break
 				default:
@@ -45,6 +43,7 @@ Polymer({
 			document.getElementById('ajaxLoginUser').params = data.detail;
 			document.getElementById('ajaxLoginUser').generateRequest();
 		});
+		this.fire('goToPage', 0);
 	},	
 	casLogout:function(){
 		this.$.ajaxCasLogout.params = "logout";
