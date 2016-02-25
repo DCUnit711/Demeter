@@ -8,21 +8,7 @@ Polymer({
 		animationConfig: {
       		value: function() {
         		return {
-        			'entry':[{
-		        		name: 'slide-from-right-animation',
-		        		timing:{ delay:200 },
-          				node:this.$.databaseCard
-          			},
-          			{
-		        		name: 'fade-in-animation',
-		        		timing:{ delay:400 },
-          				node:this.$.databaseCard
-          			},
-          			{
-          				name:'slide-from-left-animation',
-          				timing:{ delay: 100 },
-          				node:this.$.databasePageTitle
-          			},
+        			'entry':[
 	                {
 	                	name:'fade-in-animation',
 	                	node:this
@@ -37,14 +23,6 @@ Polymer({
           				name:'hero-animation',
           				id:'hero',
           				fromPage:this
-          			},
-          			{
-          				name:'slide-right-animation',
-          				node:this.$.databaseCard
-          			},
-          			{
-          				name:'slide-left-animation',
-          				node:this.$.databasePageTitle
           			},
 	                {
 	                  name:'fade-out-animation',
