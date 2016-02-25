@@ -7,10 +7,6 @@ Polymer({
 		editDatabase:{ notify:true },
 		animationConfig: {
       		value: function() {
-      			var text = document.getElementById('homeCardLeft');
-          		var textArray = Array.prototype.slice.call(text);
-          		console.log(text);
-          		console.log(textArray);
         		return {
         			'entry':[
 	                {
@@ -46,6 +42,10 @@ Polymer({
 		this.databaseList = [];
 		this.$.ajaxGetAllDB.generateRequest();
 		this.selectedDatabase = "";
+		var text = this.$.homeCardLeft;
+  		var textArray = Array.prototype.slice.call(text);
+  		console.log(text);
+  		console.log(textArray);
 	},
 	returnCurrentDate:function(){
 		var today = new Date();
