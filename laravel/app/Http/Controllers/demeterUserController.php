@@ -18,6 +18,10 @@ class demeterUserController extends Controller
      */
     public function index()
     {
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
         $users =  demeterUser::with('instances', 'ownedInstances')->get();
         return response()->json($users);
     }
@@ -30,6 +34,10 @@ class demeterUserController extends Controller
     public function create()
     {
         //
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
     }
 
     /**
@@ -40,17 +48,21 @@ class demeterUserController extends Controller
      */
     public function store(Request $request)
     {
-	//Creates a new demeterUser. Expects netId, email, and role ('admin' or 'client')
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
+	   //Creates a new demeterUser. Expects netId, email, and role ('admin' or 'client')
         $u = new demeterUser();
-	$u->id = \Uuid::generate(4);
-	$u->netId = $request->input('netId');
-	$u->email = $request->input('email');
-	$u->role = $request->input('role');
-	if($u->save())
-	    echo "success";
-	else
-	    echo "fail";
-    }
+    	$u->id = \Uuid::generate(4);
+    	$u->netId = $request->input('netId');
+    	$u->email = $request->input('email');
+    	$u->role = $request->input('role');
+    	if($u->save())
+    	    echo "success";
+    	else
+    	    echo "fail";
+        }
 
     /**
      * Display the specified resource.
@@ -60,6 +72,10 @@ class demeterUserController extends Controller
      */
     public function show($id)
     {
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
         $u = demeterUser::find($id)->with('instances', 'ownedInstances')->first();
         print json_encode($u);
         //return response()->json($u);	
@@ -85,15 +101,19 @@ class demeterUserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
         $u = demeterUser::find($id);
-	$u->netId = $request->input('netId');
-	$u->email = $request->input('email');
-	$u->role = $request->input('role');
-	if($u->save())
-	    echo "success";
-	else
-	    echo "fail";
-    }
+    	$u->netId = $request->input('netId');
+    	$u->email = $request->input('email');
+    	$u->role = $request->input('role');
+    	if($u->save())
+    	    echo "success";
+    	else
+    	    echo "fail";
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -103,10 +123,14 @@ class demeterUserController extends Controller
      */
     public function destroy($id)
     {
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
         $u = demeterUser::find($id);
-	if($u->delete())
-	    echo "success";
-	else
-	    echo "fail";
-    }
+    	if($u->delete())
+    	    echo "success";
+    	else
+    	    echo "fail";
+        }
 }

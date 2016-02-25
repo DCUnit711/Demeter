@@ -18,8 +18,12 @@ class vmController extends Controller
      */
     public function index()
     {
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
         $vms = vm::with('instances')->get();
-	return response()->json($vms);
+	   return response()->json($vms);
     }
 
     /**
@@ -29,7 +33,10 @@ class vmController extends Controller
      */
     public function create()
     {
-        
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
     }
 
     /**
@@ -40,15 +47,19 @@ class vmController extends Controller
      */
     public function store(Request $request)
     {
-	//creates a new VM in middleware database. Expects ipaddress and type
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
+	   //creates a new VM in middleware database. Expects ipaddress and type
         $v = new vm();
-	$v->id = \Uuid::generate(4);
-	$v->ipAddr = $request->input('ipAddr');
-	$v->type = $request->input('type');
-	if($v->save())
-	    echo "success";
-	else
-	    echo "fail";
+	    $v->id = \Uuid::generate(4);
+	    $v->ipAddr = $request->input('ipAddr');
+	    $v->type = $request->input('type');
+	    if($v->save())
+	       echo "success";
+	    else
+	       echo "fail";
     }
 
     /**
@@ -59,8 +70,12 @@ class vmController extends Controller
      */
     public function show($id)
     {
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
         $v = vm::find($id)->with('instances')->get();
-	return response()->json($v);
+	   return response()->json($v);
     }
 
     /**
@@ -72,6 +87,10 @@ class vmController extends Controller
     public function edit($id)
     {
         //
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
     }
 
     /**
@@ -83,8 +102,12 @@ class vmController extends Controller
      */
     public function update(Request $request, $id)
     {
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
         $v = vm::find($id);
-	$v->ipAddr = $request->input('ipAddr');
+	    $v->ipAddr = $request->input('ipAddr');
         $v->type = $request->input('type');
         if($v->save())
                 echo "success";
@@ -101,10 +124,14 @@ class vmController extends Controller
      */
     public function destroy($id)
     {
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
         $v = vm::find($id);
-	if($v->delete())
-		echo "success";
-	else
-		echo "fail";
+	   if($v->delete())
+		  echo "success";
+	   else
+		  echo "fail";
     }
 }
