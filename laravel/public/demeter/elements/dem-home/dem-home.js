@@ -7,7 +7,7 @@ Polymer({
 		editDatabase:{ notify:true },
 		animationConfig: {
       		value: function() {
-      			var text = Polymer.dom(this.$.homeCardLeft).querySelectorAll('card-left');
+      			var text = this.$.homeCardLeft;
           		var textArray = Array.prototype.slice.call(text);
           		console.log(text);
           		console.log(textArray);
