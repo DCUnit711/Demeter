@@ -42,10 +42,10 @@ Polymer({
 		this.databaseList = [];
 		this.$.ajaxGetAllDB.generateRequest();
 		this.selectedDatabase = "";
-		var text = this.$.homeCardLeft;
-  		var textArray = Array.prototype.slice.call(text);
-  		console.log(text);
-  		console.log(textArray);
+		// var text = this.$.homeCardLeft;
+  // 		var textArray = Array.prototype.slice.call(text);
+  // 		console.log(text);
+  // 		console.log(textArray);
 	},
 	returnCurrentDate:function(){
 		var today = new Date();
