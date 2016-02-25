@@ -17,11 +17,6 @@ Polymer({
 	                	name:'hero-animation',
           				id:'hero',
           				toPage:this
-	                },
-	                {
-						name: 'cascaded-animation',
-						animation: 'scale-up-animation',
-						nodes: textArray
 		            }],
           			'exit':[
           			{
