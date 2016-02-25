@@ -12,7 +12,7 @@ Polymer({
 		this.hideToolbar = true;
 		var polymer = this;
 		document.addEventListener('goToPage',function(data){
-			console.log('called gotopage = '+data);
+			console.log('called gotopage = '+data.detail);
 			switch(data) {
 				case 0:
 					polymer.hideToolbar = true;
