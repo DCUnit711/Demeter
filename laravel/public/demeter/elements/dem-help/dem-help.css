@@ -8,6 +8,9 @@
 	width:70%;
 	background: #ecf2f9;
 	border:2px solid grey;
+	border-radius: 15px;
+	line-height: 80px;
+	font-size: 16pt;
 }
 .help-button:hover {
 	width:75%;
