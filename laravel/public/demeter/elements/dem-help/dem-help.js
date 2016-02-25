@@ -8,11 +8,6 @@ Polymer({
 		        	'entry':[{
 		        		name:'scale-up-animation',
 		        		node:this
-		        	},
-		        	{
-		        		name:'hero-animation',
-		        		id:'hero'
-		        		toPage:this
 		        	}],
 		        	'exit':[{
 		        		name:'fade-out-animation',
