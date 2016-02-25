@@ -11,6 +11,7 @@
 	border-radius: 15px;
 	line-height: 80px;
 	font-size: 16pt;
+	text-align: center;
 }
 .help-button:hover {
 	width:75%;
