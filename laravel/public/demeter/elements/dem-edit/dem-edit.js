@@ -8,7 +8,7 @@ Polymer({
 		        return {
 		        	'entry':[{
 		        		name:'hero-animation',
-		        		id:'editBox',
+		        		id:'hero',
 		        		toPage:this
 		        	},
 		        	{
@@ -25,7 +25,7 @@ Polymer({
 	    sharedElements: {
             value: function() {
                 return {
-                    'editBox': this.$.editCard
+                    'hero': this.$.editCard
                 }
             }
         }
