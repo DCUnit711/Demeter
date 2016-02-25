@@ -9,6 +9,7 @@ Polymer({
       		value: function() {
       			var text = Polymer.dom(this.root).querySelectorAll('span');
           		var textArray = Array.prototype.slice.call(text);
+          		console.log(textArray);
         		return {
         			'entry':[
 	                {
