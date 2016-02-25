@@ -56,6 +56,7 @@ Polymer({
 	},
 	goToEditDatabase:function(e){
 		var target = e.target;
+		console.log(target);
     	this.sharedElements = {
 	      'hero': target
 	    };
