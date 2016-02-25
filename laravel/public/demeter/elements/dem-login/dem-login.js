@@ -2,7 +2,6 @@ Polymer({
 	is:"dem-login",
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
 	properties:{
-		hideToolbar:{ notify:true },
 		animationConfig: {
       		value: function() {
         		return {
@@ -45,7 +44,6 @@ Polymer({
 		}
 	},
 	login:function(){
-		this.hideToolbar = false;
 		var url = window.location.origin+"/demeter/CASLogic.php";
 		console.log(url);
 		window.location.href = url;
