@@ -46,10 +46,8 @@ Polymer({
 		this.fire('goToPage', 0);
 	},	
 	casLogout:function(){
-		this.$.ajaxCasLogout.params = {'logout':'logout'};
-		this.$.ajaxCasLogout.generateRequest();
-		this.fire('goToPage',0);
-	},
+		var url = window.location.origin+"/demeter/CASLogic.php?logout";
+		window.location.href = url;	},
 	goToHome:function(){
 		this.fire('goToPage',1);
 	},

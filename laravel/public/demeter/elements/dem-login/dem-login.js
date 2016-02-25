@@ -45,7 +45,6 @@ Polymer({
 	},
 	login:function(){
 		var url = window.location.origin+"/demeter/CASLogic.php";
-		console.log(url);
 		window.location.href = url;
 	},
 	ajaxCASVerifyResponse:function(){
