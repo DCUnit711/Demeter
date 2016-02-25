@@ -7,6 +7,8 @@ Polymer({
 		editDatabase:{ notify:true },
 		animationConfig: {
       		value: function() {
+      			var text = Polymer.dom(this.root).querySelectorAll('span');
+          		var textArray = Array.prototype.slice.call(text);
         		return {
         			'entry':[
 	                {
@@ -17,7 +19,12 @@ Polymer({
 	                	name:'hero-animation',
           				id:'hero',
           				toPage:this
-	                }],
+	                },
+	                {
+						name: 'cascaded-animation',
+						animation: 'scale-up-animation',
+						nodes: textArray
+		            }],
           			'exit':[
           			{
           				name:'hero-animation',
