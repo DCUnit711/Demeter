@@ -7,7 +7,7 @@ Polymer({
 		editDatabase:{ notify:true },
 		animationConfig: {
       		value: function() {
-      			var text = Polymer.dom(this.root).querySelectorAll('span');
+      			var text = document.querySelector('homeText');
           		var textArray = Array.prototype.slice.call(text);
           		console.log(textArray);
         		return {
