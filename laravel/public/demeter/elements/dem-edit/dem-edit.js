@@ -18,6 +18,11 @@ Polymer({
 		        	'exit':[{
 		        		name:'fade-out-animation',
 		        		node:this
+		        	},
+		        	{
+		        		name:'hero-animation'
+		        		id:'hero',
+		        		fromPage:this
 		        	}]
 		        }
 	      	}
