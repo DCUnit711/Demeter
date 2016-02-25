@@ -18,8 +18,12 @@ class instanceUserController extends Controller
      */
     public function index()
     {
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
         $i = instanceUser::with('instance')->get();
-	return response()->json($i);
+	   return response()->json($i);
     }
 
     /**
@@ -30,6 +34,10 @@ class instanceUserController extends Controller
     public function create()
     {
         //
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
     }
 
     /**
@@ -40,12 +48,16 @@ class instanceUserController extends Controller
      */
     public function store(Request $request)
     {
-	//create a new instance user, expects name and instanceId
-	$i = new instanceUser();
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
+	   //create a new instance user, expects name and instanceId
+	    $i = new instanceUser();
         $i->id = \Uuid::generate(4);
         $i->name = $request->input('name');
         $i->instanceId = $request->input('instanceId');
-	if($i->save())
+	    if($i->save())
                 echo "success";
         else
                 echo "fail";
@@ -61,6 +73,10 @@ class instanceUserController extends Controller
      */
     public function show($id)
     {
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
         $i = instanceUser::find($id)->with('instance')->get();
         return response()->json($i);
     }
@@ -74,6 +90,10 @@ class instanceUserController extends Controller
     public function edit($id)
     {
         //
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
     }
 
     /**
@@ -85,6 +105,10 @@ class instanceUserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
         $i = instanceUser::find($id);
         $i->name = $request->input('name');
         $i->instanceId = $request->input('instanceId');
@@ -103,7 +127,11 @@ class instanceUserController extends Controller
      */
     public function destroy($id)
     {
-         $i = instanceUser::find($id);
+        session_start();
+        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+            die('fail');
+        }
+        $i = instanceUser::find($id);
         if($i->delete())
                 echo "success";
         else
