@@ -5,12 +5,20 @@ Polymer({
 		animationConfig: {
 	      	value: function() {
 		        return {
-		        	name: 'scale-down-animation',
-		        	node: this
+		        	'entry':[{
+		        		name:'scale-up-animation',
+		        		id:this.$.editCard,
+		        		toPage:this
+		        	}],
+		        	'exit':[{
+		        		name:'fade-out-animation',
+		        		node:this
+		        	}]
 		        }
 	      	}
 	    }
 	},
 	ready:function(){
+		
 	}
 });

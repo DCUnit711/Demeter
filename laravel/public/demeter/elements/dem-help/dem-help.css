@@ -3,3 +3,14 @@
 	height:100%;
 	margin-top:20px;
 }
+.help-button {
+	min-height:80px;
+	width:70%;
+	background: #ecf2f9;
+	border:2px solid grey;
+}
+.help-button:hover {
+	width:75%;
+	background: #d8e4f3;
+	transition: width 1s;
+}
