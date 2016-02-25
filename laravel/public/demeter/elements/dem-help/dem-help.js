@@ -19,6 +19,9 @@ Polymer({
 	    }
 	},
 	ready:function(){
-		
+
+	},
+	openMySQL:function(){
+		this.$.collapse.toggle();
 	}
 });
