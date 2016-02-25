@@ -26,11 +26,16 @@ Polymer({
 	                {
 	                	name:'fade-in-animation',
 	                	node:this
+	                },
+	                {
+	                	name:'hero-animation',
+          				id:'hero',
+          				toPage:this
 	                }],
           			'exit':[
           			{
           				name:'hero-animation',
-          				id:this.selectedDatabase,
+          				id:'hero',
           				fromPage:this
           			},
           			{
@@ -72,6 +77,10 @@ Polymer({
 		this.hideRightClickMenu = true;
 	},
 	goToEditDatabase:function(e){
+		var target = e.target;
+    	this.sharedElements = {
+	      'hero': target
+	    };
 		this.editDatabase = e.model.__data__.database;
 		this.selectedDatabase = document.getElementById(e.model.__data__.database.HTMLID);
 		this.fire("goToPage",4);

@@ -8,7 +8,7 @@ Polymer({
 		        return {
 		        	'entry':[{
 		        		name:'hero-animation',
-		        		id:this.$.editCard,
+		        		id:'editBox',
 		        		toPage:this
 		        	},
 		        	{
@@ -21,6 +21,13 @@ Polymer({
 		        	}]
 		        }
 	      	}
-	    }
+	    },
+	    sharedElements: {
+            value: function() {
+                return {
+                    'editBox': this.$.editCard
+                }
+            }
+        }
 	}
 });

@@ -7,7 +7,11 @@ Polymer({
 		        return {
 		        	'entry':[{
 		        		name:'scale-up-animation',
-		        		id:this.$.editCard,
+		        		node:this
+		        	},
+		        	{
+		        		name:'hero-animation',
+		        		id:'hero'
 		        		toPage:this
 		        	}],
 		        	'exit':[{
