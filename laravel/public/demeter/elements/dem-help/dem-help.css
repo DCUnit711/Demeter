@@ -12,9 +12,11 @@
 	line-height: 80px;
 	font-size: 16pt;
 	text-align: center;
+	transition: width 1s;
 }
 .help-button:hover {
 	width:75%;
 	background: #d8e4f3;
 	transition: width 1s;
+	cursor: pointer;
 }
