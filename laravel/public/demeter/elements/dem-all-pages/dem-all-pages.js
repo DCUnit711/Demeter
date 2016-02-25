@@ -46,6 +46,10 @@ Polymer({
 			document.getElementById('ajaxLoginUser').generateRequest();
 		});
 	},	
+	casLogout:function(){
+		this.$.ajaxCasLogout.params = "logout";
+		this.fire('goToPage',0);
+	},
 	goToHome:function(){
 		this.fire('goToPage',1);
 	},
