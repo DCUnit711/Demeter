@@ -46,7 +46,7 @@ Polymer({
 		this.fire('goToPage', 0);
 	},	
 	casLogout:function(){
-		this.$.ajaxCasLogout.params = "logout";
+		this.$.ajaxCasLogout.params = {'logout':'logout'};
 		this.$.ajaxCasLogout.generateRequest();
 		this.fire('goToPage',0);
 	},
