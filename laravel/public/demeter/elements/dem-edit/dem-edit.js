@@ -20,7 +20,7 @@ Polymer({
 		        		node:this
 		        	},
 		        	{
-		        		name:'hero-animation'
+		        		name:'hero-animation',
 		        		id:'hero',
 		        		fromPage:this
 		        	}]
