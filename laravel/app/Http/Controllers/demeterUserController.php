@@ -52,8 +52,8 @@ class demeterUserController extends Controller
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             die('fail');
         }
-	$put = file_get_contents('php://input');
-        $data = json_decode($put, true);
+	$post = file_get_contents('php://input');
+        $data = json_decode($post, true);
         if($data['netId'] != null && $data['email'] != null && $data['roll'] != null)
 	{
 	   //Creates a new demeterUser. Expects netId, email, and role ('admin' or 'client')
@@ -112,14 +112,21 @@ class demeterUserController extends Controller
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             die('fail');
         }
-        $u = demeterUser::find($id);
-    	$u->netId = $request->input('netId');
-    	$u->email = $request->input('email');
-    	$u->role = $request->input('role');
-    	if($u->save())
-    	    echo "success";
-    	else
-    	    echo "fail";
+	$put = file_get_contents('php://input');
+        $data = json_decode($put, true);
+        if($data['netId'] != null && $data['email'] != null && $data['role'] != null)
+	{
+        	$u = demeterUser::find($id);
+	    	$u->netId = $data['netId'];
+    		$u->email = $data['email'];
+	    	$u->role = $data['role'];
+    		if($u->save())
+	    	    echo "success";
+    		else
+	    	    echo "fail";
+	}
+	else
+		echo "fail";
         }
 
     /**
