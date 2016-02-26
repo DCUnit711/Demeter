@@ -26,6 +26,7 @@ Polymer({
 		this.size = 0;
 	},
 	selectSize:function(e){
+		console.log(e);
 		this.$.sizeDropdown.label = e.target._lightChildren[0].data;
 		switch(e.target._lightChildren[0].data) {
 			case "2 GB":
@@ -42,6 +43,7 @@ Polymer({
 		}
 	},
 	selectType:function(e){
+		console.log(e);
 		this.$.typeDropdown.label = e.target._lightChildren[0].data;
 		this.dbType = e.target._lightChildren[0].data;
 	},
@@ -74,6 +76,13 @@ Polymer({
 								   'maxSize':parseFloat(this.size),
 								   'type':this.dbType});
 
+		//to delete us the following
+		/*
+			no information is needed to be sent
+			ID = this.database.ID
+			url  = '/instances/'+(ID OF VM)
+			xhttp.open("DEL", url, true)
+		*/
 		var url = "/instances";
 		xhttp.open("POST", url, true);
 		console.log(body);
