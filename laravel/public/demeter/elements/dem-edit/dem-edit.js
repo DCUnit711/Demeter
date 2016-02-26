@@ -70,6 +70,7 @@ Polymer({
 
 		var url = "/instances/"+this.database.ID;
 		xhttp.open("PUT", url, true);
+		console.log(body);
 		xhttp.send(body);
 
 		// this.$.ajaxSendChanges.body = body;
