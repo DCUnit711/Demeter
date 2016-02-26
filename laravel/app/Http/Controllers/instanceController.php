@@ -67,7 +67,7 @@ class instanceController extends Controller
 	        $i->maxSize = $data['maxSize'];
     		$i->description = $data['description'];
 	    	//determine the VM for this instance
-    		$vms = vm::where("type", "LIKE", "%"+ $i->type +"%")->get();
+    		$vms = vm::where("type", "LIKE", "%".$i->type."%")->get();
 	    	foreach ($vms as $vm)
     		{
     			if ($i->maxSize == $i->maxSize) //check if vm has space
