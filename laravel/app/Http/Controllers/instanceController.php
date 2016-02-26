@@ -126,9 +126,9 @@ class instanceController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            die('fail - not authenticated');
         }
-	if(isset($_POST) && isset($_POST['name']) && isset($_POST['ownerId']) && isset($_POST['organization']) && isset($_POST['maxId']) && isset($_POST['description']))
+	if($request->has('name') && $request->has('ownerId') && $request->has('organization') && $request->has('maxSize') && $request->has('description'))
 	{
 	        $i = instance::find($id);
 		    $i->name = $request->input('name');
@@ -141,10 +141,10 @@ class instanceController extends Controller
         	if($i->save())
 	            echo "success";
         	else
-	            echo "fail";
+	            echo "fail - couldn't save";
 	}
 	else
-		echo "fail";
+		echo "fail - variable not set name:".$request->input("name");
     }
 
     /**
