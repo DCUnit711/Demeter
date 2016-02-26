@@ -51,8 +51,8 @@ class vmController extends Controller
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             die('fail');
         }
-	$put = file_get_contents('php://input');
-        $data = json_decode($put, true);
+	$post = file_get_contents('php://input');
+        $data = json_decode($post, true);
         if($data['ipAddr'] != null && $data['type'] != null)
 	{
 	   //creates a new VM in middleware database. Expects ipaddress and type
@@ -113,15 +113,21 @@ class vmController extends Controller
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             die('fail');
         }
-        $v = vm::find($id);
-	    $v->ipAddr = $request->input('ipAddr');
-        $v->type = $request->input('type');
-        if($v->save())
-                echo "success";
-        else
-                echo "fail";
-	
-	    }
+	$put = file_get_contents('php://input');
+        $data = json_decode($put, true);
+        if($data['name'] != null && $data['ipAddr'] != null && $data['type'] != null)
+	{
+	        $v = vm::find($id);
+		$v->ipAddr = $data['ipAddr'];
+	        $v->type = $data['type'];
+        	if($v->save())
+	                echo "success";
+        	else
+    	            echo "fail";
+	}
+	else
+		echo "fail";
+    }
 
     /**
      * Remove the specified resource from storage.

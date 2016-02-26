@@ -25,7 +25,7 @@ class instanceController extends Controller
         }  
         $instances = instance::with('vm', 'owner', 'users', 'instanceUsers')->get();
 	foreach ($instances as $i)
-		$i->currentSize = "50";
+		$i->currentSize = 50;
 	    return response()->json($instances);
     }
 
@@ -106,6 +106,7 @@ class instanceController extends Controller
             die('fail');
         }
         $i = instance::find($id)->with('vm', 'owner', 'users', 'instanceUsers')->get();
+	$i->currentSize = 50;
         return response()->json($i);
     }
 
