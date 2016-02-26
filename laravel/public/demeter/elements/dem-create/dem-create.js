@@ -18,6 +18,13 @@ Polymer({
 	      	}
 	    }
 	},
+	ready:function(){
+		this.inputOwner = "";
+		this.inputName = "";
+		this.inputDesc = "";
+		this.inputOrg = "";
+		this.size = 0;
+	},
 	selectSize:function(e){
 		this.$.sizeDropdown.label = e.target._lightChildren[0].data;
 		switch(e.target._lightChildren[0].data) {
