@@ -62,11 +62,11 @@ Polymer({
 		       console.log(xhttp.responseText);
 		    }
 		};
-		var body = {'name':this.inputName,
+		var body = JSON.stringify({'name':this.inputName,
 					'description':this.inputDesc,
 					'organization':this.inputOrg,
 					'maxSize':this.inputSize,
-					'ownerId':this.inputOwner};
+					'ownerId':this.inputOwner});
 
 		var url = "/instances/"+this.database.ID;
 		xhttp.open("PUT", url, true);
