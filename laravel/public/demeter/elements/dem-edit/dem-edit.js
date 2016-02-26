@@ -75,7 +75,8 @@ Polymer({
 										'organization':this.inputOrg,
 										'maxSize':this.inputSize,
 										'ownerId':this.inputOwner});
-		xhttp.open("PUT", "/instances"+this.database.ID, true);
+		var url = "/instances/"+this.database.ID;
+		xhttp.open("PUT", url, true);
 		xhttp.send(body);
 	}
 });
