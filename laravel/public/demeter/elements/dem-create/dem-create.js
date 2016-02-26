@@ -74,8 +74,8 @@ Polymer({
 								   'maxSize':parseFloat(this.size),
 								   'type':this.dbType});
 
-		var url = "/instances/"+this.database.ID;
-		xhttp.open("PUT", url, true);
+		var url = "/instances";
+		xhttp.open("POST", url, true);
 		console.log(body);
 		xhttp.send(body);
 	}
