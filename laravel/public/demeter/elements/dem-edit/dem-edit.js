@@ -54,11 +54,12 @@ Polymer({
 		if(this.inputOwner == "" || this.inputOwner == null) {
 			this.inputOwner == this.database.OWNERID;
 		}
-		this.$.ajaxSendChanges.body = JSON.stringify({'name':this.inputName,
+		this.$.ajaxSendChanges.body = {'name':this.inputName,
 										'description':this.inputDesc,
 										'organization':this.inputOrg,
 										'maxSize':this.inputSize,
-										'ownerId':this.inputOwner});
+										'ownerId':this.inputOwner,
+										'_method':'PUT'};
 
 		this.$.ajaxSendChanges.generateRequest();
 	}
