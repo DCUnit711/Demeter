@@ -52,37 +52,43 @@ class instanceController extends Controller
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             die('fail');
         }
+	$post = file_get_contents('php://input');
+        $data = json_decode($post, true);
+        if($data['name'] != null && $data['ownerId'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null && $data['type'] != null)
+        {
+
 	   //create a new instance (db). expects name, type, ownerId, organization, maxSize, and description  
-        $i = new instance();
-    	$i->id = \Uuid::generate(4);
-    	$i->name = $request->input('name');
-    	$i->type =  $request->input('type');
-    	$i->ownerId =  $request->input('ownerId');
-    	$i->organization =  $request->input('organization');
-        $i->maxSize = $request->input('maxSize');
-    	$i->description = $request->input('description');
-    	//determine the VM for this instance
-    	$vms = vm::where("type", "LIKE", "%"+ $i->type +"%")->get();
-    	foreach ($vms as $vm)
-    	{
-    		if ($i->maxSize == $i->maxSize) //check if vm has space
+	        $i = new instance();
+    		$i->id = \Uuid::generate(4);
+	    	$i->name = $data['name'];
+    		$i->type =  $data['type'];
+	    	$i->ownerId =  $data['ownerId'];
+    		$i->organization =  $data['organization'];
+	        $i->maxSize = $data['maxSize'];
+    		$i->description = $data['description'];
+	    	//determine the VM for this instance
+    		$vms = vm::where("type", "LIKE", "%"+ $i->type +"%")->get();
+	    	foreach ($vms as $vm)
     		{
-     		        $i->vmId =  $vm->id;
-    			break;
+    			if ($i->maxSize == $i->maxSize) //check if vm has space
+	    		{
+     			        $i->vmId =  $vm->id;
+    				break;
+	    		}
     		}
-    	}
-    	if (!isset($i->vmId))
-    	{
-    		echo "No VM available";
-    	}
-    	else
-    	{
-    		$i->inUse = true;
-    		if($i->save())
-                    echo "success";
-    	        else
-                    echo "fail";
-    	}
+	    	if (!isset($i->vmId))
+    		{
+	    		echo "No VM available";
+    		}
+	    	else
+    		{
+	    		$i->inUse = true;
+    			if($i->save())
+                	    echo "success";
+	    	        else
+        	            echo "fail";
+	    	}
+	}
     }
 
     /**
@@ -126,28 +132,27 @@ class instanceController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail - not authenticated');
+            die('fail');
         }
-        echo 'here';
-        echo $request['name'];
-        echo "------------------DONE----------------";
-	if($request->has('name') && $request->has('ownerId') && $request->has('organization') && $request->has('maxSize') && $request->has('description'))
+	$put = file_get_contents('php://input');
+	$data = json_decode($put, true);
+	if($data['name'] != null && $data['ownerId'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null)
 	{
 	        $i = instance::find($id);
-		    $i->name = $request->input('name');
-	        $i->ownerId =  $request->input('ownerId');
-        	$i->organization =  $request->input('organization');
-	        $d->maxSize = $request->input('maxSize');
-        	$d->description = $request->input('description');
+		    $i->name = $data['name'];
+	        $i->ownerId =  $data['ownerId'];
+        	$i->organization =  $data['organization'];
+	        $i->maxSize = $data['maxSize'];
+        	$i->description = $data['description'];
 	        $i->inUse = true;
 
         	if($i->save())
 	            echo "success";
         	else
-	            echo "fail - couldn't save";
+	            echo "fail";
 	}
 	else
-		echo "fail - variable not set name:".$request->input("name")."\n".var_dump(\Input::all());
+		echo "fail";
     }
 
     /**
