@@ -129,7 +129,7 @@ class instanceController extends Controller
             die('fail - not authenticated');
         }
         echo 'here';
-        echo json_decode($request);
+        echo $request['name'];
         echo "------------------DONE----------------";
 	if($request->has('name') && $request->has('ownerId') && $request->has('organization') && $request->has('maxSize') && $request->has('description'))
 	{
