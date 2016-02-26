@@ -63,13 +63,14 @@ Polymer({
 		    }
 		};
 		var body = JSON.stringify({'name':this.inputName,
-									'ownerId':this.inputOwner,
+								   'ownerId':this.inputOwner,
 								   'description':this.inputDesc,
 								   'organization':this.inputOrg,
 								   'maxSize':this.inputSize});
 
 		var url = "/instances/"+this.database.ID;
 		xhttp.open("PUT", url, true);
+		console.log(body);
 		xhttp.send(body);
 
 		// this.$.ajaxSendChanges.body = body;
