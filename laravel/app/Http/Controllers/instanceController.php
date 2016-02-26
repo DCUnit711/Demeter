@@ -128,21 +128,23 @@ class instanceController extends Controller
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             die('fail');
         }
-        $i = instance::find($id);
-	    $i->name = $request->input('name');
-        $i->type =  $request->input('type');
-        $i->ownerId =  $request->input('ownerId');
-        $i->organization =  $request->input('organization');
-        $d->maxSize = $request->input('maxSize');
-        $d->description = $request->input('description');
-        $i->vmId =  $request->input('vmId');
-        $i->inUse = true;
+	if(isset($_POST) && isset($_POST['name']) && isset($_POST['ownerId']) && isset($_POST['organization']) && isset($_POST['maxId']) && isset($_POST['description']))
+	{
+	        $i = instance::find($id);
+		    $i->name = $request->input('name');
+	        $i->ownerId =  $request->input('ownerId');
+        	$i->organization =  $request->input('organization');
+	        $d->maxSize = $request->input('maxSize');
+        	$d->description = $request->input('description');
+	        $i->inUse = true;
 
-        if($i->save())
-            echo "success";
-        else
-            echo "fail";
-
+        	if($i->save())
+	            echo "success";
+        	else
+	            echo "fail";
+	}
+	else
+		echo "fail";
     }
 
     /**
