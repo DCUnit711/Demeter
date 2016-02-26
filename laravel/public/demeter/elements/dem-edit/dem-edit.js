@@ -66,7 +66,7 @@ Polymer({
 								   'ownerId':this.database.OWNERID,
 								   'description':this.inputDesc,
 								   'organization':this.inputOrg,
-								   'maxSize':this.inputSize});
+								   'maxSize':parseFloat(this.inputSize)});
 
 		var url = "/instances/"+this.database.ID;
 		xhttp.open("PUT", url, true);
