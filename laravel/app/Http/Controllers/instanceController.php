@@ -146,7 +146,7 @@ class instanceController extends Controller
 	            echo "fail - couldn't save";
 	}
 	else
-		echo "fail - variable not set name:".$request->input("name")."\n".\Input::all();
+		echo "fail - variable not set name:".$request->input("name")."\n".var_dump(\Input::all());
     }
 
     /**
