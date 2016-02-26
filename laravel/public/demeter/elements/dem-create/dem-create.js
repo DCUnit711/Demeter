@@ -19,6 +19,7 @@ Polymer({
 	    }
 	},
 	selectSize:function(e){
+		console.log('selecting size');
 		this.$.sizeDropdown.label = e.target._lightChildren[0].data;
 		console.log(e.target._lightChildren[0].data);
 	},
@@ -33,7 +34,7 @@ Polymer({
 
 		}
 		if(this.inputDesc == null || this.inputDesc == "") {
-			
+
 		}
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
