@@ -133,11 +133,11 @@ class instanceController extends Controller
 	if($data['name'] != null && $data['ownerId'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null)
 	{
 	        $i = instance::find($id);
-		    $i->name = $request->input('name');
-	        $i->ownerId =  $request->input('ownerId');
-        	$i->organization =  $request->input('organization');
-	        $d->maxSize = $request->input('maxSize');
-        	$d->description = $request->input('description');
+		    $i->name = $data['name'];
+	        $i->ownerId =  $data['ownerId'];
+        	$i->organization =  $data['organization'];
+	        $d->maxSize = $data['maxSize'];
+        	$d->description = $data['description'];
 	        $i->inUse = true;
 
         	if($i->save())
