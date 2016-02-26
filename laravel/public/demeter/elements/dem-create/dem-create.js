@@ -18,6 +18,13 @@ Polymer({
 	      	}
 	    }
 	},
+	ready:function(){
+		this.inputOwner = "";
+		this.inputName = "";
+		this.inputDesc = "";
+		this.inputOrg = "";
+		this.size = 0;
+	},
 	selectSize:function(e){
 		this.$.sizeDropdown.label = e.target._lightChildren[0].data;
 		switch(e.target._lightChildren[0].data) {
@@ -36,6 +43,7 @@ Polymer({
 	},
 	selectType:function(e){
 		this.$.typeDropdown.label = e.target._lightChildren[0].data;
+		this.dbType = e.target._lightChildren[0].data;
 	},
 	createDB:function(){
 		if(this.inputOwner == null || this.inputOwner == "") {
@@ -60,13 +68,14 @@ Polymer({
 		    }
 		};
 		var body = JSON.stringify({'name':this.inputName,
-								   'ownerId':this.inputOwner,
+								   'ownerId':'cff386fa-3be5-43c6-87de-0fba480409b3',
 								   'description':this.inputDesc,
 								   'organization':this.inputOrg,
-								   'maxSize':parseFloat(this.size)});
+								   'maxSize':parseFloat(this.size),
+								   'type':this.dbType});
 
-		var url = "/instances/"+this.database.ID;
-		xhttp.open("PUT", url, true);
+		var url = "/instances";
+		xhttp.open("POST", url, true);
 		console.log(body);
 		xhttp.send(body);
 	}
