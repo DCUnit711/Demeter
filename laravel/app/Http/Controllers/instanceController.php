@@ -24,6 +24,8 @@ class instanceController extends Controller
             die("fail");
         }  
         $instances = instance::with('vm', 'owner', 'users', 'instanceUsers')->get();
+	foreach ($instances as $i)
+		$i->currentSize = "50";
 	    return response()->json($instances);
     }
 
@@ -67,7 +69,7 @@ class instanceController extends Controller
 	        $i->maxSize = $data['maxSize'];
     		$i->description = $data['description'];
 	    	//determine the VM for this instance
-    		$vms = vm::where("type", "LIKE", "%"+ $i->type +"%")->get();
+    		$vms = vm::where("type", "LIKE", "%".$i->type."%")->get();
 	    	foreach ($vms as $vm)
     		{
     			if ($i->maxSize == $i->maxSize) //check if vm has space
@@ -89,8 +91,6 @@ class instanceController extends Controller
         	            echo "fail";
 	    	}
 	}
-	else
-		echo "fail";
     }
 
     /**
