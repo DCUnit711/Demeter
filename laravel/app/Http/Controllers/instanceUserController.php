@@ -52,17 +52,22 @@ class instanceUserController extends Controller
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             die('fail');
         }
-	   //create a new instance user, expects name and instanceId
-	    $i = new instanceUser();
-        $i->id = \Uuid::generate(4);
-        $i->name = $request->input('name');
-        $i->instanceId = $request->input('instanceId');
-	    if($i->save())
-                echo "success";
-        else
-                echo "fail";
-
-
+	$put = file_get_contents('php://input');
+        $data = json_decode($put, true);
+        if($data['name'] != null && $data['instanceId'] != null)
+	{
+		   //create a new instance user, expects name and instanceId
+		$i = new instanceUser();
+	        $i->id = \Uuid::generate(4);
+        	$i->name = $data['name'];
+	        $i->instanceId = $data['instanceId'];
+		if($i->save())
+                	echo "success";
+	        else
+        	        echo "fail";
+	}
+	else
+		echo "fail";
     }
 
     /**
