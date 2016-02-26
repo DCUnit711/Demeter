@@ -1,6 +1,13 @@
 <dom-module id="dem-edit">
 	<template>
 	<link rel="stylesheet" href="dem-edit.css"/>
+	<iron-ajax
+		id="ajaxSendChanges"
+		url="/instances/"
+		method="POST"
+		on-response="{{creationResponse}}">
+	</iron-ajax>
+
 	<div class="edit-container">
 		<center>
 			<paper-material id="editCard" elevation="1" class="edit-card">
@@ -15,13 +22,13 @@
 						<span class="edit-desc">Owner: </span><br/>
 					</div>
 					<div class="edit-card-right">
-						<input class="edit-input" placeholder="{{database.NAME}}"></input>
-						<input class="edit-input" placeholder="{{database.ORGANIZATION}}"></input>
-						<input class="edit-input" placeholder="{{database.DESCRIPTION}}"></input>
-						<input class="edit-input" placeholder="{{database.SIZE}}"></input>
-						<input class="edit-input" placeholder="{{database.OWNERID}}"></input>
+						<input class="edit-input" placeholder="{{database.NAME}}" value="{{inputName::input}}"></input>
+						<input class="edit-input" placeholder="{{database.ORGANIZATION}}" value="{{inputOrg::input}}"></input>
+						<input class="edit-input" placeholder="{{database.DESCRIPTION}}" value="{{inputDesc::input}}"></input>
+						<input class="edit-input" placeholder="{{database.SIZE}}" value="{{inputSize::input}}"></input>
+						<input class="edit-input" placeholder="{{database.OWNERID}}" value="{{inputOwner::input}}"></input>
 					</div><br/>
-					<paper-button raised class="edit-button">Confirm Changes</paper-button>
+					<paper-button raised on-click="requestChanges" class="edit-button">Confirm Changes</paper-button>
 				</center>
 			</paper-material>
 		</center>

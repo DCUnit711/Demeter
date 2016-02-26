@@ -15,7 +15,7 @@
 		<h2 id="databasePageTitle">Database List:</h2>
 			<center id="databaseCard">
 			<template id="listDatabase" is="dom-repeat" items="{{databaseList}}" as="database">
-				<paper-material id="{{database.HTMLID}}" elevation="1" class="home-database-card" on-contextmenu="showRightClickMenu" oncontextmenu="return false" on-click="goToEditDatabase">
+				<paper-material id="{{database.ID}}" elevation="1" class="home-database-card" on-contextmenu="showRightClickMenu" oncontextmenu="return false" on-click="goToEditDatabase">
 					<h3 style="margin:5px;">[[database.NAME]]</h3>
 					<div>
 						<div class="card-left" id="homeCardLeft">
