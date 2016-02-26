@@ -62,11 +62,11 @@ Polymer({
 		//        console.log(xhttp.responseText);
 		//     }
 		// };
-		// var body = JSON.stringify({'name':this.inputName,
-		// 			'description':this.inputDesc,
-		// 			'organization':this.inputOrg,
-		// 			'maxSize':this.inputSize,
-		// 			'ownerId':this.inputOwner});
+		var body = JSON.stringify({'name':this.inputName,
+					'description':this.inputDesc,
+					'organization':this.inputOrg,
+					'maxSize':this.inputSize,
+					'ownerId':this.inputOwner});
 
 		// var url = "/instances/"+this.database.ID;
 		// xhttp.open("PUT", url, true);
