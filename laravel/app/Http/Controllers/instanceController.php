@@ -128,10 +128,9 @@ class instanceController extends Controller
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             die('fail - not authenticated');
         }
-        echo 'here';
-        echo $request['name'];
-        echo "------------------DONE----------------";
-	if($request->has('name') && $request->has('ownerId') && $request->has('organization') && $request->has('maxSize') && $request->has('description'))
+	$put = file_get_contents('php://input');
+	$data = json_decode($put, true);
+	if($data['name'] != null && $data['ownerId'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null)
 	{
 	        $i = instance::find($id);
 		    $i->name = $request->input('name');
