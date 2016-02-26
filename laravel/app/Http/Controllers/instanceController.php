@@ -128,6 +128,7 @@ class instanceController extends Controller
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             die('fail - not authenticated');
         }
+        echo $request;
 	if($request->has('name') && $request->has('ownerId') && $request->has('organization') && $request->has('maxSize') && $request->has('description'))
 	{
 	        $i = instance::find($id);
