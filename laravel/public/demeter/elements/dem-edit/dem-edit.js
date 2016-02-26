@@ -36,7 +36,7 @@ Polymer({
         }
 	},
 	setDatabaseInstance:function(){
-		this.$.ajaxSendChanges.url = "/instances/"+this.database.ID;
+		this.$.ajaxSendChanges.url = "/instances/"+this.database.ID+"?_method=PUT";
 	},
 	requestChanges:function(){
 		if(this.inputName == "" || this.inputName == null) {
@@ -58,8 +58,7 @@ Polymer({
 										'description':this.inputDesc,
 										'organization':this.inputOrg,
 										'maxSize':this.inputSize,
-										'ownerId':this.inputOwner,
-										'_method':'PUT'};
+										'ownerId':this.inputOwner};
 
 		this.$.ajaxSendChanges.generateRequest();
 	}
