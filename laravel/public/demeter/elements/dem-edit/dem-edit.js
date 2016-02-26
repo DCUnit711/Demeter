@@ -54,11 +54,11 @@ Polymer({
 		if(this.inputOwner == "" || this.inputOwner == null) {
 			this.inputOwner == this.database.OWNERID;
 		}
-		this.$.ajaxSendChanges.body = JSON.stringify({'NAME':this.database.NAME,
-													  'DESCRIPTION':this.database.DESCRIPTION,
-													  'ORGANIZATION':this.database.ORGANIZATION,
-													  'SIZE':this.database.SIZE,
-													  'OWNERID':this.database.OWNERID});
+		this.$.ajaxSendChanges.body = JSON.stringify({'name':this.database.NAME,
+													  'description':this.database.DESCRIPTION,
+													  'organization':this.database.ORGANIZATION,
+													  'maxSize':this.database.SIZE,
+													  'ownerId':this.database.OWNERID});
 		this.$.ajaxSendChanges.generateRequest();
 	}
 });
