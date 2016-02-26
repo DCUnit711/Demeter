@@ -26,6 +26,7 @@ Polymer({
 		this.size = 0;
 	},
 	selectSize:function(e){
+		console.log(this.selectedSize);
 		console.log(e);
 		this.$.sizeDropdown.label = e.target._lightChildren[0].data;
 		switch(e.target._lightChildren[0].data) {
@@ -43,6 +44,7 @@ Polymer({
 		}
 	},
 	selectType:function(e){
+		console.log(this.selectedDB);
 		console.log(e);
 		this.$.typeDropdown.label = e.target._lightChildren[0].data;
 		this.dbType = e.target._lightChildren[0].data;

@@ -10,7 +10,7 @@
 				Name: <input class="create-input" placeholder="My Database" value="{{inputName::input}}"></input>
 				Type: 
 				<paper-dropdown-menu id="typeDropdown" label="Select Type">
-				  	<paper-menu attr-for-selected="value" selected="Oracle" class="dropdown-content">
+				  	<paper-menu attr-for-selected="value" selected="{{selectedDB}}" class="dropdown-content">
 					    <paper-item value="oracle" on-click="selectType">Oracle</paper-item>
 					    <paper-item value="mongo" on-click="selectType">MongoDB</paper-item>
 					    <paper-item value="mysql" on-click="selectType">mysql</paper-item>
@@ -19,7 +19,7 @@
 				Description: <input class="create-input" placeholder="This is my database..." value="{{inputDesc::input}}"></input>
 				Size:
 				<paper-dropdown-menu id="sizeDropdown" label="Select Size">
-				  	<paper-menu attr-for-selected="value" selected="Oracle" class="dropdown-content">
+				  	<paper-menu attr-for-selected="value" selected="{{selectedSize}}" class="dropdown-content">
 					    <paper-item value="2048" on-click="selectSize">2 GB</paper-item>
 					    <paper-item value="4096" on-click="selectSize">4 GB</paper-item>
 					    <paper-item value="8184" on-click="selectSize">8 GB</paper-item>
