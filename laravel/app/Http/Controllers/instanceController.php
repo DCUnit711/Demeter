@@ -89,6 +89,8 @@ class instanceController extends Controller
         	            echo "fail";
 	    	}
 	}
+	else
+		echo "fail";
     }
 
     /**
