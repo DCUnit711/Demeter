@@ -43,8 +43,7 @@ Polymer({
 													  'DESCRIPTION':this.database.DESCRIPTION,
 													  'ORGANIZATION':this.database.ORGANIZATION,
 													  'SIZE':this.database.SIZE,
-													  'OWNERID':this.database.OWNERID
-													  'ID':this.database.ID});
+													  'OWNERID':this.database.OWNERID});
 		this.$.ajaxSendChanges.generateRequest();
 	}
 });
