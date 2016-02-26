@@ -54,13 +54,28 @@ Polymer({
 		if(this.inputOwner == "" || this.inputOwner == null) {
 			this.inputOwner == this.database.OWNERID;
 		}
-		this.$.ajaxSendChanges.body = {'name':this.inputName,
+		// this.$.ajaxSendChanges.body = JSON.stringify({'name':this.inputName,
+		// 								'description':this.inputDesc,
+		// 								'organization':this.inputOrg,
+		// 								'maxSize':this.inputSize,
+		// 								'ownerId':this.inputOwner});
+
+		// this.$.ajaxSendChanges.url = "/instances/"+this.database.ID;
+		// console.log(this.$.ajaxSendChanges);
+		// console.log(this.$.ajaxSendChanges.body);
+		// this.$.ajaxSendChanges.generateRequest();
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		    if (xhttp.readyState == 4 && xhttp.status == 200) {
+		       // Action to be performed when the document is read;
+		    }
+		};
+		var body = JSON.stringify({'name':this.inputName,
 										'description':this.inputDesc,
 										'organization':this.inputOrg,
 										'maxSize':this.inputSize,
-										'ownerId':this.inputOwner};
-		console.log(this.$.ajaxSendChanges);
-		console.log(this.$.ajaxSendChanges.body);
-		this.$.ajaxSendChanges.generateRequest();
+										'ownerId':this.inputOwner});
+		xhttp.open("PUT", "/instances"+this.database.ID, true);
+		xhttp.send(body);
 	}
 });
