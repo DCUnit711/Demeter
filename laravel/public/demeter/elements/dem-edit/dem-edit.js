@@ -59,7 +59,7 @@ Polymer({
 										'organization':this.inputOrg,
 										'maxSize':this.inputSize,
 										'ownerId':this.inputOwner};
-		console.log(this.$.ajaxSendChanges.generateRequest())
+		console.log(this.$.ajaxSendChanges)
 		this.$.ajaxSendChanges.generateRequest();
 	}
 });
