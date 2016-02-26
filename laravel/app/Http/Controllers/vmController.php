@@ -51,15 +51,22 @@ class vmController extends Controller
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             die('fail');
         }
+	$put = file_get_contents('php://input');
+        $data = json_decode($put, true);
+        if($data['ipAddr'] != null && $data['type'] != null)
+	{
 	   //creates a new VM in middleware database. Expects ipaddress and type
-        $v = new vm();
-	    $v->id = \Uuid::generate(4);
-	    $v->ipAddr = $request->input('ipAddr');
-	    $v->type = $request->input('type');
-	    if($v->save())
-	       echo "success";
-	    else
-	       echo "fail";
+	        $v = new vm();
+		$v->id = \Uuid::generate(4);
+		$v->ipAddr = $data['ipAddr'];
+		$v->type = $data['type'];
+		if($v->save())
+			echo "success";
+		else
+			echo "fail";
+	}
+	else
+		echo "fail";
     }
 
     /**
