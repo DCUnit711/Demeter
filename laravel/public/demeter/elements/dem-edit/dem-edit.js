@@ -36,7 +36,7 @@ Polymer({
         }
 	},
 	setDatabaseInstance:function(){
-		this.$.ajaxSendChanges.url = "/instances/"+this.database.ID;
+		//this.$.ajaxSendChanges.url = "/instances/"+this.database.ID;
 	},
 	requestChanges:function(){
 		if(this.inputName == "" || this.inputName == null) {
@@ -63,7 +63,7 @@ Polymer({
 		    }
 		};
 		var body = JSON.stringify({'name':this.inputName,
-								   'ownerId':this.inputOwner,
+								   'o':this.inputOwner,
 								   'description':this.inputDesc,
 								   'organization':this.inputOrg,
 								   'maxSize':this.inputSize});
