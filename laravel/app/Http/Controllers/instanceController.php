@@ -136,8 +136,8 @@ class instanceController extends Controller
 		    $i->name = $data['name'];
 	        $i->ownerId =  $data['ownerId'];
         	$i->organization =  $data['organization'];
-	        $d->maxSize = $data['maxSize'];
-        	$d->description = $data['description'];
+	        $i->maxSize = $data['maxSize'];
+        	$i->description = $data['description'];
 	        $i->inUse = true;
 
         	if($i->save())
