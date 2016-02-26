@@ -5,8 +5,8 @@
 		<center>
 			<paper-material elevation="1" class="create-database-card">
 				<h3>Create A New Database</h3>
-				Owner: <input class="create-input" placeholder="netId"></input><br/>
-				Name: <input class="create-input" placeholder="My Database"></input>
+				Owner: <input class="create-input" placeholder="netId" value="{{inputOwner::input}}"></input><br/>
+				Name: <input class="create-input" placeholder="My Database" value="{{inputName::input}}"></input>
 				Type: 
 				<paper-dropdown-menu id="typeDropdown" label="Select Type">
 				  	<paper-menu attr-for-selected="value" selected="Oracle" class="dropdown-content">
@@ -15,7 +15,7 @@
 					    <paper-item value="MySQL" on-click="selectType">MySQL</paper-item>
 				  	</paper-menu>
 				</paper-dropdown-menu><br/>
-				Description: <input class="create-input" placeholder="This is my database..."></input>
+				Description: <input class="create-input" placeholder="This is my database..." value="{{inputDesc::input}}"></input>
 				Size:
 				<paper-dropdown-menu id="sizeDropdown" label="Select Size">
 				  	<paper-menu attr-for-selected="value" selected="Oracle" class="dropdown-content">
@@ -24,7 +24,7 @@
 					    <paper-item value="MySQL" on-click="selectSize">8 GB</paper-item>
 				  	</paper-menu>
 				</paper-dropdown-menu><br/>
-				<paper-button raised class="create-button">Create</paper-button>
+				<paper-button raised class="create-button" on-click="createDB">Create</paper-button>
 			</paper-material>
 		</center>
 	</div>
