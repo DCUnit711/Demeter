@@ -55,8 +55,8 @@ Polymer({
 			this.inputOwner == this.database.OWNERID;
 		}
 		this.$.ajaxSendChanges.body = {'name':this.inputName,
-													  'description':this.inputDesc ,
-													  'organization':this.inputOrg,
+										'description':this.inputDesc ,
+										'organization':this.inputOrg,
 													  'maxSize':this.inputSize,
 													  'ownerId':this.inputOwner};
 		this.$.ajaxSendChanges.generateRequest();
