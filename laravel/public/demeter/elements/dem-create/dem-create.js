@@ -36,6 +36,7 @@ Polymer({
 	},
 	selectType:function(e){
 		this.$.typeDropdown.label = e.target._lightChildren[0].data;
+		this.dbType = e.target._lightChildren[0].data;
 	},
 	createDB:function(){
 		if(this.inputOwner == null || this.inputOwner == "") {
@@ -63,7 +64,8 @@ Polymer({
 								   'ownerId':this.inputOwner,
 								   'description':this.inputDesc,
 								   'organization':this.inputOrg,
-								   'maxSize':parseFloat(this.size)});
+								   'maxSize':parseFloat(this.size),
+								   'type':this.dbType});
 
 		var url = "/instances/"+this.database.ID;
 		xhttp.open("PUT", url, true);
