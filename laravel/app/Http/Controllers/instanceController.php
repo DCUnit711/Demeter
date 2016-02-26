@@ -130,6 +130,7 @@ class instanceController extends Controller
         }
         echo 'here';
         echo $request;
+        echo "------------------DONE----------------";
 	if($request->has('name') && $request->has('ownerId') && $request->has('organization') && $request->has('maxSize') && $request->has('description'))
 	{
 	        $i = instance::find($id);
