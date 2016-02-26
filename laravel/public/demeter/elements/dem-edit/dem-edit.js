@@ -2,7 +2,7 @@ Polymer({
 	is:"dem-edit",
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
 	properties:{
-		database:{},
+		database:{ observer:"setDatabaseInstance"},
 		animationConfig: {
 	      	value: function() {
 		        return {
@@ -34,5 +34,17 @@ Polymer({
                 }
             }
         }
+	},
+	setDatabaseInstance:function(){
+		this.$.ajaxSendChanges.url = "/instances/"+this.database.ID;
+	},
+	requestChanges:function(){
+		this.$.ajaxSendChanges.body = JSON.stringify({'NAME':this.database.NAME,
+													  'DESCRIPTION':this.database.DESCRIPTION,
+													  'ORGANIZATION':this.database.ORGANIZATION,
+													  'SIZE':this.database.SIZE,
+													  'OWNERID':this.database.OWNERID
+													  'ID':this.database.ID});
+		this.$.ajaxSendChanges.generateRequest();
 	}
 });
