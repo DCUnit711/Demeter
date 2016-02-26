@@ -24,6 +24,8 @@ class instanceController extends Controller
             die("fail");
         }  
         $instances = instance::with('vm', 'owner', 'users', 'instanceUsers')->get();
+	foreach ($instances as $i)
+		$i->currentSize = "50";
 	    return response()->json($instances);
     }
 
@@ -89,8 +91,6 @@ class instanceController extends Controller
         	            echo "fail";
 	    	}
 	}
-	else
-		echo "fail";
     }
 
     /**
