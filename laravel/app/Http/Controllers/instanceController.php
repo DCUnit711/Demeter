@@ -148,6 +148,10 @@ class instanceController extends Controller
 	$data = json_decode($put, true);
 	if($data['name'] != null && $data['ownerId'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null)
 	{
+		//check if instance exists with the same name
+                if(instance::where('name', $data['name'])->exists())
+                        die("fail");
+
 	        $i = instance::find($id);
 		    $i->name = $data['name'];
 	        $i->ownerId =  $data['ownerId'];
