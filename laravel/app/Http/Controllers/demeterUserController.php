@@ -11,6 +11,10 @@ use App\demeterUser;
 
 class demeterUserController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('logger');
+	}
     /**
      * Display a listing of the resource.
      *

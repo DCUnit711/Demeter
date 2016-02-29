@@ -12,6 +12,11 @@ use App\vm;
 
 class instanceController extends Controller
 {
+	public function __construct()
+        {
+                $this->middleware('logger');
+        }
+
     /**
      * Display a listing of the resource.
      *
