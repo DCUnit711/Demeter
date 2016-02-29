@@ -60,7 +60,7 @@ class instanceController extends Controller
         {
 		//check if instance exists with the same name
 		if(instance::where('name', $data['name'])->exists())
-			die("fail-exists");
+			die("fail");
 	   //create a new instance (db). expects name, type, ownerId, organization, maxSize, and description  
 	        $i = new instance();
     		$i->id = \Uuid::generate(4);
