@@ -5,3 +5,22 @@
 	float:left;
 	margin: 10px;
 }
+.info-right-container {
+	margin: 10px;
+	display: inline-block;
+}
+.info-button-container {
+	display:inline-block;
+	margin: 5px;
+}
+paper-button.info-button {
+	font-size: 12pt;
+	width: 200px;
+	color: white;
+	height:40px;
+	background: #ecf2f9;
+}
+paper-button.info-button:hover {
+	background: #d8e4f3;
+	border:1px solid black;
+}
