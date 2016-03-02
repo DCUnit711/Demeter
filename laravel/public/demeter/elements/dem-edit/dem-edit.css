@@ -1,6 +1,7 @@
-.info-progress-bar {
+paper-progress.info-progress-bar {
 	width:80%;
 	height:50px;
+	display:inline-block;
 }
 .edit-left-container {
 	float:left;
