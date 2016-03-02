@@ -65,7 +65,7 @@ Polymer({
 	    };
 		this.editDatabase = e.model.__data__.database;
 		this.selectedDatabase = document.getElementById(e.model.__data__.database.ID);
-		this.fire("goToPage",4);
+		this.fire("goToPage",5);
 	},
 	showRightClickMenu:function(e){
 		var y = parseFloat(e.clientY) - 30;
