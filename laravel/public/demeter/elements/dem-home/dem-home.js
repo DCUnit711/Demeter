@@ -80,6 +80,7 @@ Polymer({
 		var uniqueId;
 		this.databaseList = [];
 		if(this.database != null && this.database.length > 0){
+			console.log('yay!');
 			for(var i=0; i < this.databases.length; i++){
 				uniqueId = "DatabaseListItem"+i;
 				if(this.databases[i].inUse == 1) {
