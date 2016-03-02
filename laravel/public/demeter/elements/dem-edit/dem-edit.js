@@ -39,6 +39,9 @@ Polymer({
 		console.log(this.database);
 		//this.$.ajaxSendChanges.url = "/instances/"+this.database.ID;
 	},
+	goBackToInfoPage:function(){
+		this.fire("goToPage", 5);
+	},
 	requestChanges:function(){
 		if(this.inputName == "" || this.inputName == null) {
 			this.inputName = this.database.NAME;

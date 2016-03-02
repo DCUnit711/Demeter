@@ -25,9 +25,6 @@
 		on-response="{{creationResponse}}">
 	</iron-ajax>
 
-	<div class="edit-left-container">
-		Usage Memory: <paper-progress class="info-progress-bar" value="10"></paper-progress><br/>
-	</div>
 	<div class="edit-container">
 		<center>
 			<paper-material id="editCard" elevation="1" class="edit-card">
@@ -48,6 +45,7 @@
 						<input class="edit-input" placeholder="{{database.SIZE}}" value="{{inputSize::input}}"></input>
 						<input class="edit-input" placeholder="{{database.OWNERID}}" value="{{inputOwner::input}}"></input>
 					</div><br/>
+					<paper-button raised on-click="goBackToInfoPage" class="edit-button">Back</paper-button>
 					<paper-button raised on-click="requestChanges" class="edit-button">Confirm Changes</paper-button>
 				</center>
 			</paper-material>
