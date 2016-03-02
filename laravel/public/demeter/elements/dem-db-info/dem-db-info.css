@@ -27,3 +27,10 @@ paper-button.info-button:hover {
 	background:#354497;
 	border:1px solid black;
 }
+.info-dialog-input {
+	width: 200px;
+	height: 40px;
+	font-size: 12pt;
+	border: 2px solid grey;
+	border-radius: 10px;
+}

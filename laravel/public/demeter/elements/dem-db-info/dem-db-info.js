@@ -35,5 +35,8 @@ Polymer({
 	},
 	goToList:function(){
 		this.fire("goToPage", 3);
+	},
+	showAddDialog:function(){
+		this.$.addUserDialog.opened = true;
 	}
 });
