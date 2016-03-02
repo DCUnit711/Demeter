@@ -18,9 +18,10 @@ paper-button.info-button {
 	width: 200px;
 	color: white;
 	height:40px;
-	background: #ecf2f9;
+	margin:5px;
+	background:#2580a2;
 }
 paper-button.info-button:hover {
-	background: #d8e4f3;
+	background:#354497;
 	border:1px solid black;
 }
