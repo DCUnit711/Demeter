@@ -36,6 +36,7 @@ Polymer({
         }
 	},
 	setDatabaseInstance:function(){
+		console.log(this.database);
 		//this.$.ajaxSendChanges.url = "/instances/"+this.database.ID;
 	},
 	requestChanges:function(){
