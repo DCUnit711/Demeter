@@ -1,6 +1,7 @@
 <dom-module id="dem-edit">
 	<template>
 	<link rel="stylesheet" href="dem-edit.css"/>
+	<!-- delete a database by a id -->
 	<iron-ajax
 		id="ajaxDeleteDatabase"
 		url="/instances/"
@@ -8,8 +9,29 @@
 		on-response="{{creationResponse}}">
 	</iron-ajax>
 
+<!-- delete a demeter user by id-->
+	<iron-ajax
+		id="ajaxDeleteDatabase"
+		url="/demeterusers/id"
+		method="DEL"
+		on-response="{{creationResponse}}">
+	</iron-ajax>
+
+<!-- delete a instance user by id-->
+	<iron-ajax
+		id="ajaxDeleteDatabase"
+		url="/instanceusers/id"
+		method="DEL"
+		on-response="{{creationResponse}}">
+	</iron-ajax>
+
 	<div class="edit-left-container">
-		TESTING
+		<google-chart
+			type='pie'
+			options='{"title": "Distribution of days in 2001Q1"}'
+			cols='[{"label":"Month", "type":"string"}, {"label":"Days", "type":"number"}]'
+			rows='[["Jan", 31],["Feb", 28],["Mar", 31]]'>
+		</google-chart>
 	</div>
 	<div class="edit-container">
 		<center>
