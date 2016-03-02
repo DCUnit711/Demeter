@@ -11,6 +11,10 @@ use Illuminate\Http\Response;
 
 class instanceUserController extends Controller
 {
+        public function __construct()
+        {
+                $this->middleware('logger');
+        }
     /**
      * Display a listing of the resource.
      *

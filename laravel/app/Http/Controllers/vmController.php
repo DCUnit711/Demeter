@@ -11,6 +11,10 @@ use App\vm;
 
 class vmController extends Controller
 {
+        public function __construct()
+        {
+                $this->middleware('logger');
+        }
     /**
      * Display a listing of the resource.
      *

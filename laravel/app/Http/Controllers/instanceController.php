@@ -12,6 +12,11 @@ use App\vm;
 
 class instanceController extends Controller
 {
+	public function __construct()
+        {
+                $this->middleware('logger');
+        }
+
     /**
      * Display a listing of the resource.
      *
@@ -58,7 +63,9 @@ class instanceController extends Controller
         $data = json_decode($post, true);
         if($data['name'] != null && $data['ownerId'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null && $data['type'] != null)
         {
-
+		//check if instance exists with the same name
+		if(instance::where('name', $data['name'])->exists())
+			die("fail");
 	   //create a new instance (db). expects name, type, ownerId, organization, maxSize, and description  
 	        $i = new instance();
     		$i->id = \Uuid::generate(4);
@@ -141,6 +148,10 @@ class instanceController extends Controller
 	$data = json_decode($put, true);
 	if($data['name'] != null && $data['ownerId'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null)
 	{
+		//check if instance exists with the same name
+                if(instance::where('name', $data['name'])->exists())
+                        die("fail");
+
 	        $i = instance::find($id);
 		    $i->name = $data['name'];
 	        $i->ownerId =  $data['ownerId'];
