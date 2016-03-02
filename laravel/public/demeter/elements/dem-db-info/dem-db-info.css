@@ -8,7 +8,9 @@
 }
 .info-right-container {
 	text-align: left;
+	margin-left: 0px;
 	margin: 10px;
+	margin-right: 5px;
 	display: inline-block;
 }
 .info-button-container {

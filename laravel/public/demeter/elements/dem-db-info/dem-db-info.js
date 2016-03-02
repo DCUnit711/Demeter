@@ -34,7 +34,7 @@ Polymer({
 		this.fire("goToPage", 4); //opens the edit database page.
 	},
 	goToList:function(){
-		this.fire("goToPage", 3);
+		this.fire("goToPage", 1);	//go back to database list
 	},
 	showAddDialog:function(){
 		this.$.addUserDialog.opened = true;
