@@ -2,7 +2,7 @@ Polymer({
 	is:"dem-db-info",
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
 	properties:{
-		database:{},
+		database:{ observer:"receivedDatabaseInfo" },
 		animationConfig: {
       		value: function() {
         		return {
@@ -29,6 +29,11 @@ Polymer({
         		}
       		}
     	}
+	},
+	receivedDatabaseInfo:function(){
+		if(this.database.USERS.length == 0) {
+			this.push("database.USERS","No Users");
+		}
 	},
 	goToEdit:function() {
 		this.fire("goToPage", 4); //opens the edit database page.
