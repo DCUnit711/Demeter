@@ -2,29 +2,37 @@
 	<template>
 	<link rel="stylesheet" href="dem-db-info.css"/>
 		<div class="info-container">
-			<div class="info-left-container">
-				Database Size: [[database.SIZE]]<br/>
-				Amount Used: <paper-progress value="10" max="[[database.SIZE]]"></paper-progress><br/>
-				ID: [[database.ID]]<br/>
-				Last Updated: [[database.UPDATED]]<br/>
-				[[database.INUSE]]<br/>
-				Owner ID: [[database.OWNERID]]<br/>
-				Organization: [[database.ORGANIZATION]]<br/>
-				Database Description: [[database.DESCRIPTION]]<br/>
-				Database Type: [[database.TYPE]]<br/>
-				Database Name: [[database.NAME]]<br/>
-				Created At: [[database.CREATED]]<br/>
-			</div>
-			<div class="info-right-container">
-				VM Information:<br/>
-				VMID: [[database.VMID]]<br/>
-				VMIP: [[database.VMIP]]<br/>
-
-			</div>
-			<div class="info-button-container">
-				<paper-button class="info-button" raised>Edit Database</paper-button><br/>
-				<paper-button class="info-button" raised>Delete Database</paper-button>
-			</div>
+			<center>
+				<div class="info-left-container">
+					<h3>Database Information:</h3>
+					Database Size: [[database.SIZE]]<br/>
+					Amount Used: <paper-progress value="10" max="[[database.SIZE]]"></paper-progress><br/>
+					ID: [[database.ID]]<br/>
+					Last Updated: [[database.UPDATED]]<br/>
+					[[database.INUSE]]<br/>
+					Owner ID: [[database.OWNERID]]<br/>
+					Organization: [[database.ORGANIZATION]]<br/>
+					Database Description: [[database.DESCRIPTION]]<br/>
+					Database Type: [[database.TYPE]]<br/>
+					Database Name: [[database.NAME]]<br/>
+					Created At: [[database.CREATED]]<br/>
+				</div>
+				<div class="info-right-container">
+					<h3>VM Information:</h3>
+					VMID: [[database.VMID]]<br/>
+					VMIP: [[database.VMIP]]<br/>
+				</div>
+				<div class="info-right-container">
+					<h3>User Information:</h3>
+						<template is="dom-repeat" items="{{database.USERS}}" as="user">
+						[[user]]<br/>
+						</template>
+				</div>
+				<div class="info-button-container">
+					<paper-button class="info-button" raised>Edit Database</paper-button><br/>
+					<paper-button class="info-button" raised>Delete Database</paper-button>
+				</div>
+			</center>
 		</div>
 	</template>
 	<script src="dem-db-info.js"></script>

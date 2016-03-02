@@ -10,8 +10,8 @@
 	display: inline-block;
 }
 .info-button-container {
-	display:inline-block;
-	margin: 5px;
+	float:right;
+	margin: 10px;
 }
 paper-button.info-button {
 	font-size: 12pt;
