@@ -32,5 +32,8 @@ Polymer({
 	},
 	goToEdit:function() {
 		this.fire("goToPage", 4); //opens the edit database page.
+	},
+	goToList:function(){
+		this.fire("goToPage", 3);
 	}
 });
