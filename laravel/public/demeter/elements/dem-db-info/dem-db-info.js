@@ -29,5 +29,8 @@ Polymer({
         		}
       		}
     	}
+	},
+	goToEdit:function() {
+		this.fire("goToPage", 4); //opens the edit database page.
 	}
 });
