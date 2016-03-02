@@ -2,9 +2,7 @@ Polymer({
 	is:"dem-db-info",
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
 	properties:{
-		users:{},
-		databaseList:{ },
-		editDatabase:{ notify:true },
+		database:{},
 		animationConfig: {
       		value: function() {
         		return {
