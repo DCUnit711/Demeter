@@ -68,6 +68,7 @@ Polymer({
 		    	}
 		    	else {
 		    		this.response = "Successfully sent your change request.";
+		    		document.getElementById('ajaxGetAllDB').generateRequest();
 		    	}
 		       // Action to be performed when the document is read;
 		       //console.log(xhttp.responseText);
