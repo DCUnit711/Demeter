@@ -71,7 +71,7 @@ Polymer({
 		    		document.getElementById('ajaxGetAllDB').generateRequest();
 		    	}
 		       // Action to be performed when the document is read;
-		       //console.log(xhttp.responseText);
+		       console.log(xhttp.responseText);
 		    }
 		};
 		var body = JSON.stringify({'name':this.inputName,
@@ -85,5 +85,8 @@ Polymer({
 		xhttp.send(body);
 		this.processing = true;
 		this.$.progressDialog.opened = true;
+	},
+	goToList:function(){
+		this.fire("goToPage", 1);
 	}
 });
