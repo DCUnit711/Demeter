@@ -61,9 +61,16 @@ Polymer({
 
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
-		    if (xhttp.readyState == 4 && xhttp.status == 200) {
+		    if (xhttp.readyState == 4) {
+		    	this.processing = false;
+		    	if(xhttp.status != 200) {
+		    		this.response = "There was an error with your request.";
+		    	}
+		    	else {
+		    		this.response = "Successfully sent your change request.";
+		    	}
 		       // Action to be performed when the document is read;
-		       console.log(xhttp.responseText);
+		       //console.log(xhttp.responseText);
 		    }
 		};
 		var body = JSON.stringify({'name':this.inputName,
@@ -74,10 +81,8 @@ Polymer({
 
 		var url = "/instances/"+this.database.ID;
 		xhttp.open("PUT", url, true);
-		console.log(body);
 		xhttp.send(body);
-
-		// this.$.ajaxSendChanges.body = body;
-		// this.$.ajaxSendChanges.generateRequest();
+		this.processing = true;
+		this.$.progressDialog.opened = true;
 	}
 });
