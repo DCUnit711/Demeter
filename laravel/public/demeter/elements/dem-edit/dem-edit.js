@@ -63,15 +63,10 @@ Polymer({
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
 		    	this.processing = false;
-		    	if(xhttp.status != 200) {
-		    		this.response = "There was an error with your request.";
+		    	this.response = xhttp.responseText;
+		    	if(xhttp.status == 200) {
+		    		this.response = xhttp.responseText;
 		    	}
-		    	else {
-		    		this.response = "Successfully sent your change request.";
-		    		document.getElementById('ajaxGetAllDB').generateRequest();
-		    	}
-		       // Action to be performed when the document is read;
-		       console.log(xhttp.responseText);
 		    }
 		};
 		var body = JSON.stringify({'name':this.inputName,

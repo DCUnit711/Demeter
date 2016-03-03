@@ -43,5 +43,36 @@ Polymer({
 	},
 	showAddDialog:function(){
 		this.$.addUserDialog.opened = true;
+	},
+	addUserAjax:function(){
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		    if (xhttp.readyState == 4) {
+		    	this.response = xhttp.responseText;
+		    	// if(xhttp.status == 200) {
+		    	// 	this.response = xhttp.responseText;
+		    	// }
+		    }
+		};
+		var body = JSON.stringify({'username':this.username,
+								   'password':this.password});
+		var url = "/instanceusers/"+this.database.ID;
+		xhttp.open("PUT", url, true);
+		xhttp.send(body);
+	},
+	deleteDatabaseAjax:function() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		    if (xhttp.readyState == 4) {
+		    	this.response = xhttp.responseText;
+		    	// if(xhttp.status == 200) {
+		    	// 	this.response = xhttp.responseText;
+		    	// }
+		    }
+		};
+		var url = "/instances/"+this.database.ID;
+		xhttp.open("DEL", url, true);
+		xhttp.send();
+		this.fire('selectPage', 1);
 	}
 });
