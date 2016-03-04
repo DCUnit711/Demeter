@@ -62,7 +62,7 @@ Polymer({
 		var body = JSON.stringify({'username':this.username,
 								   'password':this.password});
 		var url = "/instanceUsers/";
-		xhttp.open("PUT", url, true);
+		xhttp.open("POST", url, true);
 		xhttp.send(body);
 	},
 	//-----------------------------------------------------
