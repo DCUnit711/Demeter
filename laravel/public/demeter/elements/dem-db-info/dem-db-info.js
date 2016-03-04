@@ -38,7 +38,7 @@ Polymer({
 	},
 	//-----------------------------------------------------
 	goToEdit:function() {
-		this.fire("goToPage", 4); //opens the edit database page.
+		this.fire("goToPage", 4); 	//opens the edit database page.
 	},
 	//-----------------------------------------------------
 	goToList:function(){
@@ -61,7 +61,7 @@ Polymer({
 		};
 		var body = JSON.stringify({'username':this.username,
 								   'password':this.password});
-		var url = "/instanceusers/"+this.user.ID;
+		var url = "/instanceUsers/"+this.user.ID;
 		xhttp.open("PUT", url, true);
 		xhttp.send(body);
 	},
