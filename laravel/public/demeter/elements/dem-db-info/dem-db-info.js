@@ -30,20 +30,25 @@ Polymer({
       		}
     	}
 	},
+	//-----------------------------------------------------
 	receivedDatabaseInfo:function(){
 		if(this.database.USERS.length == 0) {
 			this.push("database.USERS","No Users");
 		}
 	},
+	//-----------------------------------------------------
 	goToEdit:function() {
 		this.fire("goToPage", 4); //opens the edit database page.
 	},
+	//-----------------------------------------------------
 	goToList:function(){
 		this.fire("goToPage", 1);	//go back to database list
 	},
+	//-----------------------------------------------------
 	showAddDialog:function(){
 		this.$.addUserDialog.opened = true;
 	},
+	//-----------------------------------------------------
 	addUserAjax:function(){
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
@@ -56,10 +61,11 @@ Polymer({
 		};
 		var body = JSON.stringify({'username':this.username,
 								   'password':this.password});
-		var url = "/instanceusers/"+this.database.ID;
+		var url = "/instanceusers/"+this.user.ID;
 		xhttp.open("PUT", url, true);
 		xhttp.send(body);
 	},
+	//-----------------------------------------------------
 	deleteDatabaseAjax:function() {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {

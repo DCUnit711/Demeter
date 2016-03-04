@@ -27,21 +27,22 @@ Polymer({
 			}
 			pages.selected = data.detail;
 		});
+		var polymer = this;
 		document.addEventListener('ajaxGetAllUsers',function(data){
-			document.getElementById('ajaxGetAllUsers').params = data.detail;
-			document.getElementById('ajaxGetAllUsers').generateRequest();
+			polymer.$.ajaxGetAllUsers.params = data.detail;
+			polymer.$.ajaxGetAllUsers.generateRequest();
 		});
 		document.addEventListener('ajaxCreateDB',function(data){
-			document.getElementById('ajaxCreateDB').params = data.detail;
-			document.getElementById('ajaxCreateDB').generateRequest();
+			polymer.$.ajaxCreateDB.params = data.detail;
+			polymer.$.ajaxCreateDB.generateRequest();
 		});
 		// document.addEventListener('getAllDB',function(data){
 		// 	document.getElementById('ajaxGetAllDB').params = data.detail;
 		// 	document.getElementById('ajaxGetAllDB').generateRequest();
 		// });
 		document.addEventListener('ajaxLoginUser',function(data){
-			document.getElementById('ajaxLoginUser').params = data.detail;
-			document.getElementById('ajaxLoginUser').generateRequest();
+			polymer.$.ajaxLoginUser.params = data.detail;
+			polymer.$.ajaxLoginUser.generateRequest();
 		});
 		this.fire('goToPage', 0);
 	},	
