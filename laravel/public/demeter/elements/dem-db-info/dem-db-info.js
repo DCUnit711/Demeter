@@ -50,6 +50,21 @@ Polymer({
 		this.$.addUserDialog.opened = true;
 	},
 	//-----------------------------------------------------
+	deleteUserAjax:function(){
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		    if (xhttp.readyState == 4) {
+		    	this.response = xhttp.responseText;
+		    	// if(xhttp.status == 200) {
+		    	// 	this.response = xhttp.responseText;
+		    	// }
+		    }
+		};
+		var url = "/instanceUsers/"+this.userId;
+		xhttp.open("DELETE", url, true);
+		xhttp.send(body);
+	},
+	//-----------------------------------------------------
 	addUserAjax:function(){
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
