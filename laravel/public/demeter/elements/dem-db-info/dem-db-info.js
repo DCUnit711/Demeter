@@ -61,7 +61,7 @@ Polymer({
 		};
 		var body = JSON.stringify({'username':this.username,
 								   'password':this.password});
-		var url = "/instanceUsers/"+this.user.ID;
+		var url = "/instanceUsers/";
 		xhttp.open("PUT", url, true);
 		xhttp.send(body);
 	},
