@@ -32,6 +32,8 @@ Polymer({
 	},
 	//-----------------------------------------------------
 	receivedDatabaseInfo:function(){
+		this.ID = this.database.id;
+		console.log("DATABASE!");
 		if(this.database.USERS.length == 0) {
 			this.push("database.instance_users","No Users");
 		}
@@ -104,10 +106,16 @@ Polymer({
 	//-----------------------------------------------------
 	updateDatabaseInformation:function(){
 		var xhttp = new XMLHttpRequest();
+		var THISE = this;
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
-		    	this.response = xhttp.responseText;
-		    	console.log(this.response);
+		    	var response = xhttp.responseText;
+		    	for(var db in response) {
+		    		if(db.id === THISE.ID) {
+		    			THISE.database = db;
+		    		}
+		    	}
+		    	// console.log(response);
 		    }
 		};
 		var url = "/instances/";
