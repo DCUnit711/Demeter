@@ -35,6 +35,8 @@ paper-button.info-button:hover {
 	font-size:12pt;
 	text-align:center;
 	line-height: 50px;
+	background:#2580a2;
+	color:white;
 }
 .info-delete-user-scroll-item:hover {
 	background: #99ccff;
