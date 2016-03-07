@@ -108,7 +108,7 @@ Polymer({
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
 		    	var response = xhttp.responseText;
-		    	for(var index in response) {
+		    	for(var index in JSON.parse(response)) {
 		    		console.log(response[index]);
 		    		if(response[index].id === THISE.ID) {
 		    			// console.log(response[index]);
