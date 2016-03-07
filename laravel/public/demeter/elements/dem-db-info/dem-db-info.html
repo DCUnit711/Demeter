@@ -50,9 +50,10 @@
 			<h2>Delete Database Users</h2>
 			<div style="overflow:scroll;height:300px;">
 				<template is="dom-repeat" items="{{database.USERS}}" as="user">
-					<div class="info-delete-user-scroll-item">{{user.name}}</div>
+					<paper-material elevation="1" class="info-delete-user-scroll-item">{{user.name}}</paper-material>
 				</template>
 			</div>
+			<br/><br/>
 			<paper-dialog raised class="info-dialog-input">Done</paper-dialog>
 		</paper-dialog>
 		<paper-dialog
