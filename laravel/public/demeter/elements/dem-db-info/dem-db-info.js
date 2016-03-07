@@ -32,9 +32,8 @@ Polymer({
 	},
 	//-----------------------------------------------------
 	receivedDatabaseInfo:function(){
-		console.log(this.database.USERS)
-		if(this.database.USERS.length == 0) {
-			this.push("database.USERS","No Users");
+		if(this.database.instance_users.length == 0) {
+			this.push("database.instance_users","No Users");
 		}
 	},
 	//-----------------------------------------------------
@@ -48,6 +47,9 @@ Polymer({
 	//-----------------------------------------------------
 	showAddDialog:function(){
 		this.$.addUserDialog.opened = true;
+	},
+	showDeleteDialog:function(){
+		this.$.deleteUserDialog.opened = true;
 	},
 	//-----------------------------------------------------
 	deleteUserAjax:function(){

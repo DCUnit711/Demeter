@@ -29,6 +29,12 @@ paper-button.info-button:hover {
 	background:#354497;
 	border:1px solid black;
 }
+.info-delete-user-scroll-item {
+	width:100%;
+	height:50px;
+	font-size:12pt;
+	text-align:center;
+}
 .info-dialog-input {
 	width: 250px;
 	height: 40px;
