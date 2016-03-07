@@ -32,8 +32,7 @@ Polymer({
 	},
 	//-----------------------------------------------------
 	receivedDatabaseInfo:function(){
-		console.log(this.database);
-		if(this.database.instance_users.length == 0) {
+		if(this.database.USERS.length == 0) {
 			this.push("database.instance_users","No Users");
 		}
 	},
