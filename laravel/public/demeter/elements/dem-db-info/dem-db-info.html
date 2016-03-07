@@ -48,7 +48,7 @@
 			exit-animation="scale-down-animation"
 			modal>
 			<h2>Delete Database Users</h2>
-			<div style="overflow:scroll;height:300px;">
+			<div style="overflow:scroll;max-height:300px;height:auto;">
 				<template is="dom-repeat" items="{{database.USERS}}" as="user">
 					<paper-material elevation="1" class="info-delete-user-scroll-item">{{user.name}}</paper-material>
 				</template>

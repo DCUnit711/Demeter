@@ -34,8 +34,13 @@ paper-button.info-button:hover {
 	height:50px;
 	font-size:12pt;
 	text-align:center;
+	line-height: 50px;
 }
-.info-dialog-input {
+.info-delete-user-scroll-item:hover {
+	background: #99ccff;
+	color:white;
+}
+paper-button.info-dialog-input {
 	width: 250px;
 	height: 40px;
 	font-size: 12pt;
