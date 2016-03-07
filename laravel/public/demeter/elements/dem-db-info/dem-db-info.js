@@ -55,7 +55,6 @@ Polymer({
 	},
 	//-----------------------------------------------------
 	deleteUserAjax:function(e){
-		this.$.infoProcessing.opened = true;
 		this.hideSpinner = true;
 		var xhttp = new XMLHttpRequest();
 		var THISE = this;
@@ -63,7 +62,6 @@ Polymer({
 		    if (xhttp.readyState == 4) {
 		    	this.response = xhttp.responseText;
 		    	this.hideSpinner = false;
-		    	// console.log(this.response);
 		    	if(xhttp.status == 200) {
 		    	 	THISE.updateDatabaseInformation();
 		    	}
@@ -112,6 +110,7 @@ Polymer({
 		    	var response = xhttp.responseText;
 		    	for(var index in response) {
 		    		if(response[index].id === THISE.ID) {
+		    			console.log(response[index]);
 		    			THISE.database = response[index];
 		    		}
 		    	}
