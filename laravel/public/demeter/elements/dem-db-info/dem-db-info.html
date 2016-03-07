@@ -43,6 +43,18 @@
 			</center>
 		</div>
 		<paper-dialog
+			id="infoProcessing"
+			entry-animation="scale-up-animation"
+			exit-animation="scale-down-animation"
+			modal>
+			<center>
+				<div hidden="{{hideSpinner}}">Sending Requested Changes.</div>
+				<paper-spinner active hidden="{{hideSpinner}}" style="width:50px;height:50px;"></paper-spinner>
+				<div hidden="{{!hideSpinner}}">Successfully Sent Request Changes.</div>
+				<paper-button raised hidden="{{!hideSpinner}}" class="info-delete-user-scroll-item" dialog-confirm>Okay</paper-button>
+			</center>
+		</paper-dialog>
+		<paper-dialog
 			id="deleteUserDialog"
 			entry-animation="scale-up-animation"
 			exit-animation="scale-down-animation"

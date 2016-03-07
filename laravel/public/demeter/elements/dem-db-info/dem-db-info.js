@@ -53,15 +53,18 @@ Polymer({
 	},
 	//-----------------------------------------------------
 	deleteUserAjax:function(e){
+		this.$.infoProcessing.opened = true;
+		this.hideSpinner = true;
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
 		    	this.response = xhttp.responseText;
+		    	this.hideSpinner = false;
 		    }
 		};
 		var url = "/instanceUsers/"+e.model.__data__.user.id;
 		xhttp.open("DELETE", url, true);
-		xhttp.send(body);
+		xhttp.send();
 	},
 	//-----------------------------------------------------
 	addUserAjax:function(){
