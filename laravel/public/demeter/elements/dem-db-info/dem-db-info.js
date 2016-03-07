@@ -60,6 +60,10 @@ Polymer({
 		    if (xhttp.readyState == 4) {
 		    	this.response = xhttp.responseText;
 		    	this.hideSpinner = false;
+		    	// console.log(this.response);
+		    	if(xhttp.status == 200) {
+		    	 	this.response = this.updateDatabaseInformation();
+		    	}
 		    }
 		};
 		var url = "/instanceUsers/"+e.model.__data__.user.id;
@@ -94,6 +98,19 @@ Polymer({
 		};
 		var url = "/instances/"+this.database.ID;
 		xhttp.open("DELETE", url, true);
+		xhttp.send();
+	},
+	//-----------------------------------------------------
+	updateDatabaseInformation:function(){
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		    if (xhttp.readyState == 4) {
+		    	this.response = xhttp.responseText;
+		    	console.log(this.response);
+		    }
+		};
+		var url = "/instances/";
+		xhttp.open("GET", url, true);
 		xhttp.send();
 	}
 });
