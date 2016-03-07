@@ -109,7 +109,7 @@ Polymer({
 		    if (xhttp.readyState == 4) {
 		    	var response = xhttp.responseText;
 		    	for(var index in response) {
-		    		response[index]
+		    		console.log(response[index]);
 		    		if(response[index].id === THISE.ID) {
 		    			// console.log(response[index]);
 		    			THISE.database = response[index];
