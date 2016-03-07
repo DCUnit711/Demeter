@@ -111,11 +111,11 @@ Polymer({
 		    if (xhttp.readyState == 4) {
 		    	var response = xhttp.responseText;
 		    	for(var db in response) {
+		    		console.log(db);
 		    		if(db.id === THISE.ID) {
 		    			THISE.database = db;
 		    		}
 		    	}
-		    	// console.log(response);
 		    }
 		};
 		var url = "/instances/";
