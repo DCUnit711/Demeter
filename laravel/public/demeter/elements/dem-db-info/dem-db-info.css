@@ -29,10 +29,6 @@ paper-button.info-button:hover {
 	background:#354497;
 	border:1px solid black;
 }
-.info-delete-user-scroll-item:hover {
-	background: #99ccff;
-	color:white;
-}
 .info-dialog-input {
 	width: 250px;
 	height: 40px;
@@ -51,5 +47,9 @@ paper-button.info-button:hover {
 	text-align:center;
 	line-height: 50px;
 	background:#2580a2;
+	color:white;
+}
+.info-delete-user-scroll-item:hover {
+	background: #99ccff;
 	color:white;
 }
