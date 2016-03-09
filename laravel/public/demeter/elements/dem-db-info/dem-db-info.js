@@ -33,7 +33,7 @@ Polymer({
 	//-----------------------------------------------------
 	receivedDatabaseInfo:function(){
 		this.ID = this.database.id;
-		console.log("DATABASE!");
+		console.log(this.database);
 		if(this.database.USERS.length == 0) {
 			this.push("database.instance_users","No Users");
 		}
@@ -112,6 +112,7 @@ Polymer({
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
 		    	var response = xhttp.responseText;
+		    	console.log(JSON.parse(response));
 		    	for(var index in JSON.parse(response)) {
 		    		if(response[index].id === THISE.ID) {
 		    			// console.log(response[index]);
