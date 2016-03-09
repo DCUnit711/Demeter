@@ -25,7 +25,7 @@ paper-button.info-button {
 	margin:5px;
 	background:#2580a2;
 }
-paper-button.info-button:hover {
+paper-button.info-button:hover, paper-button.info-dialog-input {
 	background:#354497;
 	border:1px solid black;
 }
@@ -35,7 +35,10 @@ paper-button.info-dialog-input {
 	font-size: 12pt;
 	border: 2px solid grey;
 	border-radius: 10px;
+	background:#2580a2;
+	margin-top: -20px;
 }
+
 .scroll-box {
 	overflow:scroll;
 	height:200px;
