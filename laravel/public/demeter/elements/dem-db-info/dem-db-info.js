@@ -114,6 +114,7 @@ Polymer({
 		    	var response = xhttp.responseText;
 		    	response = JSON.parse(response);
 		    	for(var index in response) {
+		    		console.log(response[index].id);
 		    		if(response[index].id === THISE.ID) {
 		    			THISE.database = response[index];
 		    			console.log(THISE.database);
