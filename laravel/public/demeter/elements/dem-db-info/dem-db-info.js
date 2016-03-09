@@ -40,7 +40,7 @@ Polymer({
 	//-----------------------------------------------------
 	receivedDatabaseInfo:function(){
 		this.ID = this.database.id;
-		if(this.database != null && this.database.users.length == 0) {
+		if(this.database.users.length < 1) {
 			this.push("database.instance_users","No Users");
 		}
 	},
