@@ -32,6 +32,7 @@ Polymer({
 	},
 	//-----------------------------------------------------
 	receivedDatabaseInfo:function(){
+		console.log(this.database);
 		this.ID = this.database.id;
 		if(this.database != null && this.database.USERS.length == 0) {
 			this.push("database.instance_users","No Users");
@@ -83,6 +84,7 @@ Polymer({
 		    if (xhttp.readyState === 4) {
 		    	this.hideSpinner = true;
 		    	this.response = xhttp.responseText;
+		    	this.updateDatabaseInformation();
 		    }
 		};
 		var body = JSON.stringify({'name':this.username,
