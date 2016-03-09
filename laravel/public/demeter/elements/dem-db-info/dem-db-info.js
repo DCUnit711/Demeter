@@ -59,9 +59,12 @@ Polymer({
 		var xhttp = new XMLHttpRequest();
 		var THISE = this;
 		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 1) {
+			 	this.hideSpinner = false;
+			}
 		    if (xhttp.readyState == 4) {
 		    	this.response = xhttp.responseText;
-		    	this.hideSpinner = false;
+		    	this.hideSpinner = true;
 		    	if(xhttp.status == 200) {
 		    	 	THISE.updateDatabaseInformation();
 		    	}
@@ -75,11 +78,12 @@ Polymer({
 	addUserAjax:function(){
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
-		    if (xhttp.readyState == 4) {
+			if (xhttp.readyState === 1) {
+				this.hideSpinner = false;
+			}
+		    if (xhttp.readyState === 4) {
+		    	this.hideSpinner = true;
 		    	this.response = xhttp.responseText;
-		    	// if(xhttp.status == 200) {
-		    	// 	this.response = xhttp.responseText;
-		    	// }
 		    }
 		};
 		var body = JSON.stringify({'name':this.username,
@@ -108,10 +112,7 @@ Polymer({
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
 		    	var response = xhttp.responseText;
-		    	console.log(response);
-		    	console.log(JSON.parse(response));
 		    	for(var index in JSON.parse(response)) {
-		    		console.log(response[index]);
 		    		if(response[index].id === THISE.ID) {
 		    			// console.log(response[index]);
 		    			THISE.database = response[index];
