@@ -42,7 +42,7 @@ paper-button.info-button:hover {
 	background: #99ccff;
 	color:white;
 }
-paper-button.info-dialog-input {
+.info-dialog-input {
 	width: 250px;
 	height: 40px;
 	font-size: 12pt;
