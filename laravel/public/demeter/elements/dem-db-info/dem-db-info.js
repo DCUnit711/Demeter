@@ -28,7 +28,14 @@ Polymer({
 	                }]
         		}
       		}
-    	}
+    	},
+    	sharedElements: {
+            value: function() {
+                return {
+                    'hero': this.$.infoButtonContainer
+                }
+            }
+        }
 	},
 	//-----------------------------------------------------
 	receivedDatabaseInfo:function(){
