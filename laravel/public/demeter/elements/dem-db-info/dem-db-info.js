@@ -125,7 +125,7 @@ Polymer({
 		    		if(response[index].id === THISE.database.ID) {
 		    			console.log("DATABASE FOUND!");
 		    			console.log(response[index]);
-		    			THISE.database = response[index];
+		    			THISE.set("database", response[index]);
 		    		}
 		    	}
 		    }
