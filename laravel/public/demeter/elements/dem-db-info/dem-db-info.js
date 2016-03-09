@@ -115,8 +115,8 @@ Polymer({
 		    	response = JSON.parse(response);
 		    	for(var index in response) {
 		    		console.log(response[index].id);
-		    		console.log(this.database.id);
-		    		if(response[index].id === this.database.id) {
+		    		console.log(THISE.database.id);
+		    		if(response[index].id === THISE.database.id) {
 		    			THISE.database = response[index];
 		    			console.log(THISE.database);
 		    		}
