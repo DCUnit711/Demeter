@@ -84,6 +84,7 @@ Polymer({
 	//-----------------------------------------------------
 	addUserAjax:function(){
 		var xhttp = new XMLHttpRequest();
+		var THISE = this;
 		xhttp.onreadystatechange = function() {
 			if (xhttp.readyState === 1) {
 				this.hideSpinner = false;
@@ -91,7 +92,7 @@ Polymer({
 		    if (xhttp.readyState === 4) {
 		    	this.hideSpinner = true;
 		    	this.response = xhttp.responseText;
-		    	this.updateDatabaseInformation();
+		    	THISE.updateDatabaseInformation();
 		    }
 		};
 		var body = JSON.stringify({'name':this.username,
