@@ -116,6 +116,7 @@ Polymer({
 		    	for(var index in response) {
 		    		if(response[index].id === THISE.ID) {
 		    			THISE.database = response[index];
+		    			console.log(THISE.database);
 		    		}
 		    	}
 		    }
