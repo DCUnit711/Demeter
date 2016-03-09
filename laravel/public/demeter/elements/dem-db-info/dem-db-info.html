@@ -6,30 +6,30 @@
 				<div class="info-left-container">
 					<h3>Database Information:</h3>
 					<hr/>
-					<b>Database Size:</b> [[database.SIZE]]<br/>
+					<b>Database Size:</b> {{database.SIZE}}<br/>
 					<b>Amount Used:</b> <paper-progress value="10" max="[[database.SIZE]]"></paper-progress><br/>
-					<b>ID:</b> [[database.ID]]<br/>
-					<b>Last Updated:</b> [[database.UPDATED]]<br/>
-					[[database.INUSE]]<br/>
+					<b>ID:</b> {{database.ID}}<br/>
+					<b>Last Updated:</b> {{database.UPDATED}}<br/>
+					{{database.INUSE}}<br/>
 					<br/>
-					<b>Owner ID:</b> [[database.OWNERID]]<br/>
-					<b>Organization:</b> [[database.ORGANIZATION]]<br/>
-					<b>Database Description:</b> [[database.DESCRIPTION]]<br/>
-					<b>Database Type:</b> [[database.TYPE]]<br/>
-					<b>Database Name:</b> [[database.NAME]]<br/>
-					<b>Created At:</b> [[database.CREATED]]<br/>
+					<b>Owner ID:</b> {{database.OWNERID}}<br/>
+					<b>Organization:</b> {{database.ORGANIZATION}}<br/>
+					<b>Database Description:</b> {{database.DESCRIPTION}}<br/>
+					<b>Database Type:</b> {{database.TYPE}}<br/>
+					<b>Database Name:</b> {{database.NAME}}<br/>
+					<b>Created At:</b> {{database.CREATED}}<br/>
 				</div>
 				<div class="info-right-container">
 					<h3>VM Information:</h3>
 					<hr/>
-					<b>VMID:</b> [[database.VMID]]<br/>
-					<b>VMIP:</b> [[database.VMIP]]<br/>
+					<b>VMID:</b> {{database.VMID}}<br/>
+					<b>VMIP:</b> {{database.VMIP}}<br/>
 				</div>
 				<div class="info-right-container">
 					<h3>User Information:</h3>
 					<hr/>
 					<template is="dom-repeat" items="{{database.USERS}}" as="user">
-						[[user.name]]<br/>
+						{{user.name}}<br/>
 					</template>
 				</div>
 				<div id="infoButtonContainer" class="info-button-container">
