@@ -112,10 +112,9 @@ Polymer({
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
 		    	var response = xhttp.responseText;
-		    	console.log(JSON.parse(response));
-		    	for(var index in JSON.parse(response)) {
+		    	response = JSON.parse(response);
+		    	for(var index in response) {
 		    		if(response[index].id === THISE.ID) {
-		    			// console.log(response[index]);
 		    			THISE.database = response[index];
 		    		}
 		    	}
