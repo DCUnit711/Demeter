@@ -116,8 +116,9 @@ Polymer({
 		    		console.log(response[index].id);
 		    		console.log(THISE.database.ID);
 		    		if(response[index].id === THISE.database.ID) {
-		    			THISE.database = response[index];
 		    			console.log("DATABASE FOUND!");
+		    			console.log(response[index]);
+		    			THISE.database = response[index];
 		    		}
 		    	}
 		    }
