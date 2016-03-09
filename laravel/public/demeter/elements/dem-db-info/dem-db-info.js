@@ -39,7 +39,7 @@ Polymer({
 	},
 	//-----------------------------------------------------
 	receivedDatabaseInfo:function(){
-		this.ID = this.database.id;
+		console.log(this.database);
 		if(this.database.users == null || this.database.users.length < 1) {
 			this.push("database.instance_users","No Users");
 		}
@@ -122,8 +122,6 @@ Polymer({
 		    	var response = xhttp.responseText;
 		    	response = JSON.parse(response);
 		    	for(var index in response) {
-		    		console.log(response[index].id);
-		    		console.log(THISE.database.ID);
 		    		if(response[index].id === THISE.database.ID) {
 		    			console.log("DATABASE FOUND!");
 		    			console.log(response[index]);
