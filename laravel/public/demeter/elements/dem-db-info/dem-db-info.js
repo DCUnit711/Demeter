@@ -33,7 +33,6 @@ Polymer({
 	//-----------------------------------------------------
 	receivedDatabaseInfo:function(){
 		this.ID = this.database.id;
-		console.log(this.database);
 		if(this.database.USERS.length == 0) {
 			this.push("database.instance_users","No Users");
 		}
@@ -115,10 +114,10 @@ Polymer({
 		    	response = JSON.parse(response);
 		    	for(var index in response) {
 		    		console.log(response[index].id);
-		    		console.log(THISE.database.id);
-		    		if(response[index].id === THISE.database.id) {
+		    		console.log(THISE.database.ID);
+		    		if(response[index].id === THISE.database.ID) {
 		    			THISE.database = response[index];
-		    			console.log(THISE.database);
+		    			console.log("DATABASE FOUND!");
 		    		}
 		    	}
 		    }
