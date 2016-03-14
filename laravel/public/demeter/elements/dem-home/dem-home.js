@@ -4,7 +4,7 @@ Polymer({
 	properties:{
 		users:{},
 		databaseList:{ },
-		editDatabase:{ notify:true },
+		editDatabase:{ notify:true, observer:"ajaxGetAllDBResponse" },
 		animationConfig: {
       		value: function() {
         		return {
