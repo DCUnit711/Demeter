@@ -30,13 +30,18 @@ Polymer({
 		});
 		var polymer = this;
 		document.addEventListener("updateDatabases",function(data) {
-			var xhttp = new XMLHttpRequest();
+			polymer.updateAllDatabaseInfo();
+		});
+		this.fire('updateDatabases');
+		this.fire('goToPage', 0);
+	},
+	updateAllDatabaseInfo:function(){
+		var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 			    if (xhttp.readyState == 4) {
 			    	var response = xhttp.responseText;
 			    	response = JSON.parse(response);
 			    	var tempArray = [];
-			    	polymer.database = [];
 			    	for(var index in response) {
 			    		var object = {'CREATED':response[index].created_at,
 										'DESCRIPTION':response[index].description,
@@ -53,18 +58,15 @@ Polymer({
 						tempArray.push(object);
 			    	}
 			    	console.log(tempArray);
-			    	console.log(polymer.database);
+			    	console.log(this.database);
 			    	polymer.set("database", tempArray);
-			    	console.log(polymer.database);
+			    	console.log(this.database);
 			    }
 			}
 			var url = "/instances/";
 			xhttp.open("GET", url, true);
 			xhttp.send();
-		});
-		this.fire('updateDatabases');
-		this.fire('goToPage', 0);
-	},	
+	},
 	casLogout:function(){
 		var url = window.location.origin+"/demeter/CASLogic.php?logout";
 		window.location.href = url;	},
