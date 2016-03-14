@@ -59,7 +59,7 @@ Polymer({
 			    	}
 			    	console.log(tempArray);
 			    	console.log(this.database);
-			    	polymer.set("database", tempArray);
+			    	this.set("database", tempArray);
 			    	console.log(this.database);
 			    }
 			}
