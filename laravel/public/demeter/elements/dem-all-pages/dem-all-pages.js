@@ -8,7 +8,6 @@ Polymer({
 		database:{}
 	},
 	ready:function(){
-		this.database = {};
 		var pages = this.$.pages;
 		pages.selected = 0;
 		this.hideToolbar = true;
