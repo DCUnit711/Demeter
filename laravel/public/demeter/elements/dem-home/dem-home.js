@@ -70,6 +70,7 @@ Polymer({
 		this.hideRightClickMenu = false;
 	},
 	ajaxGetAllDBResponse:function(){
+		console.log(this.database);
 		// var inuse;
 		// var color;
 		// var object;

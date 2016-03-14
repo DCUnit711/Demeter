@@ -59,7 +59,7 @@ Polymer({
 					tempArray.push(object);
 		    	}
 		    	this.database = tempArray;
-		    	console.log(this.database);
+		    	// console.log(this.database);
 		    }
 		}
 		var url = "/instances/";
