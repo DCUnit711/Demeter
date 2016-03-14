@@ -36,6 +36,7 @@ Polymer({
 			    	var response = xhttp.responseText;
 			    	response = JSON.parse(response);
 			    	var tempArray = [];
+			    	polymer.database = [];
 			    	for(var index in response) {
 			    		var object = {'CREATED':response[index].created_at,
 										'DESCRIPTION':response[index].description,
