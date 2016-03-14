@@ -48,6 +48,7 @@ Polymer({
 										'UPDATED':response[index].updated_at,
 										'VMID':response[index].vmId,
 										'VMIP':response[index]['vm'].ipAddr};
+						console.log(object);
 						polymer.set("database", object);
 			    	}
 			    }
