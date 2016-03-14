@@ -51,7 +51,7 @@ Polymer({
 										'VMIP':response[index]['vm'].ipAddr};
 						tempArray.push(object);
 			    	}
-			    	polymer.set("database", object);
+			    	polymer.set("database", tempArray);
 			    	console.log(polymer.database);
 			    }
 			}
