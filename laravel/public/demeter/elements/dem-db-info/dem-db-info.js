@@ -40,10 +40,9 @@ Polymer({
 	//-----------------------------------------------------
 	receivedDatabaseInfo:function(){
 		console.log(this.database);
-		if(this.database.users == null) {
+		if(this.database.USERS == null || this.database.USERS.length < 1) {
 			this.push("database.instance_users","No Users");
 		}
-		console.log('here');
 	},
 	//-----------------------------------------------------
 	goToEdit:function() {
