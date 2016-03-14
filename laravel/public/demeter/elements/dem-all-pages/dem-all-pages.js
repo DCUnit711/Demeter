@@ -36,10 +36,6 @@ Polymer({
 			polymer.$.ajaxCreateDB.params = data.detail;
 			polymer.$.ajaxCreateDB.generateRequest();
 		});
-		// document.addEventListener('getAllDB',function(data){
-		// 	document.getElementById('ajaxGetAllDB').params = data.detail;
-		// 	document.getElementById('ajaxGetAllDB').generateRequest();
-		// });
 		document.addEventListener('ajaxLoginUser',function(data){
 			polymer.$.ajaxLoginUser.params = data.detail;
 			polymer.$.ajaxLoginUser.generateRequest();
