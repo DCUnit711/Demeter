@@ -49,7 +49,7 @@ Polymer({
 										'UPDATED':response[index].updated_at,
 										'VMID':response[index].vmId,
 										'VMIP':response[index]['vm'].ipAddr};
-						polymer.push("tempArray",object);
+						tempArray.push(object);
 			    	}
 			    	polymer.set("database", object);
 			    	console.log(polymer.database);
