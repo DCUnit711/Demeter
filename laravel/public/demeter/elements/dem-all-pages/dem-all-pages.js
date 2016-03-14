@@ -30,6 +30,7 @@ Polymer({
 		});
 		var polymer = this;
 		document.addEventListener("updateDatabases",function(data) {
+			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 			    if (xhttp.readyState == 4) {
 			    	var response = xhttp.responseText;
