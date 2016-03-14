@@ -52,6 +52,7 @@ Polymer({
 						tempArray.push(object);
 			    	}
 			    	console.log(tempArray);
+			    	console.log(polymer.database);
 			    	polymer.set("database", tempArray);
 			    	console.log(polymer.database);
 			    }
