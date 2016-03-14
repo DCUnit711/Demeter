@@ -5,7 +5,7 @@ Polymer({
 		hideToolbar:{ },
 		database:{},
 		allUsers:{},
-		database:{}
+		database:{notify:true}
 	},
 	ready:function(){
 		var pages = this.$.pages;
