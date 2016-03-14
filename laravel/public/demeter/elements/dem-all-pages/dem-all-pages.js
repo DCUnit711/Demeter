@@ -35,6 +35,7 @@ Polymer({
 			    if (xhttp.readyState == 4) {
 			    	var response = xhttp.responseText;
 			    	response = JSON.parse(response);
+			    	var tempArray = [];
 			    	for(var index in response) {
 			    		var object = {'CREATED':response[index].created_at,
 										'DESCRIPTION':response[index].description,
@@ -48,9 +49,10 @@ Polymer({
 										'UPDATED':response[index].updated_at,
 										'VMID':response[index].vmId,
 										'VMIP':response[index]['vm'].ipAddr};
-						console.log(object);
-						polymer.set("database", object);
+						polymer.push("tempArray",object);
 			    	}
+			    	polymer.set("database", object);
+			    	console.log(polymer.database);
 			    }
 			}
 			var url = "/instances/";
