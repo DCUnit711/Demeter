@@ -31,25 +31,26 @@ Polymer({
 		var polymer = this;
 		document.addEventListener("updateDatabases",function(data) {
 			xhttp.onreadystatechange = function() {
-		    if (xhttp.readyState == 4) {
-		    	var response = xhttp.responseText;
-		    	response = JSON.parse(response);
-		    	for(var index in response) {
-		    		var object = {'CREATED':response[index].created_at,
-									'DESCRIPTION':response[index].description,
-									'ID':response[index].id,
-									'USERS':response[index].instance_users,
-									'SIZE':response[index].maxSize,
-									'NAME':response[index].name,
-									'ORGANIZATION':response[index].organization,
-									'OWNERID':response[index].ownerId,
-									'TYPE':response[index].type,
-									'UPDATED':response[index].updated_at,
-									'VMID':response[index].vmId,
-									'VMIP':response[index]['vm'].ipAddr};
-					polymer.set("database", object);
-		    	}
-		    }
+			    if (xhttp.readyState == 4) {
+			    	var response = xhttp.responseText;
+			    	response = JSON.parse(response);
+			    	for(var index in response) {
+			    		var object = {'CREATED':response[index].created_at,
+										'DESCRIPTION':response[index].description,
+										'ID':response[index].id,
+										'USERS':response[index].instance_users,
+										'SIZE':response[index].maxSize,
+										'NAME':response[index].name,
+										'ORGANIZATION':response[index].organization,
+										'OWNERID':response[index].ownerId,
+										'TYPE':response[index].type,
+										'UPDATED':response[index].updated_at,
+										'VMID':response[index].vmId,
+										'VMIP':response[index]['vm'].ipAddr};
+						polymer.set("database", object);
+			    	}
+			    }
+			}
 			var url = "/instances/";
 			xhttp.open("GET", url, true);
 			xhttp.send();
