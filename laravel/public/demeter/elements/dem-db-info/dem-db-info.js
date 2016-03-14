@@ -43,6 +43,7 @@ Polymer({
 		if(this.database.users == null) {
 			this.push("database.instance_users","No Users");
 		}
+		console.log('here');
 	},
 	//-----------------------------------------------------
 	goToEdit:function() {
