@@ -28,18 +28,23 @@ Polymer({
 			pages.selected = data.detail;
 		});
 		var polymer = this;
-		// document.addEventListener('ajaxGetAllUsers',function(data){
-		// 	polymer.$.ajaxGetAllUsers.params = data.detail;
-		// 	polymer.$.ajaxGetAllUsers.generateRequest();
-		// });
-		// document.addEventListener('ajaxCreateDB',function(data){
-		// 	polymer.$.ajaxCreateDB.params = data.detail;
-		// 	polymer.$.ajaxCreateDB.generateRequest();
-		// });
-		// document.addEventListener('ajaxLoginUser',function(data){
-		// 	polymer.$.ajaxLoginUser.params = data.detail;
-		// 	polymer.$.ajaxLoginUser.generateRequest();
-		// });
+		document.addEventListener("updateDatabases",function(data) {
+			xhttp.onreadystatechange = function() {
+		    if (xhttp.readyState == 4) {
+		    	var response = xhttp.responseText;
+		    	response = JSON.parse(response);
+		    	for(var index in response) {
+		    		if(response[index].id === THISE.database.ID) {
+		    			polymer.set("database", response[index]);
+		    		}
+		    	}
+		    }
+		};
+		var url = "/instances/";
+		xhttp.open("GET", url, true);
+		xhttp.send();
+		});
+
 		this.fire('goToPage', 0);
 	},	
 	casLogout:function(){
