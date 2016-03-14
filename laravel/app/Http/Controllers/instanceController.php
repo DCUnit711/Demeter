@@ -182,7 +182,7 @@ class instanceController extends Controller
             die('fail');
         }
         $i = instance::find($id);
-        if($i->delete())
+        if($i->instanceUsers()->delete() && $i->delete())
             echo "success";
         else
             echo "fail";
