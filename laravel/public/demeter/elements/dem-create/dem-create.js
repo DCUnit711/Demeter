@@ -71,7 +71,7 @@ Polymer({
 		    if (xhttp.readyState == 4 && xhttp.status == 200) {
 		       	console.log(xhttp.responseText);
 		       	polymer.fire('updateDatabases');
-				polymer.fire('goToPage', 0);
+				polymer.fire('goToPage', 1);
 		    }
 		};
 		var body = JSON.stringify({'name':this.inputName,
