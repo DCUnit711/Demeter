@@ -68,7 +68,9 @@ Polymer({
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4 && xhttp.status == 200) {
-		       console.log(xhttp.responseText);
+		       	console.log(xhttp.responseText);
+		       	this.fire('updateDatabases');
+				this.fire('goToPage', 0);
 		    }
 		};
 		var body = JSON.stringify({'name':this.inputName,
