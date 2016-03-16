@@ -4,7 +4,8 @@ Polymer({
 	properties:{
 		hideToolbar:{ },
 		database:{},
-		allUsers:{}
+		allUsers:{},
+		database:{notify:true}
 	},
 	ready:function(){
 		var pages = this.$.pages;
@@ -28,24 +29,42 @@ Polymer({
 			pages.selected = data.detail;
 		});
 		var polymer = this;
-		document.addEventListener('ajaxGetAllUsers',function(data){
-			polymer.$.ajaxGetAllUsers.params = data.detail;
-			polymer.$.ajaxGetAllUsers.generateRequest();
+		document.addEventListener("updateDatabases",function(data) {
+			polymer.updateAllDatabaseInfo();
 		});
-		document.addEventListener('ajaxCreateDB',function(data){
-			polymer.$.ajaxCreateDB.params = data.detail;
-			polymer.$.ajaxCreateDB.generateRequest();
-		});
-		// document.addEventListener('getAllDB',function(data){
-		// 	document.getElementById('ajaxGetAllDB').params = data.detail;
-		// 	document.getElementById('ajaxGetAllDB').generateRequest();
-		// });
-		document.addEventListener('ajaxLoginUser',function(data){
-			polymer.$.ajaxLoginUser.params = data.detail;
-			polymer.$.ajaxLoginUser.generateRequest();
-		});
+		this.fire('updateDatabases');
 		this.fire('goToPage', 0);
-	},	
+	},
+	updateAllDatabaseInfo:function(){
+		var xhttp = new XMLHttpRequest();
+		var polymer = this;
+		xhttp.onreadystatechange = function() {
+		    if (xhttp.readyState == 4) {
+		    	var response = xhttp.responseText;
+		    	response = JSON.parse(response);
+		    	var tempArray = [];
+		    	for(var index in response) {
+		    		var object = {'CREATED':response[index].created_at,
+									'DESCRIPTION':response[index].description,
+									'ID':response[index].id,
+									'USERS':response[index].instance_users,
+									'SIZE':response[index].maxSize,
+									'NAME':response[index].name,
+									'ORGANIZATION':response[index].organization,
+									'OWNERID':response[index].ownerId,
+									'TYPE':response[index].type,
+									'UPDATED':response[index].updated_at,
+									'VMID':response[index].vmId,
+									'VMIP':response[index]['vm'].ipAddr};
+					tempArray.push(object);
+		    	}
+		    	this.database = tempArray;
+		    }
+		}
+		var url = "/instances/";
+		xhttp.open("GET", url, true);
+		xhttp.send();
+	},
 	casLogout:function(){
 		var url = window.location.origin+"/demeter/CASLogic.php?logout";
 		window.location.href = url;	},

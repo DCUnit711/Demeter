@@ -65,10 +65,13 @@ Polymer({
 		if(this.size == undefined || this.size < 1) {
 			console.error('didnt add size');
 		}
+		var polymer = this;
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4 && xhttp.status == 200) {
-		       console.log(xhttp.responseText);
+		       	console.log(xhttp.responseText);
+		       	polymer.fire('updateDatabases');
+				polymer.fire('goToPage', 1);
 		    }
 		};
 		var body = JSON.stringify({'name':this.inputName,

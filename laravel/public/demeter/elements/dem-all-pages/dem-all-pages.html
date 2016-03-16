@@ -1,41 +1,6 @@
 <dom-module id="dem-all-pages">
 	<template>
 	<link rel="stylesheet" href="dem-all-pages.css"/>
-<!-- login through CAS -->
-	<iron-ajax
-		id="ajaxLoginUser"
-		url="128.187.104.23:1337/"
-		method=""
-		last-response="">
-	</iron-ajax>
-
-<!-- All users -->
-	<iron-ajax
-		id="ajaxGetAllUsers"
-		url="/users"
-		method="GET"
-		last-response="{{allUsers}}">
-	</iron-ajax>
-
-<!-- Create a database -->
-	<iron-ajax
-		id="ajaxCreateDB"
-		url="/instance/"
-		method="POST"
-		last-response="{{createDBResponse}}">
-	</iron-ajax>
-	<iron-ajax
-		id="ajaxCasLogout"
-		url="/checkLogin"
-		method="GET">
-	</iron-ajax>
-<!-- Create a database -->
-	<!-- <iron-ajax
-		id="ajaxGetAllDB"
-		url="128.187.104.23:1337/instance/"
-		method="POST"
-		last-response="{{usersInstances}}">
-	</iron-ajax> -->
 
 	<div class="all-pages-container">
 		<!-- HEADER TOOLBAR -->

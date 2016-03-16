@@ -212,16 +212,19 @@ class instanceController extends Controller
 	try
         {
                 $i = instance::find($id);
-                //emit request to make db
+                //emit request to delete db
                 $redis = new \Redis(); // Using the Redis extension provided client
                 $redis->connect($i->vm->ipAddr, '1337'); //we need to pick a port
                 $emitter = new SocketIO\Emitter($redis);
                 $emitter->emit('deleteInstance', array('name' => $i->name));
+		
+		if($i->instanceUsers())
+                	$i->instanceUsers()->delete();
+        	if($i->delete())
+	            echo "success";
+        	else
+	            echo "fail";
 
-	        if($i->instanceUsers()->delete() && $i->delete())
-        	    echo "success";
-	        else
-        	    echo "fail";
 	}
 	catch
 	{
