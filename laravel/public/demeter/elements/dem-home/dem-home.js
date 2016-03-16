@@ -39,7 +39,7 @@ Polymer({
 		this.selectedDatabase = "";
 	},
 	updateList:function(){
-		this.$.listDatabase.render();
+		// this.$.listDatabase.render();
 	},
 	returnCurrentDate:function(){
 		var today = new Date();
