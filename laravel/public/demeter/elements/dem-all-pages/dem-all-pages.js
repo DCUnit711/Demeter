@@ -59,7 +59,8 @@ Polymer({
 					tempArray.push(object);
 		    	}
 		    	this.database = tempArray;
-		    	this.$.demHome.updateList();
+		    	var homePage = document.getElementById("demHome");
+		    	homePage.updateList();
 		    }
 		}
 		var url = "/instances/";
