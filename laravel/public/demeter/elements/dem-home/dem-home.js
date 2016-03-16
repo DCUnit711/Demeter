@@ -5,13 +5,10 @@ Polymer({
 		users:{},
 		databaseList:{},
 		editDatabase:{ notify:true, observer:"updateList" },
-		animationConfig: 
-		{
-      		value:function(){
-        		return 
-        		{
-        			'entry':
-        			[{
+		animationConfig: {
+	      	value: function() {
+		        return {
+		        	'entry':[{
 	                	name:'fade-in-animation',
 	                	node:this
 	                },
