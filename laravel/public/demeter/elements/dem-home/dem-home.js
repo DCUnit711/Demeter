@@ -40,6 +40,7 @@ Polymer({
 	},
 	updateList:function()
 	{
+		console.log("Called render");
 		this.$.listDatabase.render();
 	},
 	returnCurrentDate:function(){
