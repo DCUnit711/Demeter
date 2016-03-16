@@ -3,8 +3,8 @@ Polymer({
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
 	properties:{
 		users:{},
-		databaseList:{},
-		editDatabase:{ notify:true, observer:"updateList" },
+		databaseList:{observer:"updateList"},
+		editDatabase:{ notify:true },
 		animationConfig: {
 	      	value: function() {
 		        return {
@@ -40,6 +40,8 @@ Polymer({
 	},
 	updateList:function()
 	{
+		console.log("called Render!!");
+		console.log(this.database);
 		this.$.listDatabase.render();
 	},
 	returnCurrentDate:function(){
