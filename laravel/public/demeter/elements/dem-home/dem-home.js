@@ -3,7 +3,7 @@ Polymer({
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
 	properties:{
 		users:{},
-		databaseList:{observer:"updateList"},
+		databaseList:{},
 		editDatabase:{ notify:true },
 		animationConfig: {
 	      	value: function() {
@@ -38,8 +38,9 @@ Polymer({
 		this.$.ajaxGetAllDB.generateRequest();
 		this.selectedDatabase = "";
 	},
-	updateList:function()
+	updateList:function(databases)
 	{
+		this.databaseList = databases
 		console.log(this.databaseList);
 		this.$.listDatabase.render();
 	},
