@@ -7,12 +7,11 @@ Polymer({
 		editDatabase:{ notify:true, observer:"updateList" },
 		animationConfig: 
 		{
-      		value: function() 
+      		value:function() 
       		{
         		return 
         		{
-        			'entry':[
-	                {
+        			'entry':[{
 	                	name:'fade-in-animation',
 	                	node:this
 	                },
