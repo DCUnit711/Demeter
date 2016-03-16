@@ -3,11 +3,14 @@ Polymer({
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
 	properties:{
 		users:{},
-		databaseList:{} },
-		editDatabase:{ notify:true,observer:"updateList" },
-		animationConfig: {
-      		value: function() {
-        		return {
+		databaseList:{},
+		editDatabase:{ notify:true, observer:"updateList" },
+		animationConfig: 
+		{
+      		value: function() 
+      		{
+        		return 
+        		{
         			'entry':[
 	                {
 	                	name:'fade-in-animation',
@@ -32,13 +35,15 @@ Polymer({
       		}
     	}
 	},
-	ready:function(){
+	ready:function()
+	{
 		this.hideRightClickMenu = true;
 		this.databaseList = [];
 		this.$.ajaxGetAllDB.generateRequest();
 		this.selectedDatabase = "";
 	},
-	updateList:function(){
+	updateList:function()
+	{
 		this.$.listDatabase.render();
 	},
 	returnCurrentDate:function(){
