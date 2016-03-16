@@ -64,10 +64,23 @@ class vmController extends Controller
 		$v->id = \Uuid::generate(4);
 		$v->ipAddr = $data['ipAddr'];
 		$v->type = $data['type'];
-		if($v->save())
-			echo "success";
-		else
+		try
+                {
+                        //emit request to make db
+                        $redis = new \Redis(); // Using the Redis extension provided client
+                        $redis->connect($v->ipAddr, '1337'); //we need to pick a port
+                        $emitter = new SocketIO\Emitter($redis);
+                        $emitter->emit('init', array('type' => $v->type));
+
+			if($v->save())
+				echo "success";
+			else
+				echo "fail";
+		}
+		catch
+		{
 			echo "fail";
+		}
 	}
 	else
 		echo "fail";
@@ -124,10 +137,23 @@ class vmController extends Controller
 	        $v = vm::find($id);
 		$v->ipAddr = $data['ipAddr'];
 	        $v->type = $data['type'];
-        	if($v->save())
-	                echo "success";
-        	else
-    	            echo "fail";
+		try
+                {
+                        //emit request to make db
+                        $redis = new \Redis(); // Using the Redis extension provided client
+                        $redis->connect($v->ipAddr, '1337'); //we need to pick a port
+                        $emitter = new SocketIO\Emitter($redis);
+                        $emitter->emit('updateVm', array('type' => $v->type));
+
+        		if($v->save())
+	                	echo "success";
+	        	else
+    		            echo "fail";
+		}
+		catch
+		{
+			echo "fail";
+		}
 	}
 	else
 		echo "fail";
@@ -146,9 +172,23 @@ class vmController extends Controller
             die('fail');
         }
         $v = vm::find($id);
-	   if($v->delete())
-		  echo "success";
-	   else
-		  echo "fail";
+	try
+        {
+                //emit request to make db
+                $redis = new \Redis(); // Using the Redis extension provided client
+                $redis->connect($v->ipAddr, '1337'); //we need to pick a port
+                $emitter = new SocketIO\Emitter($redis);
+                $emitter->emit('deleteVm');
+
+		   if($v->delete())
+			  echo "success";
+		   else
+			  echo "fail";
+	}
+        catch
+        {
+                echo "fail";
+        }
+
     }
 }
