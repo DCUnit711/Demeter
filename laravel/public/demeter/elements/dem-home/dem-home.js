@@ -11,7 +11,8 @@ Polymer({
       		{
         		return 
         		{
-        			'entry':[{
+        			'entry':
+        			[{
 	                	name:'fade-in-animation',
 	                	node:this
 	                },
@@ -20,8 +21,8 @@ Polymer({
           				id:'hero',
           				toPage:this
 		            }],
-          			'exit':[
-          			{
+          			'exit':
+          			[{
           				name:'hero-animation',
           				id:'hero',
           				fromPage:this
