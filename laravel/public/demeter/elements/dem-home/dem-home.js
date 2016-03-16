@@ -41,7 +41,7 @@ Polymer({
 	updateList:function()
 	{
 		console.log("called Render!!");
-		console.log(this.database);
+		console.log(this.databaseList);
 		this.$.listDatabase.render();
 	},
 	returnCurrentDate:function(){
