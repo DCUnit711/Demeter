@@ -122,11 +122,8 @@ Polymer({
 		    if (xhttp.readyState == 4) {
 		    	var response = xhttp.responseText;
 		    	response = JSON.parse(response);
-		    	console.log(response);
 		    	for(var index in response) {
 		    		if(response[index].id === THISE.database.ID) {
-		    			console.log("DATABASE FOUND!");
-		    			console.log(response[index]);
 		    			THISE.set("database", response[index]);
 		    		}
 		    	}

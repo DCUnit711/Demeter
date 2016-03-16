@@ -40,7 +40,6 @@ Polymer({
 	},
 	updateList:function()
 	{
-		console.log("called Render!!");
 		console.log(this.databaseList);
 		this.$.listDatabase.render();
 	},
