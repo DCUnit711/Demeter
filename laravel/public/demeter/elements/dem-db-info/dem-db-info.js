@@ -101,11 +101,13 @@ Polymer({
 	},
 	//-----------------------------------------------------
 	deleteDatabaseAjax:function() {
-		this.fire('selectPage', 1);
+		var polymer = this;
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
 		    	this.response = xhttp.responseText;
+		    	polymer.fire('updateDatabases');
+				polymer.fire('goToPage', 1);
 		    }
 		};
 		var url = "/instances/"+this.database.ID;
