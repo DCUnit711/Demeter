@@ -30,12 +30,15 @@ Polymer({
 		});
 		var polymer = this;
 		document.addEventListener("updateDatabases",function(data) {
+			console.log("Received this update call");
 			polymer.updateAllDatabaseInfo();
 		});
+		console.log("Called Update Database")
 		this.fire('updateDatabases');
 		this.fire('goToPage', 0);
 	},
 	updateAllDatabaseInfo:function(){
+		console.log("reached the function");
 		var xhttp = new XMLHttpRequest();
 		var polymer = this;
 		xhttp.onreadystatechange = function() {
@@ -59,7 +62,7 @@ Polymer({
 					tempArray.push(object);
 		    	}
 		    	this.database = tempArray;
-		    	// console.log(this.database);
+		    	console.log(this.database);
 		    }
 		}
 		var url = "/instances/";
