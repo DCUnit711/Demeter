@@ -67,9 +67,9 @@ class vmController extends Controller
 		try
                 {
                         //emit request to make db
-                        $redis = new \Redis(); // Using the Redis extension provided client
-                        $redis->connect($v->ipAddr, '1338'); //we need to pick a port
-                        $emitter = new SocketIO\Emitter($redis);
+                        $redis = \Redis::connection(); // Using the Redis extension provided client
+                        //$redis->connect($v->ipAddr, '1338'); //we need to pick a port
+                        $emitter = new \SocketIO\Emitter($redis);
                         $emitter->emit('init', array('type' => $v->type));
 
 			if($v->save())
@@ -140,9 +140,9 @@ class vmController extends Controller
 		try
                 {
                         //emit request to make db
-                        $redis = new \Redis(); // Using the Redis extension provided client
-                        $redis->connect($v->ipAddr, '1338'); //we need to pick a port
-                        $emitter = new SocketIO\Emitter($redis);
+                        $redis = \Redis::connection(); // Using the Redis extension provided client
+                        //$redis->connect($v->ipAddr, '1338'); //we need to pick a port
+                        $emitter = new \SocketIO\Emitter($redis);
                         $emitter->emit('updateVm', array('type' => $v->type));
 
         		if($v->save())
@@ -175,9 +175,9 @@ class vmController extends Controller
 	try
         {
                 //emit request to make db
-                $redis = new \Redis(); // Using the Redis extension provided client
-                $redis->connect($v->ipAddr, '1338'); //we need to pick a port
-                $emitter = new SocketIO\Emitter($redis);
+                $redis = Redis::connection(); // Using the Redis extension provided client
+                //$redis->connect($v->ipAddr, '1338'); //we need to pick a port
+                $emitter = new \SocketIO\Emitter($redis);
                 $emitter->emit('deleteVm');
 
 		   if($v->delete())
