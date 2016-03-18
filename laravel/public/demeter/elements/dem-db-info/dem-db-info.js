@@ -62,7 +62,7 @@ Polymer({
 	deleteUserAjax:function(e){
 		this.hideSpinner = true;
 		var xhttp = new XMLHttpRequest();
-		var THISE = this;
+		var polymer = this;
 		xhttp.onreadystatechange = function() {
 			if (xhttp.readyState == 1) {
 			 	this.hideSpinner = false;
@@ -84,7 +84,7 @@ Polymer({
 	//-----------------------------------------------------
 	addUserAjax:function(){
 		var xhttp = new XMLHttpRequest();
-		var THISE = this;
+		var polymer = this;
 		xhttp.onreadystatechange = function() {
 			if (xhttp.readyState === 1) {
 				this.hideSpinner = false;
@@ -121,7 +121,7 @@ Polymer({
 	//-----------------------------------------------------
 	updateDatabaseInformation:function(){
 		var xhttp = new XMLHttpRequest();
-		var THISE = this;
+		var polymer = this;
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
 		    	var response = xhttp.responseText;
