@@ -61,6 +61,9 @@ class instanceUserController extends Controller
         $data = json_decode($post, true);
         if($data['name'] != null && $data['instanceId'] != null)
 	{
+		//check if user with same name exists in that instance
+		if(instanceUser::where('name', $data['name'])->where('instanceId', $data['instanceId'])->exists()
+			die("fail");
 		   //create a new instance user, expects name and instanceId
 		$i = new instanceUser();
 	        $i->id = \Uuid::generate(4);
