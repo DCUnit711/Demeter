@@ -3,6 +3,16 @@
 	height:100%;
 	margin-top:20px;
 }
+.create-left-side {
+	display: inline-block;
+	margin: 10px;
+	text-align: left;
+}
+.create-right-side {
+	display: inline-block;
+	text-align: left;
+	margin: 10px;
+}
 .create-database-card {
 	font-size: 12pt;
 	width: 650px;
