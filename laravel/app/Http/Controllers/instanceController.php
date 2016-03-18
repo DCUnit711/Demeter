@@ -77,11 +77,13 @@ class instanceController extends Controller
     		$i->description = $data['description'];
 	    	//determine the VM for this instance
     		$vms = vm::where("type", "LIKE", "%".$i->type."%")->get();
+		$ip = "127.0.0.1";
 	    	foreach ($vms as $vm)
     		{
     			if ($i->maxSize == $i->maxSize) //check if vm has space
 	    		{
      			        $i->vmId =  $vm->id;
+				$ip = $vm->ipAddr;
     				break;
 	    		}
     		}
@@ -91,11 +93,24 @@ class instanceController extends Controller
     		}
 	    	else
     		{
-	    		$i->inUse = true;
-    			if($i->save())
-                	    echo "success";
-	    	        else
-        	            echo "fail";
+			try
+			{
+				//emit request to make db
+				$redis = new \Redis(); // Using the Redis extension provided client
+				$redis->connect($ip, '1337'); //we need to pick a port
+				$emitter = new SocketIO\Emitter($redis);
+				$emitter->emit('createInstance', array('name' => $i->name, 'type'=>$i->type, 'maxSize'=>$i->maxSize));
+
+		    		$i->inUse = 0;
+    				if($i->save())
+                		    echo "success";
+		    	        else
+        		            echo "fail";
+			}
+			catch
+			{
+				echo "fail";
+			}
 	    	}
 	}
     }
@@ -148,22 +163,35 @@ class instanceController extends Controller
 	$data = json_decode($put, true);
 	if($data['name'] != null && $data['ownerId'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null)
 	{
+		$i = instance::find($id);
+		$oldName = $i->name;
 		//check if instance exists with the same name
-                if(instance::where('name', $data['name'])->exists())
+                if($oldName != $data['name'] && instance::where('name', $data['name'])->exists())
                         die("fail");
 
-	        $i = instance::find($id);
-		    $i->name = $data['name'];
+		$i->name = $data['name'];
 	        $i->ownerId =  $data['ownerId'];
         	$i->organization =  $data['organization'];
 	        $i->maxSize = $data['maxSize'];
         	$i->description = $data['description'];
-	        $i->inUse = true;
 
-        	if($i->save())
-	            echo "success";
-        	else
-	            echo "fail";
+		try
+                {
+                        //emit request to make db
+                        $redis = new \Redis(); // Using the Redis extension provided client
+                        $redis->connect($i->vm->ipAddr, '1337'); //we need to pick a port
+                        $emitter = new SocketIO\Emitter($redis);
+                        $emitter->emit('updateInstance', array('oldName'=>$oldName, 'name' => $i->name, 'maxSize'=>$i->maxSize));
+	
+	        	if($i->save())
+		            echo "success";
+        		else
+		            echo "fail";
+		}
+		catch
+		{
+			echo "fail";
+		}
 	}
 	else
 		echo "fail";
@@ -181,13 +209,27 @@ class instanceController extends Controller
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             die('fail');
         }
-        $i = instance::find($id);
-        if($i->instanceUsers())
-		$i->instanceUsers()->delete();
-	if($i->delete())
-            echo "success";
-        else
-            echo "fail";
+	try
+        {
+                $i = instance::find($id);
+                //emit request to delete db
+                $redis = new \Redis(); // Using the Redis extension provided client
+                $redis->connect($i->vm->ipAddr, '1337'); //we need to pick a port
+                $emitter = new SocketIO\Emitter($redis);
+                $emitter->emit('deleteInstance', array('name' => $i->name));
+		
+		if($i->instanceUsers())
+                	$i->instanceUsers()->delete();
+        	if($i->delete())
+	            echo "success";
+        	else
+	            echo "fail";
+
+	}
+	catch
+	{
+		echo "fail";
+	}
 
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\instanceUser;
+use App\instance;
 use Illuminate\Http\Response;
 
 class instanceUserController extends Controller
@@ -65,10 +66,24 @@ class instanceUserController extends Controller
 	        $i->id = \Uuid::generate(4);
         	$i->name = $data['name'];
 	        $i->instanceId = $data['instanceId'];
-		if($i->save())
-                	echo "success";
-	        else
-        	        echo "fail";
+		try
+                {
+			$inst = Instance::find($i->instanceId);
+                        //emit request to make db
+                        $redis = new \Redis(); // Using the Redis extension provided client
+                        $redis->connect($inst->vm->ipAddr, '1337'); //we need to pick a port
+                        $emitter = new SocketIO\Emitter($redis);
+                        $emitter->emit('createInstanceUser', array('instanceName' => $inst->name, 'name'=>$i->name));
+
+			if($i->save())
+	                	echo "success";
+		        else
+        		        echo "fail";
+		}
+		catch
+		{
+			echo "fail");
+		}
 	}
 	else
 		echo "fail";
@@ -147,10 +162,23 @@ class instanceUserController extends Controller
             die('fail');
         }
         $i = instanceUser::find($id);
-        if($i->delete())
-                echo "success";
-        else
-                echo "fail";
+	try
+        {
+                //emit request to make db
+                $redis = new \Redis(); // Using the Redis extension provided client
+                $redis->connect($inst->vm->ipAddr, '1337'); //we need to pick a port
+                $emitter = new SocketIO\Emitter($redis);
+                $emitter->emit('deleteInstanceUser', array('instanceName' => $i->instance->name, 'name'=>$i->name));
+
+        	if($i->delete())
+	                echo "success";
+        	else
+                	echo "fail";
+	}
+	catch
+	{
+		echo "fail";
+	}
 
     }
 }

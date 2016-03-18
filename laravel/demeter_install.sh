@@ -58,6 +58,8 @@ sed -i "s/DB_DATABASE=.*/DB_DATABASE=$DB_DATABASE/g" .env
 sed -i "s/DB_USERNAME=.*/DB_USERNAME=$DB_USER/g" .env
 sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=$DB_PASSWORD/g" .env
 
+#install composer packages
+composer update
 #generate keys
 php artisan key:generate
 php artisan config:clear
@@ -65,3 +67,6 @@ php artisan config:clear
 php artisan migrate
 #start the Middleware Server
 nohup php artisan serve --port=$MIDDLEWARE_PORT > /dev/null 2>&1 &
+#start queue listener
+php artisan queue:listen
+
