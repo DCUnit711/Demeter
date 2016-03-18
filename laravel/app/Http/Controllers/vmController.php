@@ -77,7 +77,7 @@ class vmController extends Controller
 			else
 				echo "fail";
 		}
-		catch()
+		catch(Exception $e)
 		{
 			echo "fail";
 		}
@@ -150,7 +150,7 @@ class vmController extends Controller
 	        	else
     		            echo "fail";
 		}
-		catch()
+		catch(Exception $e)
 		{
 			echo "fail";
 		}
@@ -185,7 +185,7 @@ class vmController extends Controller
 		   else
 			  echo "fail";
 	}
-        catch()
+        catch(Exception $e)
         {
                 echo "fail";
         }

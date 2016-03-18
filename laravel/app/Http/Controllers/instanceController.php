@@ -107,7 +107,7 @@ class instanceController extends Controller
 		    	        else
         		            echo "fail";
 			}
-			catch()
+			catch(Exception $e)
 			{
 				echo "fail";
 			}
@@ -188,7 +188,7 @@ class instanceController extends Controller
         		else
 		            echo "fail";
 		}
-		catch()
+		catch(Exception $e)
 		{
 			echo "fail";
 		}
@@ -226,7 +226,7 @@ class instanceController extends Controller
 	            echo "fail";
 
 	}
-	catch()
+	catch(Exception $e)
 	{
 		echo "fail";
 	}
