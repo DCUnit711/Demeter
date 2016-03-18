@@ -179,7 +179,16 @@ class vmController extends Controller
                 //$redis->connect($v->ipAddr, '1338'); //we need to pick a port
                 $emitter = new \SocketIO\Emitter($redis);
                 $emitter->emit('deleteVm', array('vm' => $id));
-
+		
+		    if($v->instances())
+		    {
+			foreach($instances as $i)
+			{
+				if($i->instanceUsers())
+		                        $i->instanceUsers()->delete();
+			}
+			$v->instances()->delete();
+		    }
 		   if($v->delete())
 			  echo "success";
 		   else
