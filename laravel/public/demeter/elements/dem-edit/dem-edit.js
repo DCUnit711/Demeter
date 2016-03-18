@@ -66,6 +66,8 @@ Polymer({
 		    	this.response = xhttp.responseText;
 		    	if(xhttp.status == 200) {
 		    		this.response = xhttp.responseText;
+		    		polymer.fire('updateDatabases');
+					polymer.fire('goToPage', 1);
 		    	}
 		    }
 		};
