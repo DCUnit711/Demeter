@@ -70,7 +70,7 @@ class vmController extends Controller
                         $redis = \Redis::connection(); // Using the Redis extension provided client
                         //$redis->connect($v->ipAddr, '1338'); //we need to pick a port
                         $emitter = new \SocketIO\Emitter($redis);
-                        $emitter->emit('init', array('type' => $v->type));
+                        $emitter->emit('init', array('vm' => $v->id, 'type' => $v->type));
 
 			if($v->save())
 				echo "success";
@@ -143,7 +143,7 @@ class vmController extends Controller
                         $redis = \Redis::connection(); // Using the Redis extension provided client
                         //$redis->connect($v->ipAddr, '1338'); //we need to pick a port
                         $emitter = new \SocketIO\Emitter($redis);
-                        $emitter->emit('updateVm', array('type' => $v->type));
+                        $emitter->emit('updateVm', array('vm' => $v->id,'type' => $v->type));
 
         		if($v->save())
 	                	echo "success";
@@ -178,7 +178,7 @@ class vmController extends Controller
                 $redis = Redis::connection(); // Using the Redis extension provided client
                 //$redis->connect($v->ipAddr, '1338'); //we need to pick a port
                 $emitter = new \SocketIO\Emitter($redis);
-                $emitter->emit('deleteVm');
+                $emitter->emit('deleteVm', array('vm' => $id));
 
 		   if($v->delete())
 			  echo "success";
