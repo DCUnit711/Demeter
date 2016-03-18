@@ -77,6 +77,7 @@ Polymer({
 		var url = "/instanceUsers/"+e.model.__data__.user.id;
 		xhttp.open("DELETE", url, true);
 		xhttp.send();
+		this.$.deleteUserDialog.opened = false;
 	},
 	//-----------------------------------------------------
 	addUserAjax:function(){
