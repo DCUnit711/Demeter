@@ -80,7 +80,7 @@ class instanceUserController extends Controller
 		        else
         		        echo "fail";
 		}
-		catch
+		catch()
 		{
 			echo "fail");
 		}
@@ -175,7 +175,7 @@ class instanceUserController extends Controller
         	else
                 	echo "fail";
 	}
-	catch
+	catch()
 	{
 		echo "fail";
 	}
