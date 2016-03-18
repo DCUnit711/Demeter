@@ -3,13 +3,12 @@ Polymer({
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
 	properties:{
 		users:{},
-		databaseList:{ },
+		databaseList:{},
 		editDatabase:{ notify:true },
 		animationConfig: {
-      		value: function() {
-        		return {
-        			'entry':[
-	                {
+	      	value: function() {
+		        return {
+		        	'entry':[{
 	                	name:'fade-in-animation',
 	                	node:this
 	                },
@@ -18,8 +17,8 @@ Polymer({
           				id:'hero',
           				toPage:this
 		            }],
-          			'exit':[
-          			{
+          			'exit':
+          			[{
           				name:'hero-animation',
           				id:'hero',
           				fromPage:this
@@ -32,11 +31,18 @@ Polymer({
       		}
     	}
 	},
-	ready:function(){
+	ready:function()
+	{
 		this.hideRightClickMenu = true;
 		this.databaseList = [];
 		this.$.ajaxGetAllDB.generateRequest();
 		this.selectedDatabase = "";
+	},
+	updateList:function(databases)
+	{
+		this.databaseList = databases
+		console.log(this.databaseList);
+		this.$.listDatabase.render();
 	},
 	returnCurrentDate:function(){
 		var today = new Date();

@@ -101,11 +101,13 @@ Polymer({
 	},
 	//-----------------------------------------------------
 	deleteDatabaseAjax:function() {
-		this.fire('selectPage', 1);
+		var polymer = this;
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
 		    	this.response = xhttp.responseText;
+		    	polymer.fire('updateDatabases');
+				polymer.fire('goToPage', 1);
 		    }
 		};
 		var url = "/instances/"+this.database.ID;
@@ -120,11 +122,8 @@ Polymer({
 		    if (xhttp.readyState == 4) {
 		    	var response = xhttp.responseText;
 		    	response = JSON.parse(response);
-		    	console.log(response);
 		    	for(var index in response) {
 		    		if(response[index].id === THISE.database.ID) {
-		    			console.log("DATABASE FOUND!");
-		    			console.log(response[index]);
 		    			THISE.set("database", response[index]);
 		    		}
 		    	}
