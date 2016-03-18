@@ -97,7 +97,7 @@ class instanceController extends Controller
 			{
 				//emit request to make db
 				$redis = new \Redis(); // Using the Redis extension provided client
-				$redis->connect($ip, '1337'); //we need to pick a port
+				$redis->connect($ip, '1338'); //we need to pick a port
 				$emitter = new SocketIO\Emitter($redis);
 				$emitter->emit('createInstance', array('name' => $i->name, 'type'=>$i->type, 'maxSize'=>$i->maxSize));
 
@@ -179,7 +179,7 @@ class instanceController extends Controller
                 {
                         //emit request to make db
                         $redis = new \Redis(); // Using the Redis extension provided client
-                        $redis->connect($i->vm->ipAddr, '1337'); //we need to pick a port
+                        $redis->connect($i->vm->ipAddr, '1338'); //we need to pick a port
                         $emitter = new SocketIO\Emitter($redis);
                         $emitter->emit('updateInstance', array('oldName'=>$oldName, 'name' => $i->name, 'maxSize'=>$i->maxSize));
 	
@@ -214,7 +214,7 @@ class instanceController extends Controller
                 $i = instance::find($id);
                 //emit request to delete db
                 $redis = new \Redis(); // Using the Redis extension provided client
-                $redis->connect($i->vm->ipAddr, '1337'); //we need to pick a port
+                $redis->connect($i->vm->ipAddr, '1338'); //we need to pick a port
                 $emitter = new SocketIO\Emitter($redis);
                 $emitter->emit('deleteInstance', array('name' => $i->name));
 		

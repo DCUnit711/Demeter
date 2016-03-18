@@ -20,4 +20,4 @@ Route::resource('vms', 'vmController');
 Route::resource('instances', 'instanceController');
 Route::resource('instanceUsers', 'instanceUserController');
 Route::get('checkLogin', 'checkLogin@index');
-Route::all('vmRequest', 'handleVmRequest@index');
+Route::post('vmRequest', 'handleVmRequest@index');
