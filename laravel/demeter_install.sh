@@ -69,4 +69,5 @@ php artisan migrate
 nohup php artisan serve --port=$MIDDLEWARE_PORT > /dev/null 2>&1 &
 #start queue listener
 php artisan queue:listen
-
+#start redis listener
+php artisan redis:subscribe
