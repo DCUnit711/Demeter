@@ -96,9 +96,9 @@ class instanceController extends Controller
 			try
 			{
 				//emit request to make db
-				$redis = new \Redis(); // Using the Redis extension provided client
-				$redis->connect($ip, '1338'); //we need to pick a port
-				$emitter = new SocketIO\Emitter($redis);
+				$redis = \Redis::connection(); // Using the Redis extension provided client
+				//$redis->connect($ip, '1338'); //we need to pick a port
+				$emitter = new \SocketIO\Emitter($redis);
 				$emitter->emit('createInstance', array('name' => $i->name, 'type'=>$i->type, 'maxSize'=>$i->maxSize));
 
 		    		$i->inUse = 0;
@@ -178,9 +178,9 @@ class instanceController extends Controller
 		try
                 {
                         //emit request to make db
-                        $redis = new \Redis(); // Using the Redis extension provided client
-                        $redis->connect($i->vm->ipAddr, '1338'); //we need to pick a port
-                        $emitter = new SocketIO\Emitter($redis);
+                        $redis = \Redis::connection(); // Using the Redis extension provided client
+                        //$redis->connect($i->vm->ipAddr, '1338'); //we need to pick a port
+                        $emitter = new \SocketIO\Emitter($redis);
                         $emitter->emit('updateInstance', array('oldName'=>$oldName, 'name' => $i->name, 'maxSize'=>$i->maxSize));
 	
 	        	if($i->save())
@@ -213,9 +213,9 @@ class instanceController extends Controller
         {
                 $i = instance::find($id);
                 //emit request to delete db
-                $redis = new \Redis(); // Using the Redis extension provided client
-                $redis->connect($i->vm->ipAddr, '1338'); //we need to pick a port
-                $emitter = new SocketIO\Emitter($redis);
+                $redis = \Redis::connection(); // Using the Redis extension provided client
+                //$redis->connect($i->vm->ipAddr, '1338'); //we need to pick a port
+                $emitter = new \SocketIO\Emitter($redis);
                 $emitter->emit('deleteInstance', array('name' => $i->name));
 		
 		if($i->instanceUsers())

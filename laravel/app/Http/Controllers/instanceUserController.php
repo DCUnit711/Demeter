@@ -70,9 +70,9 @@ class instanceUserController extends Controller
                 {
 			$inst = Instance::find($i->instanceId);
                         //emit request to make db
-                        $redis = new \Redis(); // Using the Redis extension provided client
-                        $redis->connect($inst->vm->ipAddr, '1338'); //we need to pick a port
-                        $emitter = new SocketIO\Emitter($redis);
+                        $redis =  \Redis::connection(); // Using the Redis extension provided client
+                        //$redis->connect($inst->vm->ipAddr, '1338'); //we need to pick a port
+                        $emitter = new \SocketIO\Emitter($redis);
                         $emitter->emit('createInstanceUser', array('instanceName' => $inst->name, 'name'=>$i->name));
 
 			if($i->save())
@@ -165,9 +165,9 @@ class instanceUserController extends Controller
 	try
         {
                 //emit request to make db
-                $redis = new \Redis(); // Using the Redis extension provided client
-                $redis->connect($inst->vm->ipAddr, '1338'); //we need to pick a port
-                $emitter = new SocketIO\Emitter($redis);
+                $redis = \Redis::connection(); // Using the Redis extension provided client
+                //$redis->connect($inst->vm->ipAddr, '1338'); //we need to pick a port
+                $emitter = new \SocketIO\Emitter($redis);
                 $emitter->emit('deleteInstanceUser', array('instanceName' => $i->instance->name, 'name'=>$i->name));
 
         	if($i->delete())
