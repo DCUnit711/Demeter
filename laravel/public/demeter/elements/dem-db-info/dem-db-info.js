@@ -69,10 +69,12 @@ Polymer({
 			}
 		    if (xhttp.readyState == 4) {
 		    	this.response = xhttp.responseText;
-		    	this.hideSpinner = true;
-		    	if(xhttp.status == 200) {
-		    	 	THISE.updateDatabaseInformation();
-		    	}
+		    	// this.hideSpinner = true;
+		    	polymer.fire('updateDatabases');
+				polymer.fire('goToPage', 1);
+		    	// if(xhttp.status == 200) {
+		    	//  	THISE.updateDatabaseInformation();
+		    	// }
 		    }
 		};
 		var url = "/instanceUsers/"+e.model.__data__.user.id;
@@ -88,9 +90,11 @@ Polymer({
 				this.hideSpinner = false;
 			}
 		    if (xhttp.readyState === 4) {
-		    	this.hideSpinner = true;
+		    	// this.hideSpinner = true;
 		    	this.response = xhttp.responseText;
-		    	THISE.updateDatabaseInformation();
+		    	// THISE.updateDatabaseInformation();
+		    	polymer.fire('updateDatabases');
+				polymer.fire('goToPage', 1);
 		    }
 		};
 		var body = JSON.stringify({'name':this.username,
@@ -122,11 +126,13 @@ Polymer({
 		    if (xhttp.readyState == 4) {
 		    	var response = xhttp.responseText;
 		    	response = JSON.parse(response);
-		    	for(var index in response) {
-		    		if(response[index].id === THISE.database.ID) {
-		    			THISE.set("database", response[index]);
-		    		}
-		    	}
+		    	polymer.fire('updateDatabases');
+				polymer.fire('goToPage', 1);
+		    	// for(var index in response) {
+		    	// 	if(response[index].id === THISE.database.ID) {
+		    	// 		THISE.set("database", response[index]);
+		    	// 	}
+		    	// }
 		    }
 		};
 		var url = "/instances/";
