@@ -62,12 +62,12 @@ Polymer({
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
-		    	this.processing = false;
+		    	// this.processing = false;
+		    	polymer.fire('updateDatabases');
+				polymer.fire('goToPage', 1);
 		    	this.response = xhttp.responseText;
 		    	if(xhttp.status == 200) {
 		    		this.response = xhttp.responseText;
-		    		polymer.fire('updateDatabases');
-					polymer.fire('goToPage', 1);
 		    	}
 		    }
 		};
@@ -80,8 +80,8 @@ Polymer({
 		var url = "/instances/"+this.database.ID;
 		xhttp.open("PUT", url, true);
 		xhttp.send(body);
-		this.processing = true;
-		this.$.progressDialog.opened = true;
+		// this.processing = true;
+		// this.$.progressDialog.opened = true;
 	},
 	goToList:function(){
 		this.fire("goToPage", 1);
