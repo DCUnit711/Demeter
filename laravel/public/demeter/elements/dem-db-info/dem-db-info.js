@@ -62,35 +62,36 @@ Polymer({
 	deleteUserAjax:function(e){
 		this.hideSpinner = true;
 		var xhttp = new XMLHttpRequest();
-		var THISE = this;
+		var polymer = this;
 		xhttp.onreadystatechange = function() {
 			if (xhttp.readyState == 1) {
 			 	this.hideSpinner = false;
 			}
 		    if (xhttp.readyState == 4) {
 		    	this.response = xhttp.responseText;
-		    	this.hideSpinner = true;
-		    	if(xhttp.status == 200) {
-		    	 	THISE.updateDatabaseInformation();
-		    	}
+		    	// this.hideSpinner = true;
+		    	polymer.fire('updateDatabases');
+				polymer.fire('goToPage', 1);
 		    }
 		};
 		var url = "/instanceUsers/"+e.model.__data__.user.id;
 		xhttp.open("DELETE", url, true);
 		xhttp.send();
+		this.$.deleteUserDialog.opened = false;
 	},
 	//-----------------------------------------------------
 	addUserAjax:function(){
 		var xhttp = new XMLHttpRequest();
-		var THISE = this;
+		var polymer = this;
 		xhttp.onreadystatechange = function() {
 			if (xhttp.readyState === 1) {
 				this.hideSpinner = false;
 			}
 		    if (xhttp.readyState === 4) {
-		    	this.hideSpinner = true;
+		    	// this.hideSpinner = true;
 		    	this.response = xhttp.responseText;
-		    	THISE.updateDatabaseInformation();
+		    	polymer.fire('updateDatabases');
+				polymer.fire('goToPage', 1);
 		    }
 		};
 		var body = JSON.stringify({'name':this.username,
@@ -117,16 +118,13 @@ Polymer({
 	//-----------------------------------------------------
 	updateDatabaseInformation:function(){
 		var xhttp = new XMLHttpRequest();
-		var THISE = this;
+		var polymer = this;
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
 		    	var response = xhttp.responseText;
 		    	response = JSON.parse(response);
-		    	for(var index in response) {
-		    		if(response[index].id === THISE.database.ID) {
-		    			THISE.set("database", response[index]);
-		    		}
-		    	}
+		    	polymer.fire('updateDatabases');
+				polymer.fire('goToPage', 1);
 		    }
 		};
 		var url = "/instances/";
