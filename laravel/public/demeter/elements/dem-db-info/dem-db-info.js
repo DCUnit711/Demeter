@@ -72,9 +72,6 @@ Polymer({
 		    	// this.hideSpinner = true;
 		    	polymer.fire('updateDatabases');
 				polymer.fire('goToPage', 1);
-		    	// if(xhttp.status == 200) {
-		    	//  	THISE.updateDatabaseInformation();
-		    	// }
 		    }
 		};
 		var url = "/instanceUsers/"+e.model.__data__.user.id;
@@ -92,7 +89,6 @@ Polymer({
 		    if (xhttp.readyState === 4) {
 		    	// this.hideSpinner = true;
 		    	this.response = xhttp.responseText;
-		    	// THISE.updateDatabaseInformation();
 		    	polymer.fire('updateDatabases');
 				polymer.fire('goToPage', 1);
 		    }
@@ -128,11 +124,6 @@ Polymer({
 		    	response = JSON.parse(response);
 		    	polymer.fire('updateDatabases');
 				polymer.fire('goToPage', 1);
-		    	// for(var index in response) {
-		    	// 	if(response[index].id === THISE.database.ID) {
-		    	// 		THISE.set("database", response[index]);
-		    	// 	}
-		    	// }
 		    }
 		};
 		var url = "/instances/";
