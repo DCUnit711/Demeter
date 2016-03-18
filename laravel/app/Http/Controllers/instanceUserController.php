@@ -82,7 +82,7 @@ class instanceUserController extends Controller
 		}
 		catch(Exception $e)
 		{
-			echo "fail");
+			echo "fail";
 		}
 	}
 	else
