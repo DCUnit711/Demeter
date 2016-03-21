@@ -29,12 +29,12 @@ class handleVmRequest extends Job implements SelfHandling, ShouldQueue
      *
      * @return void
      */
-    public function handle(Request $r)
+    public function handle($m)
     {
-	$command = $r->input("command");
+	$command = $m["command"];
         if($command == "createInstance")
 	{
-	        $instance = instance::find($r->input('instanceId'));
+	        $instance = instance::find($m['instanceId']);
 		$instance->inuse = 1;
 		$instance->save();
 	}

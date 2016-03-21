@@ -100,7 +100,7 @@ class instanceController extends Controller
 				//$redis->connect($ip, '1338'); //we need to pick a port
 				//$emitter = new \SocketIO\Emitter($redis);
 				//$emitter->emit('createInstance', array('vm' => $i->vmId, 'name' => $i->name, 'type'=>$i->type, 'maxSize'=>$i->maxSize));
-				$redis->publish('demeter', json_encode(array('command' => 'createInstance', 'vm' => $i->vmId, 'name' => $i->name, 'type'=>$i->type, 'maxSize'=>$i->maxSize)));
+				$redis->publish('demeter', json_encode(array('command' => 'createInstance', 'vm' => $i->vmId, 'instanceId' => $i->id, 'name' => $i->name, 'type'=>$i->type, 'maxSize'=>$i->maxSize)));
 		    		$i->inUse = 0;
     				if($i->save())
                 		    echo "success";
@@ -182,7 +182,7 @@ class instanceController extends Controller
                         //$redis->connect($i->vm->ipAddr, '1338'); //we need to pick a port
                         //$emitter = new \SocketIO\Emitter($redis);
                         //$emitter->emit('updateInstance', array('vm' => $i->vmId, 'oldName'=>$oldName, 'name' => $i->name, 'maxSize'=>$i->maxSize));
-			$redis->publish('demeter', json_encode(array('command' => 'updateInstance', 'vm' => $i->vmId, 'oldName'=>$oldName, 'name' => $i->name, 'maxSize'=>$i->maxSize)));	
+			$redis->publish('demeter', json_encode(array('command' => 'updateInstance', 'instanceId' => $i->id, 'vm' => $i->vmId, 'oldName'=>$oldName, 'name' => $i->name, 'maxSize'=>$i->maxSize)));	
 	        	if($i->save())
 		            echo "success";
         		else
@@ -217,7 +217,7 @@ class instanceController extends Controller
                 //$redis->connect($i->vm->ipAddr, '1338'); //we need to pick a port
                 //$emitter = new \SocketIO\Emitter($redis);
                 //$emitter->emit('deleteInstance', array('vm' => $i->vmId, 'name' => $i->name));
-		$redis->publish('demeter', json_encode(array('command' => 'deleteInstance', 'vm' => $i->vmId, 'name' => $i->name)));
+		$redis->publish('demeter', json_encode(array('command' => 'deleteInstance', 'instanceId' => $i->id, 'vm' => $i->vmId, 'name' => $i->name)));
 		if($i->instanceUsers())
                 	$i->instanceUsers()->delete();
         	if($i->delete())

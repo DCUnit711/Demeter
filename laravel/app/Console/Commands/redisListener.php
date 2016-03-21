@@ -18,7 +18,7 @@ class redisListener extends Command
      *
      * @var string
      */
-    protected $description = 'Subscribe to Redis Channel \'laravelMiddle\' for queue';
+    protected $description = 'Subscribe to Redis Channel \'demeterMiddle\' for queue';
 
     /**
      * Execute the console command.
@@ -27,8 +27,10 @@ class redisListener extends Command
      */
     public function handle()
     {
-        \Redis::subscribe(['laravelMiddle'], function($message) {
-            echo $message;
+        \Redis::subscribe('demeterMiddle', function($message) {
+        	$m = json_decode($message);
+	        $this->dispatchFrom('App\Jobs\handleVmRequest', $m);
+
         });
     }
 
