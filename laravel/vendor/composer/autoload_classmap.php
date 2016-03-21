@@ -9,6 +9,7 @@ return array(
     'CreateDemeterUsersTable' => $baseDir . '/database/migrations/2015_11_11_154523_create_demeter_users_table.php',
     'CreateInstanceUsersTable' => $baseDir . '/database/migrations/2015_11_17_003509_create_instance_users_table.php',
     'CreateInstancesTable' => $baseDir . '/database/migrations/2015_11_13_153713_create_instances_table.php',
+    'CreateJobsTable' => $baseDir . '/database/migrations/2016_03_21_144812_create_jobs_table.php',
     'CreateUserInstanceTable' => $baseDir . '/database/migrations/2015_11_17_005111_create_user_instance_table.php',
     'CreateVmsTable' => $baseDir . '/database/migrations/2015_11_13_150826_create_vms_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
