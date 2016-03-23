@@ -29,7 +29,8 @@ class redisListener extends Command
     {
         \Redis::subscribe('demeterMiddle', function($message) {
         	$m = json_decode($message);
-	        dispatch( new \App\Jobs\handleVmRequest, $m);
+		echo var_dump($m);
+	        dispatch( new \App\Jobs\handleVmRequest($m));
 
         });
     }

@@ -15,13 +15,15 @@ class handleVmRequest extends Job implements SelfHandling, ShouldQueue
 {
     use InteractsWithQueue, SerializesModels;
 
+	protected $m;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($m)
     {
+	$this->m = $m;
     }
 
     /**
@@ -29,12 +31,13 @@ class handleVmRequest extends Job implements SelfHandling, ShouldQueue
      *
      * @return void
      */
-    public function handle($m)
+    public function handle()
     {
-	$command = $m["command"];
+	$m = $this->m;
+	$command = $m->command;
         if($command == "createInstance")
 	{
-	        $instance = instance::find($m['instanceId']);
+	        $instance = instance::find($m->instanceId);
 		$instance->inuse = 1;
 		$instance->save();
 	}

@@ -68,6 +68,6 @@ php artisan migrate
 #start the Middleware Server
 nohup php artisan serve --port=$MIDDLEWARE_PORT > /dev/null 2>&1 &
 #start queue listener
-php artisan queue:listen
+nohup php artisan queue:listen > /dev/null 2>&1 &
 #start redis listener
-php artisan redis:subscribe
+nohup php artisan redis:subscribe > /dev/null 2>&1 &
