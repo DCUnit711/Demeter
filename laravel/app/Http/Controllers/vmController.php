@@ -68,9 +68,6 @@ class vmController extends Controller
                 {
                         //emit request to make db
                         $redis = \Redis::connection(); // Using the Redis extension provided client
-                        //$redis->connect($v->ipAddr, '1338'); //we need to pick a port
-                        //$emitter = new \SocketIO\Emitter($redis);
-                        //$emitter->emit('init', array('vm' => $v->id, 'type' => $v->type));
 			$redis->publish('demeter', json_encode(array('command' => 'init', 'vm' => $v->id, 'type' => $v->type)));
 			if($v->save())
 				echo "success";
@@ -141,9 +138,6 @@ class vmController extends Controller
                 {
                         //emit request to make db
                         $redis = \Redis::connection(); // Using the Redis extension provided client
-                        //$redis->connect($v->ipAddr, '1338'); //we need to pick a port
-                        //$emitter = new \SocketIO\Emitter($redis);
-                        //$emitter->emit('updateVm', array('vm' => $v->id,'type' => $v->type));
 			$redis->publish('demeter', json_encode(array('command' => 'updateVm', 'vm' => $v->id,'type' => $v->type)));
         		if($v->save())
 	                	echo "success";
@@ -176,9 +170,6 @@ class vmController extends Controller
         {
                 //emit request to make db
                 $redis = Redis::connection(); // Using the Redis extension provided client
-                //$redis->connect($v->ipAddr, '1338'); //we need to pick a port
-                //$emitter = new \SocketIO\Emitter($redis);
-                //$emitter->emit('deleteVm', array('vm' => $id));
 		$redis->publish('demeter', json_encode(array('command' => 'deleteVm', 'vm' => $id)));
 		    if($v->instances())
 		    {
