@@ -32,9 +32,10 @@ class instanceController extends Controller
 	//get user
 	$user = demeterUser::where('netId', $_SESSION['AUTH_USER'])->first();
 	//check if we need to make a user
-	if(!$user->isEmpty())
+	if(!$user)
 	{
 		$user = new demeterUser();
+                $user->id = \Uuid::generate(4);
 		$user->netId = $_SESSION['AUTH_USER'];
 		$user->role = 'client';
 		$user->save();
@@ -43,8 +44,8 @@ class instanceController extends Controller
 	if($user->role == 'admin')
 		$instances = instance::with('vm', 'owner', 'users', 'instanceUsers')->get();
 	else
-		$instances = $user->instances->with('vm', 'owner', 'users', 'instanceUsers')->get();
-
+		$instances = $user->ownedInstances()->with('vm', 'owner', 'users', 'instanceUsers')->get();
+		$instances->merge($user->instances()->with('vm', 'owner', 'users', 'instanceUsers')->get());
 	return response()->json($instances);
 	
     }
