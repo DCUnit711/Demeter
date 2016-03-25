@@ -67,17 +67,17 @@ class vmController extends Controller
 		try
                 {
                         //emit request to make db
-                        $redis = new \Redis(); // Using the Redis extension provided client
-                        $redis->connect($v->ipAddr, '1338'); //we need to pick a port
-                        $emitter = new SocketIO\Emitter($redis);
-                        $emitter->emit('init', array('type' => $v->type));
-
+                        $redis = \Redis::connection(); // Using the Redis extension provided client
+                        //$redis->connect($v->ipAddr, '1338'); //we need to pick a port
+                        //$emitter = new \SocketIO\Emitter($redis);
+                        //$emitter->emit('init', array('vm' => $v->id, 'type' => $v->type));
+			$redis->publish('demeter', json_encode(array('command' => 'init', 'vm' => $v->id, 'type' => $v->type)));
 			if($v->save())
 				echo "success";
 			else
 				echo "fail";
 		}
-		catch
+		catch(Exception $e)
 		{
 			echo "fail";
 		}
@@ -140,17 +140,17 @@ class vmController extends Controller
 		try
                 {
                         //emit request to make db
-                        $redis = new \Redis(); // Using the Redis extension provided client
-                        $redis->connect($v->ipAddr, '1338'); //we need to pick a port
-                        $emitter = new SocketIO\Emitter($redis);
-                        $emitter->emit('updateVm', array('type' => $v->type));
-
+                        $redis = \Redis::connection(); // Using the Redis extension provided client
+                        //$redis->connect($v->ipAddr, '1338'); //we need to pick a port
+                        //$emitter = new \SocketIO\Emitter($redis);
+                        //$emitter->emit('updateVm', array('vm' => $v->id,'type' => $v->type));
+			$redis->publish('demeter', json_encode(array('command' => 'updateVm', 'vm' => $v->id,'type' => $v->type)));
         		if($v->save())
 	                	echo "success";
 	        	else
     		            echo "fail";
 		}
-		catch
+		catch(Exception $e)
 		{
 			echo "fail";
 		}
@@ -175,17 +175,26 @@ class vmController extends Controller
 	try
         {
                 //emit request to make db
-                $redis = new \Redis(); // Using the Redis extension provided client
-                $redis->connect($v->ipAddr, '1338'); //we need to pick a port
-                $emitter = new SocketIO\Emitter($redis);
-                $emitter->emit('deleteVm');
-
+                $redis = Redis::connection(); // Using the Redis extension provided client
+                //$redis->connect($v->ipAddr, '1338'); //we need to pick a port
+                //$emitter = new \SocketIO\Emitter($redis);
+                //$emitter->emit('deleteVm', array('vm' => $id));
+		$redis->publish('demeter', json_encode(array('command' => 'deleteVm', 'vm' => $id)));
+		    if($v->instances())
+		    {
+			foreach($instances as $i)
+			{
+				if($i->instanceUsers())
+		                        $i->instanceUsers()->delete();
+			}
+			$v->instances()->delete();
+		    }
 		   if($v->delete())
 			  echo "success";
 		   else
 			  echo "fail";
 	}
-        catch
+        catch(Exception $e)
         {
                 echo "fail";
         }

@@ -61,6 +61,9 @@ class instanceUserController extends Controller
         $data = json_decode($post, true);
         if($data['name'] != null && $data['instanceId'] != null)
 	{
+		//check if user with same name exists in that instance
+		if(instanceUser::where('name', $data['name'])->where('instanceId', $data['instanceId'])->exists())
+			die("fail");
 		   //create a new instance user, expects name and instanceId
 		$i = new instanceUser();
 	        $i->id = \Uuid::generate(4);
@@ -70,19 +73,20 @@ class instanceUserController extends Controller
                 {
 			$inst = Instance::find($i->instanceId);
                         //emit request to make db
-                        $redis = new \Redis(); // Using the Redis extension provided client
-                        $redis->connect($inst->vm->ipAddr, '1338'); //we need to pick a port
-                        $emitter = new SocketIO\Emitter($redis);
-                        $emitter->emit('createInstanceUser', array('instanceName' => $inst->name, 'name'=>$i->name));
+                        $redis =  \Redis::connection(); // Using the Redis extension provided client
+                        //$redis->connect($inst->vm->ipAddr, '1338'); //we need to pick a port
+                        //$emitter = new \SocketIO\Emitter($redis);
+                        //$emitter->emit('createInstanceUser', array('vm' => $inst->vmId, 'instanceName' => $inst->name, 'name'=>$i->name));
+                        $redis->publish('demeter', json_encode(array('command' => 'createInstanceUser', 'vm' => $inst->vmId, 'instanceName' => $inst->name, 'name'=>$i->name)));
 
 			if($i->save())
 	                	echo "success";
 		        else
         		        echo "fail";
 		}
-		catch
+		catch(Exception $e)
 		{
-			echo "fail");
+			echo "fail";
 		}
 	}
 	else
@@ -165,17 +169,17 @@ class instanceUserController extends Controller
 	try
         {
                 //emit request to make db
-                $redis = new \Redis(); // Using the Redis extension provided client
-                $redis->connect($inst->vm->ipAddr, '1338'); //we need to pick a port
-                $emitter = new SocketIO\Emitter($redis);
-                $emitter->emit('deleteInstanceUser', array('instanceName' => $i->instance->name, 'name'=>$i->name));
-
+                $redis = \Redis::connection(); // Using the Redis extension provided client
+                //$redis->connect($inst->vm->ipAddr, '1338'); //we need to pick a port
+                //$emitter = new \SocketIO\Emitter($redis);
+                //$emitter->emit('deleteInstanceUser', array('vm' => $i->instance->vmId, 'instanceName' => $i->instance->name, 'name'=>$i->name));
+		$redis->publish('demeter', json_encode(array('command' => 'deleteInstanceUser', 'vm' => $i->instance->vmId, 'instanceName' => $i->instance->name, 'name'=>$i->name)));
         	if($i->delete())
 	                echo "success";
         	else
                 	echo "fail";
 	}
-	catch
+	catch(Exception $e)
 	{
 		echo "fail";
 	}
