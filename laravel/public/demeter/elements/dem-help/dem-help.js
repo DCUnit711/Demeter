@@ -23,7 +23,7 @@ Polymer({
 		console.log(this.externalLinks);
 	},
 	goToLink:function(e){
-		console.log(e.target.getAttribute('href'));
-		window.location.href = e.target.getAttribute('href');
+		console.log(e.target.getAttribute('external-link'));
+		window.location.href = e.target.getAttribute('external-link');
 	}
 });
