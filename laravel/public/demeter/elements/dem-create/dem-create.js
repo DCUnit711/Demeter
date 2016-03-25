@@ -44,15 +44,10 @@ Polymer({
 		}
 	},
 	selectType:function(e){
-		console.log(this.selectedDB);
-		console.log(e);
 		this.$.typeDropdown.label = e.target._lightChildren[0].data;
 		this.dbType = e.target._lightChildren[0].data;
 	},
 	createDB:function(){
-		if(this.inputOwner == null || this.inputOwner == "") {
-			this.inputOwner = this.database.OWNERID;
-		}
 		if(this.inputName == null || this.inputName == "") {
 			this.inputName = this.database.NAME;
 		}
