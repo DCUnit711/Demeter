@@ -33,7 +33,7 @@ Polymer({
       if (!search) return true;
       if (!item) return false;
       search = search.toUpperCase();
-      if(item.name && ~item.name.toUpperCase().indexOf(search)) {
+      if(item.description && ~item.description.toUpperCase().indexOf(search)) {
         return true;
       }
       else {
