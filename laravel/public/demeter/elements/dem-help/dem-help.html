@@ -4,15 +4,12 @@
 		<div class="help-container">
 			<h2>Help Page</h2>
 			<center>
-				<template is="dom-repeat" repeat="{{externalLinks}}" as="item">
+				<template is="dom-repeat" items="{{externalLinks}}" as="item">
 					<paper-material elevation="2" href="{{item.link}}" class="help-button">
 						{{item.description}}
 					</paper-material>
 				</template>
 			</center>
-		<iron-collapse id="collapse">
-			<div>Content goes here...</div>
-		</iron-collapse>
 		</div>
 	</template>
 	<script src="dem-help.js"></script>
