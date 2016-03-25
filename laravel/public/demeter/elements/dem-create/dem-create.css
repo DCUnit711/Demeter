@@ -6,8 +6,8 @@
 .create-left-side {
 	display: inline-block;
 	margin: 10px;
-	text-align: left;
-	line-height: 40px;
+	text-align: right;
+	line-height: 35px;
 }
 .create-right-side {
 	display: inline-block;
