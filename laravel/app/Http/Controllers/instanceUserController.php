@@ -59,7 +59,7 @@ class instanceUserController extends Controller
         }
 	$post = file_get_contents('php://input');
         $data = json_decode($post, true);
-        if($data['name'] != null && $data['instanceId'] != null)
+        if($data['name'] != null && $data['password'] != null && $data['instanceId'] != null)
 	{
 		//check if user with same name exists in that instance
 		if(instanceUser::where('name', $data['name'])->where('instanceId', $data['instanceId'])->exists())
@@ -74,7 +74,7 @@ class instanceUserController extends Controller
 			$inst = Instance::find($i->instanceId);
                         //emit request to make db
                         $redis =  \Redis::connection(); // Using the Redis extension provided client
-                        $redis->publish('demeter', json_encode(array('command' => 'createInstanceUser', 'vm' => $inst->vmId, 'instanceName' => $inst->name, 'name'=>$i->name)));
+                        $redis->publish('demeter', json_encode(array('command' => 'createInstanceUser', 'vm' => $inst->vmId, 'instanceName' => $inst->name, 'name'=>$i->name, 'password'=>$data['password'])));
 
 			if($i->save())
 	                	echo "success";

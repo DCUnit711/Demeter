@@ -77,7 +77,7 @@ class instanceController extends Controller
         }
 	$post = file_get_contents('php://input');
         $data = json_decode($post, true);
-        if($data['name'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null && $data['type'] != null)
+        if($data['name'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null && $data['type'] != null && $data['username'] != null && $data['password'] != null)
         {
 		//check if instance exists with the same name
 		if(instance::where('name', $data['name'])->exists())
@@ -113,11 +113,18 @@ class instanceController extends Controller
 			{
 				//emit request to make db
 				$redis = \Redis::connection(); // Using the Redis extension provided client
-				$redis->publish('demeter', json_encode(array('command' => 'createInstance', 'vm' => $i->vmId, 'instanceId' => $i->id, 'name' => $i->name, 'type'=>$i->type, 'maxSize'=>$i->maxSize)));
+				$redis->publish('demeter', json_encode(array('command' => 'createInstance', 'vm' => $i->vmId, 'instanceId' => $i->id, 'name' => $i->name, 'type'=>$i->type, 'maxSize'=>$i->maxSize, 'username'=>$data['username'], 'password'=>$data['password'])));
 		    		$i->inUse = 0;
     				if($i->save())
-                		    echo "success";
-		    	        else
+				{
+					$iu = new instanceUser();
+			                $iu->id = \Uuid::generate(4);
+			                $iu->name = $data['username'];
+			                $iu->instanceId = $i->id;
+					$iu->save();
+                			echo "success";
+		    	        }
+				else
         		            echo "fail";
 			}
 			catch(Exception $e)
