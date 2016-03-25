@@ -5,7 +5,7 @@
 			<h2>Help Page</h2>
 			<center>
 				<template is="dom-repeat" items="{{externalLinks}}" as="item">
-					<paper-material elevation="2" href="{{item.link}}" class="help-button">
+					<paper-material elevation="2" on-click="goToLink" href="{{item.link}}" class="help-button">
 						{{item.description}}
 					</paper-material>
 				</template>
