@@ -77,17 +77,19 @@ class instanceController extends Controller
         }
 	$post = file_get_contents('php://input');
         $data = json_decode($post, true);
-        if($data['name'] != null && $data['ownerId'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null && $data['type'] != null)
+        if($data['name'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null && $data['type'] != null)
         {
 		//check if instance exists with the same name
 		if(instance::where('name', $data['name'])->exists())
 			die("fail");
+		$user = demeterUser::where('netId', $_SESSION['AUTH_USER'])->first();
+		
 	   //create a new instance (db). expects name, type, ownerId, organization, maxSize, and description  
 	        $i = new instance();
     		$i->id = \Uuid::generate(4);
 	    	$i->name = $data['name'];
     		$i->type =  $data['type'];
-	    	$i->ownerId =  $data['ownerId'];
+	    	$i->ownerId =  $user->id;
     		$i->organization =  $data['organization'];
 	        $i->maxSize = $data['maxSize'];
     		$i->description = $data['description'];
@@ -144,7 +146,6 @@ class instanceController extends Controller
             die('fail');
         }
         $i = instance::find($id)->with('vm', 'owner', 'users', 'instanceUsers')->get();
-	$i->currentSize = 50;
         return response()->json($i);
     }
 
