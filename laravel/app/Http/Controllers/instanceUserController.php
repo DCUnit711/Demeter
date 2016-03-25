@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\instanceUser;
 use App\instance;
+use App\instanceUser;
 use Illuminate\Http\Response;
 
 class instanceUserController extends Controller
