@@ -5,8 +5,7 @@
 			<h2>Help Page</h2>
 			<input class="customize-search" title="Filter The List By A Search Term" placeholder="Search List..." value="{{searchValue::input}}" type="text" on-keyup="filterSelections"></input>
 			<iron-icon icon="search" style="float:right;margin-right:5px;"></iron-icon>
-			<br/>
-			<br/>
+			<br/><br/><br/><br/>
 			<center>
 				<template is="dom-repeat" items="{{externalLinks}}" as="item" filter="{{filterSelections(searchValue)}}">
 					<paper-material elevation="2" on-click="goToLink" external-link="{{item.link}}" class="help-button">
