@@ -19,7 +19,8 @@ Polymer({
 	},
 	ready:function(){
 		this.externalLinks = [{'link':'https://dev.mysql.com/doc/refman/5.5/en/connecting.html', 'description':'MySQL - How To Log Into and query the database?'},
-							  {'link':'http://dev.mysql.com/doc/refman/5.7/en/create-user.html','description':'MySQL - How Do I Create A User?'}]
+							  {'link':'http://dev.mysql.com/doc/refman/5.7/en/create-user.html','description':'MySQL - How Do I Create A User?'}];
+		console.log(this.externalLinks);
 	},
 	goToLink:function(e){
 		window.location.href = e.target.getAttribute('href');
