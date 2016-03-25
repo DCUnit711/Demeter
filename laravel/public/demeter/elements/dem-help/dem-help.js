@@ -23,7 +23,7 @@ Polymer({
 							  {'link':'http://dev.mysql.com/doc/refman/5.7/en/update.html','description':'MySQL - How Do I Update Information?'},
 							  {'link':'http://dev.mysql.com/doc/refman/5.7/en/delete.html','description':'MySQL - How Do I Delete Information?'},
 							  {'link':'http://dev.mysql.com/doc/refman/5.7/en/insert.html','description':'MySQL - How Do I Insert New Information?'},
-							  {'link':'https://docs.oracle.com/cd/E17952_01/refman-5.1-en/insert.html':'description':'Oracle - How Do I Insert Information?'},
+							  {'link':'https://docs.oracle.com/cd/E17952_01/refman-5.1-en/insert.html','description':'Oracle - How Do I Insert Information?'},
 							  {'link':'http://docs.oracle.com/javadb/10.5.3.0/ref/rrefsqlj26498.html','description':'Oracle - How Do I Update Information?'},
 							  {'link':'https://docs.oracle.com/cd/B12037_01/appdev.101/b10807/13_elems014.htm','description':'Oracle - How Do I Delete Information?'},
 							  {'link':'http://docs.oracle.com/javadb/10.6.1.0/ref/rrefsqlj24513.html','description':'Oracle - How Do I Create Something In The Database?'},
