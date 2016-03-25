@@ -44,8 +44,6 @@ Polymer({
 		}
 	},
 	selectType:function(e){
-		console.log(this.selectedDB);
-		console.log(e);
 		this.$.typeDropdown.label = e.target._lightChildren[0].data;
 		this.dbType = e.target._lightChildren[0].data;
 	},
