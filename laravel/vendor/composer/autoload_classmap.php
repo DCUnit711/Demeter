@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddCurrentSize' => $baseDir . '/database/migrations/2016_03_23_204400_addCurrentSize.php',
     'CreateDemeterUsersTable' => $baseDir . '/database/migrations/2015_11_11_154523_create_demeter_users_table.php',
     'CreateInstanceUsersTable' => $baseDir . '/database/migrations/2015_11_17_003509_create_instance_users_table.php',
     'CreateInstancesTable' => $baseDir . '/database/migrations/2015_11_13_153713_create_instances_table.php',

@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 use App\instance;
 use App\vm;
+use App\demeterUser;
 
 class instanceController extends Controller
 {
@@ -27,11 +28,25 @@ class instanceController extends Controller
         session_start();
         if(!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false) {   
             die("fail");
-        }  
-        $instances = instance::with('vm', 'owner', 'users', 'instanceUsers')->get();
-	foreach ($instances as $i)
-		$i->currentSize = 50;
-	    return response()->json($instances);
+        }
+	//get user
+	$user = demeterUser::where('netId', $_SESSION['AUTH_USER'])->first();
+	//check if we need to make a user
+	if(!$user->isEmpty())
+	{
+		$user = new demeterUser();
+		$user->netId = $_SESSION['AUTH_USER'];
+		$user->role = 'client';
+		$user->save();
+	}
+
+	if($user->role == 'admin')
+		$instances = instance::with('vm', 'owner', 'users', 'instanceUsers')->get();
+	else
+		$instances = $user->instances->with('vm', 'owner', 'users', 'instanceUsers')->get();
+
+	return response()->json($instances);
+	
     }
 
     /**
@@ -220,7 +235,8 @@ class instanceController extends Controller
 		$redis->publish('demeter', json_encode(array('command' => 'deleteInstance', 'instanceId' => $i->id, 'vm' => $i->vmId, 'name' => $i->name)));
 		if($i->instanceUsers())
                 	$i->instanceUsers()->delete();
-        	if($i->delete())
+		$i->inUse = -1;
+        	if($i->save())
 	            echo "success";
         	else
 	            echo "fail";
