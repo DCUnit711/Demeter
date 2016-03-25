@@ -95,6 +95,7 @@ Polymer({
 		    }
 		};
 		var body = JSON.stringify({'name':this.username,
+								   'password':this.password,
 								   'instanceId':this.database.ID});
 		var url = "/instanceUsers/";
 		xhttp.open("POST", url, true);

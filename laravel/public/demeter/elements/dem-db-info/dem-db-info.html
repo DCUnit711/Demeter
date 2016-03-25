@@ -67,7 +67,8 @@
 			<center>
 				<h2>Add A New User</h2>
 				<h3>Please fill out all the following fields</h3>
-				<input type="text" class="info-dialog-input" placeholder="netId" value="{{username::input}}"></input><br/><br/>
+				<input type="text" class="info-dialog-input" placeholder="Username" value="{{username::input}}"></input><br/><br/>
+				<input type="password" class="info-dialog-input" placeholder="Password" value="{{password::input}}"></input><br/><br/>
 				<paper-button class="info-button" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
 				<paper-button class="info-button" style="float:right;" on-click="addUserAjax" dialog-confirm raised>Continue</paper-button>
 			</center>
