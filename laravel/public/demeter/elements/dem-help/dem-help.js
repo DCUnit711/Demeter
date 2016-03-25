@@ -22,5 +22,8 @@ Polymer({
 	},
 	openMySQL:function(){
 		this.$.collapse.toggle();
+	},
+	goToLink:function(e){
+		console.log(Polymer.dom(e).path);
 	}
 });
