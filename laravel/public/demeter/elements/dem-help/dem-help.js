@@ -24,7 +24,7 @@ Polymer({
 	},
 	goToLink:function(e){
 		console.log(e);
-		console.log(e.target.getAttribute('external-link'));
-		// window.location.href = e.target.getAttribute('external-link');
+		console.log(e.target.getAttribute('externalLink'));
+		window.location.href = e.target.getAttribute('external-link');
 	}
 });
