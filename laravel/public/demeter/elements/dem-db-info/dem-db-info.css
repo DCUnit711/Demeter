@@ -35,8 +35,9 @@ paper-button.info-button:hover, paper-button.info-dialog-input:hover {
 	font-size: 12pt;
 	border: 2px solid grey;
 	border-radius: 10px;
-	background:#2580a2;
+	/*background:#2580a2;*/
 	margin-top: -20px;
+	text-align: center;
 }
 
 .scroll-box {
