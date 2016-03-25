@@ -24,6 +24,7 @@ Polymer({
 		this.$.collapse.toggle();
 	},
 	goToLink:function(e){
-		console.log(Polymer.dom(e).path);
+		console.log(e.target.getAttribute('href'));
+		// console.log(Polymer.dom(e).path);
 	}
 });
