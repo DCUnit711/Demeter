@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 use App\instance;
+use App\instanceUser;
 use App\vm;
 use App\demeterUser;
 
