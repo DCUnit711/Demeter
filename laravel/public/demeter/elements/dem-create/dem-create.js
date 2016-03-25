@@ -70,6 +70,8 @@ Polymer({
 		    }
 		};
 		var body = JSON.stringify({'name':this.inputName,
+								   'password':this.inputUsername,
+								   'username':this.inputPassword,
 								   'description':this.inputDesc,
 								   'organization':this.inputOrg,
 								   'maxSize':parseFloat(this.size),
