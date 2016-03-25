@@ -26,5 +26,19 @@ Polymer({
 	},
 	goToLink:function(e){
 		window.location.href = e.target.externalLink;
-	}
+	},
+	filterSelections:function(search) {
+    return function(item){
+      var string;
+      if (!search) return true;
+      if (!item) return false;
+      search = search.toUpperCase();
+      if(item.name && ~item.name.toUpperCase().indexOf(search)) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  },
 });

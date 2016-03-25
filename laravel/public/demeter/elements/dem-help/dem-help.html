@@ -3,8 +3,10 @@
 	<link rel="stylesheet" href="dem-help.css"/>
 		<div class="help-container">
 			<h2>Help Page</h2>
+			<input class="customize-search" title="Filter The List By A Search Term" placeholder="Search List..." value="{{searchValue::input}}" type="text" on-keyup="filterSelections"></input>
+			<iron-icon icon="search" style="float:right;margin-right:5px;"></iron-icon>
 			<center>
-				<template is="dom-repeat" items="{{externalLinks}}" as="item">
+				<template is="dom-repeat" items="{{externalLinks}}" as="item" filter="{{filterSelections(searchValue)}}">
 					<paper-material elevation="2" on-click="goToLink" external-link="{{item.link}}" class="help-button">
 						{{item.description}}
 					</paper-material>
