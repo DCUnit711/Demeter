@@ -116,17 +116,17 @@ class instanceController extends Controller
 				$redis = \Redis::connection(); // Using the Redis extension provided client
 				$redis->publish('demeter', json_encode(array('command' => 'createInstance', 'vm' => $i->vmId, 'instanceId' => $i->id, 'name' => $i->name, 'type'=>$i->type, 'maxSize'=>$i->maxSize, 'username'=>$data['username'], 'password'=>$data['password'])));
 		    		$i->inUse = 0;
-    				if($i->save())
-				{
+    				$i->save()
+				
 					$iu = new instanceUser();
 			                $iu->id = \Uuid::generate(4);
 			                $iu->name = $data['username'];
 			                $iu->instanceId = $i->id;
 					$iu->save();
                 			echo "success";
-		    	        }
-				else
-        		            echo "fail";
+		    	        
+				//else
+        		        //    echo "fail";
 			}
 			catch(Exception $e)
 			{
