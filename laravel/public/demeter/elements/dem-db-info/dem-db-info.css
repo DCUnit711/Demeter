@@ -25,7 +25,7 @@ paper-button.info-button {
 	margin:5px;
 	background:#2580a2;
 }
-paper-button.info-button:hover, paper-button.info-dialog-input {
+paper-button.info-button:hover, paper-button.info-dialog-input:hover {
 	background:#354497;
 	border:1px solid black;
 }
