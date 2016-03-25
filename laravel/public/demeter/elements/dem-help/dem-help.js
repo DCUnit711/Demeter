@@ -29,7 +29,8 @@ Polymer({
 							  {'link':'http://docs.oracle.com/javadb/10.6.1.0/ref/rrefsqlj24513.html','description':'Oracle - How Do I Create Something In The Database?'},
 							  {'link':'https://docs.mongodb.org/manual/reference/method/db.collection.update/','description':'MongoDB - How Do I Update Information?'},
 							  {'link':'https://docs.mongodb.org/manual/reference/method/db.collection.insert/','description':'MongoDB - How Do I Insert Information Into The DB?'},
-							  {'link':'https://docs.mongodb.org/manual/reference/command/delete/','description':'MongoDB - How Do I Delete Information?'}];
+							  {'link':'https://docs.mongodb.org/manual/reference/command/delete/','description':'MongoDB - How Do I Delete Information?'}
+							  {'link':'https://docs.mongodb.org/manual/reference/method/db.createCollection/','description':'MongoDB - How Do I Create Information?'}];
 	},
 	goToLink:function(e){
 		window.location.href = e.target.externalLink;
