@@ -75,19 +75,11 @@ Polymer({
 		    }
 		};
 		var body = JSON.stringify({'name':this.inputName,
-								   'ownerId':'cff386fa-3be5-43c6-87de-0fba480409b3',
 								   'description':this.inputDesc,
 								   'organization':this.inputOrg,
 								   'maxSize':parseFloat(this.size),
 								   'type':this.dbType});
 
-		//to delete us the following
-		/*
-			no information is needed to be sent
-			ID = this.database.ID
-			url  = '/instances/'+(ID OF VM)
-			xhttp.open("DEL", url, true)
-		*/
 		var url = "/instances";
 		xhttp.open("POST", url, true);
 		console.log(body);
