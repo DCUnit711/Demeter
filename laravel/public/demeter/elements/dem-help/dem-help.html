@@ -3,12 +3,13 @@
 	<link rel="stylesheet" href="dem-help.css"/>
 		<div class="help-container">
 			<h2>Help Page</h2>
-			<paper-material elevation="2" on-click="openMySQL" class="help-button">
-				How To Log Into MySQL and query the database?
-			</paper-material>
-			<paper-material elevation="2" on-click="goToLink" href="http://dev.mysql.com/doc/refman/5.7/en/create-user.html" class="help-button">
-				MySQL - How Do I Create A User?
-			</paper-material>
+			<center>
+				<template is="dom-repeat" repeat="{{externalLinks}}">
+					<paper-material elevation="2" href="{{item.link}}" class="help-button">
+						{{item.description}}
+					</paper-material>
+				</template>
+			</center>
 		<iron-collapse id="collapse">
 			<div>Content goes here...</div>
 		</iron-collapse>

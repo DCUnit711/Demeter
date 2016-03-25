@@ -18,13 +18,10 @@ Polymer({
 	    }
 	},
 	ready:function(){
-
-	},
-	openMySQL:function(){
-		this.$.collapse.toggle();
+		this.externalLinks = [{'link':'https://dev.mysql.com/doc/refman/5.5/en/connecting.html', 'description':'MySQL - How To Log Into and query the database?'},
+							  {'link':'http://dev.mysql.com/doc/refman/5.7/en/create-user.html','description':'MySQL - How Do I Create A User?'}]
 	},
 	goToLink:function(e){
-		console.log(e.target.getAttribute('href'));
-		// console.log(Polymer.dom(e).path);
+		window.location.href = e.target.getAttribute('href');
 	}
 });
