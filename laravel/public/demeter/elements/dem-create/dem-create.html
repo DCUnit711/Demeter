@@ -5,40 +5,41 @@
 		<center>
 			<paper-material elevation="1" class="create-database-card">
 				<h3>Create A New Database</h3>
-				<div class="create-left-side">
-					Owner:<br/>
-					Organization:<br/>
-					Name:<br/>
-					Type:<br/>
-					Size:<br/>
-					Description:<br/>
-				</div>
-				<div class="create-right-side">
-					<input class="create-input" placeholder="netId" value="{{inputOwner::input}}">
-					</input><br/>
-					<input class="create-input" placeholder="My Database" value="{{inputOrg::input}}">
-					</input><br/>
-					<input class="create-input" placeholder="My Database" value="{{inputName::input}}">
-					</input><br/>
-					<paper-dropdown-menu id="typeDropdown" label="Select Type">
-					  	<paper-menu attr-for-selected="value" selected="{{selectedDB}}" class="dropdown-content">
-						    <paper-item value="oracle" on-click="selectType">Oracle</paper-item>
-						    <paper-item value="mongo" on-click="selectType">MongoDB</paper-item>
-						    <paper-item value="mysql" on-click="selectType">mysql</paper-item>
-					  	</paper-menu>
-					</paper-dropdown-menu><br/>
+				<center>
+					<div class="create-left-side">
+						Owner:<br/>
+						Organization:<br/>
+						Name:<br/>
+						<div style="margin-bottom:25px;margin-top:25px;">Type:</div>
+						<div>Size:</div>
+						Description:<br/>
+					</div>
+					<div class="create-right-side">
+						<input class="create-input" placeholder="netId" value="{{inputOwner::input}}">
+						</input><br/>
+						<input class="create-input" placeholder="My Database" value="{{inputOrg::input}}">
+						</input><br/>
+						<input class="create-input" placeholder="My Database" value="{{inputName::input}}">
+						</input><br/>
+						<paper-dropdown-menu id="typeDropdown" label="Select Type">
+						  	<paper-menu attr-for-selected="value" selected="{{selectedDB}}" class="dropdown-content">
+							    <paper-item value="oracle" on-click="selectType">Oracle</paper-item>
+							    <paper-item value="mongo" on-click="selectType">MongoDB</paper-item>
+							    <paper-item value="mysql" on-click="selectType">mysql</paper-item>
+						  	</paper-menu>
+						</paper-dropdown-menu><br/>
 
-					<paper-dropdown-menu id="sizeDropdown" label="Select Size">
-					  	<paper-menu attr-for-selected="value" selected="{{selectedSize}}" class="dropdown-content">
-						    <paper-item value="2048" on-click="selectSize">2 GB</paper-item>
-						    <paper-item value="4096" on-click="selectSize">4 GB</paper-item>
-						    <paper-item value="8184" on-click="selectSize">8 GB</paper-item>
-					  	</paper-menu>
-					</paper-dropdown-menu><br/>
+						<paper-dropdown-menu id="sizeDropdown" label="Select Size">
+						  	<paper-menu attr-for-selected="value" selected="{{selectedSize}}" class="dropdown-content">
+							    <paper-item value="2048" on-click="selectSize">2 GB</paper-item>
+							    <paper-item value="4096" on-click="selectSize">4 GB</paper-item>
+							    <paper-item value="8184" on-click="selectSize">8 GB</paper-item>
+						  	</paper-menu>
+						</paper-dropdown-menu><br/>
 
-					<input class="create-input" placeholder="This is my database..." value="{{inputDesc::input}}"></input>
-				</div>
-				
+						<input class="create-input" placeholder="This is my database..." value="{{inputDesc::input}}"></input>
+					</div>
+				</center>
 				<paper-button raised class="create-button" on-click="createDB">Create</paper-button>
 				
 			</paper-material>

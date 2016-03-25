@@ -6,11 +6,12 @@
 .create-left-side {
 	display: inline-block;
 	margin: 10px;
-	text-align: left;
+	text-align: right;
+	line-height: 35px;
 }
 .create-right-side {
 	display: inline-block;
-	text-align: left;
+	text-align:left;
 	margin: 10px;
 }
 .create-database-card {
@@ -34,6 +35,7 @@
 	border:2px solid grey;
 	font-size: 10pt;
 	margin-left:10px;
+	margin: 5px;
 }
 paper-menu.dropdown-content {
 	/*font-size:12pt;
