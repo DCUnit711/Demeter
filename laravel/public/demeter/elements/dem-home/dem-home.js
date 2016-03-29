@@ -82,6 +82,7 @@ Polymer({
 		this.databaseList = [];
 		for(var i=0; i < this.databases.length; i++){
 			uniqueId = "DatabaseListItem"+i;
+			console.log(this.databases[i]);
 			if(this.databases[i].inUse == 1) {
 				inuse = "Currently In Use";
 				color =  "green";
