@@ -79,7 +79,6 @@ Polymer({
 
 		var url = "/instances";
 		xhttp.open("POST", url, true);
-		console.log(body);
 		xhttp.send(body);
 	}
 });
