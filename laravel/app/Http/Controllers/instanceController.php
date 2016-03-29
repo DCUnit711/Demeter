@@ -82,7 +82,7 @@ class instanceController extends Controller
         {
 		//check if instance exists with the same name
 		if(instance::where('name', $data['name'])->exists())
-			die("fail");
+			die("Database name in use");
 		$user = demeterUser::where('netId', $_SESSION['AUTH_USER'])->first();
 		
 	   //create a new instance (db). expects name, type, ownerId, organization, maxSize, and description  
