@@ -45,8 +45,8 @@ class instanceController extends Controller
 	if($user->role == 'admin')
 		$instances = instance::with('vm', 'owner', 'users', 'instanceUsers')->get();
 	else
-		$instances = $user->ownedInstances()->with('vm', 'owner', 'users', 'instanceUsers')->get();
-		$instances->merge($user->instances()->with('vm', 'owner', 'users', 'instanceUsers')->get());
+		$instances = $user->ownedInstances()->where('inUse', '!=', '-1')->with('vm', 'owner', 'users', 'instanceUsers')->get();
+		$instances->merge($user->instances()->where('inUse', '!=', '-1')->with('vm', 'owner', 'users', 'instanceUsers')->get());
 	return response()->json($instances);
 	
     }
