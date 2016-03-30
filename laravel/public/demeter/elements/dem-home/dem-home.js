@@ -115,6 +115,6 @@ Polymer({
 		}
 		console.log(this.databaseList);
 		// this.$.listDatabase.items = this.databaseList;
-		// this.$.listDatabase.render();
+		this.$.listDatabase.render();
 	}
 });
