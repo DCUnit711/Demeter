@@ -45,15 +45,16 @@
 							<span>Instance IP:</span><br/>
 						</div>
 						<div class="card-right">
-							<span>[[database.SIZE]]</span><br/>
+							[[database.SIZE]]<br/>
 							<paper-progress class="progress-bar" value="10"></paper-progress><br/>
-							<span>[[database.INUSE]]</span><br/>
+							[[database.INUSE]]<br/>
 							{{database.UPDATED}}<br/>
 							<!-- <span>[[database.VMIP]]</span><br/> -->
 							<span style="font-size:10pt;">{{database.OWNERID}}</span><br/>
 							{{database.INSTANCEPORT}}<br/>
 							{{database.INSTANCEIP}}<br/>
 						</div>
+						<script>console.log(database);</script>
 					</div>
 				</paper-material>
 			</template> 
