@@ -81,17 +81,16 @@ Polymer({
 		var uniqueId;
 		this.databaseList = [];
 		for(var i=0; i < this.databases.length; i++){
-			uniqueId = "DatabaseListItem"+i;	//-1 = waiting for deleting
-			console.log(this.databases[i]);		//create but not in vm
-			if(this.databases[i].inUse == 0) {	//in VM
+			uniqueId = "DatabaseListItem"+i;	
+			if(this.databases[i].inUse == "0") {	
 				inuse = "Created, not in VM";
 				color =  "green";
 			}
-			else if(this.databases[i].inUse == 1) {
+			else if(this.databases[i].inUse == "1") {
 				inuse = "Created and available in VM";
 				color =  "green";
 			}
-			else if(this.databases[i].inUse == -1) {
+			else if(this.databases[i].inUse == "-1") {
 				inuse = "Waiting For Deletion";
 				color = "red";
 			}
