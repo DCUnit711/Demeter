@@ -136,18 +136,15 @@ class instanceUserController extends Controller
         }
 	$put = file_get_contents('php://input');
         $data = json_decode($put, true);
-        if($data['name'] != null && $data['instanceId'] != null)
+        if($data['password'] != null)
 	{
 	        $i = instanceUser::find($id);
-        	$i->name = $data['name'];
-	        $i->instanceId = $data['instanceId'];
-        	if($i->save())
-                	echo "success";
-	        else
-        	        echo "fail";
+		$inst = Instance::find($i->instanceId);
+		$redis =  \Redis::connection(); // Using the Redis extension provided client
+                $redis->publish('demeter', json_encode(array('command' => 'resetPassword', 'vm' => $inst->vmId, 'instanceId' => $inst->id, 'instanceName' => $inst->name, 'name'=>$i->name, 'password'=>$data['password'])));
+
+       	        echo "success";
 	}
-	else
-		echo "fail";
     }
 
     /**
