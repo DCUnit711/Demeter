@@ -113,10 +113,9 @@ Polymer({
 						'INSTANCEPORT':this.databases[i].port,
 						'INSTANCEIP':this.databases[i].ipAddr};
 
-			// this.push('databaseList', object);
-			this.databaseList.push(object);
+			this.push('databaseList', object);
 		}
 		console.log(this.databaseList);
-		this.$.listDatabase.render();
+		// this.$.listDatabase.render();
 	}
 });
