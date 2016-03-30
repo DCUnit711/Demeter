@@ -3,7 +3,7 @@ Polymer({
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
 	properties:{
 		users:{},
-		databaseList:{},
+		databaseList:{ type:Array, value:function(){return [];}},
 		editDatabase:{ notify:true },
 		animationConfig: {
 	      	value: function() {
