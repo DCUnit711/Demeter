@@ -94,7 +94,6 @@ Polymer({
 				inuse = "Waiting For Deletion";
 				color = "red";
 			}
-			console.log(this.databases[i]);
 			this.push('databaseList', {'CREATED':this.databases[i].created_at,
 						'DESCRIPTION':this.databases[i].description,
 						'ID':this.databases[i].id,
@@ -112,9 +111,9 @@ Polymer({
 						'HTMLID':uniqueId,
 						'INSTANCEPORT':this.databases[i].port,
 						'INSTANCEIP':this.databases[i].ipAddr});
+			console.log(this.databaseList);
 		}
 		console.log(this.databaseList);
-		// this.$.listDatabase.items = this.databaseList;
 		this.$.listDatabase.render();
 	}
 });
