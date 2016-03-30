@@ -42,7 +42,7 @@ Polymer({
 		if(this.database.USERS == null || this.database.USERS.length < 1) {
 			this.push("database.USERS",{'name':'No Users'});
 		}
-		document.getElementById("dataInstanceInfo").innerHTML = "<b>Instance IP:</b> "+database.INSTANCEIP+"<br/><b>Instance Port:</b> "+database.INSTANCEPORT+"<br/>";
+		document.getElementById("dataInstanceInfo").innerHTML = "<b>Instance IP:</b> "+this.database.INSTANCEIP+"<br/><b>Instance Port:</b> "+this.database.INSTANCEPORT+"<br/>";
 	},
 	//-----------------------------------------------------
 	goToEdit:function() {
