@@ -111,6 +111,8 @@ Polymer({
 						'HTMLID':uniqueId,
 						'INSTANCEPORT':this.databases[i].port,
 						'INSTANCEIP':this.databases[i].ipAddr});
+
+			console.log(this.databases[i]);
 		}
 		console.log(this.databaseList);
 		this.$.listDatabase.render();
