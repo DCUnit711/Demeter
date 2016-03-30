@@ -82,6 +82,7 @@ Polymer({
 		this.databaseList = [];
 		for(var i=0; i < this.databases.length; i++){
 			uniqueId = "DatabaseListItem"+i;	
+			console.log(this.databases[i].inUse);
 			if(this.databases[i].inUse == "0") {	
 				inuse = "Created, not in VM";
 				color =  "green";
@@ -94,6 +95,7 @@ Polymer({
 				inuse = "Waiting For Deletion";
 				color = "red";
 			}
+			console.log(inuse);
 			object = {'CREATED':this.databases[i].created_at,
 						'DESCRIPTION':this.databases[i].description,
 						'ID':this.databases[i].id,
