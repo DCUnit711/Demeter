@@ -81,15 +81,21 @@ Polymer({
 		var uniqueId;
 		this.databaseList = [];
 		for(var i=0; i < this.databases.length; i++){
-			uniqueId = "DatabaseListItem"+i;
-			if(this.databases[i].inUse == 1) {
-				inuse = "Currently In Use";
+			uniqueId = "DatabaseListItem"+i;	
+			console.log(this.databases[i].inUse);
+			if(this.databases[i].inUse == "0") {	
+				inuse = "Created, not in VM";
 				color =  "green";
 			}
-			else {
-				inuse = "Currently Not Use";
+			else if(this.databases[i].inUse == "1") {
+				inuse = "Created and available in VM";
+				color =  "green";
+			}
+			else if(this.databases[i].inUse == "-1") {
+				inuse = "Waiting For Deletion";
 				color = "red";
 			}
+			console.log(inuse);
 			object = {'CREATED':this.databases[i].created_at,
 						'DESCRIPTION':this.databases[i].description,
 						'ID':this.databases[i].id,

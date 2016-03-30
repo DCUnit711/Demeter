@@ -64,7 +64,6 @@ Polymer({
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4 && xhttp.status == 200) {
-		       	console.log(xhttp.responseText);
 		       	polymer.fire('updateDatabases');
 				polymer.fire('goToPage', 1);
 		    }
@@ -79,7 +78,6 @@ Polymer({
 
 		var url = "/instances";
 		xhttp.open("POST", url, true);
-		console.log(body);
 		xhttp.send(body);
 	}
 });
