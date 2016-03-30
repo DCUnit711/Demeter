@@ -87,8 +87,7 @@ class instanceController extends Controller
 		
 	   //create a new instance (db). expects name, type, ownerId, organization, maxSize, and description  
 	        $i = new instance();
-		$id = \Uuid::generate(4);
-    		$i->id = $id;
+		$i->id = \Uuid::generate(4);
 	    	$i->name = $data['name'];
     		$i->type =  $data['type'];
 	    	$i->ownerId =  $user->id;
@@ -115,12 +114,12 @@ class instanceController extends Controller
 			{
 				//emit request to make db
 				$redis = \Redis::connection(); // Using the Redis extension provided client
-				$redis->publish('demeter', json_encode(array('command' => 'createInstance', 'vm' => $i->vmId, 'instanceId' => $id, 'name' => $i->name, 'type'=>$i->type, 'maxSize'=>$i->maxSize, 'username'=>$data['username'], 'password'=>$data['password'])));
+				$redis->publish('demeter', json_encode(array('command' => 'createInstance', 'vm' => $i->vmId, 'instanceId' => $i->id->string, 'name' => $i->name, 'type'=>$i->type, 'maxSize'=>$i->maxSize, 'username'=>$data['username'], 'password'=>$data['password'])));
 		    		$i->inUse = 0;
 				$iu = new instanceUser();
                                 $iu->id = \Uuid::generate(4);
                                 $iu->name = $data['username'];
-                                $iu->instanceId = $id;
+                                $iu->instanceId = $i->id->string;
 
     				$i->save();
 				
