@@ -26,8 +26,6 @@ Polymer({
 		this.size = 0;
 	},
 	selectSize:function(e){
-		console.log(this.selectedSize);
-		console.log(e);
 		this.$.sizeDropdown.label = e.target._lightChildren[0].data;
 		switch(e.target._lightChildren[0].data) {
 			case "2 GB":
@@ -69,8 +67,8 @@ Polymer({
 		    }
 		};
 		var body = JSON.stringify({'name':this.inputName,
-								   'password':this.inputUsername,
-								   'username':this.inputPassword,
+								   'password':this.inputPassword,
+								   'username':this.inputUsername,
 								   'description':this.inputDesc,
 								   'organization':this.inputOrg,
 								   'maxSize':parseFloat(this.size),
