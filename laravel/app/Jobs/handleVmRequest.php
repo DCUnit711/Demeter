@@ -40,6 +40,8 @@ class handleVmRequest extends Job implements SelfHandling, ShouldQueue
 	        $instance = instance::find($m->instanceId);
 		$instance->inuse = 1;
 		$instance->currentSize = $m->currentSize;
+		$instance->ipAddr = $m->ipAddr;
+		$instance->port = $m->port;
 		$instance->save();
 	}
 	if($command == "deleteInstance")
