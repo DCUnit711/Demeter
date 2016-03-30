@@ -107,14 +107,14 @@ Polymer({
 						'UPDATED':this.databases[i].updated_at,
 						'VMID':this.databases[i].vmId,
 						'VMIP':this.databases[i]['vm'].ipAddr,
-						'STATUS':"inuse",
+						'STATUS':inuse,
 						'COLOR':color,
 						'HTMLID':uniqueId,
 						'INSTANCEPORT':this.databases[i].port,
 						'INSTANCEIP':this.databases[i].ipAddr});
 		}
 		console.log(this.databaseList);
-		this.$.listDatabase.items = this.databaseList;
+		// this.$.listDatabase.items = this.databaseList;
 		// this.$.listDatabase.render();
 	}
 });
