@@ -94,6 +94,7 @@ Polymer({
 				inuse = "Waiting For Deletion";
 				color = "red";
 			}
+			console.log(this.databases[i]);
 			object = {'CREATED':this.databases[i].created_at,
 						'DESCRIPTION':this.databases[i].description,
 						'ID':this.databases[i].id,
