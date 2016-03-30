@@ -91,7 +91,7 @@ Polymer({
 				inuse = "Created and available in VM";
 				color =  "green";
 			}
-			else if(this.databases[i].inUse == -1) {{
+			else if(this.databases[i].inUse == -1) {
 				inuse = "Waiting For Deletion";
 				color = "red";
 			}
