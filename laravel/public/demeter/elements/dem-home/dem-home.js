@@ -91,6 +91,7 @@ Polymer({
 				color =  "green";
 			}
 			else if(this.databases[i].inUse == "-1") {
+				this.set("databases.i.INUSE","Waiting For Deletion");
 				inuse = "Waiting For Deletion";
 				color = "red";
 			}
