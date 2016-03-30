@@ -14,8 +14,8 @@
 		<div class="home-page-container" on-click="closeRightClickMenu">
 		<h2 id="databasePageTitle">Database List:</h2>
 			<center id="databaseCard">
-			<template id="listDatabase" is="dom-repeat" items="{{databaseList}}" as="database">
-				<paper-material id="{{database.ID}}" elevation="1" class="home-database-card" on-contextmenu="showRightClickMenu" oncontextmenu="return false" on-click="goToEditDatabase">
+			<template id="listDatabase" is="dom-repeat" items="[[databaseList]]" as="database">
+				<paper-material id="{{database.ID}}" elevation="1" class="home-database-card" on-click="goToEditDatabase">
 					<h3 style="margin:5px;">[[database.NAME]]</h3>
 					<div>
 						<div class="card-left" id="homeCardLeft">
@@ -37,7 +37,7 @@
 						<div class="card-left">
 							<span>Maximum Size: <span><br/>
 							<span>Used: </span><br/>
-							<span>Status: </span><br/>
+							<!-- <span>Status: </span><br/> -->
 							<span>Last Updated: </span><br/>
 							<!-- <span>IP Address: </span><br/> -->
 							<span>Owner: </span><br/>
@@ -45,12 +45,12 @@
 							<span>Instance IP:</span><br/>
 						</div>
 						<div class="card-right">
-							<span>[[database.SIZE]]</span><br/>
+							{{database.SIZE}}<br/>
 							<paper-progress class="progress-bar" value="10"></paper-progress><br/>
-							<span>[[database.INUSE]]</span><br/>
-							<span>[[database.UPDATED]]</span><br/>
+							<!-- {{database.STATUS}}<br/> -->
+							{{database.UPDATED}}<br/>
 							<!-- <span>[[database.VMIP]]</span><br/> -->
-							<span style="font-size:10pt;">[[database.OWNERID]]</span><br/>
+							<span style="font-size:10pt;">{{database.OWNERID}}</span><br/>
 							{{database.INSTANCEPORT}}<br/>
 							{{database.INSTANCEIP}}<br/>
 						</div>
@@ -60,12 +60,12 @@
 			</center>
 		</div>
 		<!-- RIGHT CLICK MENU -->
-		<div id="rightClickMenu" class="right-click-menu" hidden$="[[hideRightClickMenu]]">
+		<!-- <div id="rightClickMenu" class="right-click-menu" hidden$="[[hideRightClickMenu]]">
 			<center>
 				<div class="right-menu-title">Menu</div>
 				<div class="right-menu-item"on-click="goToEditDatabase">Edit</div>
 			</center>
-		</div>
+		</div> -->
 	</template>
 	<script src="dem-home.js"></script>
 </dom-module>

@@ -3,7 +3,7 @@ Polymer({
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
 	properties:{
 		users:{},
-		databaseList:{},
+		databaseList:{ type:Array, value:function(){return [];}},
 		editDatabase:{ notify:true },
 		animationConfig: {
 	      	value: function() {
@@ -94,8 +94,7 @@ Polymer({
 				inuse = "Waiting For Deletion";
 				color = "red";
 			}
-			console.log(this.databases[i]);
-			object = {'CREATED':this.databases[i].created_at,
+			this.push('databaseList', {'CREATED':this.databases[i].created_at,
 						'DESCRIPTION':this.databases[i].description,
 						'ID':this.databases[i].id,
 						'USERS':this.databases[i].instance_users,
@@ -107,14 +106,11 @@ Polymer({
 						'UPDATED':this.databases[i].updated_at,
 						'VMID':this.databases[i].vmId,
 						'VMIP':this.databases[i]['vm'].ipAddr,
-						'INUSE':inuse,
+						'STATUS':inuse,
 						'COLOR':color,
 						'HTMLID':uniqueId,
 						'INSTANCEPORT':this.databases[i].port,
-						'INSTANCEIP':this.databases[i].ipAddr};
-
-			// this.push('databaseList', object);
-			this.databaseList.push(object);
+						'INSTANCEIP':this.databases[i].ipAddr});
 		}
 		console.log(this.databaseList);
 		this.$.listDatabase.render();
