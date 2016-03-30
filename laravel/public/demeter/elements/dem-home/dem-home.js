@@ -107,8 +107,8 @@ Polymer({
 						'VMID':this.databases[i].vmId,
 						'VMIP':this.databases[i]['vm'].ipAddr,
 						'STATUS':inuse,
-						'COLOR':color,
-						'HTMLID':uniqueId,
+						// 'COLOR':color,
+						// 'HTMLID':uniqueId,
 						'INSTANCEPORT':this.databases[i].port,
 						'INSTANCEIP':this.databases[i].ipAddr});
 		}
