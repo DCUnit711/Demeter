@@ -114,9 +114,9 @@ Polymer({
 						'INSTANCEIP':this.databases[i].ipAddr});
 		}
 		this.$.listDatabase.render();
-		for(var i=0; i < this.databaseList.length; i++){
-			document.getElementById(this.databaseList[i].HTMLID).innerHTML = this.databaseList[i].INSTANCEPORT+"<br/>"+this.databaseList[i].INSTANCEIP+"<br/>"+this.databaseList[i].STATUS;
+		// for(var i=0; i < this.databaseList.length; i++){
+		// 	document.getElementById(this.databaseList[i].HTMLID).innerHTML = this.databaseList[i].INSTANCEPORT+"<br/>"+this.databaseList[i].INSTANCEIP+"<br/>"+this.databaseList[i].STATUS;
 
-		}
+		// }
 	}
 });
