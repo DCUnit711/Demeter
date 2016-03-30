@@ -7,7 +7,7 @@
 					<h3>Database Information:</h3>
 					<hr/>
 					<b>Database Size:</b> {{database.SIZE}}<br/>
-					<b>Amount Used:</b> <paper-progress value="10" max="[[database.SIZE]]"></paper-progress><br/>
+					<b>Amount Used:</b> <paper-progress value="{{database.CURRENTSIZE}}" max="{{database.SIZE}}"></paper-progress><br/>
 					<b>ID:</b> {{database.ID}}<br/>
 					<b>Last Updated:</b> {{database.UPDATED}}<br/>
 					{{database.INUSE}}<br/>
@@ -18,6 +18,7 @@
 					<b>Database Type:</b> {{database.TYPE}}<br/>
 					<b>Database Name:</b> {{database.NAME}}<br/>
 					<b>Created At:</b> {{database.CREATED}}<br/>
+					<div id="dataInstanceInfo"></div>
 				</div>
 				<div class="info-right-container">
 					<h3>VM Information:</h3>
