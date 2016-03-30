@@ -115,7 +115,8 @@ Polymer({
 		console.log(this.databaseList);
 		this.$.listDatabase.render();
 		for(var i=0; i < this.databaseList.length; i++){
-			document.getElementById(this.databaseList[i].HTMLID).innerHTML = database.INSTANCEPORT+"<br/>"+database.INSTANCEIP+"<br/>";
+			document.getElementById(this.databaseList[i].HTMLID).innerHTML = this.databaseList[i].INSTANCEPORT+"<br/>"+this.databaseList[i].INSTANCEIP+"<br/>";
+
 		}
 	}
 });
