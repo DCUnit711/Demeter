@@ -108,7 +108,9 @@ Polymer({
 						'VMIP':this.databases[i]['vm'].ipAddr,
 						'INUSE':inuse,
 						'COLOR':color,
-						'HTMLID':uniqueId};
+						'HTMLID':uniqueId,
+						'INSTANCEPORT':this.databases[i].port,
+						'INSTANCEIP':this.databases[i].ipAddr};
 			this.push('databaseList', object);
 		}
 		console.log(this.databaseList);
