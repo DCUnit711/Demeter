@@ -7,7 +7,7 @@
 					<h3>Database Information:</h3>
 					<hr/>
 					<b>Database Size:</b> {{database.SIZE}}<br/>
-					<b>Amount Used:</b> <paper-progress value="10" max="[[database.SIZE]]"></paper-progress><br/>
+					<b>Amount Used:</b> <paper-progress value="[[database.SIZE]]" max="[[database.CURRENTSIZE]]"></paper-progress><br/>
 					<b>ID:</b> {{database.ID}}<br/>
 					<b>Last Updated:</b> {{database.UPDATED}}<br/>
 					{{database.INUSE}}<br/>

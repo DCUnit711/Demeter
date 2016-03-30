@@ -112,10 +112,7 @@ Polymer({
 						'HTMLID':uniqueId,
 						'INSTANCEPORT':this.databases[i].port,
 						'INSTANCEIP':this.databases[i].ipAddr});
-
-			console.log(this.databases[i]);
 		}
-		console.log(this.databaseList);
 		this.$.listDatabase.render();
 		for(var i=0; i < this.databaseList.length; i++){
 			document.getElementById(this.databaseList[i].HTMLID).innerHTML = this.databaseList[i].INSTANCEPORT+"<br/>"+this.databaseList[i].INSTANCEIP+"<br/>";
