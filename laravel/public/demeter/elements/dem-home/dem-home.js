@@ -98,6 +98,7 @@ Polymer({
 						'DESCRIPTION':this.databases[i].description,
 						'ID':this.databases[i].id,
 						'USERS':this.databases[i].instance_users,
+						'CURRENTSIZE':this.database[i].currentSize,
 						'SIZE':this.databases[i].maxSize,
 						'NAME':this.databases[i].name,
 						'ORGANIZATION':this.databases[i].organization,
