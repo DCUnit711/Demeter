@@ -114,10 +114,10 @@ Polymer({
 						'INSTANCEIP':this.databases[i].ipAddr});
 		}
 		console.log(this.databaseList);
-		this.$.listDatabase.render();
 		for(var i=0; i < this.databaseList.length; i++){
 			document.getElementById(this.databaseList[i].HTMLID).innerHTML = this.databaseList[i].STATUS+"<br/>"+this.databaseList[i].INSTANCEPORT+"<br/>"+this.databaseList[i].INSTANCEIP;
 
 		}
+		this.$.listDatabase.render();
 	}
 });
