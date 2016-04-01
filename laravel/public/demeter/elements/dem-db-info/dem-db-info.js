@@ -150,7 +150,7 @@ Polymer({
 				polymer.fire('goToPage', 1);
 		    }
 		};
-		var url = "/instanceUser/"+this.selectedUser.id;
+		var url = "/instanceUsers/"+this.selectedUser.id;
 		xhttp.open("PUT", url, true);
 		var data = JSON.stringify({'password':this.password});
 		xhttp.send(data);
