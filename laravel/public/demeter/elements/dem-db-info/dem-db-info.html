@@ -31,11 +31,12 @@
 					<hr/>
 					<template is="dom-repeat" items="{{database.USERS}}" as="user">
 						<div class="info-right-container">
-						{{user.name}}
+						{{user.name}}<br/>
 						</div>
 						<div class="info-right-container">
 							<paper-button class="changePassBtn" raised on-click="changePasswordDialog">Change Password</paper-button><br/>
 						</div>
+						<br/>
 					</template>
 				</div>
 				<div id="infoButtonContainer" class="info-button-container">
