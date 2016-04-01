@@ -134,7 +134,8 @@ Polymer({
 		xhttp.send();
 	},
 	//-----------------------------------------------------
-	changePasswordDialog:function(){
+	changePasswordDialog:function(e){
+		console.log(e);
 		this.$.changeInstanceUserDialog.opened = true;
 	},
 	//-----------------------------------------------------
