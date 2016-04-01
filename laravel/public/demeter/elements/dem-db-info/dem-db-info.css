@@ -73,11 +73,13 @@ paper-button.changePassBtn:hover {
 .info-right-container-instance {
 	/*text-align: left;
 	margin-left: 0px;*/
-	margin: 5px;
+	/*margin: 5px;*/
 	/*margin-right: 5px;
 	margin-left:auto;
 	display: inline-block;*/
 
-	position: absolute;
-	right:0;
+	/*position: absolute;
+	right:0;*/
+	float:right;
+	margin: 10px;
 }
