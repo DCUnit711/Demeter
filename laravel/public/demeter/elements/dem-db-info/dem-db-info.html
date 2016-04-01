@@ -36,12 +36,13 @@
 					<hr/>
 					<template is="dom-repeat" items="{{database.USERS}}" as="user">
 						<div style="margin-bottom:-10px;">
-						<div class="info-right-container">
-						{{user.name}}<br/>
+						<div class="info-right-container" style="">
+						{{user.name}}
+						<paper-button class="changePassBtn" style="float:right" raised on-click="changePasswordDialog">Change Password</paper-button><br/>
 						</div>
-						<div class="info-right-container-instance">
-							<paper-button class="changePassBtn" raised on-click="changePasswordDialog">Change Password</paper-button><br/>
-						</div>
+						<!-- <div class="info-right-container-instance">
+							<paper-button class="changePassBtn" style="float:right" raised on-click="changePasswordDialog">Change Password</paper-button><br/>
+						</div> -->
 						</div>
 						<br/>
 					</template>
