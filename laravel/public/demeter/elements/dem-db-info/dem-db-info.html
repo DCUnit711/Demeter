@@ -44,6 +44,16 @@
 			</center>
 		</div>
 		<paper-dialog
+			id="changeInstanceUserDialog"
+			entry-animation="scale-up-animation"
+			exit-animation="scale-down-animation"
+			modal>
+			<h2>Change User Password</h2>
+			<input type="password" class="info-dialog-input" placeholder="Password" value="{{password::input}}"></input><br/><br/>
+			<paper-button class="info-button" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
+			<paper-button class="info-button" style="float:right;" on-click="changeInstanceUserPassword" dialog-confirm raised>Continue</paper-button>
+		</paper-dialog>
+		<paper-dialog
 			id="deleteUserDialog"
 			entry-animation="scale-up-animation"
 			exit-animation="scale-down-animation"
@@ -53,7 +63,8 @@
 			<paper-spinner active hidden="{{hideSpinner}}" style="width:50px;height:50px;"></paper-spinner>
 			<div class="scroll-box">
 				<template is="dom-repeat" items="{{database.USERS}}" as="user">
-					<paper-material elevation="1" class="info-delete-user-scroll-item" on-click="deleteUserAjax">{{user.name}}</paper-material>
+					<paper-material elevation="1" class="info-delete-user-scroll-item" on-click="deleteUserAjax">{{user.name}}<paper-button raised on-click="changePasswordDialog"></paper-button>
+					</paper-material>
 				</template>
 			</div>
 			<br/><br/>

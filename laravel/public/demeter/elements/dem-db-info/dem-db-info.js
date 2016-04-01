@@ -132,5 +132,26 @@ Polymer({
 		var url = "/instances/";
 		xhttp.open("GET", url, true);
 		xhttp.send();
+	},
+	//-----------------------------------------------------
+	changePasswordDialog:function(){
+		this.$.changeInstanceUserDialog.opened = true;
+	},
+	//-----------------------------------------------------
+	changeInstanceUserPassword:function(){
+		this.password;
+		var xhttp = new XMLHttpRequest();
+		var polymer = this;
+		xhttp.onreadystatechange = function() {
+		    if (xhttp.readyState == 4) {
+		    	var response = xhttp.responseText;
+		    	response = JSON.parse(response);
+		    	polymer.fire('updateDatabases');
+				polymer.fire('goToPage', 1);
+		    }
+		};
+		var url = "/instanceUser/{{instanceUser id}}";
+		xhttp.open("PUT", url, true);
+		xhttp.send();
 	}
 });
