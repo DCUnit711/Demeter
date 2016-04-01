@@ -135,7 +135,7 @@ Polymer({
 	},
 	//-----------------------------------------------------
 	changePasswordDialog:function(e){
-		console.log(e);
+		this.selectedUser = e.model.__data__.user;
 		this.$.changeInstanceUserDialog.opened = true;
 	},
 	//-----------------------------------------------------
@@ -151,7 +151,7 @@ Polymer({
 				polymer.fire('goToPage', 1);
 		    }
 		};
-		var url = "/instanceUser/{{instanceUser id}}";
+		var url = "/instanceUser/"+this.selectedUser.id;
 		xhttp.open("PUT", url, true);
 		xhttp.send();
 	}
