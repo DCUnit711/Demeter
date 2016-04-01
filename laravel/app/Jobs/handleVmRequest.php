@@ -8,6 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\instance;
+use App\vm;
 use Illuminate\Http\Request;
 
 
@@ -51,5 +52,28 @@ class handleVmRequest extends Job implements SelfHandling, ShouldQueue
                         $i->instanceUsers()->delete();
                 $i->delete()
 	}
+	if($command == "createVm")
+	{
+		$v = new vm();
+                $v->id = $m->id;
+                $v->ipAddr = $m->ipAddr;
+                $v->type = $m->type;
+		$v->spaceAvailable = $m->spaceAvailabe;
+		$v->save();
+
+	}
+	if($command == "updateVmSpace")
+	{
+		$v = vm::find($m->id);
+		$v->spaceAvailable = $m->spaceAvailabe;
+                $v->save();
+	}
+	if($command == "updateInstanceSize")
+        {
+                $i = instance::find($m->id);
+                $i->currentSize = $m->currentSize;
+                $i->save();
+        }
+
     }
 }
