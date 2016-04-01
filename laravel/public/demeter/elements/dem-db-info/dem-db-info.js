@@ -140,7 +140,6 @@ Polymer({
 	},
 	//-----------------------------------------------------
 	changeInstanceUserPassword:function(){
-		this.password;
 		var xhttp = new XMLHttpRequest();
 		var polymer = this;
 		xhttp.onreadystatechange = function() {
@@ -153,6 +152,7 @@ Polymer({
 		};
 		var url = "/instanceUser/"+this.selectedUser.id;
 		xhttp.open("PUT", url, true);
-		xhttp.send();
+		var data = JSON.stringify({'password':this.password});
+		xhttp.send(data);
 	}
 });
