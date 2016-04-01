@@ -1,10 +1,11 @@
 Polymer({
 	is:"dem-home",
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
+	stringify: function(obj){
+                return JSON.stringify(obj);
+        },
+
 	properties:{
-		stringify: function(obj){
-			return JSON.stringify(obj);
-		},
 		users:{},
 		databaseList:{ type:Array, value:function(){return [];}},
 		editDatabase:{ notify:true },
