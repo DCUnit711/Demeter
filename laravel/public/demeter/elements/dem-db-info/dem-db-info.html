@@ -68,16 +68,18 @@
 			entry-animation="scale-up-animation"
 			exit-animation="scale-down-animation"
 			modal>
-			<h2>Click To Delete Users</h2>
-			<paper-spinner active hidden="{{hideSpinner}}" style="width:50px;height:50px;"></paper-spinner>
-			<div class="scroll-box">
-				<template is="dom-repeat" items="{{database.USERS}}" as="user">
-					<paper-material elevation="1" class="info-delete-user-scroll-item" on-click="deleteUserAjax">{{user.name}}
-					</paper-material>
-				</template>
-			</div>
-			<br/><br/>
-			<paper-button class="info-button" raised dialog-confirm>Done</paper-button>
+			<center>
+				<h2>Click To Delete Users</h2>
+				<paper-spinner active hidden="{{hideSpinner}}" style="width:50px;height:50px;"></paper-spinner>
+				<div class="scroll-box">
+					<template is="dom-repeat" items="{{database.USERS}}" as="user">
+						<paper-material elevation="1" class="info-delete-user-scroll-item" on-click="deleteUserAjax">{{user.name}}
+						</paper-material>
+					</template>
+				</div>
+				<br/><br/>
+				<paper-button class="info-button" raised dialog-confirm>Done</paper-button>
+			</center>
 			</paper-dialog>
 		</paper-dialog>
 		<paper-dialog
