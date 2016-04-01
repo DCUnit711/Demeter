@@ -66,7 +66,7 @@ class vmController extends Controller
 		$v->type = $data['type'];
 		try
                 {
-                        //emit request to make db
+                        //emit request to make vm
                         $redis = \Redis::connection(); // Using the Redis extension provided client
 			$redis->publish('demeter', json_encode(array('command' => 'init', 'vm' => $v->id->string, 'type' => $v->type)));
 			if($v->save())
