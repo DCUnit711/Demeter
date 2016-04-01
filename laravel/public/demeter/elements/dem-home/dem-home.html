@@ -13,7 +13,7 @@
 
 		<div class="home-page-container" on-click="closeRightClickMenu">
 		<h2 id="databasePageTitle">Database List:</h2>
-			[[JSON.stringify(databaseList)]]
+			{{stringify(databaseList)}}
 			<center id="databaseCard">
 			<template id="listDatabase" is="dom-repeat" items="[[databaseList]]" as="database">
 				<paper-material id="{{database.ID}}" elevation="1" class="home-database-card" on-click="goToEditDatabase">
