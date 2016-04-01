@@ -54,11 +54,13 @@
 			entry-animation="scale-up-animation"
 			exit-animation="scale-down-animation"
 			modal>
-			<h2>Are you sure you want to delete your database?</h2>
-			<h3>This will remove all information related to your database including users. Continue?</h3>
-			<br/>
-			<paper-button class="info-button" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
-			<paper-button class="info-button" style="float:right;" on-click="deleteDatabaseAjax" dialog-confirm raised>Continue</paper-button>
+			<center>
+				<h2 style="color:red;">Warning: You are about to delete your database</h2>
+				<h3>This will remove all information related to your database including users. Continue?</h3>
+				<br/>
+				<paper-button class="info-button" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
+				<paper-button class="info-button" style="float:right;" on-click="deleteDatabaseAjax" dialog-confirm raised>Continue</paper-button>
+			</center>
 		</paper-dialog>
 		<paper-dialog
 			id="changeInstanceUserDialog"
