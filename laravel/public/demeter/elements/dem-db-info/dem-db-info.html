@@ -34,7 +34,7 @@
 						{{user.name}}
 						</div>
 						<div class="info-right-container">
-							<paper-button raised on-click="changePasswordDialog">Change Password</paper-button><br/>
+							<paper-button class="changePassBtn" raised on-click="changePasswordDialog">Change Password</paper-button><br/>
 						</div>
 					</template>
 				</div>
@@ -54,7 +54,7 @@
 			exit-animation="scale-down-animation"
 			modal>
 			<h2>Change User Password</h2>
-			<input type="password" class="info-dialog-input" placeholder="Password" value="{{password::input}}"></input><br/><br/>
+			<input type="password" class="info-dialog-input" placeholder="New Password" value="{{password::input}}"></input><br/><br/>
 			<paper-button class="info-button" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
 			<paper-button class="info-button" style="float:right;" on-click="changeInstanceUserPassword" dialog-confirm raised>Continue</paper-button>
 		</paper-dialog>

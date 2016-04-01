@@ -57,3 +57,8 @@ paper-material.info-delete-user-scroll-item {
 	background: #99ccff;
 	color:white;
 }
+paper-button.changePassBtn {
+	font-size: 10pt;
+	height:40px;
+	width: 80px;
+}
