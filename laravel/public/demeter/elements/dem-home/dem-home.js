@@ -117,8 +117,9 @@ Polymer({
 											'HTMLID':uniqueId,
 											'INSTANCEPORT':this.databases[i].port,
 											'INSTANCEIP':this.databases[i].ipAddr});
+
+				Polymer.dom(this).node.__data__.databaseList[0].INSTANCEIP = this.databases[i].ipAddr;
 			}
-			Polymer.dom(this).node.__data__.databaseList[0].INSTANCEIP = this.databases[i].ipAddr;
 		}
 		console.log(this.databaseList);
 		// Polymer.dom(this).node.__data__.databaseList[0].INSTANCEIP = this.databases[i].ipAddr;
