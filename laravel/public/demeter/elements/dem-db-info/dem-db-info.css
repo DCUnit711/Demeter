@@ -59,8 +59,8 @@ paper-material.info-delete-user-scroll-item {
 }
 paper-button.changePassBtn {
 	font-size: 8pt;
-	height:20px;
-	line-height: 10px;
+	height:40px;
+	line-height: 20px;
 	width: 120px;
 }
 .info-right-container-instance {
