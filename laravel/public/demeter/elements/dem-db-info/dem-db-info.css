@@ -71,13 +71,13 @@ paper-button.changePassBtn:hover {
 	color: white;
 }
 .info-right-container-instance {
-	text-align: left;
-	margin-left: 0px;
+	/*text-align: left;
+	margin-left: 0px;*/
 	margin: 5px;
-	margin-right: 5px;
+	/*margin-right: 5px;
 	margin-left:auto;
-	display: inline-block;
+	display: inline-block;*/
 
-	position: relative;
+	position: absolute;
 	right:0;
 }
