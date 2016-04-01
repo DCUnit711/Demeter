@@ -61,6 +61,12 @@ paper-button.changePassBtn {
 	font-size: 8pt;
 	height:35px;
 	width: 120px;
+	background: #2a94bb;
+	color: white;
+}
+paper-button.changePassBtn:hover {
+	background: #185268;
+	color: white;
 }
 .info-right-container-instance {
 	text-align: left;
