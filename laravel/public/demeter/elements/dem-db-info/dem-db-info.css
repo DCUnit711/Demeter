@@ -81,6 +81,6 @@ paper-button.changePassBtn:hover {
 	/*position: absolute;
 	right:0;*/
 	float:right;
-	margin: 0px;
+	margin: 5px;
 	margin-bottom: -3px;
 }
