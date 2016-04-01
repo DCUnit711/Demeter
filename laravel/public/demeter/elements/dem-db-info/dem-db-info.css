@@ -62,3 +62,11 @@ paper-button.changePassBtn {
 	height:40px;
 	width: 120px;
 }
+.info-right-container-instance {
+	text-align: left;
+	margin-left: 0px;
+	margin: 10px;
+	margin-right: 5px;
+	margin-left:auto;
+	display: inline-block;
+}
