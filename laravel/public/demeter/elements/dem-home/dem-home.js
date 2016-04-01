@@ -120,7 +120,9 @@ Polymer({
 			}
 		}
 		console.log(this.databaseList);
+		console.log(this.$[this.databaseList[i].HTMLID]);
 		for(var i=0; i < this.databaseList.length; i++){
+			console.log(this.$[this.databaseList[i].HTMLID]);
 			document.getElementById(this.databaseList[i].HTMLID).innerHTML = this.databaseList[i].STATUS+"<br/>"+this.databaseList[i].INSTANCEPORT+"<br/>"+this.databaseList[i].INSTANCEIP;
 
 		}
