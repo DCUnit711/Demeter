@@ -35,11 +35,13 @@
 					<h3>User Information:</h3>
 					<hr/>
 					<template is="dom-repeat" items="{{database.USERS}}" as="user">
+						<div style="border:1px solid black">
 						<div class="info-right-container">
 						{{user.name}}<br/>
 						</div>
 						<div class="info-right-container-instance">
 							<paper-button class="changePassBtn" raised on-click="changePasswordDialog">Change Password</paper-button><br/>
+						</div>
 						</div>
 						<br/>
 					</template>
