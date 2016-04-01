@@ -154,5 +154,9 @@ Polymer({
 		xhttp.open("PUT", url, true);
 		var data = JSON.stringify({'password':this.password});
 		xhttp.send(data);
+	},
+	//-----------------------------------------------------
+	showDeleteDBDialog:function(){
+		this.$.deleteDatabaseDialog.opened = true;
 	}
 });

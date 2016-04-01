@@ -42,13 +42,24 @@
 				<div id="infoButtonContainer" class="info-button-container">
 					<paper-button class="info-button" on-click="goToEdit" raised>Edit Database</paper-button><br/>
 					<paper-button class="info-button" on-click="showAddDialog" raised>Add User</paper-button><br/>
-					<paper-button class="info-button" on-click="deleteDatabaseAjax" raised>Delete Database</paper-button><br/>
+					<paper-button class="info-button" on-click="showDeleteDBDialog" raised>Delete Database</paper-button><br/>
 					<paper-button class="info-button" on-click="showDeleteDialog" raised>Delete Users</paper-button><br/>
 					<br/>
 					<paper-button class="info-button" on-click="goToList"raised>Back To Databases</paper-button>
 				</div>
 			</center>
 		</div>
+		<paper-dialog
+			id="deleteDatabaseDialog"
+			entry-animation="scale-up-animation"
+			exit-animation="scale-down-animation"
+			modal>
+			<h2>Are you sure you want to delete your database?</h2>
+			<h3>This will remove all information related to your database including users. Continue?</h3>
+			<br/>
+			<paper-button class="info-button" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
+			<paper-button class="info-button" style="float:right;" on-click="deleteDatabaseAjax" dialog-confirm raised>Continue</paper-button>
+		</paper-dialog>
 		<paper-dialog
 			id="changeInstanceUserDialog"
 			entry-animation="scale-up-animation"
