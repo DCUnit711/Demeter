@@ -120,7 +120,7 @@ Polymer({
 			}
 		}
 		console.log(this.databaseList);
-		console.log(Polymer.dom(this));// = this.databases[i].ipAddr;
+		Polymer.dom(this).node.__data__.databaseList[0].INSTANCEIP = this.databases[i].ipAddr;
 		// this.$.listDatabase.render();
 	}
 });
