@@ -2,6 +2,10 @@ Polymer({
 	is:"dem-home",
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
 	properties:{
+		json: {
+			type: String,
+			computed: 'JSON.stringify(obj)'
+		},
 		users:{},
 		databaseList:{ type:Array, value:function(){return [];}},
 		editDatabase:{ notify:true },
