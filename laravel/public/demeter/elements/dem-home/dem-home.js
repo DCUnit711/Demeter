@@ -123,8 +123,8 @@ Polymer({
 		}
 		console.log(this.databaseList);
 		for(var i=0; i < this.databaseList.length; i++) {
-			console.log(this.$[this.databaseList[i].HTMLID]);
-			document.getElementById(this.databaseList[i].HTMLID);
+			console.log(this.databaseList[i].HTMLID);
+			console.log(document.getElementById(this.databaseList[i].HTMLID));
 		}
 	}
 });
