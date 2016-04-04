@@ -123,7 +123,7 @@ Polymer({
 		}
 		console.log(this.databaseList);
 		for(var i=0; i < this.databaseList.length; i++) {
-			console.log(this.$$("#"+this.databaseList[0].HTMLID));
+			console.log(this.$$("#"+this.databaseList[i].HTMLID));
 		}
 	}
 });
