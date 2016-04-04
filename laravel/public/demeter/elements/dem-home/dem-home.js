@@ -100,23 +100,23 @@ Polymer({
 					color = "red";
 				}
 				this.databaseList.push({'CREATED':this.databases[i].created_at,
-											'DESCRIPTION':this.databases[i].description,
-											'ID':this.databases[i].id,
-											'USERS':this.databases[i].instance_users,
-											'CURRENTSIZE':this.databases[i].currentSize,
-											'SIZE':this.databases[i].maxSize,
-											'NAME':this.databases[i].name,
-											'ORGANIZATION':this.databases[i].organization,
-											'OWNERID':this.databases[i].ownerId,
-											'TYPE':this.databases[i].type,
-											'UPDATED':this.databases[i].updated_at,
-											'VMID':this.databases[i].vmId,
-											'VMIP':this.databases[i]['vm'].ipAddr,
-											'STATUS':statusString,
-											'COLOR':color,
-											'HTMLID':uniqueId,
-											'INSTANCEPORT':this.databases[i].port,
-											'INSTANCEIP':this.databases[i].ipAddr});
+										'DESCRIPTION':this.databases[i].description,
+										'ID':this.databases[i].id,
+										'USERS':this.databases[i].instance_users,
+										'CURRENTSIZE':this.databases[i].currentSize,
+										'SIZE':this.databases[i].maxSize,
+										'NAME':this.databases[i].name,
+										'ORGANIZATION':this.databases[i].organization,
+										'OWNERID':this.databases[i].ownerId,
+										'TYPE':this.databases[i].type,
+										'UPDATED':this.databases[i].updated_at,
+										'VMID':this.databases[i].vmId,
+										'VMIP':this.databases[i]['vm'].ipAddr,
+										'STATUS':statusString,
+										'COLOR':color,
+										'HTMLID':uniqueId,
+										'INSTANCEPORT':this.databases[i].port,
+										'INSTANCEIP':this.databases[i].ipAddr});
 				// this.push('databaseList', {'CREATED':this.databases[i].created_at,
 				// 							'DESCRIPTION':this.databases[i].description,
 				// 							'ID':this.databases[i].id,
@@ -140,6 +140,7 @@ Polymer({
 			}
 		}
 		console.log(this.databaseList);
+		console.log(Polymer.dom(this).node.__data__);
 		for(var i=0; i < this.databaseList.length; i++) {
 			console.log(document.getElementById(this.databaseList[i].HTMLID));
 		}
