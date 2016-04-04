@@ -16,7 +16,7 @@
 			<!--{{stringify(databaseList)}}-->
 			<center id="databaseCard">
 			<template id="listDatabase" is="dom-repeat" items="[[databaseList]]" as="database">
-				<paper-material id="{{database.ID}}" elevation="1" class="home-database-card" on-click="goToEditDatabase">
+				<paper-material id="{{database.HTMLID}}" elevation="1" class="home-database-card" on-click="goToEditDatabase">
 					<h3 style="margin:5px;">[[database.NAME]]</h3>
 					<div>
 						<div class="card-left" id="homeCardLeft">

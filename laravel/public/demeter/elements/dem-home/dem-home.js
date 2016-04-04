@@ -122,7 +122,8 @@ Polymer({
 			}
 		}
 		console.log(this.databaseList);
-		this.set("databaseList."+0+".INSTANCEIP", this.databases[0].ipAddr);
-		// this.$.listDatabase.render();
+		for(var i=0; i < this.databaseList.length; i++) {
+			console.log(this.$$("#"+this.databaseList[0].HTMLID));
+		}
 	}
 });
