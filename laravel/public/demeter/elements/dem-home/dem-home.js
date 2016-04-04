@@ -122,9 +122,8 @@ Polymer({
 			}
 		}
 		console.log(this.databaseList);
-		console.log(Polymer.dom(this).node.__data__);
 		for(var i=0; i < this.databaseList.length; i++) {
-			console.log(document.getElementById(this.databaseList[i].HTMLID));
+			console.log(this.$$("#"+this.databaseList[i].ID));
 		}
 	}
 });
