@@ -122,6 +122,7 @@ Polymer({
 
 			}
 			console.log(this.databaseList);
+			console.log(document.getElementById("databaseNumber-0"));
 		}
 	}
 });
