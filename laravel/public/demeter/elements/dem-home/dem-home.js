@@ -118,7 +118,7 @@ Polymer({
 											'INSTANCEPORT':this.databases[i].port,
 											'INSTANCEIP':this.databases[i].ipAddr});
 
-				// Polymer.dom(this).node.__data__.databaseList[0].INSTANCEIP = this.databases[i].ipAddr;
+				Polymer.dom(this).node.__data__.databaseList[0].INSTANCEIP = this.databases[i].ipAddr;
 			}
 		}
 		for(var i=0; i < this.databaseList.length; i++) {
