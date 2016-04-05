@@ -70,6 +70,7 @@ Polymer({
 	    };
 		this.editDatabase = e.model.__data__.database;
 		this.selectedDatabase = document.getElementById(e.model.__data__.database.ID);
+		console.log(e.model.__data__.database);
 		this.fire("goToPage",5);
 	},
 	showRightClickMenu:function(e){
