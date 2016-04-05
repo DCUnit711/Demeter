@@ -124,7 +124,7 @@ Polymer({
 		console.log(this.databaseList);
 		for(var i=0; i < this.databaseList.length; i++) {
 			console.log(this.databaseList[i].HTMLID);
-			console.log(document.getElementById(this.databaseList[i].HTMLID));
+			console.log(document.getElementById(this.databaseList[i].ID));
 		}
 	}
 });
