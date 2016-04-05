@@ -100,6 +100,7 @@ Polymer({
 					statusString = "Waiting For Deletion";
 					color = "red";
 				}
+				console.log(this.databases[i]);
 				this.push('databaseList', {'CREATED':this.databases[i].created_at,
 											'DESCRIPTION':this.databases[i].description,
 											'ID':this.databases[i].id,
