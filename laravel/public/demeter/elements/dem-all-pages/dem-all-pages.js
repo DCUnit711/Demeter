@@ -59,15 +59,15 @@ Polymer({
 								// 	'VMID':response[index].vmId,
 								// 	'VMIP':response[index]['vm'].ipAddr};
 					uniqueId = "DatabaseListItem"+index;	
-					if(this.databases[i].inUse == "0") {	
+					if(this.response[index].inUse == "0") {	
 						statusString = "Created, not in VM";
 						color =  "green";
 					}
-					else if(this.databases[i].inUse == "1") {
+					else if(this.response[index].inUse == "1") {
 						statusString = "Created and available in VM";
 						color =  "green";
 					}
-					else if(this.databases[i].inUse == "-1") {
+					else if(this.response[index].inUse == "-1") {
 						statusString = "Waiting For Deletion";
 						color = "red";
 					}
