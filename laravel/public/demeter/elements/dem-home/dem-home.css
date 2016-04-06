@@ -65,6 +65,9 @@ paper-progress.progress-bar {
 paper-button.refresh-button {
 	background:#2580a2;
 	color:white;
+	position:absolute;
+	right:10px;
+	top:20px;
 }
 paper-button.refresh-button:hover {
 	background:#354497;
