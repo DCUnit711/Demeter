@@ -62,9 +62,9 @@ paper-progress.progress-bar {
 	border:1px solid grey;
 	background: #366caf;
 }
-paper-spinner.spinner {
+.spinner {
 	position:absolute;
-	right:90px;
+	right:110px;
 	top:20px;
 	height:50px;
 	width:50px;
