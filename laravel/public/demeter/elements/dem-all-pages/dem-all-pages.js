@@ -59,37 +59,37 @@ Polymer({
 								// 	'VMID':response[index].vmId,
 								// 	'VMIP':response[index]['vm'].ipAddr};
 					uniqueId = "DatabaseListItem"+index;	
-					if(this.response[index].inUse == "0") {	
+					if(response[index].inUse == "0") {	
 						statusString = "Created, not in VM";
 						color =  "green";
 					}
-					else if(this.response[index].inUse == "1") {
+					else if(response[index].inUse == "1") {
 						statusString = "Created and available in VM";
 						color =  "green";
 					}
-					else if(this.response[index].inUse == "-1") {
+					else if(response[index].inUse == "-1") {
 						statusString = "Waiting For Deletion";
 						color = "red";
 					}
 					console.log(response[index]);
-					var object = {'CREATED':this.response[index].created_at,
-											'DESCRIPTION':this.response[index].description,
-											'ID':this.response[index].id,
-											'USERS':this.response[index].instance_users,
-											'CURRENTSIZE':this.response[index].currentSize,
-											'SIZE':this.response[index].maxSize,
-											'NAME':this.response[index].name,
-											'ORGANIZATION':this.response[index].organization,
-											'OWNERID':this.response[index].ownerId,
-											'TYPE':this.response[index].type,
-											'UPDATED':this.response[index].updated_at,
-											'VMID':this.response[index].vmId,
-											'VMIP':this.response[index]['vm'].ipAddr,
+					var object = {'CREATED':response[index].created_at,
+											'DESCRIPTION':response[index].description,
+											'ID':response[index].id,
+											'USERS':response[index].instance_users,
+											'CURRENTSIZE':response[index].currentSize,
+											'SIZE':response[index].maxSize,
+											'NAME':response[index].name,
+											'ORGANIZATION':response[index].organization,
+											'OWNERID':response[index].ownerId,
+											'TYPE':response[index].type,
+											'UPDATED':response[index].updated_at,
+											'VMID':response[index].vmId,
+											'VMIP':response[index]['vm'].ipAddr,
 											'STATUS':statusString,
 											'COLOR':color,
 											'HTMLID':uniqueId,
-											'DBPORT':this.response[index].port,
-											'DBIP':this.response[index].ipAddr}
+											'DBPORT':response[index].port,
+											'DBIP':response[index].ipAddr}
 					tempArray.push(object);
 		    	}
 		    	this.database = tempArray;
