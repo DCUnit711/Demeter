@@ -69,7 +69,7 @@ paper-spinner.spinner {
 	height:50px;
 	width:50px;
 }
-paper-spinner.spinner-text {
+.spinner-text {
 	position:absolute;
 	right:140px;
 	top:20px;
