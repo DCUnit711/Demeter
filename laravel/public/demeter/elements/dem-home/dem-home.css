@@ -71,7 +71,7 @@ paper-progress.progress-bar {
 }
 .spinner-text {
 	position:absolute;
-	right:140px;
+	right:160px;
 	top:20px;
 }
 paper-button.refresh-button {
