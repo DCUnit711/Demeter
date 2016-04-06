@@ -41,14 +41,17 @@ Polymer({
 		this.databaseList = [];
 		this.$.ajaxGetAllDB.generateRequest();
 		this.selectedDatabase = "";
+		this.hideUpdateText = true;
 	},
 	refreshDBList:function(){
+		this.hideUpdateText = false;
 		this.fire("updateDatabases");
 	},
 	updateList:function(databases)
 	{
 		this.databaseList = databases
 		this.$.listDatabase.render();
+		this.hideUpdateText = true;
 	},
 	returnCurrentDate:function(){
 		var today = new Date();

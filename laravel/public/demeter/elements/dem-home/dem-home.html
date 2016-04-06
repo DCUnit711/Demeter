@@ -13,7 +13,7 @@
 
 		<div class="home-page-container" on-click="closeRightClickMenu">
 		<h2 id="databasePageTitle">Database List:</h2>
-			<div class="spinner-text">Updating List</div>
+			<div hidden$="{{hideUpdateText}}" class="spinner-text">Updating List...</div>
 			<paper-button raised class="refresh-button" on-click="refreshDBList">Refresh List</paper-button>
 			<center id="databaseCard">
 			<template id="listDatabase" is="dom-repeat" items="{{databaseList}}" as="database">
