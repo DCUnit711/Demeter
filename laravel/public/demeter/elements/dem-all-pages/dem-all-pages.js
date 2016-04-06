@@ -58,19 +58,19 @@ Polymer({
 								// 	'UPDATED':response[index].updated_at,
 								// 	'VMID':response[index].vmId,
 								// 	'VMIP':response[index]['vm'].ipAddr};
-				uniqueId = "DatabaseListItem"+i;	
-				if(this.databases[i].inUse == "0") {	
-					statusString = "Created, not in VM";
-					color =  "green";
-				}
-				else if(this.databases[i].inUse == "1") {
-					statusString = "Created and available in VM";
-					color =  "green";
-				}
-				else if(this.databases[i].inUse == "-1") {
-					statusString = "Waiting For Deletion";
-					color = "red";
-				}
+					uniqueId = "DatabaseListItem"+index;	
+					if(this.databases[i].inUse == "0") {	
+						statusString = "Created, not in VM";
+						color =  "green";
+					}
+					else if(this.databases[i].inUse == "1") {
+						statusString = "Created and available in VM";
+						color =  "green";
+					}
+					else if(this.databases[i].inUse == "-1") {
+						statusString = "Waiting For Deletion";
+						color = "red";
+					}
 					var object = {'CREATED':this.response[index].created_at,
 											'DESCRIPTION':this.response[index].description,
 											'ID':this.response[index].id,
