@@ -68,7 +68,7 @@ class vmController extends Controller
                 {
                         //emit request to make vm
                         $redis = \Redis::connection(); // Using the Redis extension provided client
-			$redis->publish('demeter', json_encode(array('command' => 'init', 'vm' => $v->id->string, 'type' => $v->type)));
+			$redis->publish('demeter', json_encode(array('command' => 'init', 'vm' => $v->id->string, 'type' => $v->type, 'netId'=>$_SESSION['AUTH_USER'])));
 			if($v->save())
 				echo "success";
 			else
@@ -138,7 +138,7 @@ class vmController extends Controller
                 {
                         //emit request to make db
                         $redis = \Redis::connection(); // Using the Redis extension provided client
-			$redis->publish('demeter', json_encode(array('command' => 'updateVm', 'vm' => $v->id,'type' => $v->type)));
+			$redis->publish('demeter', json_encode(array('command' => 'updateVm', 'vm' => $v->id,'type' => $v->type, 'netId'=>$_SESSION['AUTH_USER'])));
         		if($v->save())
 	                	echo "success";
 	        	else
@@ -170,7 +170,7 @@ class vmController extends Controller
         {
                 //emit request to make db
                 $redis = Redis::connection(); // Using the Redis extension provided client
-		$redis->publish('demeter', json_encode(array('command' => 'deleteVm', 'vm' => $id)));
+		$redis->publish('demeter', json_encode(array('command' => 'deleteVm', 'vm' => $id, 'netId'=>$_SESSION['AUTH_USER'])));
 		    if($v->instances())
 		    {
 			foreach($instances as $i)

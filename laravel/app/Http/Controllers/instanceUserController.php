@@ -74,7 +74,7 @@ class instanceUserController extends Controller
 			$inst = Instance::find($i->instanceId);
                         //emit request to make db
                         $redis =  \Redis::connection(); // Using the Redis extension provided client
-                        $redis->publish('demeter', json_encode(array('command' => 'createInstanceUser', 'vm' => $inst->vmId, 'instanceId' => $inst->id, 'instanceName' => $inst->name, 'name'=>$i->name, 'password'=>$data['password'])));
+                        $redis->publish('demeter', json_encode(array('command' => 'createInstanceUser', 'vm' => $inst->vmId, 'instanceId' => $inst->id, 'instanceName' => $inst->name, 'name'=>$i->name, 'password'=>$data['password'], 'netId'=>$_SESSION['AUTH_USER'])));
 
 			if($i->save())
 	                	echo "success";
@@ -141,7 +141,7 @@ class instanceUserController extends Controller
 	        $i = instanceUser::find($id);
 		$inst = Instance::find($i->instanceId);
 		$redis =  \Redis::connection(); // Using the Redis extension provided client
-                $redis->publish('demeter', json_encode(array('command' => 'resetPassword', 'vm' => $inst->vmId, 'instanceId' => $inst->id, 'instanceName' => $inst->name, 'name'=>$i->name, 'password'=>$data['password'])));
+                $redis->publish('demeter', json_encode(array('command' => 'resetPassword', 'vm' => $inst->vmId, 'instanceId' => $inst->id, 'instanceName' => $inst->name, 'name'=>$i->name, 'password'=>$data['password'], 'netId'=>$_SESSION['AUTH_USER'])));
 
        	        echo "success";
 	}
@@ -164,7 +164,7 @@ class instanceUserController extends Controller
         {
                 //emit request to make db
                 $redis = \Redis::connection(); // Using the Redis extension provided client
-		$redis->publish('demeter', json_encode(array('command' => 'deleteInstanceUser', 'vm' => $i->instance->vmId, 'instanceId' => $i->instance->id, 'instanceName' => $i->instance->name, 'name'=>$i->name)));
+		$redis->publish('demeter', json_encode(array('command' => 'deleteInstanceUser', 'vm' => $i->instance->vmId, 'instanceId' => $i->instance->id, 'instanceName' => $i->instance->name, 'name'=>$i->name, 'netId'=>$_SESSION['AUTH_USER'])));
         	if($i->delete())
 	                echo "success";
         	else
