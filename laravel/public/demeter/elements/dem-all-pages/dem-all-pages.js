@@ -30,6 +30,7 @@ Polymer({
 		});
 		var polymer = this;
 		document.addEventListener("updateDatabases",function(data) {
+			console.log("called");
 			polymer.updateAllDatabaseInfo();
 		});
 		this.fire('updateDatabases');
