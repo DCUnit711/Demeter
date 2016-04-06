@@ -81,8 +81,8 @@ class instanceController extends Controller
         if($data['name'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null && $data['type'] != null && $data['username'] != null && $data['password'] != null)
         {
 		//check if instance exists with the same name
-		if(instance::where('name', $data['name'])->exists())
-			die("Database name in use");
+	//	if(instance::where('name', $data['name'])->exists())
+	//		die("Database name in use");
 		$user = demeterUser::where('netId', $_SESSION['AUTH_USER'])->first();
 		
 	   //create a new instance (db). expects name, type, ownerId, organization, maxSize, and description  
