@@ -69,6 +69,11 @@ paper-spinner.spinner {
 	height:50px;
 	width:50px;
 }
+paper-spinner.spinner-text {
+	position:absolute;
+	right:140px;
+	top:20px;
+}
 paper-button.refresh-button {
 	background:#2580a2;
 	color:white;
