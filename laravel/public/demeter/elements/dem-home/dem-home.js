@@ -121,8 +121,6 @@ Polymer({
 											'DBIP':this.databases[i].ipAddr});
 
 			}
-			console.log(this.databaseList);
-			console.log(this.$.[databaseNumber-0]);
 		}
 	}
 });
