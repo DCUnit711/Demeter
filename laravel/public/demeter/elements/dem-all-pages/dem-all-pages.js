@@ -59,6 +59,7 @@ Polymer({
 						statusString = "Waiting For Deletion";
 						color = "red";
 					}
+					console.log(response[index]);
 					var object = {'CREATED':response[index].created_at,
 									'DESCRIPTION':response[index].description,
 									'ID':response[index].id,
