@@ -62,3 +62,10 @@ paper-progress.progress-bar {
 	border:1px solid grey;
 	background: #366caf;
 }
+paper-button.refresh-button {
+	background:#2580a2;
+	color:white;
+}
+paper-button.refresh-button:hover {
+	background:#354497;
+}
