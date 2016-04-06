@@ -100,7 +100,7 @@ Polymer({
 					statusString = "Waiting For Deletion";
 					color = "red";
 				}
-				console.log(this.databases[i]);
+				//this is also created in the all-oages element. Check there as well
 				this.push('databaseList', {'CREATED':this.databases[i].created_at,
 											'DESCRIPTION':this.databases[i].description,
 											'ID':this.databases[i].id,

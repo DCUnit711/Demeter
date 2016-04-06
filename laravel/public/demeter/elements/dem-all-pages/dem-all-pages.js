@@ -46,18 +46,6 @@ Polymer({
 		    	response = JSON.parse(response);
 		    	var tempArray = [];
 		    	for(var index in response) {
-		    		// var object = {'CREATED':response[index].created_at,
-								// 	'DESCRIPTION':response[index].description,
-								// 	'ID':response[index].id,
-								// 	'USERS':response[index].instance_users,
-								// 	'SIZE':response[index].maxSize,
-								// 	'NAME':response[index].name,
-								// 	'ORGANIZATION':response[index].organization,
-								// 	'OWNERID':response[index].ownerId,
-								// 	'TYPE':response[index].type,
-								// 	'UPDATED':response[index].updated_at,
-								// 	'VMID':response[index].vmId,
-								// 	'VMIP':response[index]['vm'].ipAddr};
 					uniqueId = "DatabaseListItem"+index;	
 					if(response[index].inUse == "0") {	
 						statusString = "Created, not in VM";
@@ -71,25 +59,25 @@ Polymer({
 						statusString = "Waiting For Deletion";
 						color = "red";
 					}
-					console.log(response[index]);
 					var object = {'CREATED':response[index].created_at,
-											'DESCRIPTION':response[index].description,
-											'ID':response[index].id,
-											'USERS':response[index].instance_users,
-											'CURRENTSIZE':response[index].currentSize,
-											'SIZE':response[index].maxSize,
-											'NAME':response[index].name,
-											'ORGANIZATION':response[index].organization,
-											'OWNERID':response[index].ownerId,
-											'TYPE':response[index].type,
-											'UPDATED':response[index].updated_at,
-											'VMID':response[index].vmId,
-											'VMIP':response[index]['vm'].ipAddr,
-											'STATUS':statusString,
-											'COLOR':color,
-											'HTMLID':uniqueId,
-											'DBPORT':response[index].port,
-											'DBIP':response[index].ipAddr}
+									'DESCRIPTION':response[index].description,
+									'ID':response[index].id,
+									'USERS':response[index].instance_users,
+									'CURRENTSIZE':response[index].currentSize,
+									'SIZE':response[index].maxSize,
+									'NAME':response[index].name,
+									'ORGANIZATION':response[index].organization,
+									'OWNERID':response[index].ownerId,
+									'TYPE':response[index].type,
+									'UPDATED':response[index].updated_at,
+									'VMID':response[index].vmId,
+									'VMIP':response[index]['vm'].ipAddr,
+									'STATUS':statusString,
+									'COLOR':color,
+									'HTMLID':uniqueId,
+									'DBPORT':response[index].port,
+									'DBIP':response[index].ipAddr};
+
 					tempArray.push(object);
 		    	}
 		    	this.database = tempArray;
