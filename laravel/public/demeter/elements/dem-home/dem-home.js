@@ -42,6 +42,9 @@ Polymer({
 		this.$.ajaxGetAllDB.generateRequest();
 		this.selectedDatabase = "";
 	},
+	refreshDBList:function(){
+		this.fire("updateDatabases");
+	},
 	updateList:function(databases)
 	{
 		this.databaseList = databases
