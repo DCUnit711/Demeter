@@ -2,7 +2,7 @@ Polymer({
 	is:"dem-edit",
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
 	properties:{
-		database:{ observer:"setDatabaseInstance"},
+		database:{},
 		animationConfig: {
 	      	value: function() {
 		        return {
@@ -35,10 +35,6 @@ Polymer({
             }
         }
 	},
-	setDatabaseInstance:function(){
-		// console.log(this.database);
-		//this.$.ajaxSendChanges.url = "/instances/"+this.database.ID;
-	},
 	goBackToInfoPage:function(){
 		this.fire("goToPage", 5);
 	},
@@ -56,14 +52,13 @@ Polymer({
 			this.inputSize = this.database.SIZE;
 		}
 		if(this.inputOwner == "" || this.inputOwner == null) {
-			this.inputOwner == this.database.OWNERID;
+			this.inputOwner == this.database.OWNERNAME;
 		}
 
 		var xhttp = new XMLHttpRequest();
 		var polymer = this;
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
-		    	// this.processing = false;
 		    	polymer.fire('updateDatabases');
 				polymer.fire('goToPage', 1);
 		    	this.response = xhttp.responseText;
@@ -73,7 +68,7 @@ Polymer({
 		    }
 		};
 		var body = JSON.stringify({'name':this.inputName,
-								   'ownerId':this.database.OWNERID,
+								   'ownerName':this.database.OWNERNAME,
 								   'description':this.inputDesc,
 								   'organization':this.inputOrg,
 								   'maxSize':parseFloat(this.inputSize)});
@@ -81,8 +76,6 @@ Polymer({
 		var url = "/instances/"+this.database.ID;
 		xhttp.open("PUT", url, true);
 		xhttp.send(body);
-		// this.processing = true;
-		// this.$.progressDialog.opened = true;
 	},
 	goToList:function(){
 		this.fire("goToPage", 1);
