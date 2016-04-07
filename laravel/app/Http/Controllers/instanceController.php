@@ -316,7 +316,7 @@ class instanceController extends Controller
 			$user = demeterUser::where('netId', $data['netId'])->first();
 			$i = instance::find($data['instanceId']);
 			$i->users()->save($user);
-		        
+		}        
                 else
                 	\App::abort(500, 'Could not add user, did you fill all fields?');
 
