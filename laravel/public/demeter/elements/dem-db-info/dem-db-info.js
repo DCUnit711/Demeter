@@ -167,7 +167,6 @@ Polymer({
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
 		    	if(xhttp.status == 200) {
-		    		polymer.$.dbInfoBackupDialog.opened = false;
 		    		polymer.$.dbInfoBackupSuccess.opened = true;
 				}
 				else {
