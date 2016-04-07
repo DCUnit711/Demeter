@@ -288,6 +288,7 @@ class instanceController extends Controller
 	                        //emit request to make db
 	                        $redis = \Redis::connection(); // Using the Redis extension provided client
 	                        $redis->publish('demeter', json_encode(array('command' => 'backupInstance', 'instanceId' => $data['instanceId'], 'vm' => $data['vmId'], 'type' => $data['type'], 'netId'=>$_SESSION['AUTH_USER'])));
+				print "success";
 	                }
 	                catch(Exception $e)
 	                {
