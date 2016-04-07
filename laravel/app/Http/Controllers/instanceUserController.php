@@ -25,7 +25,9 @@ class instanceUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
         $i = instanceUser::with('instance')->get();
 	   return response()->json($i);
@@ -41,7 +43,8 @@ class instanceUserController extends Controller
         //
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
         }
     }
 
@@ -55,7 +58,9 @@ class instanceUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
 	$post = file_get_contents('php://input');
         $data = json_decode($post, true);
@@ -63,7 +68,8 @@ class instanceUserController extends Controller
 	{
 		//check if user with same name exists in that instance
 		if(instanceUser::where('name', $data['name'])->where('instanceId', $data['instanceId'])->exists())
-			die("fail");
+	                \App::abort(500, 'Username already exists');
+
 		   //create a new instance user, expects name and instanceId
 		$i = new instanceUser();
 	        $i->id = \Uuid::generate(4);
@@ -100,7 +106,7 @@ class instanceUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+                \App::abort(500, 'User not authenticated');
         }
         $i = instanceUser::find($id)->with('instance')->get();
         return response()->json($i);
@@ -117,7 +123,9 @@ class instanceUserController extends Controller
         //
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
     }
 
@@ -132,7 +140,9 @@ class instanceUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
 	$put = file_get_contents('php://input');
         $data = json_decode($put, true);
@@ -157,7 +167,9 @@ class instanceUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
         $i = instanceUser::find($id);
 	try

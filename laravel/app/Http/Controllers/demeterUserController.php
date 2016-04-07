@@ -24,7 +24,9 @@ class demeterUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
         $users =  demeterUser::with('instances', 'ownedInstances')->get();
         return response()->json($users);
@@ -40,7 +42,9 @@ class demeterUserController extends Controller
         //
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
     }
 
@@ -54,7 +58,9 @@ class demeterUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
 	$post = file_get_contents('php://input');
         $data = json_decode($post, true);
@@ -85,7 +91,9 @@ class demeterUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
         $u = demeterUser::find($id)->with('instances', 'ownedInstances')->first();
         print json_encode($u);
@@ -114,7 +122,9 @@ class demeterUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
 	$put = file_get_contents('php://input');
         $data = json_decode($put, true);
@@ -143,7 +153,9 @@ class demeterUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
         $u = demeterUser::find($id);
     	if($u->delete())

@@ -24,7 +24,9 @@ class vmController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
         $vms = vm::with('instances')->get();
 	   return response()->json($vms);
@@ -39,7 +41,9 @@ class vmController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
     }
 
@@ -53,7 +57,9 @@ class vmController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
 	$post = file_get_contents('php://input');
         $data = json_decode($post, true);
@@ -93,7 +99,9 @@ class vmController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
         $v = vm::find($id)->with('instances')->get();
 	   return response()->json($v);
@@ -110,7 +118,9 @@ class vmController extends Controller
         //
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
     }
 
@@ -125,7 +135,9 @@ class vmController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+//            die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
 	$put = file_get_contents('php://input');
         $data = json_decode($put, true);
@@ -163,7 +175,9 @@ class vmController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            die('fail');
+            //die('fail');
+            \App::abort(500, 'User not authenticated');
+
         }
         $v = vm::find($id);
 	try

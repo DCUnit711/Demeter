@@ -104,6 +104,14 @@ class instanceController extends Controller
     		$i->organization =  $data['organization'];
 	        $i->maxSize = $data['maxSize'];
     		$i->description = $data['description'];
+		/////FOR DEMO
+		if($data['name'] == 'map')
+		{
+			$i->port = 3306;
+			$ipAddr = "53.0.0.0";
+		}
+		////END
+
 	    	//determine the VM for this instance
     		$vms = vm::where("type", "LIKE", "%".$i->type."%")->get();
 	    	foreach ($vms as $vm)
