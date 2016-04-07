@@ -157,7 +157,6 @@ Polymer({
 	},
 	//-----------------------------------------------------
 	backupDB:function(){
-		console.log(this.database);
 		var xhttp = new XMLHttpRequest();
 		var polymer = this;
 		xhttp.onreadystatechange = function() {
