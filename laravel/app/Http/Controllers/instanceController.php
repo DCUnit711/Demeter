@@ -114,7 +114,7 @@ class instanceController extends Controller
 			{
 				//emit request to make db
 				$redis = \Redis::connection(); // Using the Redis extension provided client
-				$redis->publish('demeter', json_encode(array('command' => 'createInstance', 'vm' => $i->vmId, 'instanceId' => $i->id->string, 'name' => $i->name, 'type'=>$i->type, 'maxSize'=>$i->maxSize, 'username'=>$data['username'], 'password'=>$data['password'], 'netId'=>$_SESSION['AUTH_USER'])));
+				$redis->publish('demeter', json_encode(array('command' => 'createInstance', 'vm' => $i->vmId, 'instanceId' => $i->id->string, 'instanceName' => $i->name, 'type'=>$i->type, 'maxSize'=>$i->maxSize, 'username'=>$data['username'], 'password'=>$data['password'], 'netId'=>$_SESSION['AUTH_USER'])));
 		    		$i->inUse = 0;
 				$iu = new instanceUser();
                                 $iu->id = \Uuid::generate(4);
@@ -200,7 +200,7 @@ class instanceController extends Controller
                 {
                         //emit request to make db
                         $redis = \Redis::connection(); // Using the Redis extension provided client
-			$redis->publish('demeter', json_encode(array('command' => 'updateInstance', 'instanceId' => $i->id, 'vm' => $i->vmId, 'oldName'=>$oldName, 'name' => $i->name, 'maxSize'=>$i->maxSize, 'netId'=>$_SESSION['AUTH_USER'])));	
+			$redis->publish('demeter', json_encode(array('command' => 'updateInstance', 'instanceId' => $i->id, 'vm' => $i->vmId, 'oldInstanceName'=>$oldName, 'instanceName' => $i->name, 'maxSize'=>$i->maxSize, 'netId'=>$_SESSION['AUTH_USER'])));	
 	        	if($i->save())
 		            echo "success";
         		else
@@ -232,7 +232,7 @@ class instanceController extends Controller
                 $i = instance::find($id);
                 //emit request to delete db
                 $redis = \Redis::connection(); // Using the Redis extension provided client
-		$redis->publish('demeter', json_encode(array('command' => 'deleteInstance', 'instanceId' => $i->id, 'vm' => $i->vmId, 'name' => $i->name, 'netId'=>$_SESSION['AUTH_USER'])));
+		$redis->publish('demeter', json_encode(array('command' => 'deleteInstance', 'instanceId' => $i->id, 'vm' => $i->vmId, 'instanceName' => $i->name, 'netId'=>$_SESSION['AUTH_USER'])));
 		if($i->instanceUsers())
                 	$i->instanceUsers()->delete();
 		$i->inUse = -1;
