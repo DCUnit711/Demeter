@@ -82,11 +82,12 @@
 			exit-animation="scale-down-animation"
 			modal>
 			<center>
-				<h3>Allow Demeter Access From The Following User:</h3>
+				<h3>Allow Demeter Access For The Following User:</h3>
+				<br/>
 				<input type="text" class="info-dialog-input" placeholder="NetId" value="{{username::input}}"></input><br/>
 			</center>
 			<paper-button class="info-button-modal" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
-			<paper-button class="info-button-modal" style="float:right;"dialog-confirm raised>Add Demeter Users</paper-button>
+			<paper-button class="info-button-modal" style="float:right;" on-click="addDemeterUser" dialog-confirm raised>Add Manager</paper-button>
 		</paper-dialog>
 		<paper-dialog
 			id="deleteDatabaseDialog"
@@ -97,8 +98,8 @@
 				<h2 style="color:red;">Warning: You are about to delete your database</h2>
 				<h3>This will remove all information related to your database including users. Continue?</h3>
 				<br/>
-				<paper-button class="info-button-modal" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
-				<paper-button class="info-button-modal" style="float:right;" on-click="deleteDatabaseAjax" dialog-confirm raised>Continue</paper-button>
+				<paper-button class="info-button" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
+				<paper-button class="info-button" style="float:right;" on-click="deleteDatabaseAjax" dialog-confirm raised>Continue</paper-button>
 			</center>
 		</paper-dialog>
 		<paper-dialog
@@ -111,8 +112,8 @@
 				<h3>Selected User: {{selectedUser.name}}</h3>
 				<br/>
 				<input type="password" class="info-dialog-input" placeholder="New Password" value="{{password::input}}"></input><br/><br/>
-				<paper-button class="info-button-modal" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
-				<paper-button class="info-button-modal" style="float:right;" on-click="changeInstanceUserPassword" dialog-confirm raised>Submit</paper-button>
+				<paper-button class="info-button" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
+				<paper-button class="info-button" style="float:right;" on-click="changeInstanceUserPassword" dialog-confirm raised>Submit</paper-button>
 			</center>
 		</paper-dialog>
 		<paper-dialog
@@ -132,7 +133,7 @@
 					</template>
 				</div>
 				<br/><br/>
-				<paper-button class="info-button-modal" raised dialog-confirm>Done</paper-button>
+				<paper-button class="info-button" raised dialog-confirm>Done</paper-button>
 			</center>
 			</paper-dialog>
 		</paper-dialog>
@@ -146,8 +147,8 @@
 				<h3>Please fill out all the following fields</h3>
 				<input type="text" class="info-dialog-input" placeholder="Username" value="{{username::input}}"></input><br/><br/>
 				<input type="password" class="info-dialog-input" placeholder="Password" value="{{password::input}}"></input><br/><br/>
-				<paper-button class="info-button-modal" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
-				<paper-button class="info-button-modal" style="float:right;" on-click="addUserAjax" dialog-confirm raised>Continue</paper-button>
+				<paper-button class="info-button" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
+				<paper-button class="info-button" style="float:right;" on-click="addUserAjax" dialog-confirm raised>Add User</paper-button>
 			</center>
 		</paper-dialog>
 		<paper-dialog
@@ -170,7 +171,7 @@
 			<center>
 				<h2>Your request was successful!</h2>
 				<br/>
-				<paper-button class="info-button-modal" dialog-confirm raised>Great!</paper-button>
+				<paper-button class="info-button" dialog-confirm raised>Great!</paper-button>
 			</center>
 		</paper-dialog>
 		<paper-dialog
@@ -182,7 +183,7 @@
 			<center>
 				<h2>{{errorNumber}} Error</h2>
 				<h3>{{errorBody}}</h3>
-				<paper-button raised class="info-button-modal" dialog-confirm>Okay</paper-button>
+				<paper-button raised class="info-button" dialog-confirm>Okay</paper-button>
 			</center>
 		</paper-dialog>
 	</template>
