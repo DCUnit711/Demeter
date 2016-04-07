@@ -233,7 +233,7 @@ Polymer({
 		    }
 		};
 		xhttp.open("POST", "/removeUser", true);
-		var data = JSON.stringify({'instanceId':this.database.ID,"netId":this.username});
+		var data = JSON.stringify({'instanceId':this.database.ID,"netId":this.selectedUser});
 		xhttp.send(data);
 	},
 	//-----------------------------------------------------
