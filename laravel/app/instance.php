@@ -24,7 +24,7 @@ class instance extends Model
 
     public function users()
     {
-	return $this->belongsToMany('App\demeterUser');
+	return $this->belongsToMany('App\demeterUser', 'demeter_user_instance', 'instance_id', 'demeter_user_id');
     }
 
 }
