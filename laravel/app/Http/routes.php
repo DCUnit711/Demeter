@@ -22,3 +22,5 @@ Route::resource('instanceUsers', 'instanceUserController');
 Route::get('checkLogin', 'checkLogin@index');
 Route::post('backup', 'instanceController@backup');
 Route::post('addUser', 'instanceController@addUser');
+Route::post('removeUser', 'instanceController@removeUser');
+
