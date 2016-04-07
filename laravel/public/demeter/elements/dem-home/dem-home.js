@@ -115,7 +115,7 @@ Polymer({
 											'NAME':this.databases[i].name,
 											'ORGANIZATION':this.databases[i].organization,
 											'OWNERID':this.databases[i].ownerId,
-											'OWNERNAME':response[index].ownerName,
+											'OWNERNAME':response[index].owner.netId,
 											'TYPE':this.databases[i].type,
 											'UPDATED':this.databases[i].updated_at,
 											'VMID':this.databases[i].vmId,
