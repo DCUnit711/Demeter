@@ -187,7 +187,7 @@ class instanceController extends Controller
         }
 	$put = file_get_contents('php://input');
 	$data = json_decode($put, true);
-	if($data['name'] != null && $data['ownerId'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null)
+	if($data['name'] != null && $data['ownerName'] != null && $data['organization'] != null && $data['maxSize'] != null && $data['description'] != null)
 	{
 		$i = instance::find($id);
 		$oldName = $i->name;
@@ -196,7 +196,7 @@ class instanceController extends Controller
                         die("fail");
 
 		$i->name = $data['name'];
-	        $i->ownerId =  $data['ownerId'];
+	        $i->ownerId =  demeterUser::where('netId', $data['ownerName'])->first()->id;
         	$i->organization =  $data['organization'];
 	        $i->maxSize = $data['maxSize'];
         	$i->description = $data['description'];
