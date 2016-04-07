@@ -48,13 +48,11 @@
 		entry-animation="scale-up-animation"
 		exit-animation="scale-down-animation"
 		modal
-		style="max-height:600px;overflow:scroll;">
+		style="max-height:600px;">
 		<center>
-			<h2 style="color:red">Error: {{errorNumber}}</h2>
-		</center>
-		<br/>
-		<div id="editErrorBody"></div>
-		<center>
+			<h2 style="color:red">{{errorNumber}} Error</h2>
+			<br/>
+			<h3>{{errorBody}}</h3>
 			<paper-button raised class="edit-button" style="font-size:12pt" dialog-dismiss>Okay</paper-button>
 		</center>
 	</paper-dialog>
