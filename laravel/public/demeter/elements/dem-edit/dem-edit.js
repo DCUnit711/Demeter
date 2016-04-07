@@ -75,7 +75,7 @@ Polymer({
 		    }
 		};
 		var body = JSON.stringify({'name':this.inputName,
-								   'ownerName':this.database.OWNERNAME,
+								   'ownerName':this.inputOwner,
 								   'description':this.inputDesc,
 								   'organization':this.inputOrg,
 								   'maxSize':parseFloat(this.inputSize)});
