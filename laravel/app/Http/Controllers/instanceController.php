@@ -288,10 +288,7 @@ class instanceController extends Controller
 	                        //emit request to make db
 	                        $redis = \Redis::connection(); // Using the Redis extension provided client
 	                        $redis->publish('demeter', json_encode(array('command' => 'backupInstance', 'instanceId' => $data['instanceId'], 'vm' => $data['vmId'], 'type' => $data['type'], 'netId'=>$_SESSION['AUTH_USER'])));
-	                        if($i->save())
-	                            echo "success";
-	                        else
-	                                \App::abort(500, 'Database could not be backed up, please contact an Administrator');
+				print "success";
 	                }
 	                catch(Exception $e)
 	                {
@@ -299,7 +296,7 @@ class instanceController extends Controller
 	                }
 	        }
 	        else
-                                \App::abort(500, 'Database could not be backed up, please contact an Administrator');
+                                \App::abort(500, 'Database could not be backed up, did you fill all fields?');
 
 	}
 }
