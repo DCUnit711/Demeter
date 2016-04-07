@@ -50,7 +50,7 @@
 						{{user.netId}}<br/>
 						</div>
 						<div class="info-right-container-instance">
-							<paper-button class="changePassBtn" style="float:right" raised on-click="">Remove Manager</paper-button><br/>
+							<paper-button class="changePassBtn" style="float:right" raised on-click="showManagerDeleteDialog">Remove Manager</paper-button><br/>
 						</div><br/>
 					</template>
 				</div>
@@ -65,6 +65,19 @@
 				</div>
 			</center>
 		</div>
+		<paper-dialog
+			id="dbInfoManagerDeleteDialog"
+			entry-animation="scale-up-animation"
+			exit-animation="scale-down-animation"
+			modal>
+			<center>
+				<h2 style="color:red">You are about to delete the following user</h2>
+				<h3>{{selectedUser}}</h3>
+				<h2>Do you want to continue?</h2>
+			</center>
+			<paper-button raised class="info-button-modal" style="float:left" dialog-dismiss>Cancel</paper-button>
+			<paper-button raised class="info-button-modal" style="float:right" on-click="deleteManager" dialog-dismiss>Cancel</paper-button>
+		</paper-dialog>
 		<paper-dialog
 			id="dbInfoAddUserDialog"
 			entry-animation="scale-up-animation"
