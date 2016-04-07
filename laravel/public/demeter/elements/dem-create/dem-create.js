@@ -2,7 +2,7 @@ Polymer({
 	is:"dem-create",
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
 	properties:{
-		database:{},
+		database:{ observer:"updateInputFields" },
 		animationConfig: {
 	      	value: function() {
 		        return {
@@ -44,6 +44,11 @@ Polymer({
 	selectType:function(e){
 		this.$.typeDropdown.label = e.target._lightChildren[0].data;
 		this.dbType = e.target._lightChildren[0].data;
+	},
+	updateInputFields:function(){
+		this.inputName = this.database.NAME;
+		this.inputDesc = this.database.DESCRIPTION;
+		this.inputOrg = this.database.ORGANIZATION;
 	},
 	createDB:function(){
 		if(this.inputName == null || this.inputName == "") {
