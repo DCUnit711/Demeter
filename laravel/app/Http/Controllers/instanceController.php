@@ -45,9 +45,10 @@ class instanceController extends Controller
 	if($user->role == 'admin')
 		$instances = instance::with('vm', 'owner', 'users', 'instanceUsers')->get();
 	else
+	{
 		$instances = $user->ownedInstances()->where('inUse', '!=', '-1')->with('vm', 'owner', 'users', 'instanceUsers')->get();
 		$instances->merge($user->instances()->where('inUse', '!=', '-1')->with('vm', 'owner', 'users', 'instanceUsers')->get());
-
+	}
 	foreach ($instances as $i)
 	{
 		$i->ownerName = demeterUser::find($i->ownerId)->netId;
