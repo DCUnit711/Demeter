@@ -192,12 +192,13 @@ class instanceController extends Controller
 		$i = instance::find($id);
 		$oldName = $i->name;
 		//check if instance exists with the same name
-                if($oldName != $data['name'] && instance::where('name', $data['name'])->exists())
-                        die("fail");
+                //if($oldName != $data['name'] && instance::where('name', $data['name'])->exists())
+                //        die("fail");
 
 		$i->name = $data['name'];
-		if(demeterUser::where('netId', $data['ownerName'])->exists())
-		        $i->ownerId =  demeterUser::where('netId', $data['ownerName'])->first()->id;
+		if(!demeterUser::where('netId', $data['ownerName'])->exists())
+			die('user does not exist');
+		$i->ownerId =  demeterUser::where('netId', $data['ownerName'])->first()->id;
         	$i->organization =  $data['organization'];
 	        $i->maxSize = $data['maxSize'];
         	$i->description = $data['description'];
