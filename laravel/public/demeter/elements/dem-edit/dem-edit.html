@@ -47,10 +47,13 @@
 		id="errorDialog"
 		entry-animation="scale-up-animation"
 		exit-animation="scale-down-animation"
-		modal>
-		<h3 style="color:red">Error: {{errorNumber}}</h3>
+		modal
+		style="max-height:600px;overflow:scroll;">
+		<center>
+			<h2 style="color:red">Error: {{errorNumber}}</h2>
+		</center>
 		<!-- <h4 id="editErrorBody">{{errorBody}}</h4> -->
-		<h4 id="editErrorBody">{{errorBody}}</h4>
+		<div id="editErrorBody">{{errorBody}}</div>
 		<paper-button raised class="edit-button" dialog-dismiss>Okay</paper-button>
 	</paper-dialog>
 	</template>
