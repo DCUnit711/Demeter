@@ -209,7 +209,8 @@ class instanceController extends Controller
 		$i->name = $data['name'];
 		if(!demeterUser::where('netId', $data['ownerName'])->exists())
 			//die('user does not exist');
-	                \App::abort(500, "NetId does not exist");
+			return Response::view('errors.500', array(), 500);
+	               // \App::abort(500, "NetId does not exist");
 
 		$i->ownerId =  demeterUser::where('netId', $data['ownerName'])->first()->id;
         	$i->organization =  $data['organization'];
