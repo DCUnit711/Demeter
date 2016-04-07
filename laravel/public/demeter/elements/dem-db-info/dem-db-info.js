@@ -161,14 +161,19 @@ Polymer({
 		var polymer = this;
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
-		    	var response = xhttp.responseText;
-		    	response = JSON.parse(response);
-		    	polymer.fire('updateDatabases');
-				polymer.fire('goToPage', 1);
+		    	if(xhttp.status == 200) {
+		    		response = JSON.parse(response);
+		    		polymer.fire('updateDatabases');
+					polymer.fire('goToPage', 1);
+				}
+				else {
+					polymer.errorNumber = xhttp.status;
+					polymer.errorBody = xhttp.responseText;
+					polymer.$.dbInfoErrorDialog.opened = true;
+				}
 		    }
 		};
-		var url = "/backup";
-		xhttp.open("POST", url, true);
+		xhttp.open("POST", "/backup", true);
 		var data = JSON.stringify({'instanceId':this.database.ID,"vmId":this.database.VMID,"type":this.database.TYPE});
 		xhttp.send(data);
 	},

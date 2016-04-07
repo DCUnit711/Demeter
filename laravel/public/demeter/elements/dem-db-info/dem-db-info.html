@@ -121,6 +121,16 @@
 				<paper-button class="info-button" style="float:right;" on-click="addUserAjax" dialog-confirm raised>Continue</paper-button>
 			</center>
 		</paper-dialog>
+		<paper-dialog
+			id="dbInfoErrorDialog"
+			entry-animation="scale-up-animation"
+			exit-animation="scale-down-animation"
+			modal
+			style="max-height:600px;">
+			<h2>{{errorNumber}} Error</h2>
+			<h3>{{errorBody}}</h3>
+			<paper-button raised class="info-button">Okay</paper-button>
+		</paper-dialog>
 	</template>
 	<script src="dem-db-info.js"></script>
 </dom-module>
