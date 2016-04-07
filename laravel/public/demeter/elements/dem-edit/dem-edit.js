@@ -69,8 +69,7 @@ Polymer({
 		    	}
 		    	else {
 		    		polymer.errorNumber = xhttp.status;
-		    		console.log(xhttp.responseText);
-		    		polymer.$.errorBody = xhttp.responseText;
+		    		polymer.errorBody = xhttp.responseText;
 		    		polymer.$.errorDialog.opened = true;
 		    	}
 		    }
