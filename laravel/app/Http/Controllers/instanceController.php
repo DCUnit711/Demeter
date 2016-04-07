@@ -135,7 +135,7 @@ class instanceController extends Controller
                                 $iu->id = \Uuid::generate(4);
                                 $iu->name = $data['username'];
                                 $iu->instanceId = $i->id->string;
-
+				$i->id = $i->id->string;
     				$i->save();
 				
 				$iu->save();
