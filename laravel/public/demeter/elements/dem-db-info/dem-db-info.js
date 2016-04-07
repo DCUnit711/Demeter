@@ -202,7 +202,8 @@ Polymer({
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
 		    	if(xhttp.status == 200) {
-		    		// polymer.$.dbInfoBackupSuccess.opened = true;
+		    		polymer.fire('updateDatabases');
+					polymer.fire('goToPage', 1);
 				}
 				else {
 					polymer.errorNumber = xhttp.status;
