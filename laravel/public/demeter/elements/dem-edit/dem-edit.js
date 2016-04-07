@@ -64,13 +64,13 @@ Polymer({
 					polymer.fire('goToPage', 1);
 			    	this.response = xhttp.responseText;
 			    	if(xhttp.status == 200) {
-			    		this.response = xhttp.responseText;
+			    		polymer.response = xhttp.responseText;
 			    	}
 		    	}
 		    	else {
-		    		this.errorNumber = xhttp.status;
-		    		this.errorBody = xhttp.responseText;
-		    		this.$.errorDialog.opened = true;
+		    		polymer.errorNumber = xhttp.status;
+		    		polymer.errorBody = xhttp.responseText;
+		    		polymer.$.errorDialog.opened = true;
 		    	}
 		    }
 		};
