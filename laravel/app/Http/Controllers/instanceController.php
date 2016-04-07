@@ -47,7 +47,7 @@ class instanceController extends Controller
 	else
 	{
 		$instances = $user->ownedInstances()->where('inUse', '!=', '-1')->with('vm', 'owner', 'users', 'instanceUsers')->get();
-		$instances->merge($user->instances()->where('inUse', '!=', '-1')->with('vm', 'owner', 'users', 'instanceUsers')->get());
+		$instances = $instances->merge($user->instances()->where('inUse', '!=', '-1')->with('vm', 'owner', 'users', 'instanceUsers')->get());
 	}
 	foreach ($instances as $i)
 	{
