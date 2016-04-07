@@ -63,6 +63,7 @@ Polymer({
 									'DESCRIPTION':response[index].description,
 									'ID':response[index].id,
 									'USERS':response[index].instance_users,
+									'DEMUSERS':response[index].users,
 									'CURRENTSIZE':response[index].currentSize,
 									'SIZE':response[index].maxSize,
 									'NAME':response[index].name,

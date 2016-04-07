@@ -42,10 +42,18 @@
 						</div>
 						<br/>
 					</template>
+					<br/>
+					Allowed Demeter Users:<br/>
+					<hr/>
+					<template is="dom-repeat" items="{{database.DEMUSERS}}" as="user">
+						<div class="info-right-container" style="line-height:35px;">
+						{{user.name}}<br/>
+						</div>
+					</template>
 				</div>
 				<div id="infoButtonContainer" class="info-button-container">
 					<paper-button class="info-button" on-click="goToEdit" raised>Edit Database</paper-button><br/>
-					<paper-button class="info-button" on-click="showAddDialog" raised>Add User</paper-button><br/>
+					<paper-button class="info-button" on-click="showAddUserDialog" raised>Add User</paper-button><br/>
 					<paper-button class="info-button" on-click="showDeleteDBDialog" raised>Delete Database</paper-button><br/>
 					<paper-button class="info-button" on-click="showDeleteDialog" raised>Delete Users</paper-button><br/>
 					<paper-button class="info-button" on-click="openBackupDialog" raised>Backup Database</paper-button><br/>
@@ -54,6 +62,32 @@
 				</div>
 			</center>
 		</div>
+		<paper-dialog
+			id="dbInfoAddUserDialog"
+			entry-animation="scale-up-animation"
+			exit-animation="scale-down-animation"
+			modal>
+			<center>
+				<h2>What Type Of User Would You Like To Add?</h2>
+				<h3>Demter User: NetId of user that can manage this database with the demeter system.</h3>
+				<h3>Database User: Access the database through this user but cannot manage it with this system</h3>
+			</center>
+			<paper-button class="info-button" style="float:left;" dialog-dismiss raised on-click="showAddDatabaseUserDialog">Add Database User</paper-button>
+			<paper-button class="info-button" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
+			<paper-button class="info-button" style="float:right;" dialog-confirm raised on-click="showDemeterDialog">Add Demeter Users</paper-button>
+		</paper-dialog>
+		<paper-dialog
+			id="dbInfoAddDemeterUser"
+			entry-animation="scale-up-animation"
+			exit-animation="scale-down-animation"
+			modal>
+			<center>
+				<h3>Allow Demeter Access From The Following User:</h3>
+				<input type="text" class="info-dialog-input" placeholder="NetId" value="{{username::input}}"></input><br/>
+			</center>
+			<paper-button class="info-button" style="float:left;" dialog-dismiss raised>Cancel</paper-button>
+			<paper-button class="info-button" style="float:right;"dialog-confirm raised>Add Demeter Users</paper-button>
+		</paper-dialog>
 		<paper-dialog
 			id="deleteDatabaseDialog"
 			entry-animation="scale-up-animation"

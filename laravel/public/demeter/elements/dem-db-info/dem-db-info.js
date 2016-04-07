@@ -42,7 +42,6 @@ Polymer({
 		if(this.database.USERS == null || this.database.USERS.length < 1) {
 			this.push("database.USERS",{'name':'No Users'});
 		}
-		// document.getElementById("dataInstanceInfo").innerHTML = "<b>Instance IP:</b> "+this.database.INSTANCEIP+"<br/><b>Instance Port:</b> "+this.database.INSTANCEPORT+"<br/>";
 	},
 	//-----------------------------------------------------
 	goToEdit:function() {
@@ -53,9 +52,18 @@ Polymer({
 		this.fire("goToPage", 1);	//go back to database list
 	},
 	//-----------------------------------------------------
-	showAddDialog:function(){
+	showAddUserDialog:function(){
+		this.$.dbInfoAddUserDialog.opened = true;
+	},
+	//-----------------------------------------------------
+	showAddDatabaseUserDialog:function(){
 		this.$.addUserDialog.opened = true;
 	},
+	//-----------------------------------------------------
+	showDemeterDialog:function(){
+		this.$.dbInfoAddDemeterUser.opened = true;
+	},
+	//-----------------------------------------------------
 	showDeleteDialog:function(){
 		this.$.deleteUserDialog.opened = true;
 	},
