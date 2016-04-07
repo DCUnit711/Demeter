@@ -70,7 +70,6 @@ Polymer({
 		    	else {
 		    		polymer.errorNumber = xhttp.status;
 		    		polymer.$.editErrorBody.innerHTML = xhttp.responseText;
-		    		// polymer.errorBody = xhttp.responseText;
 		    		polymer.$.errorDialog.opened = true;
 		    	}
 		    }
