@@ -139,6 +139,7 @@ class instanceController extends Controller
     				$i->save();
 				
 				$iu->save();
+				$i->users()->save($user);
                 		echo "success";
 		    	        
 				//else
