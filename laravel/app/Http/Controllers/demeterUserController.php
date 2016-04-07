@@ -24,7 +24,6 @@ class demeterUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -42,7 +41,6 @@ class demeterUserController extends Controller
         //
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -58,7 +56,6 @@ class demeterUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -75,10 +72,10 @@ class demeterUserController extends Controller
     		if($u->save())
 	    	    echo "success";
     		else
-	    	    echo "fail";
+                                \App::abort(500, 'User could not be created, please contact an Administrator');
         }
 	else
-		echo "fail";
+                                \App::abort(500, 'User could not be created, please contact an Administrator');
     }
 
     /**
@@ -91,7 +88,6 @@ class demeterUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -122,7 +118,6 @@ class demeterUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -137,10 +132,10 @@ class demeterUserController extends Controller
     		if($u->save())
 	    	    echo "success";
     		else
-	    	    echo "fail";
+                        \App::abort(500, 'User could not be updated, please contact an Administrator');
 	}
 	else
-		echo "fail";
+                \App::abort(500, 'User could not be updated, please contact an Administrator');
         }
 
     /**
@@ -153,7 +148,6 @@ class demeterUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -161,6 +155,6 @@ class demeterUserController extends Controller
     	if($u->delete())
     	    echo "success";
     	else
-    	    echo "fail";
-        }
+                  \App::abort(500, 'User could not be deleted, please contact an Administrator');
+	}
 }

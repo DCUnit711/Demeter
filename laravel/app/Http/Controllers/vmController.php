@@ -24,7 +24,6 @@ class vmController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -41,7 +40,6 @@ class vmController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -57,7 +55,6 @@ class vmController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -78,15 +75,15 @@ class vmController extends Controller
 			if($v->save())
 				echo "success";
 			else
-				echo "fail";
+                                \App::abort(500, 'VM could not be created, please contact an Administrator');
 		}
 		catch(Exception $e)
 		{
-			echo "fail";
+                                \App::abort(500, 'VM could not be created, please contact an Administrator');
 		}
 	}
 	else
-		echo "fail";
+                                \App::abort(500, 'VM could not be created, please contact an Administrator');
     }
 
     /**
@@ -99,7 +96,6 @@ class vmController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -118,7 +114,6 @@ class vmController extends Controller
         //
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -135,7 +130,6 @@ class vmController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-//            die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -154,15 +148,15 @@ class vmController extends Controller
         		if($v->save())
 	                	echo "success";
 	        	else
-    		            echo "fail";
+                                \App::abort(500, 'VM could not be updated, please contact an Administrator');
 		}
 		catch(Exception $e)
 		{
-			echo "fail";
+                                \App::abort(500, 'VM could not be updated, please contact an Administrator');
 		}
 	}
 	else
-		echo "fail";
+                                \App::abort(500, 'VM could not be updated, please contact an Administrator');
     }
 
     /**
@@ -175,7 +169,6 @@ class vmController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -197,11 +190,11 @@ class vmController extends Controller
 		   if($v->delete())
 			  echo "success";
 		   else
-			  echo "fail";
+                                \App::abort(500, 'VM could not be deleted, please contact an Administrator');
 	}
         catch(Exception $e)
         {
-                echo "fail";
+                                \App::abort(500, 'VM could not be deleted, please contact an Administrator');
         }
 
     }
