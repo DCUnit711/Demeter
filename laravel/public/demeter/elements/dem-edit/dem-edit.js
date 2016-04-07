@@ -39,7 +39,6 @@ Polymer({
 		this.fire("goToPage", 5);
 	},
 	requestChanges:function(){
-		console.log(this.database);
 		if(this.inputName == "" || this.inputName == null) {
 			this.inputName = this.database.NAME;
 		}
@@ -53,8 +52,7 @@ Polymer({
 			this.inputSize = this.database.SIZE;
 		}
 		if(this.inputOwner == "" || this.inputOwner == null) {
-			console.log('made it');
-			this.inputOwner == this.database.OWNERNAME;
+			this.inputOwner = this.database.OWNERNAME;
 		}
 
 		var xhttp = new XMLHttpRequest();
@@ -76,7 +74,6 @@ Polymer({
 		    	}
 		    }
 		};
-		console.log(this.inputOwner);
 		var body = JSON.stringify({'name':this.inputName,
 								   'ownerName':this.inputOwner,
 								   'description':this.inputDesc,
