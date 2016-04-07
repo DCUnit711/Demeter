@@ -47,15 +47,18 @@
 					<hr/>
 					<template is="dom-repeat" items="{{database.DEMUSERS}}" as="user">
 						<div class="info-right-container" style="line-height:35px;">
-						{{user.name}}<br/>
+						{{user.netId}}<br/>
 						</div>
+						<div class="info-right-container-instance">
+							<paper-button class="changePassBtn" style="float:right" raised on-click="">Remove Manager</paper-button><br/>
+						</div><br/>
 					</template>
 				</div>
 				<div id="infoButtonContainer" class="info-button-container">
 					<paper-button class="info-button" on-click="goToEdit" raised>Edit Database</paper-button><br/>
 					<paper-button class="info-button" on-click="showAddUserDialog" raised>Add User</paper-button><br/>
 					<paper-button class="info-button" on-click="showDeleteDBDialog" raised>Delete Database</paper-button><br/>
-					<paper-button class="info-button" on-click="showDeleteDialog" raised>Delete Users</paper-button><br/>
+					<paper-button class="info-button" on-click="showDeleteDialog" raised>Delete DB Users</paper-button><br/>
 					<paper-button class="info-button" on-click="openBackupDialog" raised>Backup Database</paper-button><br/>
 					<br/>
 					<paper-button class="info-button" on-click="goToList"raised>Back To Databases</paper-button>
