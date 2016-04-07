@@ -163,7 +163,6 @@ Polymer({
 	backupDB:function(){
 		var xhttp = new XMLHttpRequest();
 		var polymer = this;
-		this.$.dbInfoBackupDialog.opened = true;
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
 		    	if(xhttp.status == 200) {
