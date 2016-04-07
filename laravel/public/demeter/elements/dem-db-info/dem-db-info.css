@@ -22,6 +22,7 @@ paper-button.info-button {
 	width: 200px;
 	color: white;
 	height:40px;
+	line-height: 40px;
 	margin:5px;
 	background:#2580a2;
 }
