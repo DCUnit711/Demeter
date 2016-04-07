@@ -25,7 +25,6 @@ class instanceUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -43,7 +42,6 @@ class instanceUserController extends Controller
         //
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
         }
     }
@@ -58,7 +56,6 @@ class instanceUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -85,15 +82,15 @@ class instanceUserController extends Controller
 			if($i->save())
 	                	echo "success";
 		        else
-        		        echo "fail";
+                                \App::abort(500, 'User could not be created, please contact an Administrator');
 		}
 		catch(Exception $e)
 		{
-			echo "fail";
+                                \App::abort(500, 'User could not be created, please contact an Administrator');
 		}
 	}
 	else
-		echo "fail";
+                                \App::abort(500, 'User could not be created, please contact an Administrator');
     }
 
     /**
@@ -123,7 +120,6 @@ class instanceUserController extends Controller
         //
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -140,7 +136,6 @@ class instanceUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -167,7 +162,6 @@ class instanceUserController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
             \App::abort(500, 'User not authenticated');
 
         }
@@ -180,11 +174,11 @@ class instanceUserController extends Controller
         	if($i->delete())
 	                echo "success";
         	else
-                	echo "fail";
+                                \App::abort(500, 'User could not be deleted, please contact an Administrator');
 	}
 	catch(Exception $e)
 	{
-		echo "fail";
+                                \App::abort(500, 'User could not be deleted, please contact an Administrator');
 	}
 
     }

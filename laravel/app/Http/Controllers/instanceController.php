@@ -29,7 +29,6 @@ class instanceController extends Controller
         session_start();
         if(!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false) {   
 	    \App::abort(500, 'User not authenticated');
-            //die("fail");
         }
 	//get user
 	$user = demeterUser::where('netId', $_SESSION['AUTH_USER'])->first();
@@ -66,7 +65,6 @@ class instanceController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
 		\App::abort(500, 'User not authenticated');
 
         }
@@ -82,7 +80,6 @@ class instanceController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
                 \App::abort(500, 'User not authenticated');
 
         }
@@ -149,7 +146,7 @@ class instanceController extends Controller
 			}
 			catch(Exception $e)
 			{
-				echo "fail";
+			        \App::abort(500, 'Database could not be created, please contact an Administrator');
 			}
 	    	}
 	}
@@ -165,7 +162,6 @@ class instanceController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
                 \App::abort(500, 'User not authenticated');
 
         }
@@ -183,7 +179,6 @@ class instanceController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
                 \App::abort(500, 'User not authenticated');
 
         }
@@ -200,7 +195,6 @@ class instanceController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
                 \App::abort(500, 'User not authenticated');
 
         }
@@ -232,15 +226,16 @@ class instanceController extends Controller
 	        	if($i->save())
 		            echo "success";
         		else
-		            echo "fail";
+                                \App::abort(500, 'Database could not be updated, please contact an Administrator');
+
 		}
 		catch(Exception $e)
 		{
-			echo "fail";
+                           \App::abort(500, 'Database could not be updated, please contact an Administrator');
 		}
 	}
 	else
-		echo "fail";
+                 \App::abort(500, 'Database could not be updated, did you fill all fields?');
     }
 
     /**
@@ -253,7 +248,6 @@ class instanceController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-            //die('fail');
                 \App::abort(500, 'User not authenticated');
 
         }
@@ -269,12 +263,12 @@ class instanceController extends Controller
         	if($i->save())
 	            echo "success";
         	else
-	            echo "fail";
+                                \App::abort(500, 'Database could not be deleted, please contact an Administrator');
 
 	}
 	catch(Exception $e)
 	{
-		echo "fail";
+                                \App::abort(500, 'Database could not be deleted, please contact an Administrator');
 	}
 
     }
@@ -283,7 +277,6 @@ class instanceController extends Controller
 	{
 		session_start();
 	        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
-	            //die('fail');
 	                \App::abort(500, 'User not authenticated');
 	        }
 	        $put = file_get_contents('php://input');
@@ -298,15 +291,15 @@ class instanceController extends Controller
 	                        if($i->save())
 	                            echo "success";
 	                        else
-	                            echo "fail";
+	                                \App::abort(500, 'Database could not be backed up, please contact an Administrator');
 	                }
 	                catch(Exception $e)
 	                {
-	                        echo "fail";
+                                \App::abort(500, 'Database could not be backed up, please contact an Administrator');
 	                }
 	        }
 	        else
-	                echo "fail";
+                                \App::abort(500, 'Database could not be backed up, please contact an Administrator');
 
 	}
 }
