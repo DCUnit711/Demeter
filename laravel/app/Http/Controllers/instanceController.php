@@ -300,7 +300,6 @@ class instanceController extends Controller
                                 \App::abort(500, 'Database could not be backed up, did you fill all fields?');
 
 	}
-}
 
 	public function addUser()
 	{
@@ -323,3 +322,4 @@ class instanceController extends Controller
 
 
 	}
+}
