@@ -44,14 +44,13 @@
 		</center>
 	</div>
 	<paper-dialog
-		id="progressDialog"
+		id="errorDialog"
 		entry-animation="scale-up-animation"
 		exit-animation="scale-down-animation"
 		modal>
-		<h3 hidden="[[processing]]">Sending Your Request, please wait...</h3>
-		<paper-spinner hidden="[[processing]]" active style="width:50px;height:50px;"></paper-spinner><br/>
-		<h3 hidden="[[!processing]]">{{response}}</h3>
-		<paper-button raised hidden="[[!processing]]" class="edit-button" on-click="goToList" dialog-dismiss>Okay</paper-button>
+		<h3 style="color:red">Error: {{errorNumber}}</h3>
+		<h4>{{errorBody}}</h4>
+		<paper-button raised class="edit-button" dialog-dismiss>Okay</paper-button>
 	</paper-dialog>
 	</template>
 	<script src="dem-edit.js"></script>

@@ -59,11 +59,18 @@ Polymer({
 		var polymer = this;
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
-		    	polymer.fire('updateDatabases');
-				polymer.fire('goToPage', 1);
-		    	this.response = xhttp.responseText;
-		    	if(xhttp.status == 200) {
-		    		this.response = xhttp.responseText;
+		    	if(xhttp.status === 200) {
+			    	polymer.fire('updateDatabases');
+					polymer.fire('goToPage', 1);
+			    	this.response = xhttp.responseText;
+			    	if(xhttp.status == 200) {
+			    		this.response = xhttp.responseText;
+			    	}
+		    	}
+		    	else {
+		    		this.errorNumber = xhttp.status;
+		    		this.errorBody = xhttp.responseText;
+		    		this.$.errorDialog.opened = true;
 		    	}
 		    }
 		};
