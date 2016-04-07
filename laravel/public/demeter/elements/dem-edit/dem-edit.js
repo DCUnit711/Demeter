@@ -2,7 +2,7 @@ Polymer({
 	is:"dem-edit",
 	behaviors:[Polymer.NeonSharedElementAnimatableBehavior],
 	properties:{
-		database:{ observer:"updateInputFields"},
+		database:{},
 		animationConfig: {
 	      	value: function() {
 		        return {
@@ -35,7 +35,7 @@ Polymer({
             }
         }
 	},
-	updateInputFields:function(){
+	content:function(){
 		console.log(this.database);
 		this.inputName = this.database.NAME;
 		this.inputOrg = this.database.ORGANIZATION;
