@@ -68,6 +68,7 @@ Polymer({
 									'NAME':response[index].name,
 									'ORGANIZATION':response[index].organization,
 									'OWNERID':response[index].ownerId,
+									'OWNERNAME':response[index].ownerName,
 									'TYPE':response[index].type,
 									'UPDATED':response[index].updated_at,
 									'VMID':response[index].vmId,
