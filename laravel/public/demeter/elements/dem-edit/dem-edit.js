@@ -54,6 +54,7 @@ Polymer({
 		}
 		if(this.inputOwner == "" || this.inputOwner == null) {
 			console.log('made it');
+			console.log(this.database.OWNERNAME);
 			this.inputOwner == this.database.OWNERNAME;
 		}
 
@@ -76,7 +77,6 @@ Polymer({
 		    	}
 		    }
 		};
-		console.log(this.inputOwner);
 		var body = JSON.stringify({'name':this.inputName,
 								   'ownerName':this.inputOwner,
 								   'description':this.inputDesc,
