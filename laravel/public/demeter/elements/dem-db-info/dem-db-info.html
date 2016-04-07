@@ -6,7 +6,7 @@
 				<div class="info-left-container">
 					<h3>Database Information:</h3>
 					<hr/>
-					<b>Database Size:</b> {{database.SIZE}}<br/>
+					<b>Database Size:</b> {{database.SIZE}} MB<br/>
 					<b>Amount Used:</b> <paper-progress value="{{database.CURRENTSIZE}}" max="{{database.SIZE}}"></paper-progress><br/>
 					<b>ID:</b> {{database.ID}}<br/>
 					<b>Last Updated:</b> {{database.UPDATED}}<br/>
@@ -54,6 +54,7 @@
 					<paper-button class="info-button" on-click="showAddDialog" raised>Add User</paper-button><br/>
 					<paper-button class="info-button" on-click="showDeleteDBDialog" raised>Delete Database</paper-button><br/>
 					<paper-button class="info-button" on-click="showDeleteDialog" raised>Delete Users</paper-button><br/>
+					<paper-button class="info-button" on-click="backupDB" raised>Backup Database</paper-button><br/>
 					<br/>
 					<paper-button class="info-button" on-click="goToList"raised>Back To Databases</paper-button>
 				</div>

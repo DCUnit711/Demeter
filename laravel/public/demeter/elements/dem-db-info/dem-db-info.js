@@ -156,6 +156,23 @@ Polymer({
 		xhttp.send(data);
 	},
 	//-----------------------------------------------------
+	backupDB:function(){
+		var xhttp = new XMLHttpRequest();
+		var polymer = this;
+		xhttp.onreadystatechange = function() {
+		    if (xhttp.readyState == 4) {
+		    	var response = xhttp.responseText;
+		    	response = JSON.parse(response);
+		    	polymer.fire('updateDatabases');
+				polymer.fire('goToPage', 1);
+		    }
+		};
+		var url = "/backup";
+		xhttp.open("POST", url, true);
+		var data = JSON.stringify({'instanceId':this.database.ID,"vmId":this.database.VMID,"type":this.database.TYPE});
+		xhttp.send(data);
+	},
+	//-----------------------------------------------------
 	showDeleteDBDialog:function(){
 		this.$.deleteDatabaseDialog.opened = true;
 	}
