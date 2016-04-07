@@ -48,6 +48,9 @@
 					<template is="dom-repeat" items="{{database.DEMUSERS}}" as="user">
 						<div class="info-right-container" style="line-height:35px;">
 						{{user.netId}}<br/>
+						</div>
+						<div class="info-right-container-instance">
+							<paper-button class="changePassBtn" style="float:right" raised on-click="">Remove Manager</paper-button><br/>
 						</div><br/>
 					</template>
 				</div>
