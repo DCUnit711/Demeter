@@ -47,6 +47,11 @@ class instanceController extends Controller
 	else
 		$instances = $user->ownedInstances()->where('inUse', '!=', '-1')->with('vm', 'owner', 'users', 'instanceUsers')->get();
 		$instances->merge($user->instances()->where('inUse', '!=', '-1')->with('vm', 'owner', 'users', 'instanceUsers')->get());
+
+	foreach ($instances as $i)
+	{
+		$i->ownerName = demeterUser::find($i->ownerId)->netId;
+	}
 	return response()->json($instances);
 	
     }
@@ -248,4 +253,34 @@ class instanceController extends Controller
 	}
 
     }
+
+	public function backup()
+	{
+		session_start();
+	        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+	            die('fail');
+	        }
+	        $put = file_get_contents('php://input');
+	        $data = json_decode($put, true);
+        	if($data['instanceId'] != null && $data['vmId'] != null && $data['type'] != null)
+	        {
+	                try
+	                {
+	                        //emit request to make db
+	                        $redis = \Redis::connection(); // Using the Redis extension provided client
+	                        $redis->publish('demeter', json_encode(array('command' => 'backupInstance', 'instanceId' => $data['instanceId'], 'vm' => $data['vmId'], 'type' => $data['type'], 'netId'=>$_SESSION['AUTH_USER'])));
+	                        if($i->save())
+	                            echo "success";
+	                        else
+	                            echo "fail";
+	                }
+	                catch(Exception $e)
+	                {
+	                        echo "fail";
+	                }
+	        }
+	        else
+	                echo "fail";
+
+	}
 }
