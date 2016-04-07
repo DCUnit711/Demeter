@@ -301,3 +301,25 @@ class instanceController extends Controller
 
 	}
 }
+
+	public function addUser()
+	{
+		session_start();
+                if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
+                        \App::abort(500, 'User not authenticated');
+                }
+                $put = file_get_contents('php://input');
+                $data = json_decode($put, true);
+                if($data['instanceId'] != null && $data['netId'] != null)
+                {
+			if(!demeterUser::where('netId', $data['netId'])->exists())
+				\App::abort(500, 'No Demeter user exists with this NetId');
+			$user = demeterUser::where('netId', $data['netId'])->first();
+			$i = instance::find($data['instanceId']);
+			$i->users()->save($user);
+		        
+                else
+                	\App::abort(500, 'Could not add user, did you fill all fields?');
+
+
+	}
