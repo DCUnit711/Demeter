@@ -126,7 +126,10 @@
 			entry-animation="scale-up-animation"
 			exit-animation="scale-down-animation"
 			modal>
-			<h2>Would you like to request to backup your database?</h2>
+			<center>
+				<h2>Would you like to request to backup your database?</h2>
+				<br/>
+			</center>
 			<paper-button class="info-button" style="float:left;" dialog-dismiss raised>No</paper-button>
 			<paper-button class="info-button" style="float:right;" on-click="backupDB" dialog-confirm raised>Yes</paper-button>
 		</paper-dialog>
@@ -135,8 +138,11 @@
 			entry-animation="scale-up-animation"
 			exit-animation="scale-down-animation"
 			modal>
-			<h2>Your request was successful!</h2>
-			<paper-button class="info-button" style="float:right;"dialog-confirm raised>Great!</paper-button>
+			<center>
+				<h2>Your request was successful!</h2>
+				<br/>
+				<paper-button class="info-button" style="float:right;"dialog-confirm raised>Great!</paper-button>
+			</center>
 		</paper-dialog>
 		<paper-dialog
 			id="dbInfoErrorDialog"
@@ -144,9 +150,11 @@
 			exit-animation="scale-down-animation"
 			modal
 			style="max-height:600px;">
-			<h2>{{errorNumber}} Error</h2>
-			<h3>{{errorBody}}</h3>
-			<paper-button raised class="info-button" dialog-confirm>Okay</paper-button>
+			<center>
+				<h2>{{errorNumber}} Error</h2>
+				<h3>{{errorBody}}</h3>
+				<paper-button raised class="info-button" dialog-confirm>Okay</paper-button>
+			</center>
 		</paper-dialog>
 	</template>
 	<script src="dem-db-info.js"></script>
