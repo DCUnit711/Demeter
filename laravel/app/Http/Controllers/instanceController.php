@@ -28,7 +28,7 @@ class instanceController extends Controller
     {
         session_start();
         if(!isset($_SESSION['AUTH']) || $_SESSION['AUTH'] == false) {   
-	    App::abort(500, 'User not authenticated');
+	    \App::abort(500, 'User not authenticated');
             //die("fail");
         }
 	//get user
@@ -67,7 +67,7 @@ class instanceController extends Controller
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             //die('fail');
-		App::abort(500, 'User not authenticated');
+		\App::abort(500, 'User not authenticated');
 
         }
     }
@@ -83,7 +83,7 @@ class instanceController extends Controller
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             //die('fail');
-                App::abort(500, 'User not authenticated');
+                \App::abort(500, 'User not authenticated');
 
         }
 	$post = file_get_contents('php://input');
@@ -158,7 +158,7 @@ class instanceController extends Controller
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             //die('fail');
-                App::abort(500, 'User not authenticated');
+                \App::abort(500, 'User not authenticated');
 
         }
         $i = instance::find($id)->with('vm', 'owner', 'users', 'instanceUsers')->get();
@@ -176,7 +176,7 @@ class instanceController extends Controller
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             //die('fail');
-                App::abort(500, 'User not authenticated');
+                \App::abort(500, 'User not authenticated');
 
         }
     }
@@ -193,7 +193,7 @@ class instanceController extends Controller
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             //die('fail');
-                App::abort(500, 'User not authenticated');
+                \App::abort(500, 'User not authenticated');
 
         }
 	$put = file_get_contents('php://input');
@@ -209,7 +209,7 @@ class instanceController extends Controller
 		$i->name = $data['name'];
 		if(!demeterUser::where('netId', $data['ownerName'])->exists())
 			//die('user does not exist');
-	                App::abort(500, 'NetId does not exist');
+	                \App::abort(500, 'NetId does not exist');
 
 		$i->ownerId =  demeterUser::where('netId', $data['ownerName'])->first()->id;
         	$i->organization =  $data['organization'];
@@ -246,7 +246,7 @@ class instanceController extends Controller
         session_start();
         if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
             //die('fail');
-                App::abort(500, 'User not authenticated');
+                \App::abort(500, 'User not authenticated');
 
         }
 	try
@@ -276,7 +276,7 @@ class instanceController extends Controller
 		session_start();
 	        if(!isset($_SESSION['AUTH']) ||  $_SESSION['AUTH'] == false) {
 	            //die('fail');
-	                App::abort(500, 'User not authenticated');
+	                \App::abort(500, 'User not authenticated');
 	        }
 	        $put = file_get_contents('php://input');
 	        $data = json_decode($put, true);
