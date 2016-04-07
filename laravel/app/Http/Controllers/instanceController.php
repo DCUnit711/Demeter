@@ -196,7 +196,8 @@ class instanceController extends Controller
                         die("fail");
 
 		$i->name = $data['name'];
-	        $i->ownerId =  demeterUser::where('netId', $data['ownerName'])->first()->id;
+		if(demeterUser::where('netId', $data['ownerName'])->exists())
+		        $i->ownerId =  demeterUser::where('netId', $data['ownerName'])->first()->id;
         	$i->organization =  $data['organization'];
 	        $i->maxSize = $data['maxSize'];
         	$i->description = $data['description'];
