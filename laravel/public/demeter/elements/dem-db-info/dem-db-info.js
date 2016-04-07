@@ -70,7 +70,6 @@ Polymer({
 			}
 		    if (xhttp.readyState == 4) {
 		    	this.response = xhttp.responseText;
-		    	// this.hideSpinner = true;
 		    	polymer.fire('updateDatabases');
 				polymer.fire('goToPage', 1);
 		    }
@@ -156,15 +155,17 @@ Polymer({
 		xhttp.send(data);
 	},
 	//-----------------------------------------------------
+	openBackupDialog:function(){
+		this.$.dbInfoBackupDialog.opened = true;
+	},
+	//-----------------------------------------------------
 	backupDB:function(){
 		var xhttp = new XMLHttpRequest();
 		var polymer = this;
 		xhttp.onreadystatechange = function() {
 		    if (xhttp.readyState == 4) {
 		    	if(xhttp.status == 200) {
-		    		response = JSON.parse(response);
-		    		polymer.fire('updateDatabases');
-					polymer.fire('goToPage', 1);
+		    		polymer.$.dbInfoBackupSuccess.opened = true;
 				}
 				else {
 					polymer.errorNumber = xhttp.status;
