@@ -70,7 +70,6 @@ Polymer({
 			}
 		    if (xhttp.readyState == 4) {
 		    	this.response = xhttp.responseText;
-		    	// this.hideSpinner = true;
 		    	polymer.fire('updateDatabases');
 				polymer.fire('goToPage', 1);
 		    }
