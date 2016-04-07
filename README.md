@@ -2,10 +2,10 @@
 Database as a Service
 This is not yet an active project
 
-#Middleware to Backend Communication
-###Redis Channel: demeter
+##Middleware to Backend Communication
+####Redis Channel: demeter
 
-####format:
+#####format:
 ```
 [
 	'command' => 'createInstance', 
