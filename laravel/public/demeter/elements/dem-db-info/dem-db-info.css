@@ -22,11 +22,19 @@ paper-button.info-button {
 	width: 200px;
 	color: white;
 	height:40px;
+	margin:5px;
+	background:#2580a2;
+}
+paper-button.info-button-modal {
+	font-size: 12pt;
+	width: 200px;
+	color: white;
+	height:40px;
 	line-height: 40px;
 	margin:5px;
 	background:#2580a2;
 }
-paper-button.info-button:hover, paper-button.info-dialog-input:hover {
+paper-button.info-button:hover, paper-button.info-dialog-input:hover, paper-button.info-button-modal:hover {
 	background:#354497;
 	border:1px solid black;
 }
