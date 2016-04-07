@@ -74,6 +74,7 @@ Polymer({
 		    	}
 		    }
 		};
+		console.log(this.inputOwner);
 		var body = JSON.stringify({'name':this.inputName,
 								   'ownerName':this.inputOwner,
 								   'description':this.inputDesc,
