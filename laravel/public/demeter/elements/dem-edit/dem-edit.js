@@ -36,6 +36,7 @@ Polymer({
         }
 	},
 	updateInputFields:function(){
+		console.log(this.database);
 		this.inputName = this.database.NAME;
 		this.inputOrg = this.database.ORGANIZATION;
 		this.inputDesc = this.database.DESCRIPTION;
