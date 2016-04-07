@@ -187,6 +187,26 @@ Polymer({
 		xhttp.send(data);
 	},
 	//-----------------------------------------------------
+	addDemeterUser:function(){
+		var xhttp = new XMLHttpRequest();
+		var polymer = this;
+		xhttp.onreadystatechange = function() {
+		    if (xhttp.readyState == 4) {
+		    	if(xhttp.status == 200) {
+		    		// polymer.$.dbInfoBackupSuccess.opened = true;
+				}
+				else {
+					polymer.errorNumber = xhttp.status;
+					polymer.errorBody = xhttp.responseText;
+					polymer.$.dbInfoErrorDialog.opened = true;
+				}
+		    }
+		};
+		xhttp.open("POST", "/addUser", true);
+		var data = JSON.stringify({'instanceId':this.database.ID,"netId":this.username});
+		xhttp.send(data);
+	},
+	//-----------------------------------------------------
 	showDeleteDBDialog:function(){
 		this.$.deleteDatabaseDialog.opened = true;
 	}
