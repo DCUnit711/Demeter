@@ -35,14 +35,14 @@ Polymer({
             }
         }
 	},
-	content:function(){
-		console.log(this.database);
-		this.inputName = this.database.NAME;
-		this.inputOrg = this.database.ORGANIZATION;
-		this.inputDesc = this.database.DESCRIPTION;
-		this.inputSize = this.database.SIZE;
-		this.inputOwner == this.database.OWNERID;
-	},
+	// content:function(){
+	// 	console.log(this.database);
+	// 	this.inputName = this.database.NAME;
+	// 	this.inputOrg = this.database.ORGANIZATION;
+	// 	this.inputDesc = this.database.DESCRIPTION;
+	// 	this.inputSize = this.database.SIZE;
+	// 	this.inputOwner == this.database.OWNERID;
+	// },
 	goBackToInfoPage:function(){
 		this.fire("goToPage", 5);
 	},
