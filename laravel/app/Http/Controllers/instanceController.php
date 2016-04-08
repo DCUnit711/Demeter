@@ -105,8 +105,8 @@ class instanceController extends Controller
 		/////FOR DEMO
 		if($data['name'] == 'map')
 		{
-			$i->port = 3306;
-			$i->ipAddr = "53.0.0.0";
+			//$i->port = 3306;
+			//$i->ipAddr = "54.213.216.81";
 		}
 		////END
 
