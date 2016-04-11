@@ -104,6 +104,29 @@ Controllers: .\laravel\app\Http\Controllers
 
 Routing (When a certain controller will be called): .\laravel\app\Http
 
-Polymer Web Page Files: .\laravel\public\demeter
+####Front End Files
+Polymer Web Page Files: .\laravel\public\demeter\elements
 
---This has a "bower_components" folder that is simply google made elements. Custom demeter elements are stored in the "elements" folder
+Google Polymer Elements: .\laravel\public\demeter\bower_components
+
+CAS System: .\laravel\public\demeter\CASLogic.php
+
+##Front End Code Explanation
+
+This system uses the "Polymer" 1.0+ Language which is a Javascript framework made by Google focused on a single webpage design.
+Everything is accessed through the "index.html" file:
+(It is highly recommened to look at the starter project for Polymer if you are not familure with the language. This project can be found here: )
+'''
+<html>
+	<head>
+		<title> Demeter </title>
+		<script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+		<link rel="import" href="include.html"/>
+	</head>
+	<body>
+		<dem-all-pages></dem-all-pages> //All elements are encapsulated within this element here
+	</body>
+</html>
+'''
+
+This uses a series of elements called "iron-ajax" to make ajax calls but also Javascript XHttp Requests are formatted within JS files as well. For a more in-depth explanation look at the "Front-End-Explaned.txt" file. This file will go into a little more detail how the front end communicates with the middleware. - Wes
