@@ -141,7 +141,7 @@ Everything is accessed through the "index.html" file:
 
 This is simply a file that is used to include all of Googles elements (Listed from the top of the doc) and our custom made elements(Listed under "Custom Elements"). The file is referenced and used in the index.html file.
 
-####Elements Folder Structure
+####Elements Folder Explanation
 Everything inside of this folder are the custom demeter elements made for this project. This is broken down by page. The name of the folder will contain the HTML, JS, and CSS files related to the custom element. All elements are encapsulated within the "dem-all-pages" element. You will find this file in the list here as well. So if I wanted to look at the home page I would look under the "dem-home" folder to find the homepage element. I tried to name things that make sense so you can easily find them.
 
 ######dem-all-pages Element
@@ -188,4 +188,6 @@ This is the default element that is shown right after the user logs in using CAS
 
 ######dem-login Element
 If the user is not already authenticated when they access the demeter system this element will display. This element makes use of the "CASLogic.php" file. It will simply link them to this file that will redirect them to the CAS login that allows them to be authenticated through the CAS system. When they are authenticated it simply checks the middleware for the correct variable being set. If it is set then they will be redirected to the "dem-home" element.
-This uses a series of elements called "iron-ajax" to make ajax calls but also Javascript XHttp Requests are formatted within JS files as well. For a more in-depth explanation look at the "Front-End-Explaned.txt" file. This file will go into a little more detail how the front end communicates with the middleware. - Wes
+
+------------------- Quick Note ----------------------------
+All of the above element use a combination of Polymers "iron-ajax" elements and custom Javascript XHttp Requests. While Polymer's "iron-ajax" elements are powerful they seem to change things in their requests just enough to make it not fully mesh correctly with the Laravel middleware code. So to get around this we have crafted our own XHttp Requests within the JS of each element. This is to ensure that correct headers are being sent and nothing is being added or subtracted from these that we don't know about. This has proven to work while the ajax requests made with "iron-ajax" seem to be intermitent. That's why you will see the iron-ajax element in the HTML sometimes and fired within the JS. While other times this element will be absent the a new request crafted within the JS only.
