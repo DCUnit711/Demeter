@@ -95,3 +95,5 @@ This is not yet an active project
 	'netId' => [NetId of logged in user],
 ]
 ```
+
+##File Structure
