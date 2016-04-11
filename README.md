@@ -116,6 +116,7 @@ CAS System: .\laravel\public\demeter\CASLogic.php
 This system uses the "Polymer" 1.0+ Language which is a Javascript framework made by Google focused on a single webpage design.
 Everything is accessed through the "index.html" file:
 (It is highly recommened to look at the starter project for Polymer if you are not familure with the language. This project can be found here: https://developers.google.com/web/tools/polymer-starter-kit/)
+####index.html
 ```
 <html>
 	<head>
