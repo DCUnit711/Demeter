@@ -97,3 +97,10 @@ This is not yet an active project
 ```
 
 ##File Structure
+This will give a quick explanation of where you can find files for this project.
+
+###Middleware Files
+Controllers: .\laravel\app\Http\Controllers
+Routing (When a certain controller will be called): .\laravel\app\Http
+Polymer Web Page Files: .\laravel\public\demeter
+--This has a "bower_components" folder that is simply google made elements. Custom demeter elements are stored in the "elements" folder
