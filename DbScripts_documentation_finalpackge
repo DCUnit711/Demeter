@@ -1,4 +1,7 @@
-Docker-MySQL Image scripts: This scripts will use the information sent by the end-user from the front end in order to create a new MySQL or Mongo dB Image and perform all the required operations such as create a docker container for the specific type of DB, create users with specific privileges, set and reset passwords, delete users, delete databases. 
+
+Docker-MySQL Image scripts: This scripts will use the information sent by the end-user from the front end in order
+to create a new MySQL or Mongo dB Image and perform all the required operations such as create a docker container 
+for the specific type of DB, create users with specific privileges, set and reset passwords, delete users, delete databases. 
 
 Docker-MySQL part:
 
@@ -33,15 +36,18 @@ docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p$ROO
 
 
 # Creates user with no privileges 
-docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p$ROOT_PASSWORD -e "GRANT USAGE ON *.* TO ${USER}@${SOURCE} IDENTIFIED BY ${PASSWORD};"
+docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p$ROOT_PASSWORD -e "GRANT USAGE ON *.* TO
+${USER}@${SOURCE} IDENTIFIED BY ${PASSWORD};"
 
 # Grants privileges to new user on specific database
-docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p$ROOT_PASSWORD -e "GRANT CREATE, SELECT, UPDATE, INSERT, DELETE, DROP ON ${DATABASE}.* TO ${USER}@${SOURCE};"
+docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p$ROOT_PASSWORD -e "GRANT CREATE, SELECT, UPDATE,
+INSERT, DELETE, DROP ON ${DATABASE}.* TO ${USER}@${SOURCE};"
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# The following script is different from the previous one in the sense that it is used to create a new DB user but not a new Docker container
+# The following script is different from the previous one in the sense that it is used to create a new DB user
+but not a new Docker container
 
 File name: MySQL_Create_new_USER.bash:
 
@@ -69,15 +75,18 @@ fi
 docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p$ROOT_PASSWORD -e "CREATE DATABASE IF NOT EXISTS $DATABASE;"
 
 #creates user with no privileges 
-docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p$ROOT_PASSWORD -e "GRANT USAGE ON *.* TO ${USER}@${SOURCE} IDENTIFIED BY ${PASSWORD};"
+docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p$ROOT_PASSWORD -e "GRANT USAGE ON *.*
+TO ${USER}@${SOURCE} IDENTIFIED BY ${PASSWORD};"
 
 # grants privileges to new user on specific database
-docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p$ROOT_PASSWORD -e "GRANT CREATE, SELECT, UPDATE, INSERT, DELETE, DROP ON ${DATABASE}.* TO ${USER}@${SOURCE};"
+docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p$ROOT_PASSWORD -e "GRANT CREATE, 
+SELECT, UPDATE, INSERT, DELETE, DROP ON ${DATABASE}.* TO ${USER}@${SOURCE};"
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #The following script is used to reset the user’s password
  File Name: Change_password.bash:
+ 
 #!/bin/bash -x
 EXPECTED_ARGS=4
 E_BADARGS=65
@@ -95,7 +104,8 @@ then
 fi
 
 # This uses root to Update user password
-docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p$ROOT_PASSWORD -e "ALTER USER ${USER}@${SOURCE} IDENTIFIED WITH mysql_native_password BY  ${PASSWORD};"
+docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p$ROOT_PASSWORD -e "ALTER USER ${USER}@${SOURCE} 
+IDENTIFIED WITH mysql_native_password BY  ${PASSWORD};"
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -144,7 +154,11 @@ fi
 # Delete database
 docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p$ROOT_PASSWORD -e "DROP DATABASE IF EXISTS $DATABASE;"
 
+
+
 ==============================================================================================================================================================================================================================================================================================================================================
+
+
 
 #Docker-Mongo Db Part:
 #MongoDB_Create_Container_DB_USER.bash:
@@ -173,7 +187,8 @@ docker run --name $CONTAINER_INSTANCE_id -d mongo
 sleep 10s
 
 # Creates new Mongo Db user for specific container, sets user password and role
-docker exec -it $CONTAINER_INSTANCE_id mongo --eval  "db.createUser({ user: $USER, pwd: $PASSWORD, roles: [ { role: 'userAdminAnyDatabase', db: 'admin' } ] });"
+docker exec -it $CONTAINER_INSTANCE_id mongo --eval  "db.createUser({ user: $USER, pwd: $PASSWORD, 
+roles: [ { role: 'userAdminAnyDatabase', db: 'admin' } ] });"
 
  # Creates a new Collection in the specified Docker container and inside test db
 docker exec -it $CONTAINER_INSTANCE_id mongo --eval "db.createCollection('$DB')"
@@ -202,7 +217,8 @@ then
 fi
 
 # Creates new mongo user and sets password and user role 
-docker exec -it $CONTAINER_INSTANCE_id mongo --eval  "db.createUser({ user: $USER, pwd: $PASSWORD, roles: [ { role: 'userAdminAnyDatabase', db: 'admin' } ] });"
+docker exec -it $CONTAINER_INSTANCE_id mongo --eval  "db.createUser({ user: $USER, pwd: $PASSWORD,
+roles: [ { role: 'userAdminAnyDatabase', db: 'admin' } ] });"
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
