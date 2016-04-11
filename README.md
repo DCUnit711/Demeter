@@ -8,6 +8,8 @@ This is a service that will provide a web interface for database managers to eas
 Currently this repository contains all of the information that you would need to deploy this onto your middleware machine. This machine will be in charge of serving requests to its web interface and storing those request in it's MySQL database. It also has a communication channel setup to communicate with VMs (Where the actual databases will be stored) however, the code that will be placed on each of those VMs is not currently stored here. The VM code will make use of SALT, ZMQ, and Docker.
 
 ##Middleware to Backend Communication
+This is the format of how the middleware will communicate with the backend code stored on VMs. This uses "Redis" for guaranteed message delivery.
+
 ####Redis Channel: demeter
 
 #####format:
