@@ -116,7 +116,7 @@ CAS System: .\laravel\public\demeter\CASLogic.php
 This system uses the "Polymer" 1.0+ Language which is a Javascript framework made by Google focused on a single webpage design.
 Everything is accessed through the "index.html" file:
 (It is highly recommened to look at the starter project for Polymer if you are not familure with the language. This project can be found here: )
-'''
+```
 <html>
 	<head>
 		<title> Demeter </title>
@@ -127,6 +127,6 @@ Everything is accessed through the "index.html" file:
 		<dem-all-pages></dem-all-pages> //All elements are encapsulated within this element here
 	</body>
 </html>
-'''
+```
 
 This uses a series of elements called "iron-ajax" to make ajax calls but also Javascript XHttp Requests are formatted within JS files as well. For a more in-depth explanation look at the "Front-End-Explaned.txt" file. This file will go into a little more detail how the front end communicates with the middleware. - Wes
