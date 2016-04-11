@@ -1,5 +1,5 @@
 
-Docker-MySQL Image scripts: This scripts will use the information sent by the end-user from the front end in order
+Docker-MySQL/MongoDb Image scripts: This scripts will use the information sent by the end-user from the front end in order
 to create a new MySQL or Mongo dB Image and perform all the required operations such as create a docker container 
 for the specific type of DB, create users with specific privileges, set and reset passwords, delete users, delete databases. 
 
