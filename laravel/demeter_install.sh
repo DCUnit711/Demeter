@@ -53,11 +53,17 @@ then
 	fi
 fi
 
+#copy settings
+cp .env.example .env
+
 sed -i "s/DB_HOST=.*/DB_HOST=$DB_HOST/g" config/database.php
 sed -i "s/DB_DATABASE=.*/DB_DATABASE=$DB_DATABASE/g" .env
 sed -i "s/DB_USERNAME=.*/DB_USERNAME=$DB_USER/g" .env
 sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=$DB_PASSWORD/g" .env
+sed -i "s/REDIS_HOST=.*/REDIS_HOST=$REDIS_HOST/g" .env
 
+#copy settings
+cp .env.example .env
 #install composer packages
 composer update
 #generate keys
