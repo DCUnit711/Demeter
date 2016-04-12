@@ -4,7 +4,7 @@ Docker-MySQL Image scripts: This scripts will use the information sent by the en
 to create a new MySQL Image and perform all the required operations such as create a docker container for the specific type of DB, create users with specific privileges, set and reset passwords, delete users, delete databases.
 
 ##File name: MySQL_Create_Container_DB_USER.bash:
-#####!/bin/bash
+!/bin/bash
 ```
 EXPECTED_ARGS=5
 E_BADARGS=65
@@ -65,7 +65,7 @@ INSERT, DELETE, DROP ON ${DATABASE}.* TO ${USER}@${SOURCE};"
 
 #####File name: MySQL_Create_new_USER.bash:
 
-#####!/bin/bash
+!/bin/bash
 ```
 EXPECTED_ARGS=5
 E_BADARGS=65

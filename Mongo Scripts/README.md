@@ -5,7 +5,7 @@ to create a MongoDB Image and perform all the required operations such as create
 
 ##MongoDB_Create_Container_DB_USER.bash:
 
-#####!/bin/bash -x
+!/bin/bash -x
 ```
 EXPECTED_ARGS=4
 E_BADARGS=65
@@ -51,7 +51,7 @@ docker exec -it $CONTAINER_INSTANCE_id mongo --eval "db.createCollection('$DB')"
 
 ##File name: Mongo_Create_newUSer.bash:
 
-#####!/bin/bash -x
+!/bin/bash -x
 ```
 EXPECTED_ARGS=3
 E_BADARGS=65
@@ -84,7 +84,7 @@ roles: [ { role: 'userAdminAnyDatabase', db: 'admin' } ] });"
 
 ##File name: Mongo_changeUserPassword.bash:
 
-#####!/bin/bash -x
+!/bin/bash -x
 ```
 EXPECTED_ARGS=3
 E_BADARGS=65
@@ -116,7 +116,7 @@ docker exec -it $CONTAINER_INSTANCE_id mongo --eval "db.updateUser($USER,  { pwd
 
 ##File name: delete_mongodb_user:
 
-#####!/bin/bash -x
+!/bin/bash -x
 ```
 EXPECTED_ARGS=2
 E_BADARGS=65
