@@ -1,3 +1,6 @@
+##Install
+Edit settings in demeter.config then run demeter_install.sh.
+The install requires a database which may be empty.
 
 ##Middleware to Backend Communication
 This is the format of how the middleware will communicates with the backend code stored on VMs. This uses "Redis" for guaranteed message delivery.
