@@ -20,5 +20,5 @@ demeter-apicommand-slacknotification:
                   VMid: {{ data['data']['vm'] }}
                   {% endif %}{% if data['data']['command'] == 'updateInstance' %}Starting to change *{{ data['data']['oldInstanceName'] }}* ({{ data['data']['instanceId'] }}). New: *{{ data['data']['instanceName'] }}* size: {{ data['data']['maxSize'] }}
                   VMid: {{ data['data']['vm'] }}{% endif %}
-        api_key: xoxp-11218638384-11232888790-32544067264-839fde878f
+        api_key: < .. your slack admin api .. >
         from_name: "{{ data['id'] }}"
