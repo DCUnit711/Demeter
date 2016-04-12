@@ -33,5 +33,5 @@ demeter-apicommand-slacknotification:
                   Finished changing *{{ data['data']['oldInstanceName'] }}* (({{ data['data']['instanceId'] }}). New: *{{ data['data']['instanceName'] }}* size: {{ data['data']['maxSize'] }}
                   VMid: {{ data['data']['vm'] }}
                   {% endif %}
-        api_key: xoxp-11218638384-11232888790-32544067264-839fde878f
+        api_key: < .. you slack admin api key here .. >
         from_name: "{{ data['id'] }}"
