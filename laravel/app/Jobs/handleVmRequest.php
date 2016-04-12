@@ -58,14 +58,14 @@ class handleVmRequest extends Job implements SelfHandling, ShouldQueue
                 $v->id = $m->id;
                 $v->ipAddr = $m->ipAddr;
                 $v->type = $m->type;
-		$v->spaceAvailable = $m->spaceAvailabe;
+		$v->spaceAvailable = $m->spaceAvailable;
 		$v->save();
 
 	}
 	if($command == "updateVmSpace")
 	{
 		$v = vm::find($m->id);
-		$v->spaceAvailable = $m->spaceAvailabe;
+		$v->spaceAvailable = $m->spaceAvailable;
                 $v->save();
 	}
 	if($command == "updateInstanceSize")
