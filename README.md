@@ -17,3 +17,7 @@ Routing For Controllers: ./laravel/app/Http/routes.php
 Middleware Listener: ./laravel/app/Console/Commands/redisListener.php
 
 Middleware Queue Handler: ./laravel/app/Jobs/handleVmRequest.php
+
+Simple Logger: ./laravel/app/Http/Middleware/RequestLogger.php
+
+Error Page: ./laravel/resources/views/errors/500.blade.php
