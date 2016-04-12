@@ -11,7 +11,7 @@ EXPECTED_ARGS=4
 E_BADARGS=65
 ```
 
-##### Databases = collections - collections (user dbs) are inside the test db users are stored inside the admin db --> system. Users
+##### Databases = collections - collections (user dbs) are inside the test db users are stored inside the admin db --> system.users
 
 ```
 CONTAINER_INSTANCE_id="$1"
@@ -57,7 +57,7 @@ EXPECTED_ARGS=3
 E_BADARGS=65
 ```
 
-##### databases = collections; and collections (user dbs) are inside the test db. Users are stored inside the admin db --> system. Users
+##### databases = collections; and collections (user dbs) are inside the test db. Users are stored inside the admin db --> system.users
 ```
 CONTAINER_INSTANCE_id="$1"
 #ROOT_PASSWORD=""

@@ -8,7 +8,7 @@ This is a service that will provide a web interface for database managers to eas
 Currently this repository contains all of the information that you would need to deploy this onto your middleware machine. This machine will be in charge of serving requests to its web interface and storing those request in it's MySQL database. It also has a communication channel setup to communicate with VMs (Where the actual databases will be stored). The VM code uses Salt, ZMQ, and Docker.
 
 ##Folder Paths
-Front End Code: ./laravel/public/demeter
+[Front End Code and Documentation](/laravel/public)
 
 Middleware Controllers: ./laravel/app/Http/Controllers
 
