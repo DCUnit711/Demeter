@@ -17,3 +17,9 @@ Currently this repository contains all of the information that you would need to
 [Middleware Listener](/laravel/app/Console/Commands/redisListener.php)
 
 [Middleware Queue Handler](/laravel/app/Jobs/handleVmRequest.php)
+
+[Middleware Queue Handler](/laravel/app/Jobs/handleVmRequest.php)
+
+[Simple Logger](/laravel/app/Http/Middleware/RequestLogger.php)
+
+[Error Page](/laravel/resources/views/errors/500.blade.php)
