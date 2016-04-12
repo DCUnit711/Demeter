@@ -7,19 +7,21 @@ This is a service that will provide a web interface for database managers to eas
 
 Currently this repository contains all of the information that you would need to deploy this onto your middleware machine. This machine will be in charge of serving requests to its web interface and storing those request in it's MySQL database. It also has a communication channel setup to communicate with VMs (Where the actual databases will be stored). The VM code uses Salt, ZMQ, and Docker.
 
-##Folder Paths
+##Documentation Paths
 [Front End Code and Documentation](/laravel/public)
 
-Middleware Controllers: ./laravel/app/Http/Controllers
+[Middleware Controllers](/laravel/app/Http/Controllers)
 
-Routing For Controllers: ./laravel/app/Http/routes.php
+[Routing For Controllers](/laravel/app/Http/routes.php)
 
-Middleware Models: ./laravel/app/
+[Middleware Models](/laravel/app/)
 
-Middleware Listener: ./laravel/app/Console/Commands/redisListener.php
+[Middleware Listener](/laravel/app/Console/Commands/redisListener.php)
 
-Middleware Queue Handler: ./laravel/app/Jobs/handleVmRequest.php
+[Middleware Queue Handler](/laravel/app/Jobs/handleVmRequest.php)
 
-Simple Logger: ./laravel/app/Http/Middleware/RequestLogger.php
+[Middleware Queue Handler](/laravel/app/Jobs/handleVmRequest.php)
 
-Error Page: ./laravel/resources/views/errors/500.blade.php
+[Simple Logger](/laravel/app/Http/Middleware/RequestLogger.php)
+
+[Error Page](/laravel/resources/views/errors/500.blade.php)
