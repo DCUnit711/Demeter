@@ -13,3 +13,7 @@ Front End Code: ./laravel/public/demeter
 Middleware Controllers: ./laravel/app/Http/Controllers
 
 Routing For Controllers: ./laravel/app/Http/routes.php
+
+Middleware Listener: ./laravel/app/Console/Commands/redisListener.php
+
+Middleware Queue Handler: ./laravel/app/Jobs/handleVmRequest.php
