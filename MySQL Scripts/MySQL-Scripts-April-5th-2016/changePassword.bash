@@ -15,4 +15,4 @@ PASSWORD="'$4'"
 
 #update user password
 
-docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p$ROOT_PASSWORD -e "ALTER USER ${USER}@${SOURCE} IDENTIFIED WITH mysql_native_password BY  ${PASSWORD};"
+docker exec -it $CONTAINER_INSTANCE_id /usr/bin/mysql -h 127.0.0.1 -uroot -p $ROOT_PASSWORD -e "ALTER USER ${USER}@${SOURCE} IDENTIFIED WITH mysql_native_password BY ${PASSWORD};"
