@@ -1,3 +1,5 @@
+##Laravel Documentation
+[Docs](https://laravel.com/docs/5.1/)
 ##Install
 Edit settings in demeter.config then run demeter_install.sh.
 The install requires a database which may be empty.
