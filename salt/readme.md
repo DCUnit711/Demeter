@@ -23,6 +23,7 @@ Credentials for Docker Hub. Current Salt Docker state implementation requires a 
 ## Operation
 
 Demeter Backend communicates via Salt event system with the VMs where the user databases are stored.
+
 1. When the API server sends a command, demeter-redis-salt-connector.py picks it up and forwards the event to the Salt master. 
 
 2. On Salt master, a reactor configured to listen for these events reacts to it and starts a state change in one of the Salt minions, depending on the attibutes sent from the API server. 
