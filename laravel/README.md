@@ -104,33 +104,33 @@ This is the format of how the backend will communicates with the middleware. Thi
 ```
 [
         'command' => 'createInstance'
-	'instanceId' => [Id of the instance],
-	'currentSize' => [actual size of the instance],
-	'ipAddr' => [IP address of the instance],
-	'port' => [port of the instance],
+        'instanceId' => [Id of the instance],
+        'currentSize' => [actual size of the instance],
+        'ipAddr' => [IP address of the instance],
+        'port' => [port of the instance],
 ]
 
 [
-	'command' => 'deleteInstance'
-	'instanceId' => [Id of the instance],
+        'command' => 'deleteInstance'
+        'instanceId' => [Id of the instance],
 ]
 
 [
-	'command' => 'createVm'
-	'id' => [Id of the VM],
+        'command' => 'createVm'
+        'id' => [Id of the VM],
         'ipAddr' => [IP address of the VM],
         'type' => [types of databases supported by VM],
-	'spaceAvailabe' => [Space available on VM]
+        'spaceAvailabe' => [Space available on VM]
 ]
 
 [
-	'command' => 'updateVmSpace',
-	'id' => [Id of the VM],
-	'spaceAvailabe' => [Space available on VM]
+        'command' => 'updateVmSpace',
+        'id' => [Id of the VM],
+        'spaceAvailabe' => [Space available on VM]
 ]
 
 [
-	'command' => 'updateInstanceSize',
+        'command' => 'updateInstanceSize',
         'id' => [Id of the instance],
         'currentSize' => [actual size of the instance]
 ]
