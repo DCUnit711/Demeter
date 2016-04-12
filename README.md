@@ -10,6 +10,6 @@ Currently this repository contains all of the information that you would need to
 ##Folder Paths
 Front End Code: ./laravel/public/demeter
 
-Middleware Controllers: ./laravel/app/Controllers
+Middleware Controllers: ./laravel/app/Http/Controllers
 
-Routing For Controllers: ./laravel/app/routes.php
+Routing For Controllers: ./laravel/app/Http/routes.php
