@@ -1,11 +1,10 @@
-# Demeter
-Database as a Service
+This system was developed by: David Christofferson, Wesley Haws, Robert Jackson, Andres Martenson, and Mario Valencia.
 
-This is a system that was developed by: Wesley Haws, David Christofferson, Mario Valencia, Andres Martenson, and Robert Jackson.
+The purpose of this system is to remove the burden of database upkeep from end users. It is designed so the system is hosted by those in your organization that are database experts. They retain root access to databases and are responsible for keeping databases backed up and running correctly. Users of the system access it through the Web Interface. From there they can perform CRUD operations on both databases that belong to them and database users. The system also provides for easy password resetting, should it be needed. This ensures end users are never locked out of their database.
 
-This is a service that will provide a web interface for database managers to easily go in and create a database with a few clicks. The middleware will receive this managers information he input and send that information further on to VMs where they will make the database. No intrecate knowledge of database creation needed, this takes care of it all! This also supports database management such as User and Manager creation and deletion, changing DB name, size, organization, description, etc. This is a simple all in one package that is meant to be deployed on a secure server. It currently uses a CAS system to authenticate with it but can be easily changed to fit the users needs.
+The system works with remote or local database VMs. It is designed to also work with Docker containers or databases sitting directly on VMs.
 
-Currently this repository contains all of the information that you would need to deploy this onto your middleware machine. This machine will be in charge of serving requests to its web interface and storing those request in it's MySQL database. It also has a communication channel setup to communicate with VMs (Where the actual databases will be stored). The VM code uses Salt, ZMQ, and Docker.
+Currently this repository contains all of the information that you would need to deploy this onto your middleware machine. This machine will be in charge of serving requests to its web interface and storing those request in it's MySQL database. It also has a communication channel setup to communicate with VMs (Where the actual databases will be stored), which is installed locally on each database VM. The VM code makes use of SALT, ZMQ, and Docker when needed.
 
 ##Documentation Paths
 [Front End Code and Documentation](/laravel/public)
