@@ -1,0 +1,20 @@
+demeter-createmysql:
+  local.state.apply:
+    - tgt: 'uuid:{{ data['data']['vm'] }}'
+    - expr_form: grain
+    - arg:
+      - demeter_minion_createinstance
+    - kwarg:
+        pillar:
+#           {{ data['data']|pprint }}
+           salt_event_source_id: {{ data['id'] }}
+#           {% for item, value in data['data'].iteritems() %}
+#           {{ item }}: {{ value }}
+#           {% endfor %}
+
+#          command: {{ data['data']['command'] }}
+#          instanceId: {{ data['data']['instanceId'] }}
+#          name: {{ data['data']['name'] }}
+#          username: {{ data['data']['username'] }}
+#          password: {{ data['data']['password'] }}
+
